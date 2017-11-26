@@ -1,0 +1,37 @@
+body {
+  background-color: black;
+  font-family: 'Press Start 2P', courier;
+  text-align: center;
+  // width: 62.6rem;
+  // margin: auto;
+  letter-spacing: 0.3rem;
+  line-height: 90%;
+}
+section.startScreen {
+  margin: auto;
+  // width: 62.6rem;
+  // height: 24.1rem;
+  display: none;
+}
+h1.title {
+  width: 80%;
+  margin: 100px auto;
+  color: white;
+  font-size: 7rem;
+  line-height: 100%;
+}
+.startGameBtn {
+  width: 6rem;
+  padding: 1rem;
+  margin-left: 26.3rem;
+}
+.mainBtn {
+  cursor: pointer;
+  width: 12rem;
+  padding: 1rem;
+  margin-left: 3rem;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  font-family: 'Press Start 2P', courier;
+}

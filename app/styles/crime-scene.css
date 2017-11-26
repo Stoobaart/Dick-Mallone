@@ -1,0 +1,93 @@
+.scene-one-screen {
+  color: white;
+}
+
+.scene-one {
+  width: 100%;
+}
+
+.scene {
+  width: 1250px;
+  height: 485px;
+  margin: auto;
+}
+
+.player-action {
+  margin-top: 7px;
+}
+
+// .thing {
+//   border: 0.5px solid white;
+// }
+
+#victim {
+  width: 10rem;
+  height: 5rem;
+  position: relative;
+  top: -166px;
+  left: 364px;
+  z-index: 5;
+}
+
+#shards {
+  width: 8rem;
+  height: 2.4rem;
+  position: relative;
+  top: -295px;
+  left: 547px;
+  z-index: 5;
+}
+
+#head {
+  width: 3rem;
+  height: 2rem;
+  position: relative;
+  top: -275px;
+  left: 284px;
+  z-index: 5;
+}
+
+#car {
+  width: 10rem;
+  height: 9rem;
+  position: relative;
+  top: -512px;
+  left: 13px;
+  z-index: 5;
+}
+
+#brokenwindow {
+  width: 8rem;
+  height: 5rem;
+  position: relative;
+  top: -783px;
+  left: 616px;
+  z-index: 5;
+}
+
+#handprint {
+  width: 2rem;
+  height: 3rem;
+  position: relative;
+  top: -724px;
+  left: 802px;
+  z-index: 5;
+}
+
+#urine {
+  width: 8rem;
+  height: 2rem;
+  position: relative;
+  top: -555px;
+  left: 805px;
+  z-index: 5;
+}
+
+#syringe {
+  width: 4rem;
+  height: 2rem;
+  position: relative;
+  top: -655px;
+  left: 932px;
+  z-index: 5;
+}

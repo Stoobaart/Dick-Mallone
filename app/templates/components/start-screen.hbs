@@ -1,0 +1,10 @@
+<section class="startScreen">
+  <h1 class="title">DICK MALLONE</h1>
+  <button class="startGameBtn mainBtn" {{action "startGame"}}>New Game</button>
+  {{#if hasSave}}
+    <button class="mainBtn load">Continue Game</button>
+  {{else}}
+  {{/if}}
+  <button class="playTheme mainBtn">Play Theme</button>
+</section>
+{{yield gameStarted}}

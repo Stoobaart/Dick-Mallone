@@ -1,0 +1,22 @@
+{{#if gameStarted}}
+  <div class="game-container">
+    {{#player-speach as |playerSpeach speakClear|}}
+      {{#scene-scripts as |scripts scene|}}
+        {{#player-actions
+          scene=scene
+          scripts=scripts
+          playerSpeach=(action playerSpeach)
+          speakClear=(action speakClear)
+          as |walk thingClicked verb|}}
+          {{crime-scene
+            walk=(action walk)
+            thingClicked=(action thingClicked)
+            verb=verb}}
+          {{menu-area verb=verb}}
+        {{/player-actions}}
+      {{/scene-scripts}}
+    {{/player-speach}}
+  </div>
+{{else}}
+  {{start-screen gameStarted=gameStarted}}
+{{/if}}

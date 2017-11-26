@@ -1,0 +1,41 @@
+.player-speak {
+  display: none;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  font-size: 0.8rem;
+  color: white;
+  position: absolute;
+  z-index: 4;
+  max-width: 50%;
+}
+
+.player-portrait {
+  overflow: hidden;
+  width: 12.1rem;
+  image-rendering: pixelated;
+  border-radius: 5px;
+}
+
+.dick-face {
+  width: 73rem;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  -webkit-transform: translate3d(0,0,0);
+  animation: portrait 400ms steps(6) infinite;
+}
+
+@keyframes portrait {
+  100% {
+    transform: translateX(-73rem);
+  }
+}
+
+.player-speach {
+  text-align: left;
+  background-color: black;
+  border: 0.4rem solid grey;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  margin: 0.5rem;
+  width: 70%;
+}
