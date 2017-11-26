@@ -51,11 +51,12 @@ export default Component.extend({
   },
 
   thingClicked(e) {
-    if (get(this, 'verb') === 'Walk') {
+    const verb = get(this, 'verb');
+    if (verb === 'Walk' || verb === 'Pick' || verb === 'Talk') {
       return;
     } else {
       const scene = get(this, 'scene');
-      const desire = scene + '.' + e.target.id + '.' + get(this, 'verb');
+      const desire = scene + '.' + e.target.id + '.' + verb;
       const line = get(this, 'scripts').get(desire);
       this.sendAction('playerSpeach', line);
     }
