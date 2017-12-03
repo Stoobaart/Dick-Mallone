@@ -1,7 +1,13 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
-const { set } = Ember;
+const { 
+  $,
+  run: {
+    later,
+  },
+  set, 
+} = Ember;
 
 export default Component.extend({
   // Computed property needed once local storage saves set up....?
@@ -11,13 +17,13 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    Ember.$('.startScreen').fadeIn(2000);
+    $('.startScreen').fadeIn(2000);
   },
 
   actions: {
     startGame() {
-      Ember.$('.startScreen').fadeOut(1500);
-      Ember.run.later(() => {
+      $('.startScreen').fadeOut(1500);
+      later(() => {
         set(this, 'gameStarted', true);
       }, 1500);
     },

@@ -1,14 +1,21 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
-const { get, set } = Ember;
+const { 
+  $,
+  get, 
+  set,
+} = Ember;
 
 export default Component.extend({
 
   verb: 'Walk',
 
   walk() {
-    debugger;
+    set(this, 'verb', 'Walk');
+    $(".player-action").html("Walk to");
+    // When the player clicks somewhere on the screen (walkable area)
+
     // player can walk in front or behind
     const rodPos = $("#npcRodriguez").position().top;
     const dickPos = event.pageY - 200;
@@ -17,10 +24,6 @@ export default Component.extend({
     } else {
       $("#npcRodriguez").removeClass("behind");
     }
-
-    set(this, 'verb', 'Walk');
-    $(".player-action").html("Walk to");
-    // When the player clicks somewhere on the screen (walkable area)
 
     // store the current position of the player Sprite
     const playerPositionX = $("#player").position().left
@@ -62,10 +65,10 @@ export default Component.extend({
 
   thingClicked(e) {
     const verb = get(this, 'verb');
+    const scene = get(this, 'scene');
     if (verb === 'Walk' || verb === 'Pick' || verb === 'Talk') {
       return;
     } else {
-      const scene = get(this, 'scene');
       const desire = scene + '.' + e.target.id + '.' + verb;
       const line = get(this, 'scripts').get(desire);
       this.sendAction('playerSpeach', line);

@@ -1,10 +1,14 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
+const {
+  Object: EmberObject,
+} = Ember;
+
 export default Component.extend({
   scene: "crimescene",
 
-  scripts: Ember.Object.create({
+  scripts: EmberObject.create({
     crimescene: {
       victim: {
         Look: "Looks like the last known whereabouts of our victim... a John Doe"
