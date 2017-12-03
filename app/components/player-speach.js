@@ -17,18 +17,24 @@ export default Component.extend({
     this.sendAction('speakClear', line);
   },
 
-  // npcSpeach(words) {
-  //   $(".npcSpeach").html(words);
-  //   $(".npcPortrait, .npcSpeach").toggle();
-  //   npcSpeakClear();
-  // },
+  // npc speach function
+  npcSpeach(line) {
+    $(".npc-speak").toggle();
+    $(".npc-speach").html(line);
+    this.sendAction('npcSpeakClear', line);
+  },
 
-  // clear speach after a few seconds
+  // clear speach after x seconds
   speakClear(line) {
-    const words = line;
     later(() => {
       $(".player-speak").toggle();
-    }, words.length * 60);
+    }, line.length * 60);
+  },
+
+  npcSpeakClear(line) {
+    later(() => {
+      $(".npc-speak").toggle();
+    }, line.length * 55);
   },
 
 });

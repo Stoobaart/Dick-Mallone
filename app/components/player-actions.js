@@ -3,7 +3,10 @@ import Ember from 'ember';
 
 const { 
   $,
-  get, 
+  get,
+  run: {
+    later,
+  }, 
   set,
 } = Ember;
 
@@ -66,12 +69,20 @@ export default Component.extend({
   thingClicked(e) {
     const verb = get(this, 'verb');
     const scene = get(this, 'scene');
-    if (verb === 'Walk' || verb === 'Pick' || verb === 'Talk') {
+    if (verb === 'Walk' || verb === 'Pick') {
       return;
-    } else {
+    } else if (verb === 'Look') {
       const desire = scene + '.' + e.target.id + '.' + verb;
       const line = get(this, 'scripts').get(desire);
       this.sendAction('playerSpeach', line);
+    } else if (verb === 'Talk') {
+      const desire = scene + '.' + e.target.id + '.' + verb;
+      const line = get(this, 'scripts').get(desire);
+      this.sendAction('playerSpeach', line);
+      later(() => {
+        const target = e.target.id;
+        this.sendAction('convo', target);
+      }, 3000)
     }
   }
 });

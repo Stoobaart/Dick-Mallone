@@ -2,7 +2,11 @@ import Component from '@ember/component';
 import Ember from 'ember';
 
 const {
+  get,
   Object: EmberObject,
+  run: {
+    later,
+  },
 } = Ember;
 
 export default Component.extend({
@@ -34,9 +38,39 @@ export default Component.extend({
       syringe: {
         Look: "Hmmm, Could this be related? Or maybe some crack head left it here? This place is pretty seedy..."
       },
-      npcRodriguezImg: {
-        Look: "Officer Rodriguez. He looks pretty shaken up. Didn't even know he smokes.."
-      }
+      rodriguez: {
+        Look: "Officer Rodriguez. He looks pretty shaken up. Didn't even know he smokes..",
+        Talk: "Officer Rodriguez. What's the deal here?"
+      },
+      theVictim: "Male Caucasian of unknown identity, roughly 35-40 years of age, broken knee, decapitated and 5\"11...I think.",
     }
   }),
+
+  convo(target) {
+    const context = this;
+    const targetConvo = target + "Convo";
+    this.sendAction(targetConvo, context);
+  },
+
+  rodriguezConvo(context) {
+    const _this = context;
+    // $(".walk, .look, .talk, .pickUp").prop('disabled', true);
+    $(".player-action").html("");
+    _this.sendAction('npcSpeach', "It's not great, Dick. Somebody got messed up here real good....or bad.. I'm so confused right now..");
+    later(() => {
+      $(".options").toggle();
+    }, 5500);
+  },
+
+  convoOption(e) {
+    $(".options").toggle();
+    $(e.target).addClass("grey");
+    const scene = get(this, 'scene');
+    const topic = scene + '.' + e.target.id;
+    const line = get(this, 'scripts').get(topic);
+    this.sendAction("npcSpeach", line);
+    later(() => {
+      $(".options").toggle();
+    }, line.length * 55);
+  }
 });

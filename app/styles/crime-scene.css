@@ -91,3 +91,20 @@
   left: 932px;
   z-index: 5;
 }
+
+.options {
+  display: none;
+  width: 700px;
+  text-align: left;
+  top: -84rem;
+  left: 9rem;
+  position: relative;
+  z-index: 2;
+  background-color: black;
+  border: 0.3rem solid grey;
+  border-radius: 5px;
+}
+
+.grey {
+  color: #2D2C2C;
+}

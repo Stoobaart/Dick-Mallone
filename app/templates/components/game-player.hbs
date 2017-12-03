@@ -1,17 +1,25 @@
 {{#if gameStarted}}
   <div class="game-container">
-    {{#player-speach as |playerSpeach speakClear|}}
-      {{#scene-scripts as |scripts scene|}}
+    {{#player-speach as |playerSpeach npcSpeach speakClear npcSpeakClear|}}
+      {{#scene-scripts 
+        playerSpeach=(action playerSpeach)
+        npcSpeach=(action npcSpeach)
+        speakClear=(action speakClear)
+        npcSpeakClear=(action npcSpeakClear)
+        as |scripts scene convo rodriguezConvo convoOption|
+      }}
         {{#player-actions
           scene=scene
           scripts=scripts
           playerSpeach=(action playerSpeach)
           speakClear=(action speakClear)
+          convo=(action convo)
           as |walk thingClicked verb|
         }}
           {{crime-scene
             walk=(action walk)
             thingClicked=(action thingClicked)
+            convoOption=(action convoOption)
             verb=verb
           }}
           {{menu-area verb=verb}}
