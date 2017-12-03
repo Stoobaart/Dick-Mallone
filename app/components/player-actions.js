@@ -8,13 +8,23 @@ export default Component.extend({
   verb: 'Walk',
 
   walk() {
+    debugger;
+    // player can walk in front or behind
+    const rodPos = $("#npcRodriguez").position().top;
+    const dickPos = event.pageY - 200;
+    if(dickPos <= rodPos){
+      $("#npcRodriguez").addClass("behind");
+    } else {
+      $("#npcRodriguez").removeClass("behind");
+    }
+
     set(this, 'verb', 'Walk');
-    Ember.$(".player-action").html("Walk to");
+    $(".player-action").html("Walk to");
     // When the player clicks somewhere on the screen (walkable area)
 
     // store the current position of the player Sprite
-    const playerPositionX = Ember.$("#player").position().left
-    const playerPositionY = Ember.$("#player").position().top
+    const playerPositionX = $("#player").position().left
+    const playerPositionY = $("#player").position().top
 
     // get the difference of where the player has clicked, minus where the sprite is
     const playerPositionXDiff = event.pageX - playerPositionX;
@@ -25,33 +35,32 @@ export default Component.extend({
     if (get(this, 'verb') === "Walk") {
       if((playerPositionXDiff > 0) && ((Math.abs(playerPositionXDiff)) > (Math.abs(playerPositionYDiff)))) {
         // use the correct (facing the correct direction) image
-        Ember.$("#player").html('<img class="playerSprite" src="sprites/dickRight.png">');
+        $("#player").html('<img class="playerSprite" src="sprites/dickRight.png">');
         // and add the class which is linked to the animation
-        Ember.$(".playerSprite").addClass("walkRightAnim");
+        $(".playerSprite").addClass("walkRightAnim");
         // Same logic for each other direction
       } else if ((playerPositionYDiff > 0 ) && ((Math.abs(playerPositionXDiff)) < (Math.abs(playerPositionYDiff)))) {
-        Ember.$("#player").html('<img class="playerSprite" src="sprites/dick.png">');
-        Ember.$(".playerSprite").addClass("walkDownAnim");
+        $("#player").html('<img class="playerSprite" src="sprites/dick.png">');
+        $(".playerSprite").addClass("walkDownAnim");
       } else if ((playerPositionYDiff < 0 ) && ((Math.abs(playerPositionXDiff)) < (Math.abs(playerPositionYDiff)))) {
-        Ember.$("#player").html('<img class="playerSprite" src="sprites/dickUp.png">');
-        Ember.$(".playerSprite").addClass("walkUpAnim");
+        $("#player").html('<img class="playerSprite" src="sprites/dickUp.png">');
+        $(".playerSprite").addClass("walkUpAnim");
       } else if ((playerPositionXDiff < 0) && ((Math.abs(playerPositionXDiff)) > (Math.abs(playerPositionYDiff)))) {
-        Ember.$("#player").html('<img class="playerSprite" src="sprites/dickLeft.png">');
-        Ember.$(".playerSprite").addClass("walkLeftAnim");
+        $("#player").html('<img class="playerSprite" src="sprites/dickLeft.png">');
+        $(".playerSprite").addClass("walkLeftAnim");
       }
       // run the animation (.stop is there to allow you to change direction before the end of each animation)
-      Ember.$('#player').stop().animate({
+      $('#player').stop().animate({
           top: event.pageY,
           left: event.pageX
        }, timeToWalk, function () {
         // when the sprite reaches the clicked location, stop the animation
-        Ember.$(".playerSprite").removeClass("walkRightAnim walkLeftAnim walkUpAnim walkDownAnim");
+        $(".playerSprite").removeClass("walkRightAnim walkLeftAnim walkUpAnim walkDownAnim");
        });
     }
   },
 
   thingClicked(e) {
-    debugger;
     const verb = get(this, 'verb');
     if (verb === 'Walk' || verb === 'Pick' || verb === 'Talk') {
       return;
