@@ -1,4 +1,4 @@
-div#player {
+#player {
   top: 20rem;
   left: 10rem;
   overflow: hidden;
@@ -6,10 +6,10 @@ div#player {
   position: absolute;
   z-index: 1;
   margin-top: -14rem;
-  margin-left: -4rem;
+  margin-left: -4.5rem;
 }
-img.playerSprite {
-  height: 250px;
+.playerSprite {
+  height: 240px;
   width: 73rem;
   image-rendering: pixelated;
   filter: blur(0);

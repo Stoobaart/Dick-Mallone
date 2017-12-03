@@ -1,0 +1,20 @@
+#npcRodriguez {
+  top: -61rem;
+  left: 66rem;
+  overflow: hidden;
+  width: 6.5rem;
+  position: relative;
+}
+.npcSprite {
+  height: 220px;
+  width: 130rem;
+  image-rendering: pixelated;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: rodriguez 2800ms steps(15) infinite;
+}
+@keyframes rodriguez {
+  100% {
+    transform: translateX(-130rem);
+  }
+}

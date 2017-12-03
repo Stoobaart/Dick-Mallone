@@ -51,6 +51,7 @@ export default Component.extend({
   },
 
   thingClicked(e) {
+    debugger;
     const verb = get(this, 'verb');
     if (verb === 'Walk' || verb === 'Pick' || verb === 'Talk') {
       return;

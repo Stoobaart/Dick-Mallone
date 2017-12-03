@@ -12,6 +12,10 @@
     <div id="urine" class="thing" data-name="Urine puddle" onclick={{action thingClicked}}></div>
     <div id="syringe" class="thing" data-name="Syringe" onclick={{action thingClicked}}></div>
     <div class="walkable-area" {{action walk}}></div>
+    {{rodriguez-sprite 
+      thingClicked=(action thingClicked)
+      verb=verb
+    }}
   </section>
         <!-- leave scene pop up box -->
 {{!--      <div class="travel">

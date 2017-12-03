@@ -7,11 +7,13 @@
           scripts=scripts
           playerSpeach=(action playerSpeach)
           speakClear=(action speakClear)
-          as |walk thingClicked verb|}}
+          as |walk thingClicked verb|
+        }}
           {{crime-scene
             walk=(action walk)
             thingClicked=(action thingClicked)
-            verb=verb}}
+            verb=verb
+          }}
           {{menu-area verb=verb}}
         {{/player-actions}}
       {{/scene-scripts}}

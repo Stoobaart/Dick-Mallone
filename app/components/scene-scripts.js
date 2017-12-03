@@ -30,7 +30,7 @@ export default Component.extend({
       syringe: {
         Look: "Hmmm, Could this be related? Or maybe some crack head left it here? This place is pretty seedy..."
       },
-      npcrodriguez: {
+      npcRodriguezImg: {
         Look: "Officer Rodriguez. He looks pretty shaken up. Didn't even know he smokes.."
       }
     }
