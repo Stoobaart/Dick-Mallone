@@ -23,6 +23,7 @@ export default Component.extend({
   actions: {
     startGame() {
       $('.startScreen').fadeOut(1500);
+      $("#themeMusic").animate({volume: 0}, 1500);
       later(() => {
         set(this, 'gameStarted', true);
       }, 1500);

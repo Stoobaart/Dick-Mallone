@@ -1,0 +1,36 @@
+.action-choice-btns {
+  width: 1250px;
+  text-align: left;
+  margin: auto;
+}
+
+.action-choice-btn {
+  font-family: 'Press Start 2P', courier;
+  cursor: pointer;
+  border: 2px solid white;
+  padding: 10px;
+  width: 120px;
+  background-color: black;
+  color: white;
+}
+
+.action-choice-btn:focus {
+  outline: 0;
+}
+
+.options {
+  display: none;
+  width: 700px;
+  text-align: left;
+  top: -58rem;
+  left: 9rem;
+  position: relative;
+  z-index: 3;
+  background-color: black;
+  border: 0.3rem solid grey;
+  border-radius: 5px;
+}
+
+.grey {
+  color: #2D2C2C;
+}

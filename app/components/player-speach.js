@@ -28,13 +28,13 @@ export default Component.extend({
   speakClear(line) {
     later(() => {
       $(".player-speak").toggle();
-    }, line.length * 60);
+    }, line.length * 50);
   },
 
   npcSpeakClear(line) {
     later(() => {
       $(".npc-speak").toggle();
-    }, line.length * 55);
+    }, line.length * 50);
   },
 
 });

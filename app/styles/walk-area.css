@@ -5,4 +5,5 @@
   top: -44.5rem;
   -webkit-clip-path: polygon(8% 0, 98% 0, 100% 100%, 0 100%);
   clip-path: polygon(8% 0, 98% 0, 100% 100%, 0 100%);
+  z-index: 4;
 }

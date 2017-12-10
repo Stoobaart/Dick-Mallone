@@ -74,15 +74,26 @@ export default Component.extend({
     } else if (verb === 'Look') {
       const desire = scene + '.' + e.target.id + '.' + verb;
       const line = get(this, 'scripts').get(desire);
-      this.sendAction('playerSpeach', line);
+      if (line) {
+        $('.action-choice-btns, .walkable-area').hide();
+        set(this, 'verb', 'Stand');
+        this.sendAction('playerSpeach', line);
+        later(() => {
+          $('.action-choice-btns, .walkable-area').toggle();
+        }, line.length * 50);
+      }
     } else if (verb === 'Talk') {
       const desire = scene + '.' + e.target.id + '.' + verb;
       const line = get(this, 'scripts').get(desire);
-      this.sendAction('playerSpeach', line);
-      later(() => {
-        const target = e.target.id;
-        this.sendAction('convo', target);
-      }, 3000)
+      if (line) {
+        $('.action-choice-btns, .walkable-area').hide();
+        set(this, 'verb', 'Stand');
+        this.sendAction('playerSpeach', line);
+        later(() => {
+          const target = e.target.id;
+          this.sendAction('convo', target);
+        }, 3000)
+      }
     }
   }
 });

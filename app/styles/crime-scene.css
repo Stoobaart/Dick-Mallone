@@ -16,10 +16,6 @@
   margin-top: 7px;
 }
 
-// .thing {
-//   border: 0.5px solid white;
-// }
-
 #victim {
   width: 10rem;
   height: 5rem;
@@ -33,7 +29,7 @@
   width: 8rem;
   height: 2.4rem;
   position: relative;
-  top: -295px;
+  top: -287px;
   left: 547px;
   z-index: 5;
 }
@@ -42,7 +38,7 @@
   width: 3rem;
   height: 2rem;
   position: relative;
-  top: -275px;
+  top: -266px;
   left: 284px;
   z-index: 5;
 }
@@ -60,7 +56,7 @@
   width: 8rem;
   height: 5rem;
   position: relative;
-  top: -783px;
+  top: -775px;
   left: 616px;
   z-index: 5;
 }
@@ -69,7 +65,7 @@
   width: 2rem;
   height: 3rem;
   position: relative;
-  top: -724px;
+  top: -718px;
   left: 802px;
   z-index: 5;
 }
@@ -78,7 +74,7 @@
   width: 8rem;
   height: 2rem;
   position: relative;
-  top: -555px;
+  top: -541px;
   left: 805px;
   z-index: 5;
 }
@@ -87,24 +83,30 @@
   width: 4rem;
   height: 2rem;
   position: relative;
-  top: -655px;
+  top: -643px;
   left: 932px;
   z-index: 5;
 }
 
-.options {
-  display: none;
-  width: 700px;
-  text-align: left;
-  top: -84rem;
-  left: 9rem;
-  position: relative;
+.rain-container {
+  top: 6px;
+  left: 1px;
+  position: absolute;
+  width: 1250px;
+  height: 482px;
+  overflow: hidden;
   z-index: 2;
-  background-color: black;
-  border: 0.3rem solid grey;
-  border-radius: 5px;
 }
 
-.grey {
-  color: #2D2C2C;
+.rain {
+  opacity: 0.5;
+  width: 3750px;
+  -webkit-filter: blur(0);
+  animation: raining 400ms steps(3) infinite;
+}
+
+@keyframes raining {
+  100% {
+    transform: translateX(-1250px);
+  }
 }
