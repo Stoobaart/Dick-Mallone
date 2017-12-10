@@ -8,6 +8,7 @@ const {
     later,
   },
   set,
+  setProperties,
   $,
 } = Ember;
 
@@ -15,7 +16,6 @@ export default Component.extend({
   scene: "crimescene",
   waitToSpeak: 0,
   numberOfLinesSpoken: 0,
-  lines: [],
   turn: 'npc',
 
   scripts: EmberObject.create({
@@ -56,9 +56,8 @@ export default Component.extend({
   }),
 
   convo(target) {
-    const context = this;
     const targetConvo = target + "Convo";
-    this.sendAction(targetConvo, context);
+    this.sendAction(targetConvo, this);
   },
 
   rodriguezConvo(context) {
@@ -73,15 +72,15 @@ export default Component.extend({
   convoOption(e) {
     $(".options").toggle();
     $(e.target).addClass("grey");
-    set(this, 'turn', 'npc');
-    set(this, 'numberOfLinesSpoken', 0);
-    set(this, 'lines', []);
-    set(this, 'waitToSpeak', 0);
+    setProperties(this, {
+      'turn': 'npc',
+      'numberOfLinesSpoken': 0,
+      'waitToSpeak': 0,
+    });
 
     const scene = get(this, 'scene');
     const topic = scene + '.' + e.target.id;
     const conversation = get(this, 'scripts').get(topic);
-    set(this, 'lines', conversation);
 
     conversation.forEach((line) => {
       const newWaitToSpeak = get(this, 'waitToSpeak') + line.length;
@@ -89,8 +88,10 @@ export default Component.extend({
       const numberOfLinesSpoken = get(this, 'numberOfLinesSpoken') +1;
 
       if (get(this, 'numberOfLinesSpoken') === 0) {
-        set(this, 'turn', 'dick');
-        set(this, 'numberOfLinesSpoken', numberOfLinesSpoken);
+        setProperties(this, {
+          'turn': 'dick',
+          'numberOfLinesSpoken': numberOfLinesSpoken,
+        });
         this.sendAction("npcSpeach", line);
         if(e.target.id === 'bye') {
           later(() => {
@@ -101,26 +102,29 @@ export default Component.extend({
       }
 
       if (get(this, 'turn') === 'dick') {
-        set(this, 'turn', 'npc');
-        set(this, 'numberOfLinesSpoken', numberOfLinesSpoken);
+        setProperties(this, {
+          'turn': 'npc',
+          'numberOfLinesSpoken': numberOfLinesSpoken,
+        });
         later(() => {
           this.sendAction("playerSpeach", line);
         }, newWaitToSpeak * 47);
       } else if (get(this, 'turn') === 'npc') {
-        set(this, 'turn', 'dick');
-        set(this, 'numberOfLinesSpoken', numberOfLinesSpoken);
+        setProperties(this, {
+          'turn': 'dick',
+          'numberOfLinesSpoken': numberOfLinesSpoken
+        });
         later(() => {
           this.sendAction("npcSpeach", line);
         }, newWaitToSpeak * 43);
       }
 
-      if (get(this, 'lines.length') === get(this, 'numberOfLinesSpoken')) {
+      if (conversation.length === get(this, 'numberOfLinesSpoken')) {
         later(() => {
           if(!(e.target.id === 'bye')) {
             $(".options").toggle();
           }
-        }, newWaitToSpeak * 65)
-        
+        }, newWaitToSpeak * 65);
       }
 
     });
