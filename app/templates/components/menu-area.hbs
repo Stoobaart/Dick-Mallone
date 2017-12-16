@@ -1,6 +1,10 @@
 <!-- Inventory menu -->
 <div class="inventory">
-	<section class="items"></section>
+	<section class="items">
+		{{#each state.inventory as |item|}}
+			<img class="item" data-name={{item.name}} src={{item.url}}>
+		{{/each}}
+	</section>
 </div>
 <div class="inventoryIcon" onclick={{action "toggleInventory"}}>Items</div>
 

@@ -102,7 +102,7 @@
   opacity: 0.5;
   width: 3750px;
   -webkit-filter: blur(0);
-  animation: raining 400ms steps(3) infinite;
+  animation: raining 200ms steps(3) infinite;
 }
 
 @keyframes raining {

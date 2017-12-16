@@ -27,6 +27,8 @@
 .item {
   height: 4.6rem;
   image-rendering: pixelated;
+  float: left;
+  padding: 0 0.1rem;
 }
 
 .action-choice-btns {

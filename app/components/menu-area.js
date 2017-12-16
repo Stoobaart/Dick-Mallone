@@ -9,12 +9,12 @@ const {
 
 export default Component.extend({
 
+  state: Ember.inject.service('state-handler'),
+
   actions: {
     changeVerb(e) {
       const verbChoice = e.target.dataset.verb;
       set(this, 'verb', verbChoice);
-
-      // shrink this down Stu!
       if (get(this, 'verb') === 'Look') {
         $(".player-action").html("Look at");
       } else if (get(this, 'verb') === 'Pick') {
