@@ -1,6 +1,13 @@
 import Service from '@ember/service';
 
+const {
+	get,
+	set,
+} = Ember
+
 export default Service.extend({
+
+	pickedupshards: false,
 
 	inventory: [
 		{
@@ -13,7 +20,18 @@ export default Service.extend({
 		}
 	],
 
-	actions: {
+	add(item) {
+		const collected = "pickedup" + item.name;
+		if (!(get(this, collected))) {
+			get(this, 'inventory').pushObject(item);
+			set(this, collected, true);
+		}
+  },
+
+  remove(item) {
+    get(this, 'inventory').removeObject(item);
+  },
+
 		// updateInventory() {
 	 //    const items = get(this, 'inventory');
 	 //    $(".items").html(items.map((item) => {
@@ -29,5 +47,4 @@ export default Service.extend({
 	 //    }
 	 //    return -1;
 	 //  }
-	}
 });

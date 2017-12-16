@@ -14,6 +14,8 @@ const {
 
 export default Component.extend({
 
+  state: Ember.inject.service('state-handler'),
+
   verb: 'Walk',
 
   walk() {
@@ -71,9 +73,9 @@ export default Component.extend({
   thingClicked(e) {
     const verb = get(this, 'verb');
     const scene = get(this, 'scene');
-    if (verb === 'Walk' || verb === 'Pick') {
+    if (verb === 'Walk') {
       return;
-    } else if (verb === 'Look') {
+    } else if (verb === 'Look' || verb === 'Pick') {
       const desire = scene + '.' + e.target.id + '.' + verb;
       const line = get(this, 'scripts').get(desire);
       if (line) {
@@ -82,6 +84,20 @@ export default Component.extend({
         later(() => {
           $('.action-choice-btns, .walkable-area, .thing').toggle();
         }, line.length * 50);
+      }
+
+      // Handle if thing clicked is pickupable
+      const pickupable = e.target.getAttribute('pickupable');
+      if (pickupable === "true") {
+        const name = e.target.id;
+        const url = "images/" + name + ".png";
+        const item = Ember.Object.create(
+          {
+            "name": name, 
+            "url": url
+          }
+        );
+        get(this, 'state').add(item);
       }
     } else if (verb === 'Talk') {
       const desire = scene + '.' + e.target.id + '.' + verb;
