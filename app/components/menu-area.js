@@ -22,6 +22,14 @@ export default Component.extend({
       } else if (get(this, 'verb') === 'Talk') {
         $(".player-action").html("Talk to");
       }
+    },
+
+    toggleInventory() {
+      if ($(".inventory").is(":visible")) {
+        $(".inventory").slideUp(300);
+      } else {
+      $(".inventory").slideDown(300);
+      }
     }
   }
 

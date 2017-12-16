@@ -3,7 +3,9 @@ import Ember from 'ember';
 
 const { 
   $,
+  computed,
   get,
+  observer,
   run: {
     later,
   }, 
@@ -75,19 +77,17 @@ export default Component.extend({
       const desire = scene + '.' + e.target.id + '.' + verb;
       const line = get(this, 'scripts').get(desire);
       if (line) {
-        $('.action-choice-btns, .walkable-area').hide();
-        set(this, 'verb', 'Stand');
+        $('.action-choice-btns, .walkable-area, .thing').hide();
         this.sendAction('playerSpeach', line);
         later(() => {
-          $('.action-choice-btns, .walkable-area').toggle();
+          $('.action-choice-btns, .walkable-area, .thing').toggle();
         }, line.length * 50);
       }
     } else if (verb === 'Talk') {
       const desire = scene + '.' + e.target.id + '.' + verb;
       const line = get(this, 'scripts').get(desire);
       if (line) {
-        $('.action-choice-btns, .walkable-area').hide();
-        set(this, 'verb', 'Stand');
+        $('.action-choice-btns, .walkable-area, .thing').hide();
         this.sendAction('playerSpeach', line);
         later(() => {
           const target = e.target.id;

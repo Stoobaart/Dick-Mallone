@@ -42,9 +42,9 @@
 
 .npc-speak {
   display: none;
-  top: -45rem;
+  top: -14rem;
   left: 39rem;
-  position: relative;
+  position: absolute;
   font-size: 0.8rem;
   color: white;
   position: relative;

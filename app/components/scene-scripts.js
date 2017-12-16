@@ -51,7 +51,7 @@ export default Component.extend({
       theVictim: ["Male Caucasian of unknown identity, roughly 35-40 years of age, decapitated and 5\"11...I think.", "How was he decapitated?", "His head was twisted completely off. it would take someone with incredible strength to do this"],
       suspects: ["We have a possible suspect or witness down in lock up now. Some Crack head, that's his needle right there.", "I'll go shake him down after I look around", "Good call. Something just feels wrong about all of this, Dick"],
       witnesses: ["None apart from the crack head we caught. I'm not sure if he even knows his own name though. Think he said it was Mahflnme", "How can nobody have seen a man get his head removed?", "Beats me, Dick. You'll need your head screwed on for this case ...sorry ...sigh."],
-      bye: ["See ya later bud"],
+      bye: ["See ya later bud", "Catch you back at the station"],
     }
   }),
 
@@ -80,6 +80,7 @@ export default Component.extend({
 
     const scene = get(this, 'scene');
     const topic = scene + '.' + e.target.id;
+    const targetId = e.target.id;
     const conversation = get(this, 'scripts').get(topic);
 
     conversation.forEach((line) => {
@@ -92,13 +93,7 @@ export default Component.extend({
           'turn': 'dick',
           'numberOfLinesSpoken': numberOfLinesSpoken,
         });
-        this.sendAction("npcSpeach", line);
-        if(e.target.id === 'bye') {
-          later(() => {
-            $('.action-choice-btns, .walkable-area').toggle();
-          }, line.length * 50);
-        }
-        return;
+        return this.sendAction("npcSpeach", line);
       }
 
       if (get(this, 'turn') === 'dick') {
@@ -120,15 +115,17 @@ export default Component.extend({
       }
 
       if (conversation.length === get(this, 'numberOfLinesSpoken')) {
-        later(() => {
-          if(!(e.target.id === 'bye')) {
+        if(targetId === 'bye') {
+          later(() => {
+            $('.action-choice-btns, .walkable-area, .thing').toggle();
+          }, newWaitToSpeak * 65);
+        } else {
+          later(() => {
             $(".options").toggle();
-          }
-        }, newWaitToSpeak * 65);
+          }, newWaitToSpeak * 65);
+        }
       }
 
     });
-
   },
-  
 });
