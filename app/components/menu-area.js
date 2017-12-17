@@ -3,7 +3,10 @@ import Ember from 'ember';
 
 const {
   $,
-  get, 
+  get,
+  run: {
+    later,
+  }, 
   set
 } = Ember;
 
@@ -30,7 +33,21 @@ export default Component.extend({
       } else {
       $(".inventory").slideDown(300);
       }
-    }
+    },
+
+    inventoryItemClicked(e) {
+      const verb = get(this, 'verb');
+      if (verb === 'Look') {
+        const desire = 'itemsInInventory.' + e.target.id + '.Look';
+        const line = get(this, 'scripts').get(desire);
+        $('.action-choice-btns, .walkable-area, .thing').hide();
+        this.sendAction('playerSpeach', line);
+        later(() => {
+          $('.action-choice-btns, .walkable-area, .thing').toggle();
+        }, line.length * 50);
+      }
+    },
+
   }
 
 });

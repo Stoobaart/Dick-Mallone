@@ -12,11 +12,13 @@ export default Service.extend({
 	inventory: [
 		{
 			"name": "badge", 
-			"url": "images/stationBadge.png"
+			"url": "images/stationBadge.png",
+			"id": "badge"
 		},
 		{
 			"name": "gun", 
-			"url": "images/gun.png"
+			"url": "images/gun.png",
+			"id": "gun"
 		}
 	],
 

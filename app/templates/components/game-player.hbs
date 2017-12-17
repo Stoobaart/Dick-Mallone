@@ -22,7 +22,11 @@
             convoOption=(action convoOption)
             verb=verb
           }}
-          {{menu-area verb=verb}}
+          {{menu-area 
+            verb=verb 
+            scripts=scripts 
+            playerSpeach=(action playerSpeach)
+          }}
         {{/player-actions}}
       {{/scene-scripts}}
     {{/player-speach}}

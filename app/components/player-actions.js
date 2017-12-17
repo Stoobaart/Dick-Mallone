@@ -3,9 +3,7 @@ import Ember from 'ember';
 
 const { 
   $,
-  computed,
   get,
-  observer,
   run: {
     later,
   }, 
@@ -85,16 +83,17 @@ export default Component.extend({
           $('.action-choice-btns, .walkable-area, .thing').toggle();
         }, line.length * 50);
       }
-
       // Handle if thing clicked is pickupable
       const pickupable = e.target.getAttribute('pickupable');
       if (pickupable === "true") {
         const name = e.target.id;
+        const id = name + "Item";
         const url = "images/" + name + ".png";
         const item = Ember.Object.create(
           {
             "name": name, 
-            "url": url
+            "url": url,
+            "id": id
           }
         );
         get(this, 'state').add(item);

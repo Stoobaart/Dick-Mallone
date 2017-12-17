@@ -2,7 +2,7 @@
 <div class="inventory">
 	<section class="items">
 		{{#each state.inventory as |item|}}
-			<img class="item" data-name={{item.name}} src={{item.url}}>
+			<img id={{item.id}} class="item" data-name={{item.name}} src={{item.url}} onclick={{action "inventoryItemClicked"}}>
 		{{/each}}
 	</section>
 </div>
