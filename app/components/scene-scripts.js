@@ -34,7 +34,7 @@ export default Component.extend({
       victim: {
         Look: "Looks like the last known whereabouts of our victim... a John Doe",
         Pick: "There's nothing to pick up",
-        Talk: "Don't you think that's a little late?"
+        Talk: "Don't you think that's a little late?",
       },
       shards: {
         Look: "Shards of glass... There's blood everywhere",
@@ -74,7 +74,9 @@ export default Component.extend({
       rodriguez: {
         Look: "Officer Rodriguez. He looks pretty shaken up. Didn't even know he smokes..",
         Talk: "Officer Rodriguez. What's the deal here?",
-        Pick: "It's not his birthday"
+        Pick: "It's not his birthday",
+        Usebadgeon: "He's not going to be impressed",
+        Usegunon: "The only thing I want to blow Rodriguez away with is my wit"
       },
       theVictim: ["Male Caucasian of unknown identity, roughly 35-40 years of age, decapitated and 5\"11...I think.", "How was he decapitated?", "His head was twisted completely off. it would take someone with incredible strength to do this"],
       suspects: ["We have a possible suspect or witness down in lock up now. Some Crack head, that's his needle right there.", "I'll go shake him down after I look around", "Good call. Something just feels wrong about all of this, Dick"],

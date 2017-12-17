@@ -20,7 +20,6 @@ export default Component.extend({
     set(this, 'verb', 'Walk');
     $(".player-action").html("Walk to");
     // When the player clicks somewhere on the screen (walkable area)
-
     // player can walk in front or behind
     const rodPos = $("#npcRodriguez").position().top;
     const dickPos = event.pageY - 200;
@@ -71,50 +70,77 @@ export default Component.extend({
   thingClicked(e) {
     const verb = get(this, 'verb');
     const scene = get(this, 'scene');
-    if (verb === 'Walk') {
-      return;
-    } else if (verb === 'Look' || verb === 'Pick') {
-      const desire = scene + '.' + e.target.id + '.' + verb;
-      const line = get(this, 'scripts').get(desire);
-      if (line) {
-        $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
-        this.sendAction('playerSpeach', line);
-        later(() => {
-          $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
-        }, line.length * 50);
-      }
+    const use = $(".player-action").text().indexOf("Use") != -1 ? true : false;
+    if (verb === 'Look' || verb === 'Pick') {
+      this.lookAt(e.target.id, scene, verb);
       // Handle if thing clicked is pickupable
       const pickupable = e.target.getAttribute('pickupable');
       if (pickupable === "true") {
-        const name = e.target.id;
-        const id = name + "Item";
-        const url = "images/" + name + ".png";
-        const item = Ember.Object.create(
-          {
-            "name": name, 
-            "url": url,
-            "id": id
-          }
-        );
-        get(this, 'state').add(item);
+        this.pickUpObject(e.target.id);
       }
     } else if (verb === 'Talk') {
-      const desire = scene + '.' + e.target.id + '.' + verb;
-      const line = get(this, 'scripts').get(desire);
-      if (line) {
-        $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
-        this.sendAction('playerSpeach', line);
-        const thingType = e.target.getAttribute('data-type');
-        if(thingType === "person") {
-          later(() => {
-            const target = e.target.id;
-            this.sendAction('convo', target);
-          }, 3000)
-        } else {
-          $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
-        }
+      const thingType = e.target.getAttribute('data-type');
+      this.talkTo(e.target.id, scene, verb, thingType);
+    } else if (use === true) {
+      const usedOn = $(".player-action").text().replace(/\s/g, '');
+      this.lookAt(e.target.id, scene, usedOn);
+    } else if (verb === 'Walk') {
+      this.changeScene(e.target.id);
+    }
+  },
+
+  lookAt(targetId, scene, verb) {
+    const desire = scene + '.' + targetId + '.' + verb;
+    const line = get(this, 'scripts').get(desire);
+    if (line) {
+      $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
+      this.sendAction('playerSpeach', line);
+      later(() => {
+        $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
+      }, line.length * 50);
+    }
+  },
+
+  pickUpObject(targetId) {
+    const name = targetId;
+    const id = name + "Item";
+    const url = "images/" + name + ".png";
+    const item = Ember.Object.create(
+      {
+        "name": name, 
+        "url": url,
+        "id": id
+      }
+    );
+    get(this, 'state').add(item);
+  },
+
+  talkTo(targetId, scene, verb, thingType) {
+    const desire = scene + '.' + targetId + '.' + verb;
+    const line = get(this, 'scripts').get(desire);
+    if (line) {
+      $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
+      this.sendAction('playerSpeach', line);
+      if(thingType === "person") {
+        later(() => {
+          this.sendAction('convo', targetId);
+        }, 3000)
+      } else {
+        $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
       }
     }
+  },
+
+  changeScene(targetLocale) {
+    const scenes = ['crimescene', 'car'];
+    scenes.forEach((area) => {
+      if (area === targetLocale) {
+        const sceneName = targetLocale + '-scene';
+        set(this, 'scene', sceneName);
+        set(this, 'componentName', sceneName);
+        $("#crimeSceneMusic")[0].pause();
+      }
+    });
   },
 
   helper(e) {

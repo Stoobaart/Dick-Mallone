@@ -36,8 +36,6 @@ export default Component.extend({
         $(".player-action").html("Pick up");
       } else if (get(this, 'verb') === 'Talk') {
         $(".player-action").html("Talk to");
-      } else if (get(this, 'verb') === 'Use') {
-        $(".player-action").html("Use");
       }
     },
 
@@ -59,6 +57,9 @@ export default Component.extend({
         later(() => {
           $('.action-choice-btns, .walkable-area, .thing').toggle();
         }, line.length * 50);
+      } else {
+        const desire = 'itemsInInventory.' + e.target.id + '.Use';
+        $(".player-action").html("Use " + e.target.id + " on");
       }
     },
 

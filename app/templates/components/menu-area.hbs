@@ -2,7 +2,7 @@
 <div class="inventory">
 	<section class="items">
 		{{#each state.inventory as |item|}}
-			<img id={{item.id}} class="item" data-name={{item.name}} src={{item.url}} onclick={{action "inventoryItemClicked"}}>
+			<img id={{item.id}} class="item" data-name={{item.name}} data-usable="true" src={{item.url}} onclick={{action "inventoryItemClicked"}}>
 		{{/each}}
 	</section>
 </div>
@@ -13,7 +13,6 @@
   <button data-verb="Look" class="look action-choice-btn" onclick={{action "changeVerb"}}>Look</button>
   <button data-verb="Talk" class="talk action-choice-btn" onclick={{action "changeVerb"}}>Talk</button>
   <button data-verb="Pick" class="pick action-choice-btn" onclick={{action "changeVerb"}}>Pick Up</button>
-  <button data-verb="Use" class="pick action-choice-btn" onclick={{action "changeVerb"}}>Use</button>
 </section>
 <div class="player-action">Walk to</div>
 <!-- shows what the user is hovering over -->
