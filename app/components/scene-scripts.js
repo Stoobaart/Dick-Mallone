@@ -33,35 +33,43 @@ export default Component.extend({
     crimescene: {
       victim: {
         Look: "Looks like the last known whereabouts of our victim... a John Doe",
-        Pick: "There's nothing to pick up"
+        Pick: "There's nothing to pick up",
+        Talk: "Don't you think that's a little late?"
       },
       shards: {
         Look: "Shards of glass... There's blood everywhere",
-        Pick: "Hope I don't get hep or something. Aaah I guess it's too late anyways.."
+        Pick: "Hope I don't get hep or something. Aaah I guess it's too late anyways..",
+        Talk: "I can't talk to that"
       },
       head: {
         Look: "There are ways to get ahead in life, and this aint one of 'em, unless you're the murderer...Then this is Exactly how you get a head",
-        Pick: "There's nothing to pick up"
+        Pick: "There's nothing to pick up",
+        Talk: "Don't you think that's a little late?"
       },
       car: {
         Look: "My wheels, she aint much to look at, but it beats walking",
-        Pick: "What do I look like, the Hulk?"
+        Pick: "What do I look like, the Hulk?",
+        Talk: "Hey baby.... Love you too"
       },
       brokenwindow: {
         Look: "I guess this is where these shards of glass came from. What does this have to do with the murder? Could this be a robbery gone wrong?",
-        Pick: "It's too high up"
+        Pick: "It's too high up",
+        Talk: "I can't talk to that"
       },
       handprint: {
         Look: "I should run this for prints back at HQ",
-        Pick: "There's nothing to pick up"
+        Pick: "There's nothing to pick up",
+        Talk: "I can't talk to that"
       },
       urine: {
         Look: "A puddle of urine... I should scoop some up for analysis",
-        Pick: "Eeeew, I'm not using my hands for this"
+        Pick: "Eeeew, I'm not using my hands for this",
+        Talk: "I can't talk to that"
       },
       syringe: {
         Look: "Hmmm, Could this be related? Or maybe some crack head left it here? This place is pretty seedy...",
-        Pick: "I don't think this is pertinent to the crime"
+        Pick: "I don't think this is pertinent to the crime",
+        Talk: "I can't talk to that"
       },
       rodriguez: {
         Look: "Officer Rodriguez. He looks pretty shaken up. Didn't even know he smokes..",
@@ -137,7 +145,7 @@ export default Component.extend({
       if (conversation.length === get(this, 'numberOfLinesSpoken')) {
         if(targetId === 'bye') {
           later(() => {
-            $('.action-choice-btns, .walkable-area, .thing').toggle();
+            $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
           }, newWaitToSpeak * 65);
         } else {
           later(() => {

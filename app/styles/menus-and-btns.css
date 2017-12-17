@@ -51,6 +51,27 @@
   outline: 0;
 }
 
+.player-action {
+  height: 1.5rem;
+  width: 44rem;
+  float: left;
+  text-align: right;
+  margin-top: -1.5rem;
+  color: white;
+  position: relative;
+  z-index: -1;
+}
+
+.helper {
+  color: white;
+  position: relative;
+  margin-top: -1.5rem;
+  left: 45rem;
+  float: left;
+  text-align: left;
+  width: 33rem;
+}
+
 .options {
   display: none;
   width: 700px;

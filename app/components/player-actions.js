@@ -77,10 +77,10 @@ export default Component.extend({
       const desire = scene + '.' + e.target.id + '.' + verb;
       const line = get(this, 'scripts').get(desire);
       if (line) {
-        $('.action-choice-btns, .walkable-area, .thing').hide();
+        $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
         this.sendAction('playerSpeach', line);
         later(() => {
-          $('.action-choice-btns, .walkable-area, .thing').toggle();
+          $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
         }, line.length * 50);
       }
       // Handle if thing clicked is pickupable
@@ -102,14 +102,24 @@ export default Component.extend({
       const desire = scene + '.' + e.target.id + '.' + verb;
       const line = get(this, 'scripts').get(desire);
       if (line) {
-        $('.action-choice-btns, .walkable-area, .thing').hide();
+        $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
         this.sendAction('playerSpeach', line);
-        later(() => {
-          const target = e.target.id;
-          this.sendAction('convo', target);
-        }, 3000)
+        const thingType = e.target.getAttribute('data-type');
+        if(thingType === "person") {
+          later(() => {
+            const target = e.target.id;
+            this.sendAction('convo', target);
+          }, 3000)
+        } else {
+          $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
+        }
       }
     }
   },
+
+  helper(e) {
+    const verb = get(this, 'verb');
+    $(".helper").html(e.target.id);
+  }
 
 });

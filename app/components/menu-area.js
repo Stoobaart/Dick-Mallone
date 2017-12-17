@@ -10,6 +10,18 @@ const {
   set
 } = Ember;
 
+  // Helper logic
+  $(document).on("mouseenter", ".item", function(e) {
+    $(".helper").html(e.target.id);
+  }).on("mouseout", ".item", function(e) {
+    $(".helper").html("");
+  });
+  $(document).on("mouseenter", ".thing", function(e) {
+    $(".helper").html($(e.target).attr('name'));
+  }).on("mouseout", ".thing", function(e) {
+    $(".helper").html("");
+  });
+
 export default Component.extend({
 
   state: Ember.inject.service('state-handler'),
@@ -24,6 +36,8 @@ export default Component.extend({
         $(".player-action").html("Pick up");
       } else if (get(this, 'verb') === 'Talk') {
         $(".player-action").html("Talk to");
+      } else if (get(this, 'verb') === 'Use') {
+        $(".player-action").html("Use");
       }
     },
 
