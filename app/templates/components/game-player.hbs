@@ -6,10 +6,11 @@
         npcSpeach=(action npcSpeach)
         speakClear=(action speakClear)
         npcSpeakClear=(action npcSpeakClear)
-        as |scripts scene convo rodriguezConvo convoOption|
+        as |scripts scene previousScene convo rodriguezConvo convoOption|
       }}
         {{#player-actions
           scene=scene
+          previousScene=previousScene
           scripts=scripts
           componentName=componentName
           playerSpeach=(action playerSpeach)

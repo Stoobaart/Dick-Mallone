@@ -1,18 +1,15 @@
 body {
+  margin: auto;
   height: 600px;
   width: 1250px;
   background-color: black;
   font-family: 'Press Start 2P', courier;
   text-align: center;
-  // width: 62.6rem;
-  // margin: auto;
   letter-spacing: 0.3rem;
   line-height: 90%;
 }
 .startScreen {
   margin: auto;
-  // width: 62.6rem;
-  // height: 24.1rem;
   display: none;
 }
 .title {

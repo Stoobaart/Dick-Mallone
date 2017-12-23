@@ -13,7 +13,9 @@ const {
 } = Ember;
 
 export default Component.extend({
-  scene: "crimescene",
+
+  previousScene: null,
+  scene: "crime",
   waitToSpeak: 0,
   numberOfLinesSpoken: 0,
   turn: 'npc',
@@ -30,7 +32,7 @@ export default Component.extend({
         Look: "Maybe I should've bagged and tagged this..."
       }
     },
-    crimescene: {
+    crime: {
       victim: {
         Look: "Looks like the last known whereabouts of our victim... a John Doe",
         Pick: "There's nothing to pick up",

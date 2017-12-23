@@ -1,8 +1,9 @@
-.scene-one-screen {
+.scene-screen {
   color: white;
 }
 
 .scene-one {
+  display: none;
   width: 100%;
 }
 
@@ -85,8 +86,10 @@
 }
 
 .rain-container {
-  top: 6px;
-  left: 1px;
+  margin: auto;
+  display: none;
+  top: 0rem;
+  left: 0rem;
   position: absolute;
   width: 1250px;
   height: 482px;

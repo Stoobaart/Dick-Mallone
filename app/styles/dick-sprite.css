@@ -1,4 +1,5 @@
 #player {
+  display: none;
   top: 20rem;
   left: 10rem;
   overflow: hidden;

@@ -85,7 +85,7 @@ export default Component.extend({
       const usedOn = $(".player-action").text().replace(/\s/g, '');
       this.lookAt(e.target.id, scene, usedOn);
     } else if (verb === 'Walk') {
-      this.changeScene(e.target.id);
+      this.changeScene(e.target.id, scene);
     }
   },
 
@@ -131,14 +131,27 @@ export default Component.extend({
     }
   },
 
-  changeScene(targetLocale) {
-    const scenes = ['crimescene', 'car'];
+  changeScene(targetLocale, scene) {
+    const scenes = ['exit', 'crime', 'car'];
     scenes.forEach((area) => {
       if (area === targetLocale) {
-        const sceneName = targetLocale + '-scene';
-        set(this, 'scene', sceneName);
-        set(this, 'componentName', sceneName);
-        $("#crimeSceneMusic")[0].pause();
+        if (targetLocale === 'exit') {
+          const sceneName = get(this, 'previousScene') + '-scene';
+          set(this, 'scene', scene);
+          set(this, 'componentName', sceneName);
+          $("#crimeSceneMusic")[0].pause();
+          $("#player").hide();
+          set(this, 'previousScene', scene);
+          return;
+        } else {
+          const sceneName = targetLocale + '-scene';
+          set(this, 'scene', scene);
+          set(this, 'componentName', sceneName);
+          $("#crimeSceneMusic")[0].pause();
+          $("#player").hide();
+          set(this, 'previousScene', scene);
+          return;
+        }
       }
     });
   },

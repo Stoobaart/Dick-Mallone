@@ -52,10 +52,10 @@ export default Component.extend({
       if (verb === 'Look') {
         const desire = 'itemsInInventory.' + e.target.id + '.Look';
         const line = get(this, 'scripts').get(desire);
-        $('.action-choice-btns, .walkable-area, .thing').hide();
+        $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
         this.sendAction('playerSpeach', line);
         later(() => {
-          $('.action-choice-btns, .walkable-area, .thing').toggle();
+          $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
         }, line.length * 50);
       } else {
         const desire = 'itemsInInventory.' + e.target.id + '.Use';
