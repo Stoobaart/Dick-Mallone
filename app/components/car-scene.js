@@ -9,4 +9,6 @@ export default Component.extend({
     $("#carDoor")[0].play();
     $(".dick-mobile-interior, .exit-car").fadeIn(2000);
   },
+
+
 });

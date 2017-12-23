@@ -68,6 +68,10 @@ export default Component.extend({
   },
 
   thingClicked(e) {
+    if (e.target.id === 'exit') {
+      set(this, 'verb', 'Walk');
+      $(".player-action").html("Walk to");
+    }
     const verb = get(this, 'verb');
     const scene = get(this, 'scene');
     const use = $(".player-action").text().indexOf("Use") != -1 ? true : false;

@@ -10,17 +10,17 @@ const {
   set
 } = Ember;
 
-  // Helper logic
-  $(document).on("mouseenter", ".item", function(e) {
-    $(".helper").html(e.target.id);
-  }).on("mouseout", ".item", function(e) {
-    $(".helper").html("");
-  });
-  $(document).on("mouseenter", ".thing", function(e) {
-    $(".helper").html($(e.target).attr('name'));
-  }).on("mouseout", ".thing", function(e) {
-    $(".helper").html("");
-  });
+// Helper logic
+$(document).on("mouseenter", ".item", function(e) {
+  $(".helper").html(e.target.id);
+}).on("mouseout", ".item", function(e) {
+  $(".helper").html("");
+});
+$(document).on("mouseenter", ".thing", function(e) {
+  $(".helper").html($(e.target).attr('name'));
+}).on("mouseout", ".thing", function(e) {
+  $(".helper").html("");
+});
 
 export default Component.extend({
 
