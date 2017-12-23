@@ -30,6 +30,9 @@ export default Component.extend({
       },
       shardsItem: {
         Look: "Maybe I should've bagged and tagged this..."
+      },
+      cupItem: {
+        Look: "It's empty..."
       }
     },
     crime: {
@@ -84,6 +87,22 @@ export default Component.extend({
       suspects: ["We have a possible suspect or witness down in lock up now. Some Crack head, that's his needle right there.", "I'll go shake him down after I look around", "Good call. Something just feels wrong about all of this, Dick"],
       witnesses: ["None apart from the crack head we caught. I'm not sure if he even knows his own name though. Think he said it was Mahflnme", "How can nobody have seen a man get his head removed?", "Beats me, Dick. You'll need your head screwed on for this case ...sorry ...sigh."],
       bye: ["See ya later bud", "Catch you back at the station"],
+    },
+    car: {
+      map: {
+        Look: "My sat nav. Old but still gets the job done",
+        Talk: "It's not voice activated",
+        Pick: "I'll only ever need it in the car",
+        Usebadgeon: "What the hell are you doing?",
+        Usegunon: "I still need my directions",
+      },
+      cup: {
+        Look: "This beverage holder has seen one too many instants",
+        Talk: "Hello cup. How are you? ....Yep...still inanimate",
+        Pick: "I should find the trash for this",
+        Usebadgeon: "Nope",
+        Usegunon: "It's better without holes in it",
+      }
     }
   }),
 
@@ -94,7 +113,7 @@ export default Component.extend({
 
   rodriguezConvo(context) {
     const _this = context;
-    $(".player-action").html("");
+    $(".player-action").hide();
     _this.sendAction('npcSpeach', "It's not great, Dick. Somebody got messed up here real good....or bad.. I'm so confused right now..");
     later(() => {
       $(".options").toggle();
@@ -149,7 +168,7 @@ export default Component.extend({
       if (conversation.length === get(this, 'numberOfLinesSpoken')) {
         if(targetId === 'bye') {
           later(() => {
-            $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
+            $('.action-choice-btns, .walkable-area, .thing, .helper, .player-action').toggle();
           }, newWaitToSpeak * 65);
         } else {
           later(() => {

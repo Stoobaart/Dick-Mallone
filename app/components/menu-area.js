@@ -10,18 +10,6 @@ const {
   set
 } = Ember;
 
-// Helper logic
-$(document).on("mouseenter", ".item", function(e) {
-  $(".helper").html(e.target.id);
-}).on("mouseout", ".item", function(e) {
-  $(".helper").html("");
-});
-$(document).on("mouseenter", ".thing", function(e) {
-  $(".helper").html($(e.target).attr('name'));
-}).on("mouseout", ".thing", function(e) {
-  $(".helper").html("");
-});
-
 export default Component.extend({
 
   state: Ember.inject.service('state-handler'),
@@ -30,13 +18,13 @@ export default Component.extend({
     changeVerb(e) {
       const verbChoice = e.target.dataset.verb;
       set(this, 'verb', verbChoice);
-      if (get(this, 'verb') === 'Look') {
-        $(".player-action").html("Look at");
-      } else if (get(this, 'verb') === 'Pick') {
-        $(".player-action").html("Pick up");
-      } else if (get(this, 'verb') === 'Talk') {
-        $(".player-action").html("Talk to");
-      }
+      // if (get(this, 'verb') === 'Look') {
+      //   $(".player-action").html("Look at");
+      // } else if (get(this, 'verb') === 'Pick') {
+      //   $(".player-action").html("Pick up");
+      // } else if (get(this, 'verb') === 'Talk') {
+      //   $(".player-action").html("Talk to");
+      // }
     },
 
     toggleInventory() {
@@ -49,7 +37,7 @@ export default Component.extend({
 
     inventoryItemClicked(e) {
       const verb = get(this, 'verb');
-      if (verb === 'Look') {
+      if (verb === 'Look at') {
         const desire = 'itemsInInventory.' + e.target.id + '.Look';
         const line = get(this, 'scripts').get(desire);
         $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
@@ -58,8 +46,10 @@ export default Component.extend({
           $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
         }, line.length * 50);
       } else {
-        const desire = 'itemsInInventory.' + e.target.id + '.Use';
-        $(".player-action").html("Use " + e.target.id + " on");
+        // const desire = 'itemsInInventory.' + e.target.id + '.Use';
+        const useVerb = "Use " + e.target.id + " on"
+        set(this, 'verb', useVerb);
+        
       }
     },
 

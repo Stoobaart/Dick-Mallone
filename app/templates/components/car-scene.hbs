@@ -5,7 +5,23 @@
       <img class="rain" src="/sprites/rain.png">
     </div>
 		<img class="car-background" src="/images/carInteriorBackground.png">
-		<div id="exit" class="exit-car thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}}>Get Out</div>
+
+    <div class="map">
+      <img class="map-img" src="/images/map.png">
+    </div>
+
+    {{#unless cupPickedUp}}
+	    <div class="cup">
+	      <img class="cupEmptyImg" src="/images/cup.png">
+	    </div>
+	 	{{/unless}}
+
+    <div id="map" class="thing" data-name="Satnav" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     
+    {{#unless cupPickedUp}}
+    	<div id="cup" class="thing" data-name="emptycup" pickupable="true" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    {{/unless}}
+
+    <div id="exit" class="exit-car thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}>Get Out</div>
 	</section>
 </section>

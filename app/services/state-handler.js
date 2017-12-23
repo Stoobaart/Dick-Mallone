@@ -8,6 +8,7 @@ const {
 export default Service.extend({
 
 	pickedupshards: false,
+	pickedupcup: false,
 
 	inventory: [
 		{
@@ -28,6 +29,7 @@ export default Service.extend({
 			get(this, 'inventory').pushObject(item);
 			set(this, collected, true);
 		}
+		
   },
 
   remove(item) {

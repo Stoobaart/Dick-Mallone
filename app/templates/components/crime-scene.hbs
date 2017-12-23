@@ -1,14 +1,14 @@
 <section class="scene-screen">
   <section class="scene">
     <img class="scene-one" src="/images/SceneOne.png">
-    <div id="victim" class="thing" data-name="Victim's body" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseover={{action helper}}></div>
-    <div id="shards" class="thing" data-name="Bloody shards" pickupable="true" onclick={{action thingClicked}} onmouseover={{action helper}}></div>
-    <div id="head" class="thing" data-name="Victim's head" onclick={{action thingClicked}} onmouseover={{action helper}}></div>
-    <div id="car" class="thing" data-name="Dick-mobile" onclick={{action thingClicked}} onmouseover={{action helper}}></div>
-    <div id="brokenwindow" class="thing" data-name="Broken Window" onclick={{action thingClicked}} onmouseover={{action helper}}></div>
-    <div id="handprint" class="thing" data-name="Bloody hand print" onclick={{action thingClicked}} onmouseover={{action helper}}></div>
-    <div id="urine" class="thing" data-name="Urine puddle" onclick={{action thingClicked}} onmouseover={{action helper}}></div>
-    <div id="syringe" class="thing" data-name="Syringe" onclick={{action thingClicked}} onmouseover={{action helper}}></div>
+    <div id="victim" class="thing" data-name="Victim's body" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="shards" class="thing" data-name="Bloody shards" pickupable="true" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="head" class="thing" data-name="Victim's head" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="car" class="thing" data-name="Dick-mobile" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="brokenwindow" class="thing" data-name="Broken Window" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="handprint" class="thing" data-name="Bloody hand print" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="urine" class="thing" data-name="Urine puddle" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="syringe" class="thing" data-name="Syringe" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     <div class="walkable-area" {{action walk}}></div>
     {{rodriguez-sprite 
       thingClicked=(action thingClicked)

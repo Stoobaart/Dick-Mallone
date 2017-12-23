@@ -23,9 +23,62 @@
 .exit-car {
   width: 210px;
   display: none;
-	top: -78rem;
+	top: -93rem;
   left: 0rem;
   position: relative;
   font-size: 1.5rem;
   z-index: 1;
+}
+
+#map {
+  width: 9rem;
+  height: 6rem;
+  top: -88rem;
+  left: 51rem;
+  position: relative;
+  z-index: 1;
+}
+
+.map {
+  top: -80.5rem;
+  left: 51.3rem;
+  overflow: hidden;
+  width: 8.1rem;
+  image-rendering: pixelated;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.map-img {
+  width: 18rem;
+  animation: map 2500ms steps(2) infinite;
+}
+
+@keyframes map {
+  100% {
+    transform: translateX(-18rem);
+  }
+}
+
+#cup {
+  position: absolute;
+  top: 10.5rem;
+  left: 63rem;
+  z-index: 1;
+  width: 7rem;
+  height: 8rem;
+}
+
+.cup {
+  position: absolute;
+  top: 9.5rem;
+  left: 61rem;
+  z-index: 1;
+  width: 8rem;
+}
+
+.cupEmptyImg {
+  width: 10rem;
+  image-rendering: pixelated;
 }

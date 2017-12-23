@@ -14,11 +14,12 @@ export default Component.extend({
 
   state: Ember.inject.service('state-handler'),
 
-  verb: 'Walk',
+  verb: 'Walk to',
+
+  helperText: null,
 
   walk() {
-    set(this, 'verb', 'Walk');
-    $(".player-action").html("Walk to");
+    set(this, 'verb', 'Walk to');
     // When the player clicks somewhere on the screen (walkable area)
     // player can walk in front or behind
     const rodPos = $("#npcRodriguez").position().top;
@@ -39,7 +40,7 @@ export default Component.extend({
 
     const timeToWalk = (Math.abs(playerPositionXDiff) + Math.abs(playerPositionYDiff)) * 5;
     // if the sprite is being told to move right of it's original position...
-    if (get(this, 'verb') === "Walk") {
+    if (get(this, 'verb') === "Walk to") {
       if((playerPositionXDiff > 0) && ((Math.abs(playerPositionXDiff)) > (Math.abs(playerPositionYDiff)))) {
         // use the correct (facing the correct direction) image
         $("#player").html('<img class="playerSprite" src="sprites/dickRight.png">');
@@ -69,32 +70,37 @@ export default Component.extend({
 
   thingClicked(e) {
     if (e.target.id === 'exit') {
-      set(this, 'verb', 'Walk');
-      $(".player-action").html("Walk to");
+      set(this, 'verb', 'Walk to');
     }
     const verb = get(this, 'verb');
     const scene = get(this, 'scene');
     const use = $(".player-action").text().indexOf("Use") != -1 ? true : false;
-    if (verb === 'Look' || verb === 'Pick') {
-      this.lookAt(e.target.id, scene, verb);
-      // Handle if thing clicked is pickupable
+    if (verb === 'Look at') {
+      this.lookAt(e.target.id, scene);
+    } else if (verb === 'Pick up') {
+      this.lookAt(e.target.id, scene, 'Pick');
       const pickupable = e.target.getAttribute('pickupable');
       if (pickupable === "true") {
         this.pickUpObject(e.target.id);
       }
-    } else if (verb === 'Talk') {
+    } else if (verb === 'Talk to') {
       const thingType = e.target.getAttribute('data-type');
-      this.talkTo(e.target.id, scene, verb, thingType);
+      this.talkTo(e.target.id, scene, thingType);
     } else if (use === true) {
       const usedOn = $(".player-action").text().replace(/\s/g, '');
       this.lookAt(e.target.id, scene, usedOn);
-    } else if (verb === 'Walk') {
+    } else if (verb === 'Walk to') {
       this.changeScene(e.target.id, scene);
     }
   },
 
-  lookAt(targetId, scene, verb) {
-    const desire = scene + '.' + targetId + '.' + verb;
+  lookAt(targetId, scene, usedOn) {
+    let desire;
+    if (usedOn) {
+      desire = scene + '.' + targetId + '.' + usedOn;
+    } else {
+      desire = scene + '.' + targetId + '.Look';
+    }
     const line = get(this, 'scripts').get(desire);
     if (line) {
       $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
@@ -119,8 +125,8 @@ export default Component.extend({
     get(this, 'state').add(item);
   },
 
-  talkTo(targetId, scene, verb, thingType) {
-    const desire = scene + '.' + targetId + '.' + verb;
+  talkTo(targetId, scene, thingType) {
+    const desire = scene + '.' + targetId + '.Talk';
     const line = get(this, 'scripts').get(desire);
     if (line) {
       $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
@@ -137,32 +143,30 @@ export default Component.extend({
 
   changeScene(targetLocale, scene) {
     const scenes = ['exit', 'crime', 'car'];
+    let sceneName = null;
     scenes.forEach((area) => {
       if (area === targetLocale) {
         if (targetLocale === 'exit') {
-          const sceneName = get(this, 'previousScene') + '-scene';
-          set(this, 'scene', scene);
-          set(this, 'componentName', sceneName);
-          $("#crimeSceneMusic")[0].pause();
-          $("#player").hide();
-          set(this, 'previousScene', scene);
-          return;
+          sceneName = get(this, 'previousScene') + '-scene';
         } else {
-          const sceneName = targetLocale + '-scene';
-          set(this, 'scene', scene);
-          set(this, 'componentName', sceneName);
-          $("#crimeSceneMusic")[0].pause();
-          $("#player").hide();
-          set(this, 'previousScene', scene);
-          return;
+          sceneName = targetLocale + '-scene';
         }
+        set(this, 'scene', scene);
+        set(this, 'componentName', sceneName);
+        $("#crimeSceneMusic")[0].pause();
+        $("#player").hide();
+        set(this, 'previousScene', scene);
       }
     });
   },
 
   helper(e) {
     const verb = get(this, 'verb');
-    $(".helper").html(e.target.id);
+    set(this, 'helperText', e.target.id);
+  },
+
+  clearHelper() {
+    set(this, 'helperText', null);
   }
 
 });

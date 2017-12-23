@@ -2,7 +2,7 @@
 <div class="inventory">
 	<section class="items">
 		{{#each state.inventory as |item|}}
-			<img id={{item.id}} class="item" data-name={{item.name}} data-usable="true" src={{item.url}} onclick={{action "inventoryItemClicked"}}>
+			<img id={{item.id}} class="item" data-name={{item.name}} data-usable="true" src={{item.url}} onclick={{action "inventoryItemClicked"}} onmouseover={{action helper}} onmouseout={{action clearHelper}}>
 		{{/each}}
 	</section>
 </div>
@@ -10,10 +10,10 @@
 
 <!-- Action choice buttons -->
 <section class="action-choice-btns">
-  <button data-verb="Look" class="look action-choice-btn" onclick={{action "changeVerb"}}>Look</button>
-  <button data-verb="Talk" class="talk action-choice-btn" onclick={{action "changeVerb"}}>Talk</button>
-  <button data-verb="Pick" class="pick action-choice-btn" onclick={{action "changeVerb"}}>Pick Up</button>
+  <button data-verb="Look at" class="look action-choice-btn" onclick={{action "changeVerb"}}>Look</button>
+  <button data-verb="Talk to" class="talk action-choice-btn" onclick={{action "changeVerb"}}>Talk</button>
+  <button data-verb="Pick up" class="pick action-choice-btn" onclick={{action "changeVerb"}}>Pick Up</button>
 </section>
-<div class="player-action">Walk to</div>
+<div class="player-action">{{verb}}</div>
 <!-- shows what the user is hovering over -->
-<div class="helper"></div>
+<div class="helper">{{helperText}}</div>
