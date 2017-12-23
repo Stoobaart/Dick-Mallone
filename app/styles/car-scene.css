@@ -1,11 +1,31 @@
-.dick-mobile-interior {
+.car-foreground {
+	width: 100%;
 	display: none;
+	position: relative;
+  z-index: 1;
+}
+
+.car-background {
+	width: 100%;
+	display: none;
+  position: relative;
+  top: -60.3rem;
+  z-index: -1;
+}
+
+.car-interior-rain {
+	display: none;
+	top: -30.5rem;
+	position: relative;
+	z-index: 0;
 }
 
 .exit-car {
-	display: none;
-	top: 13rem;
-  left: 3rem;
-  position: absolute;
+  width: 210px;
+  display: none;
+	top: -78rem;
+  left: 0rem;
+  position: relative;
   font-size: 1.5rem;
+  z-index: 1;
 }

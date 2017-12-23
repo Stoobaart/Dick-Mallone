@@ -7,8 +7,8 @@ export default Component.extend({
 	didInsertElement() {
     this._super(...arguments);
     $("#carDoor")[0].play();
-    $(".dick-mobile-interior, .exit-car").fadeIn(2000);
+    $(".car-foreground").fadeIn(750);
+    $(".rain-container, .car-background, .exit-car").fadeIn(2000);
   },
-
 
 });
