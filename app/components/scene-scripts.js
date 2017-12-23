@@ -59,7 +59,7 @@ export default Component.extend({
         Talk: "I can't talk to that"
       },
       handprint: {
-        Look: "I should run this for prints back at HQ",
+        Look: "This rain has washed away any liftable prints. Damn it.",
         Pick: "There's nothing to pick up",
         Talk: "I can't talk to that"
       },
