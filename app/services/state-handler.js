@@ -13,6 +13,7 @@ export default Service.extend({
 	pickedupshards: false,
 	pickedupcup: false,
   pickedupcupFull: false,
+  travelMapOpened: false,
 
   itemForUse: null,
 

@@ -11,6 +11,10 @@ export default Component.extend({
 		return get(this, 'state.pickedupcup');
 	}),
 
+  travelMapOpened: Ember.computed('state.travelMapOpened', function() {
+    return get(this, 'state.travelMapOpened');
+  }),
+
 	didInsertElement() {
     this._super(...arguments);
     get(this, 'cupPickedUp');
@@ -23,5 +27,11 @@ export default Component.extend({
       $(".car-foreground, .cup, .map").addClass('shake');
     }, 1500);
   },
+
+  actions: {
+    travel() {
+      alert("Let's go away!");
+    }
+  }
 
 });

@@ -23,5 +23,17 @@
     {{/unless}}
 
     <div id="exit" class="exit-car thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}>Get Out</div>
+
+    {{#if travelMapOpened}}
+      <div class="travelMap">
+        <img class="travelMapImg" src="/images/travelMapImg.png">
+        <div class="stationBadgeIcon" onclick={{action "travel"}}>
+          <img class="stationBadgeImg" src="/images/stationBadge.png">
+        </div>
+        <!-- <div class="crimeSceneIcon">
+          <img class="crimeSceneIconImg" src="assets/images/crimeSceneIcon.png">
+        </div> -->
+      </div>
+    {{/if}}
 	</section>
 </section>

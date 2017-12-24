@@ -81,6 +81,34 @@
   }
 }
 
+.travelMap {
+  top: -1rem;
+  left: 13rem;
+  width: 38rem;
+  image-rendering: pixelated;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 3;
+}
+
+.travelMapImg {
+  width: 38rem;
+}
+
+.stationBadgeIcon {
+  top: 9rem;
+  left: 6rem;
+  width: 4rem;
+  image-rendering: pixelated;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 3;
+}
+
+.stationBadgeImg {
+  width: 7rem;
+}
+
 #cup {
   position: absolute;
   top: 10.5rem;

@@ -102,7 +102,6 @@ export default Component.extend({
     },
     car: {
       map: {
-        Look: "My sat nav. Old but still gets the job done",
         Talk: "It's not voice activated",
         Pick: "I'll only ever need it in the car",
         Usebadgeon: "What the hell are you doing?",

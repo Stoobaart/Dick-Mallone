@@ -100,6 +100,9 @@ export default Component.extend({
   },
 
   lookAt(targetId, scene, usedOn) {
+    if (targetId === 'map') {
+      this.toggleProperty('state.travelMapOpened');
+    }
     const squashedTargetId = targetId.replace(/\s/g, '');
     let desire;
     if (usedOn) {
