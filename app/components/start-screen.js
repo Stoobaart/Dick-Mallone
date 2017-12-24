@@ -10,7 +10,7 @@ const {
 } = Ember;
 
 export default Component.extend({
-  // Computed property needed once local storage saves set up....?
+  // Computed property needed once local storage saves set up.
   hasSave: false,
 
   gameStarted: false,

@@ -74,7 +74,7 @@ export default Component.extend({
     }
     const verb = get(this, 'verb');
     const scene = get(this, 'scene');
-    const use = $(".player-action").text().indexOf("Use") != -1 ? true : false;
+    const use = get(this, 'verb').indexOf("Use") != -1 ? true : false;
     if (verb === 'Look at') {
       this.lookAt(e.target.id, scene);
     } else if (verb === 'Pick up') {
@@ -87,7 +87,8 @@ export default Component.extend({
       const thingType = e.target.getAttribute('data-type');
       this.talkTo(e.target.id, scene, thingType);
     } else if (use === true) {
-      const usedOn = $(".player-action").text().replace(/\s/g, '');
+      debugger;
+      const usedOn = get(this, 'verb').replace(/\s/g, '');
       this.lookAt(e.target.id, scene, usedOn);
     } else if (verb === 'Walk to') {
       this.changeScene(e.target.id, scene);
@@ -97,9 +98,9 @@ export default Component.extend({
   lookAt(targetId, scene, usedOn) {
     let desire;
     if (usedOn) {
-      desire = scene + '.' + targetId + '.' + usedOn;
+      desire = `${scene}.${targetId}.${usedOn}`;
     } else {
-      desire = scene + '.' + targetId + '.Look';
+      desire = `${scene}.${targetId}.Look`;
     }
     const line = get(this, 'scripts').get(desire);
     if (line) {
@@ -113,8 +114,8 @@ export default Component.extend({
 
   pickUpObject(targetId) {
     const name = targetId;
-    const id = name + "Item";
-    const url = "images/" + name + ".png";
+    const id = `${name}Item`;
+    const url = `images/${name}.png`;
     const item = Ember.Object.create(
       {
         "name": name, 
@@ -126,7 +127,7 @@ export default Component.extend({
   },
 
   talkTo(targetId, scene, thingType) {
-    const desire = scene + '.' + targetId + '.Talk';
+    const desire = `${scene}.${targetId}.Talk`;
     const line = get(this, 'scripts').get(desire);
     if (line) {
       $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
@@ -147,9 +148,9 @@ export default Component.extend({
     scenes.forEach((area) => {
       if (area === targetLocale) {
         if (targetLocale === 'exit') {
-          sceneName = get(this, 'previousScene') + '-scene';
+          sceneName = `${get(this, 'previousScene')}-scene`;
         } else {
-          sceneName = targetLocale + '-scene';
+          sceneName = `${targetLocale}-scene`;
         }
         set(this, 'scene', scene);
         set(this, 'componentName', sceneName);
