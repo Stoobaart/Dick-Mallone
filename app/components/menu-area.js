@@ -57,6 +57,18 @@ export default Component.extend({
       }
     },
 
+    saveGame() {
+      const scene = get(this, 'scene');
+      get(this, 'state').saveGame(scene);
+    },
+
+    loadGame() {
+      $('#player').hide();
+      get(this, 'state').loadGame();
+      const componentName = get(this, 'state').componentName + '-scene';
+      set(this, 'componentName', componentName);
+    }
+
   }
 
 });

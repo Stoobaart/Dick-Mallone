@@ -14,7 +14,6 @@ const {
 
 export default Component.extend({
 
-  previousScene: null,
   scene: "crime",
   waitToSpeak: 0,
   numberOfLinesSpoken: 0,

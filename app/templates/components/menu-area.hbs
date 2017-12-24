@@ -14,6 +14,12 @@
   <button data-verb="Talk to" class="talk action-choice-btn" onclick={{action "changeVerb"}}>Talk</button>
   <button data-verb="Pick up" class="pick action-choice-btn" onclick={{action "changeVerb"}}>Pick Up</button>
 </section>
+
 <div class="player-action">{{verb}}</div>
 <!-- shows what the user is hovering over -->
 <div class="helper">{{helperText}}</div>
+
+<section class="saveAndLoadBtns">
+  <button id="save" onclick={{action "saveGame"}}>Save</button>
+  <button class="load" onclick={{action "loadGame"}}>Load</button>
+</section>

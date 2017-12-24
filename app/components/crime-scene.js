@@ -1,6 +1,7 @@
 import Component from '@ember/component';
+import Ember from 'ember';
 
-const { set } = Ember;
+const { set, $ } = Ember;
 
 export default Component.extend({
   didInsertElement() {

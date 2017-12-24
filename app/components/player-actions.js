@@ -164,7 +164,7 @@ export default Component.extend({
     scenes.forEach((area) => {
       if (area === targetLocale) {
         if (targetLocale === 'exit') {
-          sceneName = `${get(this, 'previousScene')}-scene`;
+          sceneName = `${get(this, 'state.previousScene')}-scene`;
         } else {
           sceneName = `${targetLocale}-scene`;
         }
@@ -172,13 +172,12 @@ export default Component.extend({
         set(this, 'componentName', sceneName);
         $("#crimeSceneMusic")[0].pause();
         $("#player").hide();
-        set(this, 'previousScene', scene);
+        set(this, 'state.previousScene', scene);
       }
     });
   },
 
   helper(e) {
-    const verb = get(this, 'verb');
     set(this, 'helperText', e.target.id);
   },
 
