@@ -20,6 +20,9 @@ export default Component.extend({
 
   walk() {
     set(this, 'verb', 'Walk to');
+    if ($(".inventory").is(":visible")) {
+      $(".inventory").slideUp(300);
+    }
     // When the player clicks somewhere on the screen (walkable area)
     // player can walk in front or behind
     const rodPos = $("#npcRodriguez").position().top;
@@ -81,26 +84,28 @@ export default Component.extend({
       this.lookAt(e.target.id, scene, 'Pick');
       const pickupable = e.target.getAttribute('pickupable');
       if (pickupable === "true") {
-        this.pickUpObject(e.target.id);
+        const use = e.target.getAttribute('use');
+        this.pickUpObject(e.target.id, use);
       }
     } else if (verb === 'Talk to') {
       const thingType = e.target.getAttribute('data-type');
       this.talkTo(e.target.id, scene, thingType);
     } else if (use === true) {
-      debugger;
       const usedOn = get(this, 'verb').replace(/\s/g, '');
       this.lookAt(e.target.id, scene, usedOn);
+      this.useOn(e.target.id);
     } else if (verb === 'Walk to') {
       this.changeScene(e.target.id, scene);
     }
   },
 
   lookAt(targetId, scene, usedOn) {
+    const squashedTargetId = targetId.replace(/\s/g, '');
     let desire;
     if (usedOn) {
-      desire = `${scene}.${targetId}.${usedOn}`;
+      desire = `${scene}.${squashedTargetId}.${usedOn}`;
     } else {
-      desire = `${scene}.${targetId}.Look`;
+      desire = `${scene}.${squashedTargetId}.Look`;
     }
     const line = get(this, 'scripts').get(desire);
     if (line) {
@@ -112,18 +117,29 @@ export default Component.extend({
     }
   },
 
-  pickUpObject(targetId) {
-    const name = targetId;
-    const id = `${name}Item`;
-    const url = `images/${name}.png`;
+  useOn(targetId) {
+    if ($(".inventory").is(":visible")) {
+      $(".inventory").slideUp(300);
+    }
+    get(this, 'state').remove(targetId);
+    set(this, 'verb', 'Walk to');
+    this.clearHelper();
+  },
+
+  pickUpObject(targetId, use) {
+    const id = `${targetId}`;
+    const url = `images/${targetId}.png`;
     const item = Ember.Object.create(
       {
-        "name": name, 
+        "name": targetId, 
         "url": url,
-        "id": id
+        "id": id,
+        "use": use,
       }
     );
     get(this, 'state').add(item);
+    set(this, 'verb', 'Walk to');
+    this.clearHelper();
   },
 
   talkTo(targetId, scene, thingType) {

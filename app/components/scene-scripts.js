@@ -23,16 +23,24 @@ export default Component.extend({
   scripts: EmberObject.create({
     itemsInInventory: {
       badge: { 
-        Look: "This is my badge"
+        Look: "This is my badge",
+        Usefullcupon: "I don't want to get this wet"
       },
       gun: {
-        Look: "My trusty Pistola. Just make sure it's pointed in the right direction"
+        Look: "My trusty Pistola. Just make sure it's pointed in the right direction",
+        Usefullcupon: "I don't want to get this wet"
       },
-      shardsItem: {
-        Look: "Maybe I should've bagged and tagged this..."
+      shards: {
+        Look: "Maybe I should've bagged and tagged this...",
+        Usefullcupon: "I don't want to get this wet"
       },
-      cupItem: {
-        Look: "It's empty..."
+      cup: {
+        Look: "It's empty...",
+        Usegunon: "I shouldn't make any holes"
+      },
+      fullcup: {
+        Look: "It's full",
+        Usegunon: "I shouldn't make any holes"
       }
     },
     crime: {
@@ -54,7 +62,8 @@ export default Component.extend({
       car: {
         Look: "My wheels, she aint much to look at, but it beats walking",
         Pick: "What do I look like, the Hulk?",
-        Talk: "Hey baby.... Love you too"
+        Talk: "Hey baby.... Love you too",
+        Usefullcupon: "She only runs on diesel"
       },
       brokenwindow: {
         Look: "I guess this is where these shards of glass came from. What does this have to do with the murder? Could this be a robbery gone wrong?",
@@ -69,7 +78,9 @@ export default Component.extend({
       urine: {
         Look: "A puddle of urine... I should scoop some up for analysis",
         Pick: "Eeeew, I'm not using my hands for this",
-        Talk: "I can't talk to that"
+        Talk: "I can't talk to that",
+        Usecupon: "Let's scoop some up. Hmmm... still warm.",
+        Usefullcupon: "I'm not gonna pour this back"
       },
       syringe: {
         Look: "Hmmm, Could this be related? Or maybe some crack head left it here? This place is pretty seedy...",
@@ -81,7 +92,9 @@ export default Component.extend({
         Talk: "Officer Rodriguez. What's the deal here?",
         Pick: "It's not his birthday",
         Usebadgeon: "He's not going to be impressed",
-        Usegunon: "The only thing I want to blow Rodriguez away with is my wit"
+        Usegunon: "The only thing I want to blow Rodriguez away with is my wit",
+        Usefullcupon: "He's too straight a cop to ever take the piss",
+        Useshardson: "There's plenty of time for shanking later"
       },
       theVictim: ["Male Caucasian of unknown identity, roughly 35-40 years of age, decapitated and 5\"11...I think.", "How was he decapitated?", "His head was twisted completely off. it would take someone with incredible strength to do this"],
       suspects: ["We have a possible suspect or witness down in lock up now. Some Crack head, that's his needle right there.", "I'll go shake him down after I look around", "Good call. Something just feels wrong about all of this, Dick"],

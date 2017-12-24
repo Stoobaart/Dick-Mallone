@@ -2,7 +2,7 @@
 <div class="inventory">
 	<section class="items">
 		{{#each state.inventory as |item|}}
-			<img id={{item.id}} class="item" data-name={{item.name}} data-usable="true" src={{item.url}} onclick={{action "inventoryItemClicked"}} onmouseover={{action helper}} onmouseout={{action clearHelper}}>
+			<img id={{item.id}} class="item" data-name={{item.name}} data-usable="true" src={{item.url}} onclick={{action "inventoryItemClicked" item}} onmouseover={{action helper}} onmouseout={{action clearHelper}}>
 		{{/each}}
 	</section>
 </div>

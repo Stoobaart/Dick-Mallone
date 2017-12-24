@@ -90,6 +90,14 @@
   height: 8rem;
 }
 
+img#cup {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 5rem;
+  height: 4.5rem;
+}
+
 .cup {
   position: absolute;
   top: 9.5rem;

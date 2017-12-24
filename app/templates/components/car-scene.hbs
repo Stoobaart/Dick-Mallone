@@ -19,7 +19,7 @@
     <div id="map" class="thing" data-name="Satnav" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     
     {{#unless cupPickedUp}}
-    	<div id="cup" class="thing" data-name="emptycup" pickupable="true" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    	<div id="cup" class="thing" data-name="emptycup" pickupable="true" use="urine" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     {{/unless}}
 
     <div id="exit" class="exit-car thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}>Get Out</div>

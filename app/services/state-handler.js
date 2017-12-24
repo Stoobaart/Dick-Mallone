@@ -10,6 +10,8 @@ export default Service.extend({
 	pickedupshards: false,
 	pickedupcup: false,
 
+  itemForUse: null,
+
 	inventory: [
 		{
 			"name": "badge", 
@@ -19,9 +21,20 @@ export default Service.extend({
 		{
 			"name": "gun", 
 			"url": "images/gun.png",
-			"id": "gun"
+			"id": "gun",
+      "use": "enemy"
 		}
 	],
+
+  itemsThatReplaceOthers: [
+    {
+      "name": "cupFull",
+      "url": "images/cupFull.png",
+      "id": "full cup",
+      "use": ["crackHead", "jenkins"],
+      "replaces": "cup"
+    }
+  ],
 
 	add(item) {
 		const collected = "pickedup" + item.name;
@@ -32,23 +45,23 @@ export default Service.extend({
 		
   },
 
-  remove(item) {
-    get(this, 'inventory').removeObject(item);
+  remove(targetId) {
+    const itemForUse = get(this, 'itemForUse');
+    if (itemForUse.use === targetId) {
+      get(this, 'inventory').removeObject(itemForUse);
+      this.replace(itemForUse.id);
+      set(this, 'itemForUse', null);
+    }
   },
 
-		// updateInventory() {
-	 //    const items = get(this, 'inventory');
-	 //    $(".items").html(items.map((item) => {
-	 //      return('<img class="item" src="' + item.url + '" data-name="' + item.name + '">');
-	 //    }).join(""));
-	 //  },
+  replace(itemUsedId) {
+    const itemsThatReplaceOthers = get(this, 'itemsThatReplaceOthers');
+    itemsThatReplaceOthers.forEach((itemThatReplacesAnother) => {
+      if (itemThatReplacesAnother.replaces === itemUsedId) {
+        this.add(itemThatReplacesAnother);
+      }
+    });
 
-	 //  findWithAttr(array, attr, value) {
-	 //    for(var i = 0; i < array.length; i += 1) {
-	 //        if(array[i][attr] === value) {
-	 //          return set(this, 'itemToRemove', i);
-	 //        }
-	 //    }
-	 //    return -1;
-	 //  }
+  }
+
 });

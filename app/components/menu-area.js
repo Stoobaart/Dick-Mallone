@@ -28,19 +28,32 @@ export default Component.extend({
       }
     },
 
-    inventoryItemClicked(e) {
+    inventoryItemClicked(itemForUse, e) {
       const verb = get(this, 'verb');
+      const use = get(this, 'verb').indexOf("Use") != -1 ? true : false;
+      const squashedTargetId = e.target.id.replace(/\s/g, '');
+      let desire = null;
+      let line = null;
       if (verb === 'Look at') {
-        const desire = `itemsInInventory.${e.target.id}.Look`;
-        const line = get(this, 'scripts').get(desire);
+        desire = `itemsInInventory.${squashedTargetId}.Look`;
+        line = get(this, 'scripts').get(desire);
+      } else if (use === true) {
+        const usedOn = get(this, 'verb').replace(/\s/g, '');
+        desire = `itemsInInventory.${squashedTargetId}.${usedOn}`;
+        line = get(this, 'scripts').get(desire);
+      } else {
+        const useVerb = `Use ${e.target.id} on`;
+        set(this, 'verb', useVerb);
+        set(this, 'state.itemForUse', itemForUse);
+        return;
+      }
+
+      if (line) {
         $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
         this.sendAction('playerSpeach', line);
         later(() => {
           $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
         }, line.length * 50);
-      } else {
-        const useVerb = `Use ${e.target.id} on`;
-        set(this, 'verb', useVerb);
       }
     },
 
