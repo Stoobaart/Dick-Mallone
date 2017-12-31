@@ -29,8 +29,9 @@ export default Component.extend({
   },
 
   actions: {
-    travel() {
-      alert("Let's go away!");
+    travel(e) {
+      const place = e.target.id.replace(/-/g, ' ');
+      alert("Let's go away to the " + place);
     }
   }
 

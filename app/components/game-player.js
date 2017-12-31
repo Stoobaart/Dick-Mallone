@@ -11,7 +11,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    set(this, 'componentName', get(this, 'state').componentName + '-scene');
+    set(this, 'componentName', get(this, 'state.componentName') + '-scene');
   }
 	
 });

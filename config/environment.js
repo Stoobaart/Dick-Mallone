@@ -23,10 +23,6 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    googleFonts: [
-      'Press+Start+2P:300,400,700',
-    ],
-
     // Set or update content security policies
     contentSecurityPolicy: {
       'font-src': "'self' fonts.gstatic.com",

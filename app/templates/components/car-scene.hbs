@@ -27,12 +27,15 @@
     {{#if travelMapOpened}}
       <div class="travelMap">
         <img class="travelMapImg" src="/images/travelMapImg.png">
+
         <div class="stationBadgeIcon" onclick={{action "travel"}}>
-          <img class="stationBadgeImg" src="/images/stationBadge.png">
+          <img id="station" class="stationBadgeImg" src="/images/stationBadge.png">
         </div>
-        <!-- <div class="crimeSceneIcon">
-          <img class="crimeSceneIconImg" src="assets/images/crimeSceneIcon.png">
-        </div> -->
+
+        <div class="crimeSceneIcon" onclick={{action "travel"}}>
+          <img id="crime-scene" class="crimeSceneIconImg" src="/images/crimeSceneIcon.png">     
+        </div>
+        
       </div>
     {{/if}}
 	</section>

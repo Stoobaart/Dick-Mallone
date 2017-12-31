@@ -109,6 +109,20 @@
   width: 7rem;
 }
 
+.crimeSceneIcon {
+  top: 20rem;
+  left: 9rem;
+  width: 4rem;
+  image-rendering: pixelated;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 3;
+}
+
+.crimeSceneIconImg {
+  width: 7rem;
+}
+
 #cup {
   position: absolute;
   top: 10.5rem;

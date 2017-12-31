@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url("/fonts/PressStart2P-Regular.ttf") format("truetype");
+}
+
 body {
   margin: auto;
   height: 600px;
@@ -8,6 +13,7 @@ body {
   letter-spacing: 0.3rem;
   line-height: 90%;
 }
+
 .startScreen {
   margin: auto;
   display: none;

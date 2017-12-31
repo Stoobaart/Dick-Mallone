@@ -63,7 +63,9 @@ export default Component.extend({
     },
 
     loadGame() {
-      $('#player').hide();
+      if(localStorage.scene !== get(this, 'state.componentName')) {
+        $('#player').hide();
+      }
       get(this, 'state').loadGame();
       const componentName = get(this, 'state').componentName + '-scene';
       set(this, 'componentName', componentName);

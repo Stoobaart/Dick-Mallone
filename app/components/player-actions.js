@@ -74,6 +74,7 @@ export default Component.extend({
   thingClicked(e) {
     if (e.target.id === 'exit') {
       set(this, 'verb', 'Walk to');
+      set(this, 'state.componentName', get(this, 'state.previousScene'));
     }
     const verb = get(this, 'verb');
     const scene = get(this, 'scene');
@@ -100,8 +101,9 @@ export default Component.extend({
   },
 
   lookAt(targetId, scene, usedOn) {
-    if (targetId === 'map') {
+    if (targetId === 'map' && !usedOn) {
       this.toggleProperty('state.travelMapOpened');
+      return;
     }
     const squashedTargetId = targetId.replace(/\s/g, '');
     let desire;
@@ -162,6 +164,10 @@ export default Component.extend({
   },
 
   changeScene(targetLocale, scene) {
+    if (targetLocale === 'map') {
+      this.toggleProperty('state.travelMapOpened');
+      return;
+    }
     const scenes = ['exit', 'crime', 'car'];
     let sceneName = null;
     scenes.forEach((area) => {

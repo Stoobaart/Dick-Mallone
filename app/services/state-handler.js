@@ -4,11 +4,12 @@ import Ember from 'ember';
 const {
 	get,
 	set,
+  $,
 } = Ember
 
 export default Service.extend({
 
-  componentName: 'crime',
+  hasSave: false,
   previousScene: 'crime',
 	pickedupshards: false,
 	pickedupcup: false,
@@ -41,6 +42,14 @@ export default Service.extend({
     }
   ],
 
+  componentName: Ember.computed(function() {
+    if(localStorage.hasSave) {
+      return localStorage.scene;
+    } else {
+      return 'crime';
+    }
+  }),
+
 	add(item) {
 		const collected = "pickedup" + item.name;
 		if (!(get(this, collected))) {
@@ -69,6 +78,8 @@ export default Service.extend({
   },
 
   saveGame(scene) {
+    set(this, 'hasSave', true);
+    localStorage.hasSave = JSON.stringify(get(this, 'hasSave'));
     localStorage.inventory = JSON.stringify(get(this, 'inventory'));
     localStorage.scene = scene;
     localStorage.previousScene = get(this, 'previousScene');
@@ -82,13 +93,13 @@ export default Service.extend({
   },
 
   loadGame() {
-    // $(".startScreen, .sceneOneScreen, .menuArea, .inventory, .inventoryIcon, #player").hide();
     $('#crimeSceneMusic')[0].pause();
     // $('#policeStationSceneMusic')[0].pause();
     $('#themeMusic')[0].pause();
     // $("#analysisRoomMusic")[0].pause();
 
     this.setProperties({
+      'hasSave': JSON.parse(localStorage.hasSave),
       'inventory': JSON.parse(localStorage.inventory),
       'scene': localStorage.scene,
       'previousScene': localStorage.previousScene,
@@ -96,39 +107,12 @@ export default Service.extend({
       'pickedupshards': JSON.parse(localStorage.shardCollected),
       'pickedupcupFull': JSON.parse(localStorage.weeCollected),
     })
-    // items = JSON.parse(localStorage.items);
-    // currentScene = localStorage.currentScene;
-    // cupPickedUp = JSON.parse(localStorage.cupPickedUp);
     // paperCollected = JSON.parse(localStorage.paperCollected);
-    // shardCollected = JSON.parse(localStorage.shardCollected);
-    // weeCollected = JSON.parse(localStorage.weeCollected);
-    // aboutBlood = JSON.parse(localStorage.aboutBlood);
-    // aboutVicDeath = JSON.parse(localStorage.aboutVicDeath);
     // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);
     // exit = JSON.parse(localStorage.exit);
     // interrogationDone = JSON.parse(localStorage.interrogationDone);
     
     set(this, 'componentName', get(this, 'scene'));
-
-    // setTimeout(() => {
-    //   if (currentScene === "crimeScene") {
-    //     startCrimeScene();
-    //   } else if (currentScene === "policeStationScene") {
-    //     startPoliceStation();
-    //     let startX = ($(".stationDoor").position().left) + 50;
-    //     let startY = ($(".stationDoor").position().top) + 150;
-    //     $("#player").stop().css({ top: startY, left: startX}).html('<img class="playerSprite" src="assets/images/TheDetective.png">');
-    //     $("#player").fadeIn(700);
-    //   } else if (currentScene === "policeStationInteriorScene") {
-    //     $("#policeStationSceneMusic")[0].play();
-    //     startPoliceStationInterior();
-    //   } else if (currentScene === "analysisRoomScene") {
-    //     startAnalysisRoom();
-    //   } else if (currentScene === "interrogationRoomScene") {
-    //     startInterrogationRoom();
-    //   }
-    //   updateInventory()
-    // }, 1100)
   }
 
 });

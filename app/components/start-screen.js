@@ -3,6 +3,7 @@ import Ember from 'ember';
 
 const { 
   $,
+  get,
   run: {
     later,
   },
@@ -10,14 +11,19 @@ const {
 } = Ember;
 
 export default Component.extend({
-  // Computed property needed once local storage saves set up.
-  hasSave: false,
+
+  state: Ember.inject.service('state-handler'),
+
+  showContinue: false,
 
   gameStarted: false,
 
   didInsertElement() {
     this._super(...arguments);
     $('.startScreen').fadeIn(2000);
+    if(localStorage.hasSave) {
+      set(this, 'showContinue', true);
+    }
   },
 
   actions: {
@@ -28,5 +34,10 @@ export default Component.extend({
         set(this, 'gameStarted', true);
       }, 1500);
     },
+
+    loadGame() {
+      set(this, 'gameStarted', true);
+      get(this, 'state').loadGame();
+    }
   },
 });
