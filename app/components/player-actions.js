@@ -165,8 +165,7 @@ export default Component.extend({
 
   changeScene(targetLocale, scene) {
     if (targetLocale === 'map') {
-      this.toggleProperty('state.travelMapOpened');
-      return;
+      return this.toggleProperty('state.travelMapOpened');
     }
     const scenes = ['exit', 'crime', 'car'];
     let sceneName = null;
@@ -177,13 +176,13 @@ export default Component.extend({
         } else {
           sceneName = `${targetLocale}-scene`;
         }
-        set(this, 'scene', scene);
-        set(this, 'componentName', sceneName);
-        $("#crimeSceneMusic")[0].pause();
-        $("#player").hide();
-        set(this, 'state.previousScene', scene);
       }
     });
+    set(this, 'scene', scene);
+    set(this, 'state.previousScene', scene);
+    set(this, 'componentName', sceneName);
+    $("#crimeSceneMusic")[0].pause();
+    $("#player").hide();
   },
 
   helper(e) {

@@ -10,6 +10,8 @@ const {
 export default Service.extend({
 
   hasSave: false,
+  componentName: null,
+  scene: 'crime',
   previousScene: 'crime',
 	pickedupshards: false,
 	pickedupcup: false,
@@ -41,14 +43,6 @@ export default Service.extend({
       "replaces": "cup"
     }
   ],
-
-  componentName: Ember.computed(function() {
-    if(localStorage.hasSave) {
-      return localStorage.scene;
-    } else {
-      return 'crime';
-    }
-  }),
 
 	add(item) {
 		const collected = "pickedup" + item.name;
@@ -93,6 +87,9 @@ export default Service.extend({
   },
 
   loadGame() {
+    $('.game-container, #player').hide();
+    set(this, 'componentName', null);
+
     $('#crimeSceneMusic')[0].pause();
     // $('#policeStationSceneMusic')[0].pause();
     $('#themeMusic')[0].pause();

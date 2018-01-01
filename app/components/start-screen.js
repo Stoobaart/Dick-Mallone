@@ -28,6 +28,7 @@ export default Component.extend({
 
   actions: {
     startGame() {
+      set(this, 'state.componentName', 'crime');
       $('.startScreen').fadeOut(1500);
       $("#themeMusic").animate({volume: 0}, 1500);
       later(() => {
@@ -35,9 +36,13 @@ export default Component.extend({
       }, 1500);
     },
 
-    loadGame() {
-      set(this, 'gameStarted', true);
-      get(this, 'state').loadGame();
+    continueGame() {
+      $('.startScreen').fadeOut(1500);
+      $("#themeMusic").animate({volume: 0}, 1500);
+      later(() => {
+        get(this, 'state').loadGame();
+        set(this, 'gameStarted', true);
+      }, 1500);
     }
   },
 });

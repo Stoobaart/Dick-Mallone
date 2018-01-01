@@ -30,8 +30,14 @@ export default Component.extend({
 
   actions: {
     travel(e) {
-      const place = e.target.id.replace(/-/g, ' ');
-      alert("Let's go away to the " + place);
+      if (e.target.id === get(this, 'state.previousScene')) {
+        alert("Already here");
+      } else {
+        debugger;
+        const sceneName = `${e.target.id}-scene`;
+        set(this, 'state.componentName', sceneName);
+        $("#player").hide();
+      }
     }
   }
 
