@@ -53,28 +53,28 @@
 
 .saveAndLoadBtns {
   float: right;
-  margin-top: -1.5rem;
+  margin-top: -2.1rem;
+}
+
+.action-helper-container {
+  height: 1.5rem;
+  width: 35rem;
+  left: 26rem;
+  position: relative;
 }
 
 .player-action {
-  height: 1.5rem;
-  width: 44rem;
+  letter-spacing: 0.05rem;
+  color: yellow;
   float: left;
-  text-align: right;
-  margin-top: -1.5rem;
-  color: white;
-  position: relative;
-  z-index: -1;
+  margin-right: 0.8rem;
 }
 
 .helper {
-  color: white;
-  position: relative;
+  letter-spacing: 0.05rem;
   margin-top: -1.5rem;
-  left: 45rem;
-  float: left;
+  color: yellow;
   text-align: left;
-  width: 33rem;
 }
 
 .options {
@@ -88,6 +88,7 @@
   background-color: black;
   border: 0.3rem solid grey;
   border-radius: 5px;
+  padding-left: 1rem;
 }
 
 .grey {

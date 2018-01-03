@@ -1,9 +1,24 @@
-.walkable-area {
+.in-front {
+  z-index: 2;
+}
+
+.walkable-area.crimescene {
   position: relative;
   width: 1250px;
   height: 201px;
   top: -43rem;
   -webkit-clip-path: polygon(8% 0, 98% 0, 100% 100%, 0 100%);
   clip-path: polygon(8% 0, 98% 0, 100% 100%, 0 100%);
+  z-index: 4;
+}
+
+.walkable-area, .stationscene {
+  position: relative;
+  width: 1200px;
+  height: 277px;
+  top: -93rem;
+  left: 2rem;
+  -webkit-clip-path: polygon(5% 40%, 10% 0, 22% 0, 22% 52%, 86% 52%, 96% 52%, 97% 64%, 100% 100%, 85% 100%, 15% 100%, 0 100%, 0 81%);
+  clip-path: polygon(5% 40%, 10% 0, 22% 0, 22% 52%, 86% 52%, 96% 52%, 97% 64%, 100% 100%, 85% 100%, 15% 100%, 0 100%, 0 81%);
   z-index: 4;
 }

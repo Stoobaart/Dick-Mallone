@@ -1,0 +1,101 @@
+.station-scene {
+  width: 100%;
+}
+
+.exit-station {
+  width: 2.5rem;
+  height: 17rem;
+  position: relative;
+  top: -19rem;
+  left: 76rem;
+}
+
+#npcJen {
+  top: 8.2rem;
+  left: 44rem;
+  overflow: hidden;
+  width: 7.5rem;
+  height: 6.5rem;
+  position: absolute;
+  image-rendering: pixelated;
+}
+
+.jenSprite {
+  width: 200rem;
+  height: 13rem;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: jen 7800ms steps(21) infinite;
+}
+@keyframes jen {
+  100% {
+    transform: translateX(-200rem);
+  }
+}
+
+#Jen {
+  top: -38rem;
+  left: 45rem;
+  width: 6.5rem;
+  height: 6.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.wall-corner {
+  top: -530px;
+  left: 335px;
+  width: 0.5rem;
+  height: 0.5rem;
+  position: relative;
+}
+
+.water-cooler {
+  top: -48rem;
+  left: 38.5rem;
+  width: 5.5rem;
+  height: 7.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.notice-board {
+  top: -54rem;
+  left: 62.5rem;
+  width: 10.5rem;
+  height: 7.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.filing-cabinets {
+  top: -62rem;
+  left: 25.5rem;
+  width: 10.5rem;
+  height: 6.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.interrogation-door {
+  top: -69rem;
+  left: 0.5rem;
+  width: 4.5rem;
+  height: 17.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.analysis-door {
+  top: -93rem;
+  left: 12.5rem;
+  width: 7.5rem;
+  height: 12.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/*.options.station {
+  
+}*/
+

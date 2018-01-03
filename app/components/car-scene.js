@@ -18,8 +18,10 @@ export default Component.extend({
 	didInsertElement() {
     this._super(...arguments);
     get(this, 'cupPickedUp');
+    set(this, 'state.previousScene', get(this, 'scene'));
     set(this, 'scene', 'car');
     $("#carDoor")[0].play();
+    $("#rainSoundFx")[0].play();
     $(".car-foreground, .map").fadeIn(750);
     $(".rain-container, .car-background, .exit-car").fadeIn(2000);
 
@@ -33,10 +35,8 @@ export default Component.extend({
       if (e.target.id === get(this, 'state.previousScene')) {
         alert("Already here");
       } else {
-        debugger;
-        const sceneName = `${e.target.id}-scene`;
-        set(this, 'state.componentName', sceneName);
-        $("#player").hide();
+        this.toggleProperty('state.travelMapOpened');
+        this.sendAction('changeScene', e.target.id, get(this, 'scene'));      
       }
     }
   }

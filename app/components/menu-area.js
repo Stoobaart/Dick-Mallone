@@ -37,6 +37,7 @@ export default Component.extend({
       if (verb === 'Look at') {
         desire = `itemsInInventory.${squashedTargetId}.Look`;
         line = get(this, 'scripts').get(desire);
+        set(this, 'verb', '');
       } else if (use === true) {
         const usedOn = get(this, 'verb').replace(/\s/g, '');
         desire = `itemsInInventory.${squashedTargetId}.${usedOn}`;
@@ -49,10 +50,10 @@ export default Component.extend({
       }
 
       if (line) {
-        $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
+        $('.walkable-area, .thing, .footer-bar').hide();
         this.sendAction('playerSpeach', line);
         later(() => {
-          $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
+          $('.walkable-area, .thing, .footer-bar').toggle();
         }, line.length * 50);
       }
     },

@@ -25,12 +25,12 @@ export default Component.extend({
     }
     // When the player clicks somewhere on the screen (walkable area)
     // player can walk in front or behind
-    const rodPos = $("#npcRodriguez").position().top;
+    const npcPos = $(".npc").position().top;
     const dickPos = event.pageY - 200;
-    if(dickPos <= rodPos){
-      $("#npcRodriguez").addClass("behind");
+    if(dickPos <= npcPos){
+      $(".npc").addClass("in-front");
     } else {
-      $("#npcRodriguez").removeClass("behind");
+      $(".npc").removeClass("in-front");
     }
 
     // store the current position of the player Sprite
@@ -85,8 +85,9 @@ export default Component.extend({
       this.lookAt(e.target.id, scene, 'Pick');
       const pickupable = e.target.getAttribute('pickupable');
       if (pickupable === "true") {
+        const itemName = e.target.getAttribute('data-name').replace(/\s/g, '');
         const use = e.target.getAttribute('use');
-        this.pickUpObject(e.target.id, use);
+        this.pickUpObject(itemName, use);
       }
     } else if (verb === 'Talk to') {
       const thingType = e.target.getAttribute('data-type');
@@ -114,10 +115,10 @@ export default Component.extend({
     }
     const line = get(this, 'scripts').get(desire);
     if (line) {
-      $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
+      $('.walkable-area, .thing, .footer-bar').hide();
       this.sendAction('playerSpeach', line);
       later(() => {
-        $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
+        $('.walkable-area, .thing, .footer-bar').toggle();
       }, line.length * 50);
     }
   },
@@ -151,14 +152,14 @@ export default Component.extend({
     const desire = `${scene}.${targetId}.Talk`;
     const line = get(this, 'scripts').get(desire);
     if (line) {
-      $('.action-choice-btns, .walkable-area, .thing, .helper').hide();
+      $('.walkable-area, .thing, .footer-bar').hide();
       this.sendAction('playerSpeach', line);
       if(thingType === "person") {
         later(() => {
           this.sendAction('convo', targetId);
         }, 3000)
       } else {
-        $('.action-choice-btns, .walkable-area, .thing, .helper').toggle();
+        $('.walkable-area, .thing, .footer-bar').toggle();
       }
     }
   },
@@ -167,7 +168,7 @@ export default Component.extend({
     if (targetLocale === 'map') {
       return this.toggleProperty('state.travelMapOpened');
     }
-    const scenes = ['exit', 'crime', 'car'];
+    const scenes = ['exit', 'crime', 'car', 'station'];
     let sceneName = null;
     scenes.forEach((area) => {
       if (area === targetLocale) {
@@ -176,17 +177,21 @@ export default Component.extend({
         } else {
           sceneName = `${targetLocale}-scene`;
         }
+      } else {
+        return;
       }
+      set(this, 'scene', scene);
+      set(this, 'state.previousScene', scene);
+      set(this, 'componentName', sceneName);
+      $("#crimeSceneMusic")[0].pause();
+      $("#policeStationSceneMusic")[0].pause();
+      $("#player").hide();
     });
-    set(this, 'scene', scene);
-    set(this, 'state.previousScene', scene);
-    set(this, 'componentName', sceneName);
-    $("#crimeSceneMusic")[0].pause();
-    $("#player").hide();
   },
 
   helper(e) {
-    set(this, 'helperText', e.target.id);
+    const helperText = e.target.id.replace(/-/g, ' ');
+    set(this, 'helperText', helperText);
   },
 
   clearHelper() {

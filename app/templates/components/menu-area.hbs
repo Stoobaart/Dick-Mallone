@@ -8,18 +8,23 @@
 </div>
 <div class="inventoryIcon" onclick={{action "toggleInventory"}}>Items</div>
 
+<div class="footer-bar">
 <!-- Action choice buttons -->
 <section class="action-choice-btns">
-  <button data-verb="Look at" class="look action-choice-btn" onclick={{action "changeVerb"}}>Look</button>
-  <button data-verb="Talk to" class="talk action-choice-btn" onclick={{action "changeVerb"}}>Talk</button>
+  <button data-verb="Look at" class="look action-choice-btn" onclick={{action "changeVerb"}}>Look at</button>
+  <button data-verb="Talk to" class="talk action-choice-btn" onclick={{action "changeVerb"}}>Talk to</button>
   <button data-verb="Pick up" class="pick action-choice-btn" onclick={{action "changeVerb"}}>Pick Up</button>
 </section>
 
-<div class="player-action">{{verb}}</div>
-<!-- shows what the user is hovering over -->
-<div class="helper">{{helperText}}</div>
+<div class="action-helper-container">
+  <div class="player-action">{{verb}}</div>
+  <!-- shows what the user is hovering over -->
+  <div class="helper">{{helperText}}</div>
+</div>
 
 <section class="saveAndLoadBtns">
-  <button id="save" onclick={{action "saveGame"}}>Save</button>
-  <button class="load" onclick={{action "loadGame"}}>Load</button>
+  <button class="save action-choice-btn" onclick={{action "saveGame"}}>Save</button>
+  <button class="load action-choice-btn" onclick={{action "loadGame"}}>Load</button>
 </section>
+
+</div>

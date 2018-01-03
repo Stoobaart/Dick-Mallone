@@ -61,7 +61,8 @@
   border-radius: 5px;
   z-index: 3;
 }
-.rod-face {
+
+.npc-face {
   width: 73rem;
   filter: blur(0);
   -webkit-filter: blur(0);
@@ -69,6 +70,7 @@
   animation: portrait 550ms steps(6) infinite;
   z-index: 3;
 }
+
 /*img.jenkinsFace {
   width: 73rem;
   filter: blur(0);

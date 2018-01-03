@@ -16,12 +16,13 @@
           playerSpeach=(action playerSpeach)
           speakClear=(action speakClear)
           convo=(action convo)
-          as |walk thingClicked helper clearHelper verb helperText|
+          as |walk thingClicked helper clearHelper verb helperText changeScene|
         }}
           {{component componentName
             scene=scene
             walk=(action walk)
             thingClicked=(action thingClicked)
+            changeScene=(action changeScene)
             helper=(action helper)
             clearHelper=(action clearHelper)
             convoOption=(action convoOption)

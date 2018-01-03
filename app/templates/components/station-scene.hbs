@@ -1,0 +1,29 @@
+<section class="scene-screen">
+  <section class="scene">
+    <img class="station-scene" src="/images/policeStationInterior.png">
+    <div id="exit" class="exit-station thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div id="npcJen" class="npc">
+      <img class="jenSprite" src="/images/jen.png">
+    </div>
+    <div id="Jen" class="thing" data-name="Jen" data-type="person" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div class="wall-corner"></div>
+
+    <div id="water-cooler" class="thing water-cooler" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="notice-board" pickupable="true" class="thing notice-board" data-name="paper" use="" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="filing-cabinets" class="thing filing-cabinets" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+   
+    <div id="interrogation-room" class="thing interrogation-door" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="analysis-room" class="thing analysis-door" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <section class="walkable-area stationscene" onclick={{action 'stationWalk'}}></section>
+
+    {{jen-speach}}
+    <section class="options station">
+      <p id="aboutCrackHead" onclick={{action convoOption}}>Any trouble from the crack head?</p>
+      <p id="aboutJenkins" onclick={{action convoOption}}>Got any messages from Jenkins?</p>
+      <p id="bye" onclick={{action convoOption}}>Chat to ya later, Jen</p>
+    </section>
+  </section>
+</section>
