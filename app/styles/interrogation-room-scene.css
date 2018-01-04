@@ -1,0 +1,44 @@
+.interrogation-room {
+  width: 100%;
+}
+
+.exit-interrogation {
+  width: 5.5rem;
+  height: 19rem;
+  position: relative;
+  top: -19rem;
+  left: 66rem;
+}
+
+#npcCrackhead {
+  top: 0rem;
+  left: 28rem;
+  overflow: hidden;
+  width: 14rem;
+  height: 30rem;
+  position: absolute;
+  image-rendering: pixelated;
+  z-index: 1;
+}
+
+#crackhead {
+  top: -33.2rem;
+  left: 29rem;
+  width: 7.5rem;
+  height: 11rem;
+  position: relative;
+  z-index: 2;
+}
+
+img.crackheadSprite {
+  width: 256rem;
+  height: 30rem;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: crackhead 5800ms steps(14) infinite;
+}
+@keyframes crackhead {
+  100% {
+    transform: translateX(-256rem);
+  }
+}

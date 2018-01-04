@@ -178,6 +178,15 @@ export default Component.extend({
       aboutCrackHead: ["He sure made a lot of noise. Screaming about aliens or robots or some insane shit", "Damn crazies. What a waste of time"],
       aboutJenkins: ["Yeah, he said he's waiting for you in analysis", "Alright then, thanks Jen"],
       bye: ["Until next time Mallone", "Catch ya later, Jen"]
+    },
+    'interrogation-room': {
+      'crackhead': {
+        Talk: "Alright buddy, time to spill it!",
+      },
+      'honest': ["Yeah man. sure thing. Are you sure that they aren't listening?", "Who? Oh it doesn't matter who, this is a, err, safe zone, so don't worry",  "Anything you say chief"],
+      'murder': ["I was hiding out in that old warehouse, when I heard a scream, so I climbed up to look out a window", "Please, do go on", "It... shook that guy like a ragdoll", "what do you mean.... it?", "It said that there was no hiding anymore, that they saw and heard everything", "Can you describe it to me?", "It was dark, I was high, I dunno man, I just need to get out of here"],
+      'blah': ["", ""],
+      'bye': ["Don't leave me here man!", "Relax. You're safe here"]
     }
   }),
 
@@ -199,7 +208,15 @@ export default Component.extend({
     const _this = context;
     $(".walkable-area, .footer-bar").hide();
     _this.sendAction('npcSpeach', "Hey Dick. Pretty quiet today. Apart from that crack head that was brought in. What's up?");
-    debugger;
+    later(() => {
+      $(".options").toggle();
+    }, 5000);
+  },
+
+  crackheadConvo(context) {
+    const _this = context;
+    $(".walkable-area, .footer-bar").hide();
+    _this.sendAction('npcSpeach', "When can i get out of here? They're coming for me man! c'mon!!");
     later(() => {
       $(".options").toggle();
     }, 5000);
@@ -218,8 +235,13 @@ export default Component.extend({
     const conversation = get(this, 'scripts').get(topic);
 
     conversation.forEach((line) => {
-      const newWaitToSpeak = get(this, 'waitToSpeak') + line.length;
+      const previousWaitToSpeak = get(this, 'waitToSpeak');
+      let newWaitToSpeak = get(this, 'waitToSpeak') + line.length;
+      if ((newWaitToSpeak - previousWaitToSpeak) < 30) {
+        newWaitToSpeak *= 1.5;
+      }
       set(this, 'waitToSpeak', newWaitToSpeak);
+      
       const numberOfLinesSpoken = get(this, 'numberOfLinesSpoken') +1;
 
       if (get(this, 'numberOfLinesSpoken') === 0) {
@@ -237,7 +259,7 @@ export default Component.extend({
         });
         later(() => {
           this.sendAction("playerSpeach", line);
-        }, newWaitToSpeak * 47);
+        }, newWaitToSpeak * 33);
       } else if (get(this, 'turn') === 'npc') {
         setProperties(this, {
           'turn': 'dick',
@@ -245,18 +267,18 @@ export default Component.extend({
         });
         later(() => {
           this.sendAction("npcSpeach", line);
-        }, newWaitToSpeak * 43);
+        }, newWaitToSpeak * 33);
       }
 
       if (conversation.length === get(this, 'numberOfLinesSpoken')) {
         if(targetId === 'bye') {
           later(() => {
             $('.walkable-area, .thing, .footer-bar').toggle();
-          }, newWaitToSpeak * 65);
+          }, newWaitToSpeak * 45);
         } else {
           later(() => {
             $(".options").toggle();
-          }, newWaitToSpeak * 65);
+          }, newWaitToSpeak * 45);
         }
       }
 

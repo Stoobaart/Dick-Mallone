@@ -1,0 +1,23 @@
+<section class="scene-screen">
+  <section class="scene">
+    <img class="interrogation-room" src="/images/interrogationRoom.png">
+
+    <div id="exit" class="exit-interrogation thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div id="npcCrackhead" class="npc">
+      <img class="crackheadSprite" src="/images/crackhead.png">
+    </div>
+    <div id="crackhead" class="thing" data-name="crackhead" data-type="person" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <section class="walkable-area interrogation-room-scene" onclick={{action walk}}></section>
+
+    {{crackhead-speach}}
+    <section class="options station">
+      <p id="honest" onclick={{action convoOption}}>I'm gonna need you to honest with me</p>
+      <p id="murder" onclick={{action convoOption}}>What happened at the scene?</p>
+      <p id="blah" onclick={{action convoOption}}>blah blah blah blah?</p>
+      <p id="bye" onclick={{action convoOption}}>We'll continue this later</p>
+    </section>
+
+  </section>
+</section>
