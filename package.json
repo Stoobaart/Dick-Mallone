@@ -2,9 +2,9 @@
   "name": "dick-mallone",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for dick-mallone goes here",
+  "description": "Point and click adventure game made using Ember.js",
   "license": "MIT",
-  "author": "",
+  "author": "Stuart Smith",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -12,6 +12,7 @@
   "repository": "",
   "scripts": {
     "build": "ember build",
+    "prestart": "next build",
     "start": "ember server",
     "test": "ember test"
   },

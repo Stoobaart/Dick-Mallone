@@ -27,7 +27,6 @@ export default Component.extend({
     this._super(...arguments);
     $('#player').stop();
     set(this, 'scene', 'interrogation-room');
-    
     $("#player").css({top: 441, left: 980.5}).html('<img class="playerSprite" src="sprites/dickLeft.png">');
     $("#player").fadeIn(500);
     $('#interrogationRoomMusic')[0].play();
