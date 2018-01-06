@@ -103,8 +103,7 @@ export default Component.extend({
 
   lookAt(targetId, scene, usedOn) {
     if (targetId === 'map' && !usedOn) {
-      this.toggleProperty('state.travelMapOpened');
-      return;
+      return this.toggleProperty('state.travelMapOpened');
     }
     const squashedTargetId = targetId.replace(/\s/g, '');
     let desire;
@@ -118,7 +117,7 @@ export default Component.extend({
       $('.walkable-area, .thing, .footer-bar').hide();
       this.sendAction('playerSpeach', line);
       later(() => {
-        $('.walkable-area, .thing, .footer-bar').toggle();
+        $('.walkable-area, .thing, .footer-bar').show();
       }, line.length * 50);
     }
   },
@@ -159,7 +158,7 @@ export default Component.extend({
           this.sendAction('convo', targetId);
         }, 3000)
       } else {
-        $('.walkable-area, .thing, .footer-bar').toggle();
+        $('.walkable-area, .thing, .footer-bar').show();
       }
     }
   },

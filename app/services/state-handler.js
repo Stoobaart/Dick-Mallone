@@ -16,6 +16,8 @@ export default Service.extend({
 	pickedupshards: false,
 	pickedupcup: false,
   pickedupcupFull: false,
+  pickeduppaper: false,
+  paperUsed: false,
   travelMapOpened: false,
 
   itemForUse: null,
@@ -56,6 +58,8 @@ export default Service.extend({
   remove(targetId) {
     const itemForUse = get(this, 'itemForUse');
     if (itemForUse.use === targetId) {
+      const usedItem = itemForUse.id + 'Used';
+      set(this, usedItem, true);
       get(this, 'inventory').removeObject(itemForUse);
       this.replace(itemForUse.id);
       set(this, 'itemForUse', null);
@@ -80,7 +84,8 @@ export default Service.extend({
     localStorage.cupPickedUp = JSON.stringify(get(this, 'pickedupcup'));
     localStorage.shardCollected = JSON.stringify(get(this, 'pickedupshards'));
     localStorage.weeCollected = JSON.stringify(get(this, 'pickedupcupFull'));
-    // localStorage.paperCollected = JSON.stringify(paperCollected);
+    localStorage.paperCollected = JSON.stringify(get(this, 'pickeduppaper'));
+    localStorage.paperUsed = JSON.stringify(get(this, 'paperUsed'));
     // localStorage.jenkinsIntro = JSON.stringify(jenkinsIntro);
     // localStorage.interrogationDone = JSON.stringify(interrogationDone);
     alert("Progress saved");
@@ -103,8 +108,9 @@ export default Service.extend({
       'pickedupcup': JSON.parse(localStorage.cupPickedUp),
       'pickedupshards': JSON.parse(localStorage.shardCollected),
       'pickedupcupFull': JSON.parse(localStorage.weeCollected),
+      'pickeduppaper': JSON.parse(localStorage.paperCollected),
+      'paperUsed': JSON.parse(localStorage.paperUsed),
     })
-    // paperCollected = JSON.parse(localStorage.paperCollected);
     // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);
     // exit = JSON.parse(localStorage.exit);
     // interrogationDone = JSON.parse(localStorage.interrogationDone);

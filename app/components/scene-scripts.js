@@ -182,6 +182,14 @@ export default Component.extend({
     'interrogation-room': {
       'crackhead': {
         Talk: "Alright buddy, time to spill it!",
+        Look: "",
+        Pick: "",
+        Usebadgeon: "He know's what time it is",
+        Usegunon: "Only if he holds out on me",
+        Usecupon: "He doesn't want that",
+        Usefullcupon: "I found this at the scene",
+        Useshardson: "He doesn't want this",
+        Usepaperon: "Can you sketch the thing that killed that man?"
       },
       'honest': ["Yeah man. sure thing. Are you sure that they aren't listening?", "Who? Oh it doesn't matter who, this is a, err, safe zone, so don't worry",  "Anything you say chief"],
       'murder': ["I was hiding out in that old warehouse, when I heard a scream, so I climbed up to look out a window", "Please, do go on", "It... shook that guy like a ragdoll", "what do you mean.... it?", "It said that there was no hiding anymore, that they saw and heard everything", "Can you describe it to me?", "It was dark, I was high, I dunno man, I just need to get out of here"],

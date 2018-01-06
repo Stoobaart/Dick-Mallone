@@ -1,9 +1,30 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
-const { set, $ } = Ember;
+const { 
+  get,
+  inject: {service},
+  observer,
+  run: {later},
+  set, 
+  $ 
+} = Ember;
 
 export default Component.extend({
+
+  state: service('state-handler'),
+
+  crimeSceneCompleted: observer('state.pickedupshards', 'state.pickedupcupFull', function() {
+    if (get(this, 'state.pickedupshards') === true && get(this, 'state.pickedupcupFull') === true) {
+      this.somefunction();
+    }
+  }),
+
+  init() {
+    this._super(...arguments);
+    this.getProperties('state.pickedupshards', 'state.pickedupcupFull');
+  },
+
   didInsertElement() {
     this._super(...arguments);
     set(this, 'scene', 'crime');
@@ -17,4 +38,15 @@ export default Component.extend({
     $("#crimeSceneMusic")[0].play();
     $("#rainSoundFx")[0].play();
   },
+
+  somefunction() {
+    later(() => {
+      $('.walkable-area, .thing, .footer-bar').hide();
+      this.sendAction('npcSpeach', "Dick I just had a call from Jen at the station, she says that crackhead is ready to talk now");
+      later(() => {
+        $('.walkable-area, .thing, .footer-bar').show();
+      }, 3000)
+    }, 5000)
+  }
+
 });

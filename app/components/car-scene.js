@@ -32,8 +32,19 @@ export default Component.extend({
 
   actions: {
     travel(e) {
+      if (e.target.id === 'station' && !get(this, 'state.pickedupshards') || e.target.id === 'station' && !get(this, 'state.pickedupcupFull')) {
+        $('.walkable-area, .thing, .footer-bar').hide();
+        this.sendAction('playerSpeach', "I should investigate the scene a little more");
+        return later(() => {
+          $('.walkable-area, .thing, .footer-bar').show();
+        }, 2500);
+      }
       if (e.target.id === get(this, 'state.previousScene')) {
-        alert("Already here");
+        $('.walkable-area, .thing, .footer-bar').hide();
+        this.sendAction('playerSpeach', "I'm already here");
+        return later(() => {
+          $('.walkable-area, .thing, .footer-bar').show();
+        }, 1000);
       } else {
         this.toggleProperty('state.travelMapOpened');
         this.sendAction('changeScene', e.target.id, get(this, 'scene'));      
