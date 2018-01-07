@@ -1,7 +1,7 @@
 <section class="scene-screen">
   <section class="scene">
     <img class="scene-one" src="/images/SceneOne.png">
-    <div id="victim" class="thing victim" data-name="Victim's body" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="victim" class="thing victim" data-name="Victim's body" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}} onmouseover={{action helper}} onmouseout={{action clearHelper}} ontouchstart={{action helper}} ontouchend={{action clearHelper}}></div>
     <div id="shards" class="thing shards" data-name="shards" pickupable="true" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     <div id="head" class="thing head" data-name="Victim's head" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     <div id="car" class="thing car" data-name="Dick-mobile" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
