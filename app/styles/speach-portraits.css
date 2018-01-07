@@ -18,6 +18,7 @@
 
 .dick-face {
   width: 73rem;
+  height: 16rem;  
   filter: blur(0);
   -webkit-filter: blur(0);
   -webkit-transform: translate3d(0,0,0);
@@ -31,13 +32,16 @@
 }
 
 .player-speach {
+  line-height: 1.5rem;
+  font-size: 1.1rem;
+  min-width: 22rem;
+  max-width: 32rem;
   text-align: left;
   background-color: black;
   border: 0.4rem solid grey;
   border-radius: 0.5rem;
   padding: 0.6rem;
-  margin: 0.5rem;
-  width: 70%;
+  margin: 0.5rem 0;
 }
 
 .npc-speak {
@@ -64,6 +68,7 @@
 
 .npc-face {
   width: 73rem;
+  height: 16rem;
   filter: blur(0);
   -webkit-filter: blur(0);
   -webkit-transform: translate3d(0,0,0);
@@ -80,12 +85,15 @@
   z-index: 3;
 }*/
 .npc-speach {
+  line-height: 1.5rem;
+  font-size: 1.1rem;
+  min-width: 22rem;
+  max-width: 32rem;
   margin-top: 3rem 0.5rem 0.5rem 0.5rem;
   background-color: black;
   border: 0.4rem solid grey;
   border-radius: 0.5rem;
   padding: 0.6rem;
   float: right;
-  width: 70%;
   z-index: 3;
 }
