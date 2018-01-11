@@ -172,8 +172,11 @@ export default Component.extend({
       'interrogation-room': {
         Look: "This goes to the interrogation room"
       },
+      'analysis-room-closed': {
+        Look: "Jenkins is carrying out the autopsy, I should come back later, I know how much he hates being disturbed"
+      },
       'analysis-room': {
-        Look: "This goes to the analysis room"
+        Look: "This goes to the Analysis room"
       },
       aboutCrackHead: ["He sure made a lot of noise. Screaming about aliens or robots or some insane shit", "Damn crazies. What a waste of time"],
       aboutJenkins: ["Yeah, he said he's waiting for you in analysis", "Alright then, thanks Jen"],

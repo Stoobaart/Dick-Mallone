@@ -6,7 +6,7 @@
     <div id="npcJen" class="npc">
       <img class="jenSprite" src="/images/jen.png">
     </div>
-    <div id="Jen" class="thing" data-name="Jen" data-type="person" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="Jen" class="thing jen" data-name="Jen" data-type="person" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
 
     <div class="wall-corner"></div>
 
@@ -15,7 +15,11 @@
     <div id="filing-cabinets" class="thing filing-cabinets" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
    
     <div id="interrogation-room" class="thing interrogation-door" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
-    <div id="analysis-room" class="thing analysis-door" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    {{#if paperUsed}}
+      <div id="analysis-room" class="thing analysis-door" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    {{else}}
+      <div id="analysis-room-closed" class="thing analysis-door" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    {{/if}}
 
     <section class="walkable-area stationscene" onclick={{action 'stationWalk'}}></section>
 

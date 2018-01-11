@@ -16,7 +16,7 @@ export default Component.extend({
 
   crimeSceneCompleted: observer('state.pickedupshards', 'state.pickedupcupFull', function() {
     if (get(this, 'state.pickedupshards') === true && get(this, 'state.pickedupcupFull') === true) {
-      this.somefunction();
+      this.stationSceneUnlocked();
     }
   }),
 
@@ -39,14 +39,14 @@ export default Component.extend({
     $("#rainSoundFx")[0].play();
   },
 
-  somefunction() {
+  stationSceneUnlocked() {
     later(() => {
       $('.walkable-area, .thing, .footer-bar').hide();
       this.sendAction('npcSpeach', "Dick I just had a call from Jen at the station, she says that crackhead is ready to talk now");
       later(() => {
         $('.walkable-area, .thing, .footer-bar').show();
       }, 3000)
-    }, 5000)
+    }, 3000)
   }
 
 });

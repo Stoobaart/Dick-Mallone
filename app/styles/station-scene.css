@@ -3,11 +3,11 @@
 }
 
 .exit-station {
-  width: 2.5rem;
+  width: 3.5rem;
   height: 17rem;
   position: relative;
   top: -19rem;
-  left: 76rem;
+  left: 75rem;
 }
 
 #npcJen {
@@ -33,10 +33,10 @@
   }
 }
 
-#Jen {
-  top: -38rem;
+.jen {
+  top: -39rem;
   left: 45rem;
-  width: 6.5rem;
+  width: 8.5rem;
   height: 6.5rem;
   position: relative;
   z-index: 1;

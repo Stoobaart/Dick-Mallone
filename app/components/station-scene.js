@@ -1,11 +1,20 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
-const { $, get, set } = Ember;
+const { 
+  $, 
+  computed: {alias},
+  get, 
+  inject: {service}, 
+  run: {later}, 
+  set 
+} = Ember;
 
 export default Component.extend({
 
-  state: Ember.inject.service('state-handler'),
+  state: service('state-handler'),
+
+  paperUsed: alias('state.paperUsed'),
 
   didInsertElement() {
     this._super(...arguments);
@@ -25,6 +34,20 @@ export default Component.extend({
     $('#stationDoor')[0].play();
     $('#rainSoundFx')[0].pause();
     $('#interrogationRoomMusic')[0].pause();
+
+    if(get(this, 'state.paperUsed')) {
+      this.analysisRoomUnlocked();
+    }
+  },
+
+  analysisRoomUnlocked() {
+    later(() => {
+      $('.walkable-area, .thing, .footer-bar').hide();
+      this.sendAction('npcSpeach', "Dick, Jenkins has finished the autopsy and would like to see you now");
+      later(() => {
+        $('.walkable-area, .thing, .footer-bar').show();
+      }, 3000)
+    }, 1500)
   },
 
   actions: {

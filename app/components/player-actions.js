@@ -167,7 +167,7 @@ export default Component.extend({
     if (targetLocale === 'map') {
       return this.toggleProperty('state.travelMapOpened');
     }
-    const scenes = ['exit', 'crime', 'car', 'station', 'interrogation-room'];
+    const scenes = ['exit', 'crime', 'car', 'station', 'interrogation-room', 'analysis-room'];
     let sceneName = null;
     scenes.forEach((area) => {
       if (area === targetLocale) {

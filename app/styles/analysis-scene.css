@@ -1,0 +1,11 @@
+.analysis-scene {
+  width: 100%;
+}
+
+.exit-analysis {
+  width: 72px;
+  height: 295px;
+  top: -20rem;
+  left: 74rem;
+  position: relative;
+}
