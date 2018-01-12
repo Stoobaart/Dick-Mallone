@@ -20,10 +20,23 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    $('.startScreen').fadeIn(2000);
-    if(localStorage.hasSave) {
-      set(this, 'showContinue', true);
-    }
+    $("#themeMusic")[0].volume = 0;
+    $("#themeMusic")[0].play();
+    $("#themeMusic").animate({volume: 1}, 3500);
+
+    $('.devStudioLogoScreen').fadeIn(4000);
+    later(() => {
+      $('.devStudioLogoScreen').fadeOut(3000);
+      later(() => {
+        $('.startScreen').fadeIn(2000);
+        if(localStorage.hasSave) {
+          set(this, 'showContinue', true);
+        }
+        later(() => {
+          $('.mainBtn').fadeIn(2000);
+        }, 2000)
+      }, 4000);
+    }, 4000);
   },
 
   actions: {

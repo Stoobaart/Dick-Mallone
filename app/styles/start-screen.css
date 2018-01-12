@@ -14,6 +14,16 @@ body {
   line-height: 90%;
 }
 
+.devStudioLogoScreen {
+  display: none;
+}
+
+.devStudioLogo {
+  color: white;
+  font-size: 3rem;
+  margin-top: 18rem;
+}
+
 .startScreen {
   margin: auto;
   display: none;
@@ -25,16 +35,18 @@ body {
   font-size: 7rem;
   line-height: 100%;
 }
+
 .startGameBtn {
   width: 6rem;
   padding: 1rem;
   margin-left: 26.3rem;
 }
 .mainBtn {
+  display: none;
   cursor: pointer;
   width: 12rem;
   padding: 1rem;
-  margin-left: 3rem;
+  margin: 0 1.5rem;
   background-color: black;
   color: white;
   border: 2px solid white;
