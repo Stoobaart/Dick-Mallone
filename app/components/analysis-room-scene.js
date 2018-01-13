@@ -1,7 +1,8 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
-const { 
+const {
+  $,
   set 
 } = Ember;
 

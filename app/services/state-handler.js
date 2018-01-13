@@ -37,23 +37,48 @@ export default Service.extend({
 		}
 	],
 
-  itemsThatReplaceOthers: [
+  worldItems: [
+    {
+      "name": "cup",
+      "url": "images/cup.png",
+      "id": "cup",
+      "use": "urine",
+      "replaces": ""
+    },
     {
       "name": "cupFull",
       "url": "images/cupFull.png",
-      "id": "full cup",
+      "id": "cupFull",
       "use": ["crackHead", "jenkins"],
       "replaces": "cup"
+    },
+    {
+      "name": "shards",
+      "url": "images/shards.png",
+      "id": "shards",
+      "use": "",
+      "replaces": ""
+    },
+    {
+      "name": "paper",
+      "url": "images/paper.png",
+      "id": "paper",
+      "use": "crackhead",
+      "replaces": ""
     }
   ],
 
-	add(item) {
-		const collected = "pickedup" + item.name;
+	add(targetId) {
+		const collected = "pickedup" + targetId;
 		if (!(get(this, collected))) {
-			get(this, 'inventory').pushObject(item);
-			set(this, collected, true);
+      const worldItems = get(this, 'worldItems');
+      worldItems.forEach((item) => {
+        if (item.id === targetId) {
+          get(this, 'inventory').pushObject(item);
+          set(this, collected, true);
+        }
+      });
 		}
-		
   },
 
   remove(targetId) {
@@ -68,10 +93,10 @@ export default Service.extend({
   },
 
   replace(itemUsedId) {
-    const itemsThatReplaceOthers = get(this, 'itemsThatReplaceOthers');
-    itemsThatReplaceOthers.forEach((itemThatReplacesAnother) => {
+    const worldItems = get(this, 'worldItems');
+    worldItems.forEach((itemThatReplacesAnother) => {
       if (itemThatReplacesAnother.replaces === itemUsedId) {
-        this.add(itemThatReplacesAnother);
+        this.add(itemThatReplacesAnother.id);
       }
     });
   },

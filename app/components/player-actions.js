@@ -85,10 +85,9 @@ export default Component.extend({
       this.lookAt(e.target.id, scene, 'Pick');
       const pickupable = e.target.getAttribute('pickupable');
       if (pickupable === "true") {
-        const itemName = e.target.getAttribute('data-name').replace(/\s/g, '');
-        const use = e.target.getAttribute('use');
-        const url = '/images/' + e.target.id + '.png';
-        this.pickUpObject(itemName, use, url);
+        get(this, 'state').add(e.target.getAttribute('data-name'));
+        set(this, 'verb', 'Walk to');
+        this.clearHelper();
       }
     } else if (verb === 'Talk to') {
       const thingType = e.target.getAttribute('data-type');
@@ -128,20 +127,6 @@ export default Component.extend({
       $(".inventory").slideUp(300);
     }
     get(this, 'state').remove(targetId);
-    set(this, 'verb', 'Walk to');
-    this.clearHelper();
-  },
-
-  pickUpObject(targetId, use, url) {
-    const item = Ember.Object.create(
-      {
-        "name": targetId, 
-        "url": url,
-        "id": targetId,
-        "use": use,
-      }
-    );
-    get(this, 'state').add(item);
     set(this, 'verb', 'Walk to');
     this.clearHelper();
   },
