@@ -87,7 +87,8 @@ export default Component.extend({
       if (pickupable === "true") {
         const itemName = e.target.getAttribute('data-name').replace(/\s/g, '');
         const use = e.target.getAttribute('use');
-        this.pickUpObject(itemName, use);
+        const url = '/images/' + e.target.id + '.png';
+        this.pickUpObject(itemName, use, url);
       }
     } else if (verb === 'Talk to') {
       const thingType = e.target.getAttribute('data-type');
@@ -131,14 +132,12 @@ export default Component.extend({
     this.clearHelper();
   },
 
-  pickUpObject(targetId, use) {
-    const id = `${targetId}`;
-    const url = `/images/${targetId}.png`;
+  pickUpObject(targetId, use, url) {
     const item = Ember.Object.create(
       {
         "name": targetId, 
         "url": url,
-        "id": id,
+        "id": targetId,
         "use": use,
       }
     );
