@@ -9,3 +9,62 @@
   left: 74rem;
   position: relative;
 }
+
+#npcJenkins {
+  top: 13.2rem;
+  left: 22rem;
+  overflow: hidden;
+  width: 7.5rem;
+  height: 13rem;
+  position: absolute;
+  image-rendering: pixelated;
+}
+
+.jenkinsSprite {
+  width: 200rem;
+  height: 13rem;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: jenkins 7800ms steps(21) infinite;
+}
+@keyframes jenkins {
+  100% {
+    transform: translateX(-200rem);
+  }
+}
+
+.jenkins {
+  top: -35rem;
+  left: 22rem;
+  width: 6.5rem;
+  height: 11.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.biohazards {
+  top: -57rem;
+  left: 0rem;
+  width: 15.5rem;
+  height: 26.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.lab-cabinets {
+  top: -80rem;
+  left: 27.5rem;
+  width: 41.5rem;
+  height: 5.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.more-lab-cabinets {
+  top: -75rem;
+  left: 38.5rem;
+  width: 29.5rem;
+  height: 4.5rem;
+  position: relative;
+  z-index: 1;
+}

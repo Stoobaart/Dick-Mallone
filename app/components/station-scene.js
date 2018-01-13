@@ -26,7 +26,7 @@ export default Component.extend({
     } else if (get(this, 'state.previousScene') === 'interrogation-room') {
       $("#player").css({top: 371, left: 130.5}).html('<img class="playerSprite" src="sprites/dickRight.png">');
     } else if (get(this, 'state.previousScene') === 'analysis-room') {
-      $("#player").css({top: 371, left: 110.5}).html('<img class="playerSprite" src="sprites/dickRight.png">');
+      $("#player").css({top: 225, left: 260}).html('<img class="playerSprite" src="sprites/dick.png">');
     }
 
     $("#player").fadeIn(500);
@@ -34,13 +34,15 @@ export default Component.extend({
     $('#stationDoor')[0].play();
     $('#rainSoundFx')[0].pause();
     $('#interrogationRoomMusic')[0].pause();
+    $('#analysisRoomMusic')[0].pause();
 
-    if(get(this, 'state.paperUsed')) {
+    if(get(this, 'state.paperUsed') && !(get(this, 'state.analysisUnlocked'))) {
       this.analysisRoomUnlocked();
     }
   },
 
   analysisRoomUnlocked() {
+    set(this, 'state.analysisUnlocked', true);
     later(() => {
       $('.walkable-area, .thing, .footer-bar').hide();
       this.sendAction('npcSpeach', "Dick, Jenkins has finished the autopsy and would like to see you now");

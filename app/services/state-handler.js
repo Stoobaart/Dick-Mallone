@@ -18,6 +18,7 @@ export default Service.extend({
   pickedupcupFull: false,
   pickeduppaper: false,
   paperUsed: false,
+  analysisUnlocked: false,
   travelMapOpened: false,
 
   itemForUse: null,
@@ -86,6 +87,7 @@ export default Service.extend({
     localStorage.weeCollected = JSON.stringify(get(this, 'pickedupcupFull'));
     localStorage.paperCollected = JSON.stringify(get(this, 'pickeduppaper'));
     localStorage.paperUsed = JSON.stringify(get(this, 'paperUsed'));
+    localStorage.analysisUnlocked = JSON.stringify(get(this, 'analysisUnlocked'));
     // localStorage.jenkinsIntro = JSON.stringify(jenkinsIntro);
     // localStorage.interrogationDone = JSON.stringify(interrogationDone);
     alert("Progress saved");
@@ -110,6 +112,7 @@ export default Service.extend({
       'pickedupcupFull': JSON.parse(localStorage.weeCollected),
       'pickeduppaper': JSON.parse(localStorage.paperCollected),
       'paperUsed': JSON.parse(localStorage.paperUsed),
+      'analysisUnlocked': JSON.parse(localStorage.analysisUnlocked),
     })
     // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);
     // exit = JSON.parse(localStorage.exit);

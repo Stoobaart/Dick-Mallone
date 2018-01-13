@@ -133,7 +133,7 @@ export default Component.extend({
 
   pickUpObject(targetId, use) {
     const id = `${targetId}`;
-    const url = `images/${targetId}.png`;
+    const url = `/images/${targetId}.png`;
     const item = Ember.Object.create(
       {
         "name": targetId, 
