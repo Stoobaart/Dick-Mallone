@@ -32,6 +32,7 @@ export default Component.extend({
     $('#interrogationRoomMusic')[0].play();
     $('#stationDoor')[0].play();
     $('#policeStationSceneMusic')[0].pause();
+    $('#analysisRoomMusic')[0].pause();
   },
 
   crackheadGivenPaper() {
