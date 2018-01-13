@@ -15,7 +15,7 @@ export default Service.extend({
   previousScene: 'crime',
 	pickedupshards: false,
 	pickedupcup: false,
-  pickedupcupFull: false,
+  pickedupfullcup: false,
   pickeduppaper: false,
   paperUsed: false,
   analysisUnlocked: false,
@@ -46,9 +46,9 @@ export default Service.extend({
       "replaces": ""
     },
     {
-      "name": "cupFull",
+      "name": "full-cup",
       "url": "images/cupFull.png",
-      "id": "cupFull",
+      "id": "full-cup",
       "use": ["crackHead", "jenkins"],
       "replaces": "cup"
     },
@@ -69,7 +69,8 @@ export default Service.extend({
   ],
 
 	add(targetId) {
-		const collected = "pickedup" + targetId;
+    const itemString = targetId.replace(/-/g, '');
+		const collected = "pickedup" + itemString;
 		if (!(get(this, collected))) {
       const worldItems = get(this, 'worldItems');
       worldItems.forEach((item) => {
@@ -109,7 +110,7 @@ export default Service.extend({
     localStorage.previousScene = get(this, 'previousScene');
     localStorage.cupPickedUp = JSON.stringify(get(this, 'pickedupcup'));
     localStorage.shardCollected = JSON.stringify(get(this, 'pickedupshards'));
-    localStorage.weeCollected = JSON.stringify(get(this, 'pickedupcupFull'));
+    localStorage.weeCollected = JSON.stringify(get(this, 'pickedupfullcup'));
     localStorage.paperCollected = JSON.stringify(get(this, 'pickeduppaper'));
     localStorage.paperUsed = JSON.stringify(get(this, 'paperUsed'));
     localStorage.analysisUnlocked = JSON.stringify(get(this, 'analysisUnlocked'));
@@ -134,7 +135,7 @@ export default Service.extend({
       'previousScene': localStorage.previousScene,
       'pickedupcup': JSON.parse(localStorage.cupPickedUp),
       'pickedupshards': JSON.parse(localStorage.shardCollected),
-      'pickedupcupFull': JSON.parse(localStorage.weeCollected),
+      'pickedupfullcup': JSON.parse(localStorage.weeCollected),
       'pickeduppaper': JSON.parse(localStorage.paperCollected),
       'paperUsed': JSON.parse(localStorage.paperUsed),
       'analysisUnlocked': JSON.parse(localStorage.analysisUnlocked),

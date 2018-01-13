@@ -5,7 +5,7 @@
 .exit-analysis {
   width: 72px;
   height: 295px;
-  top: -20rem;
+  top: -30rem;
   left: 74rem;
   position: relative;
 }
@@ -34,7 +34,7 @@
 }
 
 .jenkins {
-  top: -35rem;
+  top: -45rem;
   left: 22rem;
   width: 6.5rem;
   height: 11.5rem;
@@ -43,7 +43,7 @@
 }
 
 .biohazards {
-  top: -57rem;
+  top: -67rem;
   left: 0rem;
   width: 15.5rem;
   height: 26.5rem;
@@ -52,7 +52,7 @@
 }
 
 .lab-cabinets {
-  top: -80rem;
+  top: -90rem;
   left: 27.5rem;
   width: 41.5rem;
   height: 5.5rem;
@@ -61,10 +61,79 @@
 }
 
 .more-lab-cabinets {
-  top: -75rem;
+  top: -85rem;
   left: 38.5rem;
   width: 29.5rem;
   height: 4.5rem;
   position: relative;
   z-index: 1;
+}
+
+.gurney {
+  position: relative;
+  width: 10rem;
+  height: 7rem;
+  top: -86rem;
+  left: 25rem;
+  z-index: 1;
+}
+
+#gurneySprite {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  top: -13rem;
+  left: 25rem;
+  z-index: 1;
+  overflow: hidden;
+}
+img.gurneySprite {
+  height: 10rem;
+  image-rendering: pixelated;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: none;
+}
+img.gurneySprite2 {
+  height: 10rem;
+  image-rendering: pixelated;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: none;
+}
+img.gurneySprite3 {
+  height: 10rem;
+  image-rendering: pixelated;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: gurneyThree 600ms steps(8) infinite;
+}
+img.gurneySprite4 {
+  height: 10rem;
+  image-rendering: pixelated;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: none;
+  z-index: 3;
+}
+
+@keyframes gurney {
+  100% {
+    transform: translateX(-300rem);
+  }
+}
+@keyframes gurneyTwo {
+  100% {
+    transform: translateX(-50rem);
+  }
+}
+@keyframes gurneyThree {
+  100% {
+    transform: translateX(-80rem);
+  }
+}
+@keyframes gurneyFour {
+  100% {
+    transform: translateX(-150rem);
+  }
 }

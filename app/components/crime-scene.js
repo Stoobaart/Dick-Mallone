@@ -14,15 +14,15 @@ export default Component.extend({
 
   state: service('state-handler'),
 
-  crimeSceneCompleted: observer('state.pickedupshards', 'state.pickedupcupFull', function() {
-    if (get(this, 'state.pickedupshards') === true && get(this, 'state.pickedupcupFull') === true) {
+  crimeSceneCompleted: observer('state.pickedupshards', 'state.pickedupfullcup', function() {
+    if (get(this, 'state.pickedupshards') === true && get(this, 'state.pickedupfullcup') === true) {
       this.stationSceneUnlocked();
     }
   }),
 
   init() {
     this._super(...arguments);
-    this.getProperties('state.pickedupshards', 'state.pickedupcupFull');
+    this.getProperties('state.pickedupshards', 'state.pickedupfullcup');
   },
 
   didInsertElement() {

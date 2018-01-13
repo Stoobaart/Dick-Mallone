@@ -32,7 +32,8 @@ export default Component.extend({
 
   actions: {
     travel(e) {
-      if (e.target.id === 'station' && !get(this, 'state.pickedupshards') || e.target.id === 'station' && !get(this, 'state.pickedupcupFull')) {
+      debugger;
+      if (e.target.id === 'station' && !get(this, 'state.pickedupshards') || e.target.id === 'station' && !get(this, 'state.pickedupfullcup')) {
         $('.walkable-area, .thing, .footer-bar').hide();
         this.sendAction('playerSpeach', "I should investigate the scene a little more");
         return later(() => {

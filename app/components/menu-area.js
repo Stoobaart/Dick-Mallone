@@ -43,7 +43,8 @@ export default Component.extend({
         desire = `itemsInInventory.${squashedTargetId}.${usedOn}`;
         line = get(this, 'scripts').get(desire);
       } else {
-        const useVerb = `Use ${e.target.id} on`;
+        const itemString = e.target.id.replace(/-/g, ' ');
+        const useVerb = `Use ${itemString} on`;
         set(this, 'verb', useVerb);
         set(this, 'state.itemForUse', itemForUse);
         return;

@@ -40,7 +40,7 @@ export default Component.extend({
         Look: "It's empty...",
         Usegunon: "I shouldn't make any holes"
       },
-      'fullcup': {
+      'full-cup': {
         Look: "It's full",
         Usegunon: "I shouldn't make any holes"
       }
@@ -198,39 +198,80 @@ export default Component.extend({
       'murder': ["I was hiding out in that old warehouse, when I heard a scream, so I climbed up to look out a window", "Please, do go on", "It... shook that guy like a ragdoll", "what do you mean.... it?", "It said that there was no hiding anymore, that they saw and heard everything", "Can you describe it to me?", "It was dark, I was high, I dunno man, I just need to get out of here"],
       'blah': ["", ""],
       'bye': ["Don't leave me here man!", "Relax. You're safe here"]
+    },
+    'analysis-room': {
+      'jenkins': {
+        Talk: "Hey Jenkins, what have you got for me?",
+        Look: "Jenkin's here does all our analysis. We'd be lost without him",
+        Pick: "He doesn't like it when I pick him up",
+        Usebadgeon: "I don't need to know how much semen is on this",
+        Usegunon: "Let's hope it doesn't come to this",
+        Usecupon: "I normally have to fill these up before giving them to Jenkins",
+        Usefullcupon: "I found this at the scene",
+        Useshardson: "He doesn't want this",
+        Usepaperon: "He doesn't want this"
+      },
+      'gurney': {
+        Look: "Dead as a door nail",
+        Talk: "Not only does he not have a head or a mouth to talk out of, but he's also dead",
+        Pick: "I don't need to carry any dead weight",
+        Usebadgeon: "That doesn't make any sense",
+        Usegunon: "He's already dead",
+        Usecupon: "That doesn't make any sense",
+        Usefullcupon: "That doesn't make any sense",
+        Useshardson: "That doesn't make any sense",
+        Usepaperon: "That doesn't make any sense"
+      },
+      'lab-cabinets': {
+        Look: "Scientific stuff, if I knew what any of tis was for, we wouldn't need Jenkins",
+        Pick: "it's fixed to the wall, nor do I need any of the contents",
+        Usebadgeon: "Always keep your badge on you at all times",
+        Usegunon: "That doesn't make any sense",
+        Usecupon: "I'll keep this on me for now",
+        Usefullcupon: "I'll keep this on me for now",
+        Useshardson: "That doesn't make any sense",
+        Usepaperon: "That doesn't make any sense"
+      },
+      'lab-cupboards': {
+        Look: "Chemicals, test tubes, beakers, etc..",
+        Pick: "it's fixed to the wall, nor do I need any of the contents",
+        Usebadgeon: "Always keep your badge on you at all times",
+        Usegunon: "That doesn't make any sense",
+        Usecupon: "I'll keep this on me for now",
+        Usefullcupon: "I'll keep this on me for now",
+        Useshardson: "That doesn't make any sense",
+        Usepaperon: "That doesn't make any sense"
+      }
     }
   }),
 
   convo(target) {
     const targetConvo = target + "Convo";
+    $(".walkable-area, .footer-bar").hide();
     this.sendAction(targetConvo, this);
+    later(() => {
+      $(".options").toggle();
+    }, 5000);
   },
 
   rodriguezConvo(context) {
     const _this = context;
-    $(".footer-bar").hide();
     _this.sendAction('npcSpeach', "It's not great, Dick. Somebody got messed up here real good....or bad.. I'm so confused right now..");
-    later(() => {
-      $(".options").toggle();
-    }, 5500);
   },
 
   JenConvo(context) {
     const _this = context;
-    $(".walkable-area, .footer-bar").hide();
     _this.sendAction('npcSpeach', "Hey Dick. Pretty quiet today. Apart from that crack head that was brought in. What's up?");
-    later(() => {
-      $(".options").toggle();
-    }, 5000);
   },
 
   crackheadConvo(context) {
     const _this = context;
-    $(".walkable-area, .footer-bar").hide();
     _this.sendAction('npcSpeach', "When can i get out of here? They're coming for me man! c'mon!!");
-    later(() => {
-      $(".options").toggle();
-    }, 5000);
+  },
+
+  jenkinsConvo(context) {
+    const _this = context;
+    _this.sendAction('npcSpeach', "Hello Dick, I have some rather bizarre findings for you");
   },
 
   convoOption(e) {
