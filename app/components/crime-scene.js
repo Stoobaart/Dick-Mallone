@@ -1,13 +1,13 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
-const { 
+const {
   get,
   inject: {service},
   observer,
   run: {later},
-  set, 
-  $ 
+  set,
+  $
 } = Ember;
 
 export default Component.extend({
@@ -41,11 +41,7 @@ export default Component.extend({
 
   stationSceneUnlocked() {
     later(() => {
-      $('.walkable-area, .thing, .footer-bar').hide();
       this.sendAction('npcSpeach', "Dick I just had a call from Jen at the station, she says that crackhead is ready to talk now");
-      later(() => {
-        $('.walkable-area, .thing, .footer-bar').show();
-      }, 3000)
     }, 3000)
   }
 

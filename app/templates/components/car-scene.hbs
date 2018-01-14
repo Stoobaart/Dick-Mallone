@@ -17,7 +17,7 @@
 	 	{{/unless}}
 
     <div id="map" class="thing" data-name="Satnav" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
-    
+
     {{#unless cupPickedUp}}
     	<div id="cup" class="thing" data-name="cup" pickupable="true" use="urine" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     {{/unless}}
@@ -25,7 +25,7 @@
     <div id="exit" class="exit-car thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}>Get Out</div>
 
     {{#if travelMapOpened}}
-      <div class="travelMap">
+      <div class="travelMap" onclick={{action "closeMap"}}>
         <img class="travelMapImg" src="/images/travelMapImg.png">
 
         <div class="stationBadgeIcon" onclick={{action "travel"}}>
@@ -33,9 +33,9 @@
         </div>
 
         <div class="crimeSceneIcon" onclick={{action "travel"}}>
-          <img id="crime" class="crimeSceneIconImg" src="/images/crimeSceneIcon.png">     
+          <img id="crime" class="crimeSceneIconImg" src="/images/crimeSceneIcon.png">
         </div>
-        
+
       </div>
     {{/if}}
 	</section>

@@ -21,7 +21,7 @@ export default Component.extend({
 
   scripts: EmberObject.create({
     itemsInInventory: {
-      'badge': { 
+      'badge': {
         Look: "This is my badge",
         Usefullcupon: "I don't want to get this wet",
         Usecupon: "What are you doing?"
@@ -291,7 +291,7 @@ export default Component.extend({
         newWaitToSpeak *= 1.5;
       }
       set(this, 'waitToSpeak', newWaitToSpeak);
-      
+
       const numberOfLinesSpoken = get(this, 'numberOfLinesSpoken') +1;
 
       if (get(this, 'numberOfLinesSpoken') === 0) {
@@ -322,9 +322,7 @@ export default Component.extend({
 
       if (conversation.length === get(this, 'numberOfLinesSpoken')) {
         if(targetId === 'bye') {
-          later(() => {
-            $('.walkable-area, .thing, .footer-bar').toggle();
-          }, newWaitToSpeak * 45);
+          return;
         } else {
           later(() => {
             $(".options").toggle();

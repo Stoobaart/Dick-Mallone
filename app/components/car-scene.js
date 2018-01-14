@@ -32,24 +32,19 @@ export default Component.extend({
 
   actions: {
     travel(e) {
-      debugger;
       if (e.target.id === 'station' && !get(this, 'state.pickedupshards') || e.target.id === 'station' && !get(this, 'state.pickedupfullcup')) {
-        $('.walkable-area, .thing, .footer-bar').hide();
-        this.sendAction('playerSpeach', "I should investigate the scene a little more");
-        return later(() => {
-          $('.walkable-area, .thing, .footer-bar').show();
-        }, 2500);
+        return this.sendAction('playerSpeach', "I should investigate the scene a little more");
       }
       if (e.target.id === get(this, 'state.previousScene')) {
-        $('.walkable-area, .thing, .footer-bar').hide();
         this.sendAction('playerSpeach', "I'm already here");
-        return later(() => {
-          $('.walkable-area, .thing, .footer-bar').show();
-        }, 1000);
       } else {
         this.toggleProperty('state.travelMapOpened');
-        this.sendAction('changeScene', e.target.id, get(this, 'scene'));      
+        this.sendAction('changeScene', e.target.id, get(this, 'scene'));
       }
+    },
+
+    closeMap() {
+      this.toggleProperty('state.travelMapOpened');
     }
   }
 

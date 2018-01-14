@@ -1,13 +1,13 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
-const { 
-  $, 
+const {
+  $,
   computed: {alias},
-  get, 
-  inject: {service}, 
-  run: {later}, 
-  set 
+  get,
+  inject: {service},
+  run: {later},
+  set
 } = Ember;
 
 export default Component.extend({
@@ -20,7 +20,7 @@ export default Component.extend({
     this._super(...arguments);
     $('#player').stop();
     set(this, 'scene', 'station');
-    
+
     if (get(this, 'state.previousScene') === 'car') {
       $("#player").css({top: 441, left: 1180.5}).html('<img class="playerSprite" src="sprites/dickLeft.png">');
     } else if (get(this, 'state.previousScene') === 'interrogation-room') {
@@ -44,11 +44,7 @@ export default Component.extend({
   analysisRoomUnlocked() {
     set(this, 'state.analysisUnlocked', true);
     later(() => {
-      $('.walkable-area, .thing, .footer-bar').hide();
       this.sendAction('npcSpeach', "Dick, Jenkins has finished the autopsy and would like to see you now");
-      later(() => {
-        $('.walkable-area, .thing, .footer-bar').show();
-      }, 3000)
     }, 1500)
   },
 

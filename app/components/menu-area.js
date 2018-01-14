@@ -6,7 +6,7 @@ const {
   get,
   run: {
     later,
-  }, 
+  },
   set
 } = Ember;
 
@@ -51,11 +51,7 @@ export default Component.extend({
       }
 
       if (line) {
-        $('.walkable-area, .thing, .footer-bar').hide();
         this.sendAction('playerSpeach', line);
-        later(() => {
-          $('.walkable-area, .thing, .footer-bar').toggle();
-        }, line.length * 50);
       }
     },
 

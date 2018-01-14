@@ -43,7 +43,7 @@
 .exit-car {
   width: 210px;
   display: none;
-	top: -93rem;
+	top: -111rem;
   left: 0rem;
   position: relative;
   font-size: 1.5rem;
@@ -53,7 +53,7 @@
 #map {
   width: 9rem;
   height: 6rem;
-  top: -88rem;
+  top: -98rem;
   left: 51rem;
   position: relative;
   z-index: 1;
@@ -82,12 +82,13 @@
 }
 
 .travelMap {
-  top: -1rem;
-  left: 13rem;
-  width: 38rem;
+  top: -124rem;
+  left: 0rem;
+  width: 100%;
+  height: 110%;
   image-rendering: pixelated;
   border-radius: 5px;
-  position: absolute;
+  position: relative;
   z-index: 3;
 }
 
@@ -96,12 +97,12 @@
 }
 
 .stationBadgeIcon {
-  top: 9rem;
-  left: 6rem;
+  top: -30rem;
+  left: 25rem;
   width: 4rem;
   image-rendering: pixelated;
   border-radius: 5px;
-  position: absolute;
+  position: relative;
   z-index: 3;
 }
 
@@ -110,12 +111,12 @@
 }
 
 .crimeSceneIcon {
-  top: 20rem;
-  left: 9rem;
+  top: -27rem;
+  left: 49rem;
   width: 4rem;
   image-rendering: pixelated;
   border-radius: 5px;
-  position: absolute;
+  position: relative;
   z-index: 3;
 }
 
@@ -124,8 +125,8 @@
 }
 
 #cup {
-  position: absolute;
-  top: 10.5rem;
+  position: relative;
+  top: -105.5rem;
   left: 63rem;
   z-index: 1;
   width: 7rem;
@@ -141,8 +142,8 @@ img#cup {
 }
 
 .cup {
-  position: absolute;
-  top: 9.5rem;
+  position: relative;
+  top: -90.5rem;
   left: 61rem;
   z-index: 1;
   width: 8rem;

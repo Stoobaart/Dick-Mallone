@@ -1,13 +1,13 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
-const { 
-  $, 
+const {
+  $,
   get,
   inject: {service},
   observer,
-  run: {later}, 
-  set 
+  run: {later},
+  set
 } = Ember;
 
 export default Component.extend({
@@ -37,11 +37,7 @@ export default Component.extend({
 
   crackheadGivenPaper() {
     later(() => {
-      $('.walkable-area, .thing, .footer-bar').hide();
       this.sendAction('npcSpeach', "Okay, I'll try my best chief, come back in a little while");
-      later(() => {
-        $('.walkable-area, .thing, .footer-bar').show();
-      }, 3000)
     }, 2500)
   }
 

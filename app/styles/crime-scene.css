@@ -96,8 +96,8 @@ img#shards {
 .rain-container {
   margin: auto;
   display: none;
-  top: 0rem;
-  position: absolute;
+  top: -99.9rem;
+  position: relative;
   width: 1250px;
   height: 482px;
   overflow: hidden;
