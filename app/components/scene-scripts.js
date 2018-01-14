@@ -97,6 +97,7 @@ export default Component.extend({
         Usecupon: "Even if I did need this, this cup wouldn't protect me from pricks"
       },
       'rodriguez': {
+        convostarter: "It's not great, Dick. Somebody got messed up here real good....or bad.. I'm so confused right now..",
         Look: "Officer Rodriguez. He looks pretty shaken up. Didn't even know he smokes..",
         Talk: "Officer Rodriguez. What's the deal here?",
         Pick: "It's not his birthday",
@@ -129,6 +130,7 @@ export default Component.extend({
     },
     station: {
       'Jen': {
+        convostarter: "Hey Dick. Pretty quiet today. Apart from that crack head that was brought in. What's up?",
         Look: "That's Jen, Don't let that sweet heart demeanor of hers trick you, she's made of sterner stuff",
         Talk: "Hey Jen, how you holdin' up?",
         Pick: "I sure aint no weinstein",
@@ -184,6 +186,7 @@ export default Component.extend({
     },
     'interrogation-room': {
       'crackhead': {
+        convostarter: "When can i get out of here? They're coming for me man! c'mon!!",
         Talk: "Alright buddy, time to spill it!",
         Look: "",
         Pick: "",
@@ -201,6 +204,7 @@ export default Component.extend({
     },
     'analysis-room': {
       'jenkins': {
+        convostarter: "Hello Dick, I have some rather bizarre findings for you",
         Talk: "Hey Jenkins, what have you got for me?",
         Look: "Jenkin's here does all our analysis. We'd be lost without him",
         Pick: "He doesn't like it when I pick him up",
@@ -255,31 +259,13 @@ export default Component.extend({
   }),
 
   convo(target) {
-    const targetConvo = target + "Convo";
-    this.sendAction(targetConvo, this);
+    const scene = get(this, 'scene');
+    const desire = `${scene}.${target}.convostarter`;
+    const line = get(this, 'scripts').get(desire);
+    this.sendAction('npcSpeach', line);
     later(() => {
       $(".options").toggle();
     }, 5000);
-  },
-
-  rodriguezConvo(context) {
-    const _this = context;
-    _this.sendAction('npcSpeach', "It's not great, Dick. Somebody got messed up here real good....or bad.. I'm so confused right now..");
-  },
-
-  JenConvo(context) {
-    const _this = context;
-    _this.sendAction('npcSpeach', "Hey Dick. Pretty quiet today. Apart from that crack head that was brought in. What's up?");
-  },
-
-  crackheadConvo(context) {
-    const _this = context;
-    _this.sendAction('npcSpeach', "When can i get out of here? They're coming for me man! c'mon!!");
-  },
-
-  jenkinsConvo(context) {
-    const _this = context;
-    _this.sendAction('npcSpeach', "Hello Dick, I have some rather bizarre findings for you");
   },
 
   convoOption(e) {
