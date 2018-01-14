@@ -1,12 +1,12 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
-const { 
+const {
   $,
   get,
   run: {
     later,
-  }, 
+  },
   set,
 } = Ember;
 
@@ -114,11 +114,7 @@ export default Component.extend({
     }
     const line = get(this, 'scripts').get(desire);
     if (line) {
-      $('.walkable-area, .thing, .footer-bar').hide();
       this.sendAction('playerSpeach', line);
-      later(() => {
-        $('.walkable-area, .thing, .footer-bar').show();
-      }, line.length * 50);
     }
   },
 
@@ -135,14 +131,11 @@ export default Component.extend({
     const desire = `${scene}.${targetId}.Talk`;
     const line = get(this, 'scripts').get(desire);
     if (line) {
-      $('.walkable-area, .thing, .footer-bar').hide();
       this.sendAction('playerSpeach', line);
       if(thingType === "person") {
         later(() => {
           this.sendAction('convo', targetId);
         }, 3000)
-      } else {
-        $('.walkable-area, .thing, .footer-bar').show();
       }
     }
   },

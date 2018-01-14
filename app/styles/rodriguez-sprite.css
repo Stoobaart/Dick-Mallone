@@ -1,10 +1,10 @@
 #npcRodriguez {
   display: none;
-  top: 11rem;
+  top: -61rem;
   left: 66rem;
   overflow: hidden;
   width: 6.5rem;
-  position: absolute;
+  position: relative;
 }
 .npcSprite {
   height: 220px;
@@ -21,10 +21,10 @@
 }
 
 #rodriguez {
-  position: absolute;
-  top: 11rem;
+  position: relative;
+  top: -74rem;
   left: 67rem;
   width: 6.5rem;
   height: 13rem;
-  z-index: 3;
+  z-index: 4;
 }
