@@ -97,6 +97,7 @@ export default Component.extend({
         Usecupon: "Even if I did need this, this cup wouldn't protect me from pricks"
       },
       'rodriguez': {
+        convostarter: "It's not great, Dick. Somebody got messed up here real good....or bad.. I'm so confused right now..",
         Look: "Officer Rodriguez. He looks pretty shaken up. Didn't even know he smokes..",
         Talk: "Officer Rodriguez. What's the deal here?",
         Pick: "It's not his birthday",
@@ -246,17 +247,14 @@ export default Component.extend({
   }),
 
   convo(target) {
-    const targetConvo = target + "Convo";
     $(".walkable-area, .footer-bar").hide();
-    this.sendAction(targetConvo, this);
+    const scene = get(this, 'scene');
+    const desire = `${scene}.${target}.convostarter`;
+    const line = get(this, 'scripts').get(desire);
+    this.sendAction('npcSpeach', line);
     later(() => {
       $(".options").toggle();
     }, 5000);
-  },
-
-  rodriguezConvo(context) {
-    const _this = context;
-    _this.sendAction('npcSpeach', "It's not great, Dick. Somebody got messed up here real good....or bad.. I'm so confused right now..");
   },
 
   JenConvo(context) {
