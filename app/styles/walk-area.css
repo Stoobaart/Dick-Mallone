@@ -16,7 +16,7 @@
   position: relative;
   width: 1200px;
   height: 277px;
-  top: -93rem;
+  top: -100rem;
   left: 2rem;
   -webkit-clip-path: polygon(5% 40%, 10% 0, 22% 0, 22% 52%, 86% 52%, 96% 52%, 97% 64%, 100% 100%, 85% 100%, 15% 100%, 0 100%, 0 81%);
   clip-path: polygon(5% 40%, 10% 0, 22% 0, 22% 52%, 86% 52%, 96% 52%, 97% 64%, 100% 100%, 85% 100%, 15% 100%, 0 100%, 0 81%);
@@ -27,11 +27,19 @@
   position: relative;
   width: 400px;
   height: 166px;
-  top: -40.5rem;
+  top: -70.5rem;
   left: 43rem;
   -webkit-clip-path: polygon(0% 0, 82% 0, 100% 100%, 0 100%);
   clip-path: polygon(0% 0, 82% 0, 100% 100%, 0 100%);
   z-index: 4;
 }
 
-  
+.walkable-area.analysis-scene {
+  position: relative;
+  width: 637px;
+  height: 121px;
+  top: -104.5rem;
+  left: 35rem;
+  z-index: 4;
+}
+

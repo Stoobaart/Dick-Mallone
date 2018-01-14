@@ -24,9 +24,9 @@ export default Component.extend({
     if (get(this, 'state.previousScene') === 'car') {
       $("#player").css({top: 441, left: 1180.5}).html('<img class="playerSprite" src="sprites/dickLeft.png">');
     } else if (get(this, 'state.previousScene') === 'interrogation-room') {
-      $("#player").css({top: 371, left: 130.5}).html('<img class="playerSprite" src="sprites/dickRight.png">');
+      $("#player").css({top: 371, left: 160.5}).html('<img class="playerSprite" src="sprites/dickRight.png">');
     } else if (get(this, 'state.previousScene') === 'analysis-room') {
-      $("#player").css({top: 225, left: 260}).html('<img class="playerSprite" src="sprites/dick.png">');
+      $("#player").css({top: 225, left: 360}).html('<img class="playerSprite" src="sprites/dick.png">');
     }
 
     $("#player").fadeIn(500);

@@ -11,18 +11,18 @@
 }
 
 #npcCrackhead {
-  top: 0rem;
+  top: -49rem;
   left: 28rem;
   overflow: hidden;
   width: 14rem;
   height: 30rem;
-  position: absolute;
+  position: relative;
   image-rendering: pixelated;
   z-index: 1;
 }
 
 #crackhead {
-  top: -33.2rem;
+  top: -63.2rem;
   left: 29rem;
   width: 7.5rem;
   height: 11rem;

@@ -43,7 +43,7 @@
 .exit-car {
   width: 210px;
   display: none;
-	top: -111rem;
+	top: -102rem;
   left: 0rem;
   position: relative;
   font-size: 1.5rem;
@@ -53,7 +53,7 @@
 #map {
   width: 9rem;
   height: 6rem;
-  top: -98rem;
+  top: -96rem;
   left: 51rem;
   position: relative;
   z-index: 1;
@@ -82,7 +82,7 @@
 }
 
 .travelMap {
-  top: -124rem;
+  top: -115rem;
   left: 0rem;
   width: 100%;
   height: 110%;
@@ -125,9 +125,9 @@
 }
 
 #cup {
-  position: relative;
-  top: -105.5rem;
-  left: 63rem;
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
   z-index: 1;
   width: 7rem;
   height: 8rem;
@@ -147,6 +147,7 @@ img#cup {
   left: 61rem;
   z-index: 1;
   width: 8rem;
+  height: 8rem;
 }
 
 .cupEmptyImg {

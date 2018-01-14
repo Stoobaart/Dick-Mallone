@@ -5,18 +5,18 @@
 .exit-analysis {
   width: 72px;
   height: 295px;
-  top: -30rem;
+  top: -43rem;
   left: 74rem;
   position: relative;
 }
 
 #npcJenkins {
-  top: 13.2rem;
+  top: -16.8rem;
   left: 22rem;
   overflow: hidden;
   width: 7.5rem;
   height: 13rem;
-  position: absolute;
+  position: relative;
   image-rendering: pixelated;
 }
 
@@ -34,16 +34,16 @@
 }
 
 .jenkins {
-  top: -45rem;
+  top: -58rem;
   left: 22rem;
   width: 6.5rem;
   height: 11.5rem;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .biohazards {
-  top: -67rem;
+  top: -80rem;
   left: 0rem;
   width: 15.5rem;
   height: 26.5rem;
@@ -52,7 +52,7 @@
 }
 
 .lab-cabinets {
-  top: -90rem;
+  top: -103rem;
   left: 27.5rem;
   width: 41.5rem;
   height: 5.5rem;
@@ -61,7 +61,7 @@
 }
 
 .more-lab-cabinets {
-  top: -85rem;
+  top: -98rem;
   left: 38.5rem;
   width: 29.5rem;
   height: 4.5rem;
@@ -73,18 +73,18 @@
   position: relative;
   width: 10rem;
   height: 7rem;
-  top: -86rem;
+  top: -100rem;
   left: 25rem;
-  z-index: 1;
+  z-index: 2;
 }
 
 #gurneySprite {
   position: relative;
   width: 10rem;
   height: 10rem;
-  top: -13rem;
+  top: -27rem;
   left: 25rem;
-  z-index: 1;
+  z-index: 2;
   overflow: hidden;
 }
 img.gurneySprite {

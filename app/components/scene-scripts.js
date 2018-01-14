@@ -241,13 +241,21 @@ export default Component.extend({
         Usefullcupon: "I'll keep this on me for now",
         Useshardson: "That doesn't make any sense",
         Usepaperon: "That doesn't make any sense"
+      },
+      'biohazards': {
+        Look: "I can't see much from here, but I don't want to get too close",
+        Usebadgeon: "That doesn't make any sense",
+        Usegunon: "Woah! That's a really bad idea, whatever is in there needs to stay in there",
+        Usecupon: "That doesn't make any sense",
+        Usefullcupon: "That's probably a great place to put this, but I should check with Jenkins first",
+        Useshardson: "I don't want to make any holes",
+        Usepaperon: "That doesn't make any sense"
       }
     }
   }),
 
   convo(target) {
     const targetConvo = target + "Convo";
-    // $(".walkable-area, .footer-bar").hide();
     this.sendAction(targetConvo, this);
     later(() => {
       $(".options").toggle();

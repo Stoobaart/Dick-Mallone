@@ -11,12 +11,12 @@
 }
 
 #npcJen {
-  top: 8.2rem;
+  top: -39rem;
   left: 44rem;
   overflow: hidden;
   width: 7.5rem;
   height: 6.5rem;
-  position: absolute;
+  position: relative;
   image-rendering: pixelated;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .jen {
-  top: -39rem;
+  top: -45rem;
   left: 45rem;
   width: 8.5rem;
   height: 6.5rem;
@@ -43,7 +43,7 @@
 }
 
 .wall-corner {
-  top: -530px;
+  top: -632px;
   left: 335px;
   width: 0.5rem;
   height: 0.5rem;
@@ -51,7 +51,7 @@
 }
 
 .water-cooler {
-  top: -48rem;
+  top: -54rem;
   left: 38.5rem;
   width: 5.5rem;
   height: 7.5rem;
@@ -60,7 +60,7 @@
 }
 
 .notice-board {
-  top: -54rem;
+  top: -61rem;
   left: 62.5rem;
   width: 10.5rem;
   height: 7.5rem;
@@ -69,7 +69,7 @@
 }
 
 .filing-cabinets {
-  top: -62rem;
+  top: -68rem;
   left: 25.5rem;
   width: 10.5rem;
   height: 6.5rem;
@@ -78,7 +78,7 @@
 }
 
 .interrogation-door {
-  top: -69rem;
+  top: -75rem;
   left: 0.5rem;
   width: 4.5rem;
   height: 17.5rem;
@@ -87,7 +87,7 @@
 }
 
 .analysis-door {
-  top: -93rem;
+  top: -100rem;
   left: 12.5rem;
   width: 7.5rem;
   height: 12.5rem;
