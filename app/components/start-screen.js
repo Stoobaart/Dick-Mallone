@@ -1,13 +1,13 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
-const { 
+const {
   $,
   get,
   run: {
     later,
   },
-  set, 
+  set,
 } = Ember;
 
 export default Component.extend({
@@ -29,7 +29,7 @@ export default Component.extend({
       $('.devStudioLogoScreen').fadeOut(3000);
       later(() => {
         $('.startScreen').fadeIn(2000);
-        if(localStorage.hasSave) {
+        if(localStorage.saveGame) {
           set(this, 'showContinue', true);
         }
         later(() => {
@@ -41,7 +41,7 @@ export default Component.extend({
 
   actions: {
     startGame() {
-      set(this, 'state.componentName', 'crime');
+      set(this, 'state.componentName', 'crime-scene');
       $('.startScreen').fadeOut(1500);
       $("#themeMusic").animate({volume: 0}, 1500);
       later(() => {

@@ -7,7 +7,6 @@ export default Component.extend({
 
   state: Ember.inject.service('state-handler'),
 
-  componentName: Ember.computed('state.componentName', function() {
-    return get(this, 'state.componentName') + '-scene';
-  })
+  componentName: Ember.computed.alias('state.componentName'),
+
 });

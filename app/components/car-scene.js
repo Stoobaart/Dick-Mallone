@@ -19,7 +19,8 @@ export default Component.extend({
     this._super(...arguments);
     get(this, 'cupPickedUp');
     set(this, 'state.previousScene', get(this, 'scene'));
-    set(this, 'scene', 'car');
+    set(this, 'scene', 'car-scene');
+    $('#player').hide();
     $("#carDoor")[0].play();
     $("#rainSoundFx")[0].play();
     $(".car-foreground, .map").fadeIn(750);
@@ -35,10 +36,9 @@ export default Component.extend({
       if (e.target.id === 'station' && !get(this, 'state.pickedupshards') || e.target.id === 'station' && !get(this, 'state.pickedupfullcup')) {
         return this.sendAction('playerSpeach', "I should investigate the scene a little more");
       }
-      if (e.target.id === get(this, 'state.previousScene')) {
+      if ((e.target.id + '-scene') === get(this, 'state.previousScene')) {
         this.sendAction('playerSpeach', "I'm already here");
       } else {
-        this.toggleProperty('state.travelMapOpened');
         this.sendAction('changeScene', e.target.id, get(this, 'scene'));
       }
     },

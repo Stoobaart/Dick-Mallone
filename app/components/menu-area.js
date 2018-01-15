@@ -61,16 +61,7 @@ export default Component.extend({
     },
 
     loadGame() {
-      const componentName = localStorage.scene + '-scene';
       get(this, 'state').loadGame();
-
-      later(() => {
-        set(this, 'componentName', componentName);
-        $('.game-container').fadeIn(500);
-        if(localStorage.scene !== 'car') {
-          $('#player').fadeIn(500);
-        }
-      }, 1000);
     }
 
   }

@@ -4,14 +4,16 @@ import Ember from 'ember';
 const {
 	get,
 	set,
+  run: {
+    later,
+  },
   $,
 } = Ember
 
 export default Service.extend({
 
-  hasSave: false,
   componentName: null,
-  scene: 'crime',
+  scene: 'crime-scene',
   previousScene: 'crime',
   pickedupshards: false,
 	pickedupsyringe: false,
@@ -113,7 +115,6 @@ export default Service.extend({
   saveGame(scene) {
     set(this, 'hasSave', true);
     const saveGame = {
-      'hasSave': get(this, 'hasSave'),
       'inventory': get(this, 'inventory'),
       'scene': scene,
       'previousScene': get(this, 'previousScene'),
@@ -133,16 +134,14 @@ export default Service.extend({
   },
 
   loadGame() {
+    $('.game-container').hide();
     set(this, 'componentName', null);
-    $('.game-container, #player').hide();
-    $('#crimeSceneMusic')[0].pause();
-    $('#policeStationSceneMusic')[0].pause();
-    $('#themeMusic')[0].pause();
-    $("#analysisRoomMusic")[0].pause();
+    // $('#crimeSceneMusic')[0].pause();
+    // $('#policeStationSceneMusic')[0].pause();
+    // $('#themeMusic')[0].pause();
+    // $("#analysisRoomMusic")[0].pause();
     const saveGame = JSON.parse(localStorage.saveGame);
     this.setProperties({
-      'componentName': saveGame.scene,
-      'hasSave': saveGame.hasSave,
       'inventory': saveGame.inventory,
       'scene': saveGame.scene,
       'previousScene': saveGame.previousScene,
@@ -157,6 +156,11 @@ export default Service.extend({
     // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);
     // exit = JSON.parse(localStorage.exit);
     // interrogationDone = JSON.parse(localStorage.interrogationDone);
+    set(this, 'componentName', get(this, 'scene'));
+    later(() => {
+      $('.game-container').show();
+    }, 1000)
+
   }
 
 });

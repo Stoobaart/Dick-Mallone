@@ -31,7 +31,7 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    set(this, 'scene', 'crime');
+    set(this, 'scene', 'crime-scene');
     const startX = ($("#car").position().left) + 137.5;
     const startY = ($("#car").position().top) + 657.1;
     $("#player").css({ top: startY, left: startX}).html('<img class="playerSprite" src="sprites/dick.png">');

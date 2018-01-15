@@ -149,7 +149,7 @@ export default Component.extend({
     scenes.forEach((area) => {
       if (area === targetLocale) {
         if (targetLocale === 'exit') {
-          sceneName = `${get(this, 'state.previousScene')}-scene`;
+          sceneName = get(this, 'state.previousScene');
         } else {
           sceneName = `${targetLocale}-scene`;
         }

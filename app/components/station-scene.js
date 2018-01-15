@@ -19,13 +19,13 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
     $('#player').stop();
-    set(this, 'scene', 'station');
+    set(this, 'scene', 'station-scene');
 
-    if (get(this, 'state.previousScene') === 'car') {
+    if (get(this, 'state.previousScene') === 'car-scene') {
       $("#player").css({top: 441, left: 1180.5}).html('<img class="playerSprite" src="sprites/dickLeft.png">');
-    } else if (get(this, 'state.previousScene') === 'interrogation-room') {
+    } else if (get(this, 'state.previousScene') === 'interrogation-room-scene') {
       $("#player").css({top: 371, left: 160.5}).html('<img class="playerSprite" src="sprites/dickRight.png">');
-    } else if (get(this, 'state.previousScene') === 'analysis-room') {
+    } else if (get(this, 'state.previousScene') === 'analysis-room-scene') {
       $("#player").css({top: 225, left: 360}).html('<img class="playerSprite" src="sprites/dick.png">');
     }
 

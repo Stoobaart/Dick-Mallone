@@ -14,7 +14,7 @@ const {
 
 export default Component.extend({
 
-  scene: "crime",
+  scene: "crime-scene",
   waitToSpeak: 0,
   numberOfLinesSpoken: 0,
   turn: 'npc',
@@ -45,7 +45,7 @@ export default Component.extend({
         Usegunon: "I shouldn't make any holes"
       }
     },
-    crime: {
+    'crime-scene': {
       'victim': {
         Look: "Looks like the last known whereabouts of our victim... a John Doe",
         Pick: "There's nothing to pick up",
@@ -112,7 +112,7 @@ export default Component.extend({
       witnesses: ["None apart from the crack head we caught. I'm not sure if he even knows his own name though. Think he said it was Mahflnme", "How can nobody have seen a man get his head removed?", "Beats me, Dick. You'll need your head screwed on for this case ...sorry ...sigh."],
       bye: ["See ya later bud", "Catch you back at the station"],
     },
-    car: {
+    'car-scene': {
       'map': {
         Talk: "It's not voice activated",
         Pick: "I'll only ever need it in the car",
@@ -128,7 +128,7 @@ export default Component.extend({
         Usegunon: "It's better without holes in it",
       }
     },
-    station: {
+    'station-scene': {
       'Jen': {
         convostarter: "Hey Dick. Pretty quiet today. Apart from that crack head that was brought in. What's up?",
         Look: "That's Jen, Don't let that sweet heart demeanor of hers trick you, she's made of sterner stuff",
@@ -184,7 +184,7 @@ export default Component.extend({
       aboutJenkins: ["Yeah, he said he's waiting for you in analysis", "Alright then, thanks Jen"],
       bye: ["Until next time Mallone", "Catch ya later, Jen"]
     },
-    'interrogation-room': {
+    'interrogation-room-scene': {
       'crackhead': {
         convostarter: "When can i get out of here? They're coming for me man! c'mon!!",
         Talk: "Alright buddy, time to spill it!",
@@ -202,7 +202,7 @@ export default Component.extend({
       'blah': ["", ""],
       'bye': ["Don't leave me here man!", "Relax. You're safe here"]
     },
-    'analysis-room': {
+    'analysis-room-scene': {
       'jenkins': {
         convostarter: "Hello Dick, I have some rather bizarre findings for you",
         Talk: "Hey Jenkins, what have you got for me?",

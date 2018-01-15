@@ -26,7 +26,7 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
     $('#player').stop();
-    set(this, 'scene', 'interrogation-room');
+    set(this, 'scene', 'interrogation-room-scene');
     $("#player").css({top: 441, left: 980.5}).html('<img class="playerSprite" src="sprites/dickLeft.png">');
     $("#player").fadeIn(500);
     $('#interrogationRoomMusic')[0].play();
