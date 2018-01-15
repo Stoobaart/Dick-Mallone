@@ -13,7 +13,8 @@ export default Service.extend({
   componentName: null,
   scene: 'crime',
   previousScene: 'crime',
-	pickedupshards: false,
+  pickedupshards: false,
+	pickedupsyringe: false,
 	pickedupcup: false,
   pickedupfullcup: false,
   pickeduppaper: false,
@@ -25,12 +26,12 @@ export default Service.extend({
 
 	inventory: [
 		{
-			"name": "badge", 
+			"name": "badge",
 			"url": "images/stationBadge.png",
 			"id": "badge"
 		},
 		{
-			"name": "gun", 
+			"name": "gun",
 			"url": "images/gun.png",
 			"id": "gun",
       "use": "enemy"
@@ -38,6 +39,13 @@ export default Service.extend({
 	],
 
   worldItems: [
+    {
+      "name": "syringe",
+      "url": "images/syringe.png",
+      "id": "syringe",
+      "use": "",
+      "replaces": ""
+    },
     {
       "name": "cup",
       "url": "images/cup.png",
@@ -104,47 +112,51 @@ export default Service.extend({
 
   saveGame(scene) {
     set(this, 'hasSave', true);
-    localStorage.hasSave = JSON.stringify(get(this, 'hasSave'));
-    localStorage.inventory = JSON.stringify(get(this, 'inventory'));
-    localStorage.scene = scene;
-    localStorage.previousScene = get(this, 'previousScene');
-    localStorage.cupPickedUp = JSON.stringify(get(this, 'pickedupcup'));
-    localStorage.shardCollected = JSON.stringify(get(this, 'pickedupshards'));
-    localStorage.weeCollected = JSON.stringify(get(this, 'pickedupfullcup'));
-    localStorage.paperCollected = JSON.stringify(get(this, 'pickeduppaper'));
-    localStorage.paperUsed = JSON.stringify(get(this, 'paperUsed'));
-    localStorage.analysisUnlocked = JSON.stringify(get(this, 'analysisUnlocked'));
+    const saveGame = {
+      'hasSave': get(this, 'hasSave'),
+      'inventory': get(this, 'inventory'),
+      'scene': scene,
+      'previousScene': get(this, 'previousScene'),
+      'cupPickedUp': get(this, 'pickedupcup'),
+      'shardCollected': get(this, 'pickedupshards'),
+      'syringeCollected': get(this, 'pickedupsyringe'),
+      'weeCollected': get(this, 'pickedupfullcup'),
+      'paperCollected': get(this, 'pickeduppaper'),
+      'paperUsed': get(this, 'paperUsed'),
+      'analysisUnlocked': get(this, 'analysisUnlocked')
+    }
+    localStorage.saveGame = JSON.stringify(saveGame);
+
     // localStorage.jenkinsIntro = JSON.stringify(jenkinsIntro);
     // localStorage.interrogationDone = JSON.stringify(interrogationDone);
     alert("Progress saved");
   },
 
   loadGame() {
-    $('.game-container, #player').hide();
     set(this, 'componentName', null);
-
+    $('.game-container, #player').hide();
     $('#crimeSceneMusic')[0].pause();
-    // $('#policeStationSceneMusic')[0].pause();
+    $('#policeStationSceneMusic')[0].pause();
     $('#themeMusic')[0].pause();
-    // $("#analysisRoomMusic")[0].pause();
-
+    $("#analysisRoomMusic")[0].pause();
+    const saveGame = JSON.parse(localStorage.saveGame);
     this.setProperties({
-      'hasSave': JSON.parse(localStorage.hasSave),
-      'inventory': JSON.parse(localStorage.inventory),
-      'scene': localStorage.scene,
-      'previousScene': localStorage.previousScene,
-      'pickedupcup': JSON.parse(localStorage.cupPickedUp),
-      'pickedupshards': JSON.parse(localStorage.shardCollected),
-      'pickedupfullcup': JSON.parse(localStorage.weeCollected),
-      'pickeduppaper': JSON.parse(localStorage.paperCollected),
-      'paperUsed': JSON.parse(localStorage.paperUsed),
-      'analysisUnlocked': JSON.parse(localStorage.analysisUnlocked),
+      'componentName': saveGame.scene,
+      'hasSave': saveGame.hasSave,
+      'inventory': saveGame.inventory,
+      'scene': saveGame.scene,
+      'previousScene': saveGame.previousScene,
+      'pickedupcup': saveGame.cupPickedUp,
+      'pickedupshards': saveGame.shardCollected,
+      'pickedupsyringe': saveGame.syringeCollected,
+      'pickedupfullcup': saveGame.weeCollected,
+      'pickeduppaper': saveGame.paperCollected,
+      'paperUsed': saveGame.paperUsed,
+      'analysisUnlocked': saveGame.analysisUnlocked,
     })
     // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);
     // exit = JSON.parse(localStorage.exit);
     // interrogationDone = JSON.parse(localStorage.interrogationDone);
-    
-    set(this, 'componentName', get(this, 'scene'));
   }
 
 });

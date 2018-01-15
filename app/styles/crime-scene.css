@@ -85,12 +85,24 @@ img#shards {
 }
 
 .syringe {
+  position: relative;
+  top: -39rem;
+  left: 59rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+#used-syringe {
   width: 4rem;
   height: 2rem;
   position: relative;
-  top: -643px;
-  left: 932px;
+  top: -2rem;
+  width: 2rem;
   z-index: 5;
+}
+
+#syringe {
+  height: 4.6rem;
 }
 
 .rain-container {

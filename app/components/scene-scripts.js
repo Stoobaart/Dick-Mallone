@@ -92,7 +92,7 @@ export default Component.extend({
       },
       'syringe': {
         Look: "Hmmm, Could this be related? Or maybe some crack head left it here? This place is pretty seedy...",
-        Pick: "I don't think this is pertinent to the crime",
+        Pick: "Lesser detectives would use protective gear for this. Not me.",
         Talk: "I can't talk to that",
         Usecupon: "Even if I did need this, this cup wouldn't protect me from pricks"
       },

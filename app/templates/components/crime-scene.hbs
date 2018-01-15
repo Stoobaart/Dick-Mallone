@@ -8,9 +8,14 @@
     <div id="broken-window" class="thing broken-window" data-name="Broken Window" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     <div id="hand-print" class="thing hand-print" data-name="Bloody hand print" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     <div id="urine" class="thing urine" data-name="Urine puddle" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
-    <div id="syringe" class="thing syringe" data-name="Syringe" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div class="syringe">
+      {{#unless syringePickedUp}}
+        <img class="syringeImg" src="/images/syringe.png">
+        <div id="used-syringe" class="thing" data-name="syringe" pickupable="true" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+      {{/unless}}
+    </div>
     <div class="walkable-area crimescene" {{action walk}}></div>
-    {{rodriguez-sprite 
+    {{rodriguez-sprite
       thingClicked=(action thingClicked)
       helper=(action helper)
       verb=verb
@@ -25,6 +30,6 @@
     <div class="rain-container">
       <img class="rain" src="/sprites/rain.png">
     </div>
-    
+
   </section>
 </section>

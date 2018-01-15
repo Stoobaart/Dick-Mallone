@@ -14,6 +14,10 @@ export default Component.extend({
 
   state: service('state-handler'),
 
+  syringePickedUp: Ember.computed('state.pickedupsyringe', function() {
+    return get(this, 'state.pickedupsyringe');
+  }),
+
   crimeSceneCompleted: observer('state.pickedupshards', 'state.pickedupfullcup', function() {
     if (get(this, 'state.pickedupshards') === true && get(this, 'state.pickedupfullcup') === true) {
       this.stationSceneUnlocked();
