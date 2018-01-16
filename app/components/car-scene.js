@@ -1,19 +1,29 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 
-const { get, run: {later}, set, $ } = Ember;
+const {
+  computed,
+  computed: {
+    alias
+  },
+  get,
+  inject: {
+    service
+  },
+  run: {later},
+  set,
+  $
+} = Ember;
 
 export default Component.extend({
 
-	state: Ember.inject.service('state-handler'),
+	state: service('state-handler'),
 
-	cupPickedUp: Ember.computed('state.pickedupcup', function() {
+	cupPickedUp: computed('state.pickedupcup', function() {
 		return get(this, 'state.pickedupcup');
 	}),
 
-  travelMapOpened: Ember.computed('state.travelMapOpened', function() {
-    return get(this, 'state.travelMapOpened');
-  }),
+  travelMapOpened: alias('state.travelMapOpened'),
 
 	didInsertElement() {
     this._super(...arguments);
@@ -29,6 +39,10 @@ export default Component.extend({
     later(() => {
       $(".car-foreground, .cup, .map").addClass('shake');
     }, 1500);
+  },
+
+  willDestroyElement() {
+    set(this, 'state.travelMapOpened', false);
   },
 
   actions: {

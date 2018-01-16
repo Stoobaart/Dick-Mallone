@@ -22,9 +22,8 @@
     <div id="exit" class="exit-car thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}>Get Out</div>
 
     {{#if travelMapOpened}}
-      <div class="travelMap" onclick={{action "closeMap"}}>
+      <div class="travelMap">
         <img class="travelMapImg" src="/images/travelMapImg.png">
-
         <div class="stationBadgeIcon" onclick={{action "travel"}}>
           <img id="station" class="stationBadgeImg" src="/images/stationBadge.png">
         </div>
@@ -32,7 +31,7 @@
         <div class="crimeSceneIcon" onclick={{action "travel"}}>
           <img id="crime" class="crimeSceneIconImg" src="/images/crimeSceneIcon.png">
         </div>
-
+        <div class="mapClose" onclick={{action "closeMap"}}>X</div>
       </div>
     {{/if}}
 	</section>
