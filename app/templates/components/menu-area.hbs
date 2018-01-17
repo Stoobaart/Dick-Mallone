@@ -22,9 +22,11 @@
   <div class="helper">{{helperText}}</div>
 </div>
 
-<section class="saveAndLoadBtns">
-  <button class="save action-choice-btn" onclick={{action "saveGame"}}>Save</button>
-  <button class="load action-choice-btn" onclick={{action "loadGame"}}>Load</button>
-</section>
+{{#unless isInCar}}
+  <section class="saveAndLoadBtns">
+    <button class="save action-choice-btn" onclick={{action "saveGame"}}>Save</button>
+    <button class="load action-choice-btn" onclick={{action "loadGame"}}>Load</button>
+  </section>
+{{/unless}}
 
 </div>

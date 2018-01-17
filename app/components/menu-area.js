@@ -14,6 +14,10 @@ export default Component.extend({
 
   state: Ember.inject.service('state-handler'),
 
+  isInCar: Ember.computed('scene', function() {
+    return get(this, 'scene') === 'car-scene' ? true : false;
+  }),
+
   actions: {
     changeVerb(e) {
       const verbChoice = e.target.dataset.verb;

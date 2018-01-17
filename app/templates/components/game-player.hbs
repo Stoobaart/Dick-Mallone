@@ -1,7 +1,7 @@
 {{#if gameStarted}}
   <div class="game-container">
     {{#player-speach as |playerSpeach npcSpeach speakClear npcSpeakClear|}}
-      {{#scene-scripts 
+      {{#scene-scripts
         playerSpeach=(action playerSpeach)
         npcSpeach=(action npcSpeach)
         speakClear=(action speakClear)
@@ -31,11 +31,10 @@
             verb=verb
           }}
           {{menu-area
-            componentName=componentName
-            scene=scene 
+            scene=scene
             verb=verb
             helperText=helperText
-            scripts=scripts 
+            scripts=scripts
             playerSpeach=(action playerSpeach)
             helper=(action helper)
             clearHelper=(action clearHelper)

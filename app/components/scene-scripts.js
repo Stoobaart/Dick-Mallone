@@ -188,8 +188,8 @@ export default Component.extend({
       'crackhead': {
         convostarter: "When can i get out of here? They're coming for me man! c'mon!!",
         Talk: "Alright buddy, time to spill it!",
-        Look: "",
-        Pick: "",
+        Look: "This guy must be able to give us some kind of i.d on the suspect",
+        Pick: "When I said shake him down, I didn't mean literally",
         Usebadgeon: "He know's what time it is",
         Usegunon: "Only if he holds out on me",
         Usecupon: "He doesn't want that",

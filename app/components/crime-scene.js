@@ -18,8 +18,8 @@ export default Component.extend({
     return get(this, 'state.pickedupsyringe');
   }),
 
-  crimeSceneCompleted: observer('state.pickedupshards', 'state.pickedupfullcup', function() {
-    if (get(this, 'state.pickedupshards') === true && get(this, 'state.pickedupfullcup') === true) {
+  crimeSceneCompleted: observer('state.pickedupshards', 'state.pickedupfullcup', 'state.pickedupsyringe', function() {
+    if (get(this, 'state.pickedupshards') && get(this, 'state.pickedupfullcup') && get(this, 'state.pickedupsyringe')) {
       this.stationSceneUnlocked();
     }
   }),
