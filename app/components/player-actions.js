@@ -159,8 +159,6 @@ export default Component.extend({
       set(this, 'scene', scene);
       set(this, 'state.previousScene', scene);
       set(this, 'componentName', sceneName);
-      $("#crimeSceneMusic")[0].pause();
-      $("#policeStationSceneMusic")[0].pause();
       $("#player").hide();
     });
   },

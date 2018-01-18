@@ -31,8 +31,10 @@ export default Component.extend({
     $("#player").fadeIn(500);
     $('#interrogationRoomMusic')[0].play();
     $('#stationDoor')[0].play();
-    $('#policeStationSceneMusic')[0].pause();
-    $('#analysisRoomMusic')[0].pause();
+  },
+
+  willDestroyElement() {
+    $('#interrogationRoomMusic')[0].pause();
   },
 
   crackheadGivenPaper() {

@@ -32,11 +32,11 @@ export default Component.extend({
     set(this, 'scene', 'car-scene');
     $('#player').hide();
     $("#carDoor")[0].play();
-    $("#rainSoundFx")[0].play();
     $(".car-foreground, .map").fadeIn(750);
     $(".rain-container, .car-background, .exit-car").fadeIn(2000);
 
     later(() => {
+      $("#rainSoundFx")[0].play();
       $(".car-foreground, .cup, .map").addClass('shake');
     }, 1500);
   },

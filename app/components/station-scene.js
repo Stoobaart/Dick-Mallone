@@ -30,15 +30,17 @@ export default Component.extend({
     }
 
     $("#player").fadeIn(500);
+    $("#rainSoundFx")[0].pause();
     $('#policeStationSceneMusic')[0].play();
     $('#stationDoor')[0].play();
-    $('#rainSoundFx')[0].pause();
-    $('#interrogationRoomMusic')[0].pause();
-    $('#analysisRoomMusic')[0].pause();
 
     if(get(this, 'state.paperUsed') && !(get(this, 'state.analysisUnlocked'))) {
       this.analysisRoomUnlocked();
     }
+  },
+
+  willDestroyElement() {
+    $('#policeStationSceneMusic')[0].pause();
   },
 
   analysisRoomUnlocked() {

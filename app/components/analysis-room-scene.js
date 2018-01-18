@@ -15,6 +15,9 @@ export default Component.extend({
     $("#player").fadeIn(500);
     $('#analysisRoomMusic')[0].play();
     $('#stationDoor')[0].play();
-    $('#policeStationSceneMusic')[0].pause();
+  },
+
+  willDestroyElement() {
+    $('#analysisRoomMusic')[0].pause();
   }
 });
