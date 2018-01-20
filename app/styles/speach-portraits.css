@@ -49,22 +49,21 @@
   width: 100%;
   height: 100%;
   display: none;
-  top: 0rem;
-  left: -1rem;
-  position: absolute;
+  top: 0;
   font-size: 0.8rem;
   color: white;
+  position: absolute;
   z-index: 6;
 }
 
 .npc-portrait {
-  margin-right: 3rem;
-  margin-top: 2rem;
   overflow: hidden;
   width: 12.1rem;
   image-rendering: pixelated;
   border-radius: 5px;
-  z-index: 3;
+
+  top: 2rem;
+  left: -2rem;
   float: right;
   position: relative;
 }
@@ -83,15 +82,16 @@
   line-height: 1.5rem;
   font-size: 1.1rem;
   min-width: 22rem;
-  max-width: 32rem;
-  margin-top: 3rem 0.5rem 0.5rem 0.5rem;
+  max-width: 36rem;
+  text-align: left;
   background-color: black;
   border: 0.4rem solid grey;
   border-radius: 0.5rem;
   padding: 0.6rem;
+  margin: 0.5rem 0;
+
   float: right;
-  z-index: 3;
-  top: 19rem;
-  left: 12rem;
+  top: 18rem;
+  left: 10rem;
   position: relative;
 }
