@@ -1,5 +1,6 @@
 .scene-screen {
   color: white;
+  height: 486px;
 }
 
 .scene-one {
@@ -8,8 +9,7 @@
 }
 
 .scene {
-  width: 1250px;
-  height: 485px;
+  width: auto;
   margin: auto;
 }
 
