@@ -10,6 +10,12 @@ const {
   set
 } = Ember;
 
+window.addEventListener("load", function() {
+  setTimeout(function() {
+    window.scrollTo(0, 1)
+  }, 0);
+});
+
 export default Component.extend({
 
   state: Ember.inject.service('state-handler'),
@@ -66,20 +72,6 @@ export default Component.extend({
 
     loadGame() {
       get(this, 'state').loadGame();
-    },
-
-    toggleFullScreen() {
-      const doc = window.document;
-      const docEl = doc.documentElement;
-
-      const requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestfullscreen;
-      const cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-
-      if(!doc.fullScreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-        requestFullScreen.call(docEl);
-      } else {
-        cancelFullScreen.call(doc);
-      }
     }
 
   }
