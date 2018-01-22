@@ -21,7 +21,7 @@
       <div id="analysis-room-closed" class="thing analysis-door" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     {{/if}}
 
-    <section class="walkable-area stationscene" onclick={{action 'stationWalk'}}></section>
+    <section class="walkable-area stationscene" {{action walk}}></section>
 
     {{jen-speach}}
     <section class="options station">

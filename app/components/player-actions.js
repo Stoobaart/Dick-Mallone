@@ -28,9 +28,9 @@ export default Component.extend({
     const npcPos = $(".npc").position().top;
     const dickPos = event.pageY - 200;
     if(dickPos <= npcPos){
-      $(".npc").addClass("in-front");
+      $(".npcRodriguez").addClass("in-front");
     } else {
-      $(".npc").removeClass("in-front");
+      $(".npcRodriguez").removeClass("in-front");
     }
 
     // store the current position of the player Sprite
@@ -79,7 +79,6 @@ export default Component.extend({
         if (e.pageX < walkableAreaLeftEdge) {
           eventPageX = walkableAreaLeftEdge + 50;
         }
-        
       } else {
         eventPageY = event.pageY;
         eventPageX = event.pageX;

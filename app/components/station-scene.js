@@ -47,18 +47,4 @@ export default Component.extend({
       this.sendAction('npcSpeach', "Dick, Jenkins has finished the autopsy and would like to see you now");
     }, 1500)
   },
-
-  actions: {
-    stationWalk(e) {
-      const wallY = $(".wall-corner").position().top;
-      const wallX = $(".wall-corner").position().left;
-      const dickPositionY = $("#player").position().top;
-      const dickPositionX = $("#player").position().left;
-      if ((dickPositionX > wallX) && (e.y < wallY) || (dickPositionY < wallY) && (e.x > wallX)) {
-        return;
-      } else {
-        this.sendAction('walk');
-      }
-    }
-  }
 });
