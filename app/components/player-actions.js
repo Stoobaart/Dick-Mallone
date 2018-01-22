@@ -18,7 +18,7 @@ export default Component.extend({
 
   helperText: null,
 
-  walk() {
+  walk(e) {
     set(this, 'verb', 'Walk to');
     if ($(".inventory").is(":visible")) {
       $(".inventory").slideUp(300);
@@ -60,10 +60,34 @@ export default Component.extend({
         $("#player").html('<img class="playerSprite" src="sprites/dickLeft.png">');
         $(".playerSprite").addClass("walkLeftAnim");
       }
+      // this check is for Dick's auto walk when interacting with something. makes him stop before the object. 
+      let eventPageY = null;
+      let eventPageX = null;
+      const walkableAreaLeftEdge = $('.walkable-area').position().left;
+      const walkableAreaTopEdge = $('.walkable-area').position().top;
+      if(e) {
+        if(e.pageY < walkableAreaTopEdge) {
+          eventPageY = walkableAreaTopEdge + 25;
+        } else {
+          eventPageY = e.pageY + 50;
+        }
+        if(e.pageX > playerPositionX) {
+          eventPageX = e.pageX - 50;
+        } else {
+          eventPageX = e.pageX + 50;
+        }
+        if (e.pageX < walkableAreaLeftEdge) {
+          eventPageX = walkableAreaLeftEdge + 50;
+        }
+        
+      } else {
+        eventPageY = event.pageY;
+        eventPageX = event.pageX;
+      }
       // run the animation (.stop is there to allow you to change direction before the end of each animation)
       $('#player').stop().animate({
-          top: event.pageY,
-          left: event.pageX
+          top: eventPageY,
+          left: eventPageX
        }, timeToWalk, function () {
         // when the sprite reaches the clicked location, stop the animation
         $(".playerSprite").removeClass("walkRightAnim walkLeftAnim walkUpAnim walkDownAnim");
@@ -99,6 +123,10 @@ export default Component.extend({
     } else if (verb === 'Walk to') {
       this.changeScene(e.target.id, scene);
     }
+    if(scene !== 'car-scene') {
+      this.walk(e);
+    }
+    
   },
 
   lookAt(targetId, scene, usedOn) {
