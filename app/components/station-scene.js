@@ -26,7 +26,7 @@ export default Component.extend({
     } else if (get(this, 'state.previousScene') === 'interrogation-room-scene') {
       $("#player").css({top: 371, left: 160.5}).html('<img class="playerSprite" src="sprites/dickRight.png">');
     } else if (get(this, 'state.previousScene') === 'analysis-room-scene') {
-      $("#player").css({top: 225, left: 360}).html('<img class="playerSprite" src="sprites/dick.png">');
+      $("#player").css({top: 350, left: 260}).html('<img class="playerSprite" src="sprites/dick.png">');
     }
 
     $("#player").fadeIn(500);
@@ -49,18 +49,4 @@ export default Component.extend({
       this.sendAction('npcSpeach', "Dick, Jenkins has finished the autopsy and would like to see you now");
     }, 1500)
   },
-
-  actions: {
-    stationWalk(e) {
-      const wallY = $(".wall-corner").position().top;
-      const wallX = $(".wall-corner").position().left;
-      const dickPositionY = $("#player").position().top;
-      const dickPositionX = $("#player").position().left;
-      if ((dickPositionX > wallX) && (e.y < wallY) || (dickPositionY < wallY) && (e.x > wallX)) {
-        return;
-      } else {
-        this.sendAction('walk');
-      }
-    }
-  }
 });
