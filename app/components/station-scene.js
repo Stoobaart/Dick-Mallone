@@ -14,7 +14,11 @@ export default Component.extend({
 
   state: service('state-handler'),
 
-  paperUsed: alias('state.paperUsed'),
+  pickedupblankpaper: Ember.computed('state.pickedupblankpaper', function() {
+    return get(this, 'state.pickedupblankpaper');
+  }),
+
+  paperUsed: alias('state.blankpaperUsed'),
 
   didInsertElement() {
     this._super(...arguments);
@@ -34,7 +38,7 @@ export default Component.extend({
     $('#policeStationSceneMusic')[0].play();
     $('#stationDoor')[0].play();
 
-    if(get(this, 'state.paperUsed') && !(get(this, 'state.analysisUnlocked'))) {
+    if(get(this, 'state.blankpaperUsed') && !(get(this, 'state.analysisUnlocked'))) {
       this.analysisRoomUnlocked();
     }
   },

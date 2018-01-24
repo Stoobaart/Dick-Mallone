@@ -19,8 +19,8 @@ export default Service.extend({
 	pickedupsyringe: false,
 	pickedupcup: false,
   pickedupfullcup: false,
-  pickeduppaper: false,
-  paperUsed: false,
+  pickedupblankpaper: false,
+  blankpaperUsed: false,
   analysisUnlocked: false,
   travelMapOpened: false,
 
@@ -72,7 +72,7 @@ export default Service.extend({
     {
       "name": "paper",
       "url": "images/paper.png",
-      "id": "paper",
+      "id": "blank-paper",
       "use": "crackhead",
       "replaces": ""
     }
@@ -95,7 +95,8 @@ export default Service.extend({
   remove(targetId) {
     const itemForUse = get(this, 'itemForUse');
     if (itemForUse.use === targetId) {
-      const usedItem = itemForUse.id + 'Used';
+      const itemUsedString = itemForUse.id.replace(/-/g, '');
+      const usedItem = itemUsedString + 'Used';
       set(this, usedItem, true);
       get(this, 'inventory').removeObject(itemForUse);
       this.replace(itemForUse.id);
@@ -123,7 +124,7 @@ export default Service.extend({
       'syringeCollected': get(this, 'pickedupsyringe'),
       'weeCollected': get(this, 'pickedupfullcup'),
       'paperCollected': get(this, 'pickeduppaper'),
-      'paperUsed': get(this, 'paperUsed'),
+      'blankpaperUsed': get(this, 'blankpaperUsed'),
       'analysisUnlocked': get(this, 'analysisUnlocked')
     }
     localStorage.saveGame = JSON.stringify(saveGame);
@@ -150,7 +151,7 @@ export default Service.extend({
       'pickedupsyringe': saveGame.syringeCollected,
       'pickedupfullcup': saveGame.weeCollected,
       'pickeduppaper': saveGame.paperCollected,
-      'paperUsed': saveGame.paperUsed,
+      'blankpaperUsed': saveGame.blankpaperUsed,
       'analysisUnlocked': saveGame.analysisUnlocked,
     })
     // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);

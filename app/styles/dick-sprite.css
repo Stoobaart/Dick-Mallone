@@ -3,15 +3,15 @@
   top: 20rem;
   left: 10rem;
   overflow: hidden;
-  width: 6.5rem;
+  width: 4.5rem;
   position: absolute;
   z-index: 2;
-  margin-top: -14rem;
-  margin-left: -4.5rem;
+  margin-top: -12rem;
+  margin-left: -3rem;
 }
 .playerSprite {
-  height: 240px;
-  width: 73rem;
+  height: 198px;
+  width: 60rem;
   image-rendering: pixelated;
   filter: blur(0);
   -webkit-filter: blur(0);
@@ -19,17 +19,17 @@
 
 @keyframes walkDown {
   100% {
-    transform: translateX(-73rem);
+    transform: translateX(-60rem);
   }
 }
 @keyframes walkRight {
   100% {
-    transform: translateX(-73rem);
+    transform: translateX(-60rem);
   }
 }
 @keyframes walkLeft{
   100% {
-    transform: translateX(-73rem);
+    transform: translateX(-60rem);
   }
 }
 @keyframes walkUp{
@@ -39,14 +39,14 @@
 }
 
 .walkRightAnim {
-  animation: walkRight 700ms steps(8) infinite;
+  animation: walkRight 1000ms steps(13) infinite;
 }
 .walkLeftAnim {
-  animation: walkLeft 700ms steps(8) infinite;
+  animation: walkLeft 1000ms steps(13) infinite;
 }
 .walkUpAnim {
   animation: walkUp 700ms steps(8) infinite;
 }
 .walkDownAnim {
-  animation: walkDown 700ms steps(8) infinite;
+  animation: walkDown 1000ms steps(13) infinite;
 }

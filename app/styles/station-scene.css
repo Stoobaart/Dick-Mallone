@@ -68,8 +68,45 @@
   z-index: 1;
 }
 
+.paper {
+  position: relative;
+  width: 2rem;
+  height: 3rem;
+  top: -64.5rem;
+  left: 63rem;
+  overflow: hidden;
+}
+
+.paperImg {
+  position: relative;
+  width: 10rem;
+  height: 3rem;
+  image-rendering: pixelated;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: wave 20000ms steps(5) infinite;
+}
+
+#paper {
+  position: relative;
+  width: 2rem;
+  height: 3rem;
+  top: -3rem;
+  left: 0rem;
+  z-index: 3;
+}
+
+@keyframes wave {
+  0%, 93% {
+    transform: translateX(0rem);
+  }
+  100% {
+    transform: translateX(-10rem);
+  }
+}
+
 .filing-cabinets {
-  top: -68rem;
+  top: -71rem;
   left: 25.5rem;
   width: 10.5rem;
   height: 6.5rem;
@@ -78,7 +115,7 @@
 }
 
 .interrogation-door {
-  top: -75rem;
+  top: -78rem;
   left: 0.5rem;
   width: 4.5rem;
   height: 17.5rem;
@@ -87,7 +124,7 @@
 }
 
 .analysis-door {
-  top: -93rem;
+  top: -96rem;
   left: 12.5rem;
   width: 7.5rem;
   height: 12.5rem;

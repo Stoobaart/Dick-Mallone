@@ -11,9 +11,17 @@
     <div class="wall-corner"></div>
 
     <div id="water-cooler" class="thing water-cooler" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
-    <div id="notice-board" pickupable="true" class="thing notice-board" data-name="paper" use="crackhead" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="notice-board" pickupable="true" class="thing notice-board" data-name="paper" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div class="paper">
+      {{#unless pickedupblankpaper}}
+        <img class="paperImg" src="/sprites/pinnedPaper.png">
+        <div id="paper" class="thing" data-name="blank-paper" pickupable="true" use="crackhead" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+      {{/unless}}
+    </div>
+
     <div id="filing-cabinets" class="thing filing-cabinets" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
-   
+
     <div id="interrogation-room" class="thing interrogation-door" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     {{#if paperUsed}}
       <div id="analysis-room" class="thing analysis-door" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>

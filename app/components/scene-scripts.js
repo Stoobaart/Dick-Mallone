@@ -88,9 +88,10 @@ export default Component.extend({
         Pick: "Eeeew, I'm not using my hands for this",
         Talk: "I can't talk to that",
         Usecupon: "Let's scoop some up. Hmmm... still warm.",
-        Usefullcupon: "I'm not gonna pour this back"
+        Usefullcupon: "I'm not gonna pour this back",
+        Usesyringeon: "I should probably show this to Jenkins before contaminating it"
       },
-      'syringe': {
+      'used-syringe': {
         Look: "Hmmm, Could this be related? Or maybe some crack head left it here? This place is pretty seedy...",
         Pick: "Lesser detectives would use protective gear for this. Not me.",
         Talk: "I can't talk to that",
@@ -105,7 +106,8 @@ export default Component.extend({
         Usegunon: "The only thing I want to blow Rodriguez away with is my wit",
         Usecupon: "Why would he want this?",
         Usefullcupon: "He's too straight a cop to ever take the piss",
-        Useshardson: "There's plenty of time for shanking later"
+        Useshardson: "There's plenty of time for shanking later",
+        Usesyringeon: "I should show this to Jenkins instead"
       },
       theVictim: ["Male Caucasian of unknown identity, roughly 35-40 years of age, decapitated and 5\"11...I think.", "How was he decapitated?", "His head was twisted completely off. it would take someone with incredible strength to do this"],
       suspects: ["We have a possible suspect or witness down in lock up now. Some Crack head, that's his needle right there.", "I'll go shake him down after I look around", "Good call. Something just feels wrong about all of this, Dick"],
@@ -124,7 +126,7 @@ export default Component.extend({
         Look: "This beverage holder has seen one too many instants",
         Talk: "Hello cup. How are you? ....Yep...still inanimate",
         Pick: "I should find the trash for this",
-        Usebadgeon: "Nope",
+        Usebadgeon: "That doesn't make sense",
         Usegunon: "It's better without holes in it",
       }
     },
@@ -142,29 +144,38 @@ export default Component.extend({
       },
       'water-cooler': {
         Look: "A water dispenser. I'm not thirsty",
-        Talk: "Nope",
+        Talk: "That doesn't make sense",
         Pick: "I don't need that much water, let alone any",
         Usebadgeon: "I could arrest this, but my reasoning in court would hold no water",
         Usegunon: "It already has a method to dispense water",
         Usecupon: "I don't need any water, plus I'm prety sure I'll need this cup somewhere else. hint hint",
         Usefullcupon: "I'll spill this on my shoes if I try",
-        Useshardson: "Nope"
+        Useshardson: "That doesn't make sense"
       },
       'notice-board': {
-        Look: "The weekly 'Hit list', this month's calendar, leaflets, and some blank paper",
-        Talk: "Nope",
-        Pick: "Maybe some of this blank paper will come in handy later",
-        Usebadgeon: "Nope",
+        Look: "The weekly 'Hit list', this month's calendar, and some leaflets",
+        Talk: "That doesn't make sense",
+        Pick: "I don't need any leaflets",
+        Usebadgeon: "That doesn't make sense",
         Usegunon: "I don't know why you'd try that",
         Usecupon: "That doesn't make sense",
         Usefullcupon: "And get everything wet? How will I know what's going on?",
-        Useshardson: "Nope"
+        Useshardson: "That doesn't make sense"
+      },
+      'paper': {
+        Look: "Some blank paper",
+        Talk: "That doesn't make sense",
+        Pick: "Maybe some of this blank paper will come in handy later",
+        Usegunon: "I can borrow Jen's hole puncher if I get desperate. Which I am not",
+        Usecupon: "That doesn't make sense",
+        Usefullcupon: "I shouldn't make this soggy",
+        Useshardson: "That doesn't make sense"
       },
       'filing-cabinets': {
         Look: "General files, or as I like to call them 'Jeneral files'",
-        Talk: "Nope",
+        Talk: "That doesn't make sense",
         Pick: "Don't ruin Jen's files",
-        Usebadgeon: "Nope",
+        Usebadgeon: "That doesn't make sense",
         Usegunon: "Don't ruin Jen's files",
         Usecupon: "That doesn't make sense",
         Usefullcupon: "Don't ruin Jen's files",
@@ -195,11 +206,11 @@ export default Component.extend({
         Usecupon: "He doesn't want that",
         Usefullcupon: "I found this at the scene",
         Useshardson: "He doesn't want this",
-        Usepaperon: "Can you sketch the thing that killed that man?"
+        Useblankpaperon: "Can you sketch the thing that killed that man?"
       },
       'honest': ["Yeah man. sure thing. Are you sure that they aren't listening?", "Who? Oh it doesn't matter who, this is a, err, safe zone, so don't worry",  "Anything you say chief"],
       'murder': ["I was hiding out in that old warehouse, when I heard a scream, so I climbed up to look out a window", "Please, do go on", "It... shook that guy like a ragdoll", "what do you mean.... it?", "It said that there was no hiding anymore, that they saw and heard everything", "Can you describe it to me?", "It was dark, I was high, I dunno man, I just need to get out of here"],
-      'blah': ["", ""],
+      'description': ["I dunno maaan, I mean, I do have a good eye for things, what with being a painter an all", "So, can you give me a description or not? Things are gonna get rough otherwise!", "Woah hey, ok man, look he was kinda average lookin'. I dunno, 5 feet 10, white guy, dark clothes", "You're not giving me much to go on", "I'm not good with my words maaaann. I'm an artist, not a talker", "God damn it!"],
       'bye': ["Don't leave me here man!", "Relax. You're safe here"]
     },
     'analysis-room-scene': {

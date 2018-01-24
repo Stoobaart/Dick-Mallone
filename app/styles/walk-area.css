@@ -16,17 +16,16 @@
   position: relative;
   width: 1200px;
   height: 130px;
-  top: -90.5rem;
+  top: -93.5rem;
   left: 2rem;
-  
   z-index: 4;
 }
 
 .walkable-area.interrogation-room-scene {
   position: relative;
   width: 400px;
-  height: 166px;
-  top: -70.5rem;
+  height: 135px;
+  top: -68.5rem;
   left: 43rem;
   -webkit-clip-path: polygon(0% 0, 82% 0, 100% 100%, 0 100%);
   clip-path: polygon(0% 0, 82% 0, 100% 100%, 0 100%);

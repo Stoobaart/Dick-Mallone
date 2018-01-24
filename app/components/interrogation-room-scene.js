@@ -14,13 +14,13 @@ export default Component.extend({
 
   state: service('state-handler'),
 
-  paperUsedObserver: observer('state.paperUsed', function() {
+  paperUsedObserver: observer('state.blankpaperUsed', function() {
     this.crackheadGivenPaper();
   }),
 
   init() {
     this._super(...arguments);
-    get(this, 'state.paperUsed');
+    get(this, 'state.blankpaperUsed');
   },
 
   didInsertElement() {
