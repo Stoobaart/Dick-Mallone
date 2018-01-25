@@ -34,7 +34,7 @@
 }
 @keyframes walkUp{
   100% {
-    transform: translateX(-73rem);
+    transform: translateX(-60rem);
   }
 }
 
@@ -45,7 +45,7 @@
   animation: walkLeft 1000ms steps(13) infinite;
 }
 .walkUpAnim {
-  animation: walkUp 700ms steps(8) infinite;
+  animation: walkUp 1000ms steps(13) infinite;
 }
 .walkDownAnim {
   animation: walkDown 1000ms steps(13) infinite;
