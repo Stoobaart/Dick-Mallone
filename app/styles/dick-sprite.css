@@ -17,36 +17,12 @@
   -webkit-filter: blur(0);
 }
 
-@keyframes walkDown {
-  100% {
-    transform: translateX(-60rem);
-  }
-}
-@keyframes walkRight {
-  100% {
-    transform: translateX(-60rem);
-  }
-}
-@keyframes walkLeft{
-  100% {
-    transform: translateX(-60rem);
-  }
-}
-@keyframes walkUp{
+@keyframes walk {
   100% {
     transform: translateX(-60rem);
   }
 }
 
-.walkRightAnim {
-  animation: walkRight 1000ms steps(13) infinite;
-}
-.walkLeftAnim {
-  animation: walkLeft 1000ms steps(13) infinite;
-}
-.walkUpAnim {
-  animation: walkUp 1000ms steps(13) infinite;
-}
-.walkDownAnim {
-  animation: walkDown 1000ms steps(13) infinite;
+.walk {
+  animation: walk 1000ms steps(13) infinite;
 }

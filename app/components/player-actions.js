@@ -45,21 +45,15 @@ export default Component.extend({
     // if the sprite is being told to move right of it's original position...
     if (get(this, 'verb') === "Walk to") {
       if((playerPositionXDiff > 0) && ((Math.abs(playerPositionXDiff)) > (Math.abs(playerPositionYDiff)))) {
-        // use the correct (facing the correct direction) image
         $("#player").html('<img class="playerSprite" src="sprites/dickRight.png">');
-        // and add the class which is linked to the animation
-        $(".playerSprite").addClass("walkRightAnim");
-        // Same logic for each other direction
       } else if ((playerPositionYDiff > 0 ) && ((Math.abs(playerPositionXDiff)) < (Math.abs(playerPositionYDiff)))) {
         $("#player").html('<img class="playerSprite" src="sprites/dick.png">');
-        $(".playerSprite").addClass("walkDownAnim");
       } else if ((playerPositionYDiff < 0 ) && ((Math.abs(playerPositionXDiff)) < (Math.abs(playerPositionYDiff)))) {
         $("#player").html('<img class="playerSprite" src="sprites/dickUp.png">');
-        $(".playerSprite").addClass("walkUpAnim");
       } else if ((playerPositionXDiff < 0) && ((Math.abs(playerPositionXDiff)) > (Math.abs(playerPositionYDiff)))) {
         $("#player").html('<img class="playerSprite" src="sprites/dickLeft.png">');
-        $(".playerSprite").addClass("walkLeftAnim");
       }
+      $(".playerSprite").addClass("walk");
       // this check is for Dick's auto walk when interacting with something. makes him stop before the object.
       let eventPageY = null;
       let eventPageX = null;
@@ -85,12 +79,12 @@ export default Component.extend({
       }
       // run the animation (.stop is there to allow you to change direction before the end of each animation)
       $('#player').stop().animate({
-          top: eventPageY,
-          left: eventPageX
-       }, timeToWalk, function () {
+        top: eventPageY,
+        left: eventPageX
+      }, timeToWalk, function () {
         // when the sprite reaches the clicked location, stop the animation
-        $(".playerSprite").removeClass("walkRightAnim walkLeftAnim walkUpAnim walkDownAnim");
-       });
+        $(".playerSprite").removeClass("walk");
+      });
     }
   },
 

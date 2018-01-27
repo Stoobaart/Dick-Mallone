@@ -375,6 +375,20 @@ export default Component.extend({
           },
         ]
       },
+      'bizarre': [
+        {
+          dick: "What is so bizarre Doc?"
+        }, {
+          npc: "To start with Dick, the victims blood seems to be changing on a molecular level"
+        }, {
+          npc: "Secondly, it appears that the victims head was removed at a speed and with a strength that could only be attributed to industrial machinery"
+        }, {
+          dick: "but that doesn't make any sense, somebody killed him with some kind of power tool?"
+        }, {
+          npc: "yes, that would be the only logical assumption"
+        }
+      ]
+
     }
   }),
 
