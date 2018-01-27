@@ -60,7 +60,7 @@ export default Component.extend({
         $("#player").html('<img class="playerSprite" src="sprites/dickLeft.png">');
         $(".playerSprite").addClass("walkLeftAnim");
       }
-      // this check is for Dick's auto walk when interacting with something. makes him stop before the object. 
+      // this check is for Dick's auto walk when interacting with something. makes him stop before the object.
       let eventPageY = null;
       let eventPageX = null;
       const walkableAreaLeftEdge = $('.walkable-area').position().left;
@@ -125,7 +125,7 @@ export default Component.extend({
     if(scene !== 'car-scene') {
       this.walk(e);
     }
-    
+
   },
 
   lookAt(targetId, scene, usedOn) {
@@ -157,13 +157,10 @@ export default Component.extend({
   talkTo(targetId, scene, thingType) {
     const desire = `${scene}.${targetId}.Talk`;
     const line = get(this, 'scripts').get(desire);
-    if (line) {
+    if(thingType === "person") {
+      this.sendAction('convo', scene, targetId);
+    } else {
       this.sendAction('playerSpeach', line);
-      if(thingType === "person") {
-        later(() => {
-          this.sendAction('convo', targetId);
-        }, 3000)
-      }
     }
   },
 

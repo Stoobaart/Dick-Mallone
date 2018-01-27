@@ -15,9 +15,11 @@ const {
 export default Component.extend({
 
   scene: "crime-scene",
-  waitToSpeak: 0,
-  numberOfLinesSpoken: 0,
-  turn: 'npc',
+  currentSpeach: [],
+  convoInProgress: false,
+  // waitToSpeak: 0,
+  // numberOfLinesSpoken: 0,
+  // turn: 'npc',
 
   scripts: EmberObject.create({
     itemsInInventory: {
@@ -98,21 +100,54 @@ export default Component.extend({
         Usecupon: "Even if I did need this, this cup wouldn't protect me from pricks"
       },
       'rodriguez': {
-        convostarter: "It's not great, Dick. Somebody got messed up here real good....or bad.. I'm so confused right now..",
         Look: "Officer Rodriguez. He looks pretty shaken up. Didn't even know he smokes..",
-        Talk: "Officer Rodriguez. What's the deal here?",
         Pick: "It's not his birthday",
         Usebadgeon: "He's not going to be impressed",
         Usegunon: "The only thing I want to blow Rodriguez away with is my wit",
         Usecupon: "Why would he want this?",
         Usefullcupon: "He's too straight a cop to ever take the piss",
         Useshardson: "There's plenty of time for shanking later",
-        Usesyringeon: "I should show this to Jenkins instead"
+        Usesyringeon: "I should show this to Jenkins instead",
+        convostarter: [
+          {
+            dick: "Officer Rodriguez. What's the deal here?"
+          },{
+            npc: "It's not great, Dick. Somebody got messed up here real good....or bad.. I'm so confused right now.."
+          }
+        ],
       },
-      theVictim: ["Male Caucasian of unknown identity, roughly 35-40 years of age, decapitated and 5\"11...I think.", "How was he decapitated?", "His head was twisted completely off. it would take someone with incredible strength to do this"],
-      suspects: ["We have a possible suspect or witness down in lock up now. Some Crack head, that's his needle right there.", "I'll go shake him down after I look around", "Good call. Something just feels wrong about all of this, Dick"],
-      witnesses: ["None apart from the crack head we caught. I'm not sure if he even knows his own name though. Think he said it was Mahflnme", "How can nobody have seen a man get his head removed?", "Beats me, Dick. You'll need your head screwed on for this case ...sorry ...sigh."],
-      bye: ["See ya later bud", "Catch you back at the station"],
+      theVictim: [
+        {
+          npc: "Male Caucasian of unknown identity, roughly 35-40 years of age, decapitated and 5\"11...I think."
+        }, {
+          dick: "How was he decapitated?"
+        }, {
+          npc: "His head was twisted completely off. it would take someone with incredible strength to do this"
+        }
+      ],
+      suspects: [
+        {
+          npc: "We have a possible suspect or witness down in lock up now. Some Crack head, that's his needle right there."
+        }, {
+          dick: "I'll go shake him down after I look around"
+        }, {
+          npc: "Good call. Something just feels wrong about all of this, Dick"
+        }
+      ],
+      witnesses: [
+        {
+          npc: "None apart from the crack head we caught. I'm not sure if he even knows his own name though. Think he said it was Mahflnme"
+        }, {
+          dick: "How can nobody have seen a man get his head removed?"
+        }, {
+          npc: "Beats me, Dick. You'll need your head screwed on for this case ...sorry ...sigh."
+        }
+      ],
+      bye: [
+        {
+          npc: "See ya later bud"
+        }
+      ],
     },
     'car-scene': {
       'map': {
@@ -131,17 +166,6 @@ export default Component.extend({
       }
     },
     'station-scene': {
-      'Jen': {
-        convostarter: "Hey Dick. Pretty quiet today. Apart from that crack head that was brought in. What's up?",
-        Look: "That's Jen, Don't let that sweet heart demeanor of hers trick you, she's made of sterner stuff",
-        Talk: "Hey Jen, how you holdin' up?",
-        Pick: "I sure aint no weinstein",
-        Usebadgeon: "She's not going to be impressed",
-        Usegunon: "She'll only stick it up me faster than I can pull the trigger",
-        Usecupon: "She has plenty of cups behind her",
-        Usefullcupon: "I'm sure there's a better use for this...",
-        Useshardson: "There's plenty of time for shanking later"
-      },
       'water-cooler': {
         Look: "A water dispenser. I'm not thirsty",
         Talk: "That doesn't make sense",
@@ -191,13 +215,47 @@ export default Component.extend({
       'analysis-room': {
         Look: "This goes to the Analysis room"
       },
-      aboutCrackHead: ["He sure made a lot of noise. Screaming about aliens or robots or some insane shit", "Damn crazies. What a waste of time"],
-      aboutJenkins: ["Yeah, he said he's waiting for you in analysis", "Alright then, thanks Jen"],
-      bye: ["Until next time Mallone", "Catch ya later, Jen"]
+      'Jen': {
+        Look: "That's Jen, Don't let that sweet heart demeanor of hers trick you, she's made of sterner stuff",
+        Talk: "Hey Jen, how you holdin' up?",
+        Pick: "I sure aint no weinstein",
+        Usebadgeon: "She's not going to be impressed",
+        Usegunon: "She'll only stick it up me faster than I can pull the trigger",
+        Usecupon: "She has plenty of cups behind her",
+        Usefullcupon: "I'm sure there's a better use for this...",
+        Useshardson: "There's plenty of time for shanking later",
+        convostarter: [
+          {
+            dick: "Hi Jen, how has it been today, any drama?"
+          }, {
+            npc: "Hey Dick. Pretty quiet today. Apart from that crack head that was brought in. What's up?"
+          },
+        ],
+      },
+      aboutCrackHead: [
+        {
+          npc: "He sure made a lot of noise. Screaming about aliens or robots or some insane shit"
+        }, {
+          dick: "Damn crazies. What a waste of time"
+        }
+      ],
+      aboutJenkins: [
+        {
+          npc: "Yeah, he said he wants to see you after the autopsy, he should be finished up soon"
+        }, {
+          dick: "Alright then, thanks Jen"
+        }
+      ],
+      bye: [
+        {
+          npc: "Until next time Mallone"
+        }, {
+          dick: "Catch ya later, Jen"
+        }
+      ]
     },
     'interrogation-room-scene': {
       'crackhead': {
-        convostarter: "When can i get out of here? They're coming for me man! c'mon!!",
         Talk: "Alright buddy, time to spill it!",
         Look: "This guy must be able to give us some kind of i.d on the suspect",
         Pick: "When I said shake him down, I didn't mean literally",
@@ -206,26 +264,61 @@ export default Component.extend({
         Usecupon: "He doesn't want that",
         Usefullcupon: "I found this at the scene",
         Useshardson: "He doesn't want this",
-        Useblankpaperon: "Can you sketch the thing that killed that man?"
+        Useblankpaperon: "Can you sketch the thing that killed that man?",
+        convostarter: [
+          {
+            npc: "When can i get out of here? They're coming for me man! c'mon!!"
+          }
+        ]
       },
-      'honest': ["Yeah man. sure thing. Are you sure that they aren't listening?", "Who? Oh it doesn't matter who, this is a, err, safe zone, so don't worry",  "Anything you say chief"],
-      'murder': ["I was hiding out in that old warehouse, when I heard a scream, so I climbed up to look out a window", "Please, do go on", "It... shook that guy like a ragdoll", "what do you mean.... it?", "It said that there was no hiding anymore, that they saw and heard everything", "Can you describe it to me?", "It was dark, I was high, I dunno man, I just need to get out of here"],
-      'description': ["I dunno maaan, I mean, I do have a good eye for things, what with being a painter an all", "So, can you give me a description or not? Things are gonna get rough otherwise!", "Woah hey, ok man, look he was kinda average lookin'. I dunno, 5 feet 10, white guy, dark clothes", "You're not giving me much to go on", "I'm not good with my words maaaann. I'm an artist, not a talker", "God damn it!"],
-      'bye': ["Don't leave me here man!", "Relax. You're safe here"]
+      'honest': [
+        {
+          npc: "Yeah man. sure thing. Are you sure that they aren't listening?"
+        }, {
+          dick: "Who? Oh it doesn't matter who, this is a, err, safe zone, so don't worry"
+        }, {
+          npc: "Anything you say chief"
+        }
+      ],
+      'murder': [
+        {
+          npc: "I was hiding out in that old warehouse, when I heard a scream, so I climbed up to look out a window"
+        }, {
+          npc: "It... shook that guy like a ragdoll"
+        }, {
+          dick: "what do you mean.... it?"
+        }, {
+          npc: "It said that there was no hiding anymore, that they saw and heard everything"
+        }, {
+          dick: "Can you describe it to me?"
+        }, {
+          npc: "It was dark, I was high, I dunno man, I just need to get out of here"
+        }
+      ],
+      'description': [
+      {
+        npc: "I dunno maaan, I mean, I do have a good eye for things, what with being a painter an all"
+      }, {
+        dick: "So, can you give me a description or not? Things are gonna get rough otherwise!"
+      }, {
+        npc: "Woah hey, ok man, look he was kinda average lookin'. I dunno, 5 feet 10, white guy, dark clothes"
+      }, {
+        dick: "You're not giving me much to go on"
+      }, {
+        npc: "I'm not good with my words maaaann. I'm an artist, not a talker"
+      }, {
+        dick: "God damn it!"
+      }
+    ],
+      'bye': [
+        {
+          npc: "Don't leave me here man!"
+        }, {
+          dick: "Relax. You're safe here"
+        }
+      ]
     },
     'analysis-room-scene': {
-      'jenkins': {
-        convostarter: "Hello Dick, I have some rather bizarre findings for you",
-        Talk: "Hey Jenkins, what have you got for me?",
-        Look: "Jenkin's here does all our analysis. We'd be lost without him",
-        Pick: "He doesn't like it when I pick him up",
-        Usebadgeon: "I don't need to know how much semen is on this",
-        Usegunon: "Let's hope it doesn't come to this",
-        Usecupon: "I normally have to fill these up before giving them to Jenkins",
-        Usefullcupon: "I found this at the scene",
-        Useshardson: "He doesn't want this",
-        Usepaperon: "He doesn't want this"
-      },
       'gurney': {
         Look: "Dead as a door nail",
         Talk: "Not only does he not have a head or a mouth to talk out of, but he's also dead",
@@ -265,78 +358,86 @@ export default Component.extend({
         Usefullcupon: "That's probably a great place to put this, but I should check with Jenkins first",
         Useshardson: "I don't want to make any holes",
         Usepaperon: "That doesn't make any sense"
-      }
+      },
+      'jenkins': {
+        Talk: "Hey Jenkins, what have you got for me?",
+        Look: "Jenkin's here does all our analysis. We'd be lost without him",
+        Pick: "He doesn't like it when I pick him up",
+        Usebadgeon: "I don't need to know how much semen is on this",
+        Usegunon: "Let's hope it doesn't come to this",
+        Usecupon: "I normally have to fill these up before giving them to Jenkins",
+        Usefullcupon: "I found this at the scene",
+        Useshardson: "He doesn't want this",
+        Usepaperon: "He doesn't want this",
+        convostarter: [
+          {
+            npc: "Hello Dick, I have some rather bizarre findings for you"
+          },
+        ]
+      },
     }
   }),
 
-  convo(target) {
-    const scene = get(this, 'scene');
-    const desire = `${scene}.${target}.convostarter`;
-    const line = get(this, 'scripts').get(desire);
-    this.sendAction('npcSpeach', line);
-    later(() => {
-      $(".options").toggle();
-    }, 5000);
+  playerSpeach(line) {
+    $(".player-speak").toggle();
+    $(".player-speach").html(line);
+  },
+
+  npcSpeach(line) {
+    $(".npc-speak").toggle();
+    $(".npc-speach").html(line);
+  },
+
+  speakClear() {
+    $(".player-speak").hide();
+    $(".npc-speak").hide();
+    let currentSpeach = get(this, 'currentSpeach');
+    let mutatedCurrentSpeach = [...currentSpeach];
+    if(mutatedCurrentSpeach.length === 0) {
+      if(get(this, 'convoInProgress') === true) {
+        return $(".options").show();
+      }
+      return;
+    } else if(mutatedCurrentSpeach[0].hasOwnProperty('dick')) {
+      this.sendAction('playerSpeach', mutatedCurrentSpeach[0].dick);
+    } else {
+      this.sendAction('npcSpeach', mutatedCurrentSpeach[0].npc);
+    }
+    mutatedCurrentSpeach.shift();
+    set(this, 'currentSpeach', mutatedCurrentSpeach);
+  },
+
+  convo(scene, targetId, convoOptionChosen) {
+    set(this, 'convoInProgress', true);
+    let topic = null;
+    if (convoOptionChosen) {
+      topic = `${scene}.${targetId}`;
+    } else {
+      topic = `${scene}.${targetId}.convostarter`;
+    }
+    set(this, 'currentSpeach', get(this, 'scripts').get(topic));
+    let currentSpeach = get(this, 'currentSpeach');
+    let mutatedCurrentSpeach = [...currentSpeach];
+
+    if(mutatedCurrentSpeach[0].hasOwnProperty('dick')) {
+      this.sendAction('playerSpeach', mutatedCurrentSpeach[0].dick);
+    } else {
+      this.sendAction('npcSpeach', mutatedCurrentSpeach[0].npc);
+    }
+    mutatedCurrentSpeach.shift();
+    set(this, 'currentSpeach', mutatedCurrentSpeach);
   },
 
   convoOption(e) {
-    $(".options").toggle();
-    $(e.target).addClass("grey");
-    setProperties(this, {
-      'turn': 'npc',
-      'numberOfLinesSpoken': 0,
-      'waitToSpeak': 0,
-    });
-    const topic = `${get(this, 'scene')}.${e.target.id}`;
+    $(".options").hide();
+    const scene = get(this, 'scene');
     const targetId = e.target.id;
-    const conversation = get(this, 'scripts').get(topic);
+    $(e.target).addClass("grey");
+    this.convo(scene, targetId, true);
 
-    conversation.forEach((line) => {
-      const previousWaitToSpeak = get(this, 'waitToSpeak');
-      let newWaitToSpeak = get(this, 'waitToSpeak') + line.length;
-      if ((newWaitToSpeak - previousWaitToSpeak) < 30) {
-        newWaitToSpeak *= 1.5;
-      }
-      set(this, 'waitToSpeak', newWaitToSpeak);
-
-      const numberOfLinesSpoken = get(this, 'numberOfLinesSpoken') +1;
-
-      if (get(this, 'numberOfLinesSpoken') === 0) {
-        setProperties(this, {
-          'turn': 'dick',
-          'numberOfLinesSpoken': numberOfLinesSpoken,
-        });
-        return this.sendAction("npcSpeach", line);
-      }
-
-      if (get(this, 'turn') === 'dick') {
-        setProperties(this, {
-          'turn': 'npc',
-          'numberOfLinesSpoken': numberOfLinesSpoken,
-        });
-        later(() => {
-          this.sendAction("playerSpeach", line);
-        }, newWaitToSpeak * 33);
-      } else if (get(this, 'turn') === 'npc') {
-        setProperties(this, {
-          'turn': 'dick',
-          'numberOfLinesSpoken': numberOfLinesSpoken
-        });
-        later(() => {
-          this.sendAction("npcSpeach", line);
-        }, newWaitToSpeak * 33);
-      }
-
-      if (conversation.length === get(this, 'numberOfLinesSpoken')) {
-        if(targetId === 'bye') {
-          return;
-        } else {
-          later(() => {
-            $(".options").toggle();
-          }, newWaitToSpeak * 45);
-        }
-      }
-
-    });
+    if(targetId === 'bye') {
+      $(".options").hide();
+      set(this, 'convoInProgress', false);
+    }
   },
 });

@@ -1,47 +1,43 @@
 {{#if gameStarted}}
   <div class="game-container">
-    {{#player-speach as |playerSpeach npcSpeach speakClear npcSpeakClear|}}
-      {{#scene-scripts
+    {{#scene-scripts
+      as |scripts scene previousScene convo convoOption playerSpeach npcSpeach speakClear|
+    }}
+      {{#player-actions
+        scene=scene
+        previousScene=previousScene
+        scripts=scripts
+        componentName=componentName
         playerSpeach=(action playerSpeach)
-        npcSpeach=(action npcSpeach)
         speakClear=(action speakClear)
-        npcSpeakClear=(action npcSpeakClear)
-        as |scripts scene previousScene convo convoOption|
+        convo=(action convo)
+        as |walk thingClicked helper clearHelper verb helperText changeScene|
       }}
-        {{#player-actions
+        {{player-speach speakClear=(action speakClear)}}
+        {{component componentName
           scene=scene
-          previousScene=previousScene
-          scripts=scripts
-          componentName=componentName
+          walk=(action walk)
+          thingClicked=(action thingClicked)
+          changeScene=(action changeScene)
+          helper=(action helper)
+          clearHelper=(action clearHelper)
+          convoOption=(action convoOption)
           playerSpeach=(action playerSpeach)
+          npcSpeach=(action npcSpeach)
           speakClear=(action speakClear)
-          convo=(action convo)
-          as |walk thingClicked helper clearHelper verb helperText changeScene|
+          verb=verb
         }}
-          {{component componentName
-            scene=scene
-            walk=(action walk)
-            thingClicked=(action thingClicked)
-            changeScene=(action changeScene)
-            helper=(action helper)
-            clearHelper=(action clearHelper)
-            convoOption=(action convoOption)
-            playerSpeach=(action playerSpeach)
-            npcSpeach=(action npcSpeach)
-            verb=verb
-          }}
-          {{menu-area
-            scene=scene
-            verb=verb
-            helperText=helperText
-            scripts=scripts
-            playerSpeach=(action playerSpeach)
-            helper=(action helper)
-            clearHelper=(action clearHelper)
-          }}
-        {{/player-actions}}
-      {{/scene-scripts}}
-    {{/player-speach}}
+        {{menu-area
+          scene=scene
+          verb=verb
+          helperText=helperText
+          scripts=scripts
+          playerSpeach=(action playerSpeach)
+          helper=(action helper)
+          clearHelper=(action clearHelper)
+        }}
+      {{/player-actions}}
+    {{/scene-scripts}}
   </div>
 {{else}}
   {{start-screen gameStarted=gameStarted}}
