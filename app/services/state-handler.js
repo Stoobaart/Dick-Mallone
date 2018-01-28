@@ -21,6 +21,7 @@ export default Service.extend({
   pickedupfullcup: false,
   pickedupblankpaper: false,
   blankpaperUsed: false,
+  stationUnlocked: false,
   analysisUnlocked: false,
   travelMapOpened: false,
 
@@ -125,11 +126,11 @@ export default Service.extend({
       'weeCollected': get(this, 'pickedupfullcup'),
       'paperCollected': get(this, 'pickeduppaper'),
       'blankpaperUsed': get(this, 'blankpaperUsed'),
-      'analysisUnlocked': get(this, 'analysisUnlocked')
+      'analysisUnlocked': get(this, 'analysisUnlocked'),
+      'stationUnlocked': get(this, 'stationUnlocked'),
     }
     localStorage.saveGame = JSON.stringify(saveGame);
 
-    // localStorage.jenkinsIntro = JSON.stringify(jenkinsIntro);
     // localStorage.interrogationDone = JSON.stringify(interrogationDone);
     alert("Progress saved");
   },
@@ -153,6 +154,7 @@ export default Service.extend({
       'pickeduppaper': saveGame.paperCollected,
       'blankpaperUsed': saveGame.blankpaperUsed,
       'analysisUnlocked': saveGame.analysisUnlocked,
+      'stationUnlocked': saveGame.stationUnlocked,
     })
     // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);
     // exit = JSON.parse(localStorage.exit);

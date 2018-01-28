@@ -47,9 +47,15 @@ export default Component.extend({
   },
 
   stationSceneUnlocked() {
-    later(() => {
-      this.sendAction('npcSpeach', "Dick I just had a call from Jen at the station, she says that crackhead is ready to talk now");
-    }, 3000)
+    if(!(get(this, 'state.stationUnlocked'))) {
+      set(this, 'state.stationUnlocked', true);
+      later(() => {
+        $(".player-speak").hide();
+        this.sendAction('npcSpeach', "Dick I just had a call from Jen at the station, she says that crackhead is ready to talk now");
+      }, 5000);
+    } else {
+      return;
+    }
   }
 
 });

@@ -13,9 +13,6 @@ export default Component.extend({
   scene: "crime-scene",
   currentSpeach: [],
   convoInProgress: false,
-  // waitToSpeak: 0,
-  // numberOfLinesSpoken: 0,
-  // turn: 'npc',
 
   scripts: EmberObject.create({
     itemsInInventory: {
@@ -205,7 +202,7 @@ export default Component.extend({
       'interrogation-room': {
         Look: "This goes to the interrogation room"
       },
-      'analysis-room-closed': {
+      'closed-analysis-room': {
         Look: "Jenkins is carrying out the autopsy, I should come back later, I know how much he hates being disturbed"
       },
       'analysis-room': {

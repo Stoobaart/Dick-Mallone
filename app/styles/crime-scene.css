@@ -144,6 +144,7 @@ img#shards {
   z-index: -1;
   animation: flashing 1000ms steps(2) infinite;
   clip-path: polygon(80% 0, 100% 0, 100% 100%, 28% 100%, 61% 74%, 51% 74%, 0 100%, 80% 49%);
+  -webkit-clip-path: polygon(80% 0, 100% 0, 100% 100%, 28% 100%, 61% 74%, 51% 74%, 0 100%, 80% 49%);
 }
 
 @keyframes flashing {
