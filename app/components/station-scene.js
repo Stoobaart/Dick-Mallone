@@ -37,7 +37,10 @@ export default Component.extend({
     $("#rainSoundFx")[0].pause();
     $('#policeStationSceneMusic')[0].play();
     $('#stationDoor')[0].play();
+  },
 
+  didRender() {
+    this._super(...arguments);
     if(get(this, 'state.blankpaperUsed') && !(get(this, 'state.analysisUnlocked'))) {
       this.analysisRoomUnlocked();
     }
