@@ -4,9 +4,6 @@ import Ember from 'ember';
 const {
   $,
   get,
-  run: {
-    later,
-  },
   set,
 } = Ember;
 

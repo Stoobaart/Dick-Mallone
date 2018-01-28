@@ -4,11 +4,7 @@ import Ember from 'ember';
 const {
   get,
   Object: EmberObject,
-  run: {
-    later,
-  },
   set,
-  setProperties,
   $,
 } = Ember;
 
