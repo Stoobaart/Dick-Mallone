@@ -84,7 +84,7 @@
   image-rendering: pixelated;
   filter: blur(0);
   -webkit-filter: blur(0);
-  animation: wave 20000ms steps(5) infinite;
+  animation: wave 10000ms steps(5) infinite;
 }
 
 #paper {
@@ -97,7 +97,7 @@
 }
 
 @keyframes wave {
-  0%, 93% {
+  0%, 90% {
     transform: translateX(0rem);
   }
   100% {

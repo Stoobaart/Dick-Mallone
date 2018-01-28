@@ -39,8 +39,9 @@ export default Component.extend({
 
   crackheadGivenPaper() {
     later(() => {
+      $(".player-speak").hide();
       this.sendAction('npcSpeach', "Okay, I'll try my best chief, come back in a little while");
-    }, 2500)
+    }, 5000)
   }
 
 });

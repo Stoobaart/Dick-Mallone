@@ -29,6 +29,14 @@
     {{jenkins-speach speakClear=(action speakClear)}}
     <section class="options analysis">
       <p id="bizarre" onclick={{action convoOption}}>Bizarre findings?</p>
+
+      {{#if bizarreCovered}}
+        <p id="blood" onclick={{action convoOption}}>What about the blood?</p>
+      {{/if}}
+      {{#if bloodCovered}}
+        <p id="anything-else" onclick={{action convoOption}}>Anything else?</p>
+      {{/if}}
+
       <p id="bye" onclick={{action convoOption}}>Chat to ya later, Doc</p>
     </section>
 

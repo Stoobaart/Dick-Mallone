@@ -109,7 +109,7 @@ export default Component.extend({
     } else if (use === true) {
       const usedOn = get(this, 'verb').replace(/\s/g, '');
       this.lookAt(e.target.id, scene, usedOn);
-      this.useOn(e.target.id);
+      this.useOn(e.target.id, scene, usedOn);
     } else if (verb === 'Walk to') {
       this.changeScene(e.target.id, scene);
     }
@@ -126,13 +126,11 @@ export default Component.extend({
     const squashedTargetId = targetId.replace(/\s/g, '');
     let desire;
     if (usedOn) {
-      desire = `${scene}.${squashedTargetId}.${usedOn}`;
+      return this.sendAction('convo', scene, targetId, false, usedOn);
     } else {
       desire = `${scene}.${squashedTargetId}.Look`;
-    }
-    const line = get(this, 'scripts').get(desire);
-    if (line) {
-      this.sendAction('playerSpeach', line);
+      const line = get(this, 'scripts').get(desire);
+      return this.sendAction('playerSpeach', line);
     }
   },
 

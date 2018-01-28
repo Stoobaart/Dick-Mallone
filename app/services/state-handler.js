@@ -25,6 +25,10 @@ export default Service.extend({
   analysisUnlocked: false,
   travelMapOpened: false,
 
+  // conversation topics covered
+  bizarreCovered: false,
+  bloodCovered: false,
+
   itemForUse: null,
 
 	inventory: [
@@ -128,6 +132,8 @@ export default Service.extend({
       'blankpaperUsed': get(this, 'blankpaperUsed'),
       'analysisUnlocked': get(this, 'analysisUnlocked'),
       'stationUnlocked': get(this, 'stationUnlocked'),
+      'bizarreCovered': get(this, 'bizarreCovered'),
+      'bloodCovered': get(this, 'bloodCovered'),
     }
     localStorage.saveGame = JSON.stringify(saveGame);
 
@@ -155,6 +161,8 @@ export default Service.extend({
       'blankpaperUsed': saveGame.blankpaperUsed,
       'analysisUnlocked': saveGame.analysisUnlocked,
       'stationUnlocked': saveGame.stationUnlocked,
+      'bizarreCovered': saveGame.bizarreCovered,
+      'bloodCovered': saveGame.bloodCovered,
     })
     // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);
     // exit = JSON.parse(localStorage.exit);

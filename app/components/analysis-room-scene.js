@@ -3,10 +3,19 @@ import Ember from 'ember';
 
 const {
   $,
+  computed: {alias},
+  inject: {service},
   set
 } = Ember;
 
 export default Component.extend({
+
+  state: service('state-handler'),
+
+  bizarreCovered: alias('state.bizarreCovered'),
+
+  bloodCovered: alias('state.bloodCovered'),
+
   didInsertElement() {
     this._super(...arguments);
     $('#player').stop();
@@ -15,6 +24,9 @@ export default Component.extend({
     $("#player").fadeIn(500);
     $('#analysisRoomMusic')[0].play();
     $('#stationDoor')[0].play();
+    Ember.run.later(() => {
+      this.sendAction('npcSpeach', "Aaah welcome back Detective");
+    }, 1000);
   },
 
   willDestroyElement() {
