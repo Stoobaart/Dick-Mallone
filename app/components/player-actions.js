@@ -28,9 +28,9 @@ export default Component.extend({
     const npcPos = $(".npc").position().top;
     const dickPos = event.pageY - 200;
     if(dickPos <= npcPos){
-      $(".npcRodriguez").addClass("in-front");
+      $("#npcRodriguez").addClass("in-front");
     } else {
-      $(".npcRodriguez").removeClass("in-front");
+      $("#npcRodriguez").removeClass("in-front");
     }
 
     // store the current position of the player Sprite

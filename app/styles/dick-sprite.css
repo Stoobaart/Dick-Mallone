@@ -4,10 +4,12 @@
   left: 10rem;
   overflow: hidden;
   width: 4.5rem;
+  height: 12rem;
   position: absolute;
   z-index: 2;
   margin-top: -12rem;
   margin-left: -3rem;
+  filter: drop-shadow(12px -2px 7px rgba(0,0,0,0.5));
 }
 .playerSprite {
   height: 198px;

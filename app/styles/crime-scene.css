@@ -1,11 +1,14 @@
 .scene-screen {
   color: white;
   height: 486px;
+  overflow: hidden;
 }
 
 .scene-one {
   display: none;
   width: 100%;
+  z-index: -2;
+  position: relative;
 }
 
 .scene {
@@ -126,5 +129,26 @@ img#shards {
 @keyframes raining {
   100% {
     transform: translateX(-1250px);
+  }
+}
+
+.police-lighting {
+  position: relative;
+  width: 400px;
+  height: 546px;
+  top: -130rem;
+  left: 54.5rem;
+  background: #0020ff;
+  box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  opacity: 0.2;
+  z-index: -1;
+  animation: flashing 1000ms steps(2) infinite;
+  clip-path: polygon(80% 0, 100% 0, 100% 100%, 28% 100%, 61% 74%, 51% 74%, 0 100%, 80% 49%);
+}
+
+@keyframes flashing {
+  100% {
+    background: #ff0000;
+    opacity: 0.2;
   }
 }
