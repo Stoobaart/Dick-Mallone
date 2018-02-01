@@ -15,11 +15,14 @@ export default Service.extend({
   componentName: null,
   scene: 'crime-scene',
   previousScene: 'crime',
+
+  // events
   pickedupshards: false,
 	pickedupsyringe: false,
 	pickedupcup: false,
   pickedupfullcup: false,
   pickedupblankpaper: false,
+  pickedupportrait: false,
   blankpaperUsed: false,
   stationUnlocked: false,
   analysisUnlocked: false,
@@ -28,6 +31,7 @@ export default Service.extend({
   // conversation topics covered
   bizarreCovered: false,
   bloodCovered: false,
+  anythingelseCovered: false,
 
   itemForUse: null,
 
@@ -80,6 +84,13 @@ export default Service.extend({
       "id": "blank-paper",
       "use": "crackhead",
       "replaces": ""
+    },
+    {
+      "name": "portrait",
+      "url": "images/portrait.png",
+      "id": "portrait",
+      "use": "",
+      "replaces": ""
     }
   ],
 
@@ -128,12 +139,13 @@ export default Service.extend({
       'shardCollected': get(this, 'pickedupshards'),
       'syringeCollected': get(this, 'pickedupsyringe'),
       'weeCollected': get(this, 'pickedupfullcup'),
-      'paperCollected': get(this, 'pickeduppaper'),
+      'paperCollected': get(this, 'pickedupblankpaper'),
       'blankpaperUsed': get(this, 'blankpaperUsed'),
       'analysisUnlocked': get(this, 'analysisUnlocked'),
       'stationUnlocked': get(this, 'stationUnlocked'),
       'bizarreCovered': get(this, 'bizarreCovered'),
       'bloodCovered': get(this, 'bloodCovered'),
+      'anythingelseCovered': get(this, 'anythingelseCovered'),
     }
     localStorage.saveGame = JSON.stringify(saveGame);
 
@@ -157,12 +169,13 @@ export default Service.extend({
       'pickedupshards': saveGame.shardCollected,
       'pickedupsyringe': saveGame.syringeCollected,
       'pickedupfullcup': saveGame.weeCollected,
-      'pickeduppaper': saveGame.paperCollected,
+      'pickedupblankpaper': saveGame.paperCollected,
       'blankpaperUsed': saveGame.blankpaperUsed,
       'analysisUnlocked': saveGame.analysisUnlocked,
       'stationUnlocked': saveGame.stationUnlocked,
       'bizarreCovered': saveGame.bizarreCovered,
       'bloodCovered': saveGame.bloodCovered,
+      'anythingelseCovered': saveGame.anythingelseCovered,
     })
     // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);
     // exit = JSON.parse(localStorage.exit);

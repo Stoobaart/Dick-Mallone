@@ -3,6 +3,7 @@ import Ember from 'ember';
 
 const {
   $,
+  computed,
   get,
   inject: {service},
   observer,
@@ -18,6 +19,12 @@ export default Component.extend({
     this.crackheadGivenPaper();
   }),
 
+  jenkinsConvoCompleted: computed('state.anythingelseCovered', function() {
+    if (get(this, 'state.anythingelseCovered')) {
+      this.crackheadFinishedDrawing();
+    }
+  }),
+
   init() {
     this._super(...arguments);
     get(this, 'state.blankpaperUsed');
@@ -31,6 +38,7 @@ export default Component.extend({
     $("#player").fadeIn(500);
     $('#interrogationRoomMusic')[0].play();
     $('#stationDoor')[0].play();
+    get(this, 'jenkinsConvoCompleted');
   },
 
   willDestroyElement() {
@@ -41,7 +49,17 @@ export default Component.extend({
     later(() => {
       $(".player-speak").hide();
       this.sendAction('npcSpeach', "Okay, I'll try my best chief, come back in a little while");
-    }, 5000)
+    }, 3000)
+  },
+
+  crackheadFinishedDrawing() {
+    if(!get(this, 'state.pickedupportrait')) {
+      later(() => {
+        $(".player-speak").hide();
+        this.sendAction('npcSpeach', "Hey Detective, I have your portrait now. It's pretty much him I think");
+        get(this, 'state').add('portrait');
+      }, 2000)
+    }
   }
 
 });

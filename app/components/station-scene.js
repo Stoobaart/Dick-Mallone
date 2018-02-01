@@ -14,9 +14,7 @@ export default Component.extend({
 
   state: service('state-handler'),
 
-  pickedupblankpaper: Ember.computed('state.pickedupblankpaper', function() {
-    return get(this, 'state.pickedupblankpaper');
-  }),
+  pickedupblankpaper: alias('state.pickedupblankpaper'),
 
   paperUsed: alias('state.blankpaperUsed'),
 
@@ -54,6 +52,6 @@ export default Component.extend({
     set(this, 'state.analysisUnlocked', true);
     later(() => {
       this.sendAction('npcSpeach', "Dick, Jenkins has finished the autopsy and would like to see you now");
-    }, 1500)
+    }, 1000)
   },
 });
