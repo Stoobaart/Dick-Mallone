@@ -1,10 +1,11 @@
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
 import Component from '@ember/component';
-import Ember from 'ember';
 
 export default Component.extend({
 
-  state: Ember.inject.service('state-handler'),
+  state: service('state-handler'),
 
-  componentName: Ember.computed.alias('state.componentName'),
+  componentName: alias('state.componentName'),
 
 });

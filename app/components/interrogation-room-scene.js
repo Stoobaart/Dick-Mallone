@@ -1,15 +1,8 @@
+import $ from 'jquery';
+import { inject as service } from '@ember/service';
+import { later } from '@ember/runloop';
+import { set, observer, get, computed } from '@ember/object';
 import Component from '@ember/component';
-import Ember from 'ember';
-
-const {
-  $,
-  computed,
-  get,
-  inject: {service},
-  observer,
-  run: {later},
-  set
-} = Ember;
 
 export default Component.extend({
 

@@ -1,20 +1,14 @@
+import { inject as service } from '@ember/service';
+import { later } from '@ember/runloop';
+import { set, observer, get, computed } from '@ember/object';
+import $ from 'jquery';
 import Component from '@ember/component';
-import Ember from 'ember';
-
-const {
-  get,
-  inject: {service},
-  observer,
-  run: {later},
-  set,
-  $
-} = Ember;
 
 export default Component.extend({
 
   state: service('state-handler'),
 
-  syringePickedUp: Ember.computed('state.pickedupsyringe', function() {
+  syringePickedUp: computed('state.pickedupsyringe', function() {
     return get(this, 'state.pickedupsyringe');
   }),
 
@@ -32,9 +26,9 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
     set(this, 'scene', 'crime-scene');
-    $("#player").css({top: 295, left: 250}).html('<img class="playerSprite" src="sprites/dick.png">');
 
-    $("#player, #npcRodriguez").fadeIn(500);
+    $("#npcRodriguez").fadeIn(500);
+    $("#player").stop().show().css({top: 295, left: 250}).html('<img class="playerSprite" src="sprites/dick.png">');
     $(".scene-one, .rain-container").fadeIn(1000);
 
     $("#carDoor")[0].play();

@@ -1,12 +1,9 @@
+import { later } from '@ember/runloop';
+import $ from 'jquery';
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import { set } from '@ember/object';
 import Component from '@ember/component';
-import Ember from 'ember';
-
-const {
-  $,
-  computed: {alias},
-  inject: {service},
-  set
-} = Ember;
 
 export default Component.extend({
 
@@ -24,7 +21,7 @@ export default Component.extend({
     $("#player").fadeIn(500);
     $('#analysisRoomMusic')[0].play();
     $('#stationDoor')[0].play();
-    Ember.run.later(() => {
+    later(() => {
       this.sendAction('npcSpeach', "Aaah welcome back Detective");
     }, 1000);
   },

@@ -1,15 +1,11 @@
+import { inject as service } from '@ember/service';
+import $ from 'jquery';
+import { set, get } from '@ember/object';
 import Component from '@ember/component';
-import Ember from 'ember';
-
-const {
-  $,
-  get,
-  set,
-} = Ember;
 
 export default Component.extend({
 
-  state: Ember.inject.service('state-handler'),
+  state: service('state-handler'),
 
   verb: 'Walk to',
 

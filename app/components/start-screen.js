@@ -1,18 +1,12 @@
+import { inject as service } from '@ember/service';
+import $ from 'jquery';
+import { later } from '@ember/runloop';
+import { set, get } from '@ember/object';
 import Component from '@ember/component';
-import Ember from 'ember';
-
-const {
-  $,
-  get,
-  run: {
-    later,
-  },
-  set,
-} = Ember;
 
 export default Component.extend({
 
-  state: Ember.inject.service('state-handler'),
+  state: service('state-handler'),
 
   showContinue: false,
 

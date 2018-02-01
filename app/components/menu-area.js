@@ -1,11 +1,7 @@
+import { inject as service } from '@ember/service';
+import $ from 'jquery';
+import { set, get, computed } from '@ember/object';
 import Component from '@ember/component';
-import Ember from 'ember';
-
-const {
-  $,
-  get,
-  set
-} = Ember;
 
 // window.addEventListener("load", function() {
 //   setTimeout(function() {
@@ -15,9 +11,9 @@ const {
 
 export default Component.extend({
 
-  state: Ember.inject.service('state-handler'),
+  state: service('state-handler'),
 
-  isInCar: Ember.computed('scene', function() {
+  isInCar: computed('scene', function() {
     return get(this, 'scene') === 'car-scene' ? true : false;
   }),
 
