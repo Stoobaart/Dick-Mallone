@@ -15,6 +15,8 @@ export default Component.extend({
 
   travelMapOpened: alias('state.travelMapOpened'),
 
+  errandsLocationCovered: alias('state.errandsLocationCovered'),
+
 	didInsertElement() {
     this._super(...arguments);
     get(this, 'cupPickedUp');

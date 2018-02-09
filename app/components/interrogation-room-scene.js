@@ -13,7 +13,7 @@ export default Component.extend({
   }),
 
   jenkinsConvoCompleted: computed('state.anythingelseCovered', function() {
-    if (get(this, 'state.anythingelseCovered')) {
+    if (get(this, 'state.anythingelseCovered') && !get(this, 'state.pickedupportrait')) {
       this.crackheadFinishedDrawing();
     }
   }),
@@ -46,13 +46,11 @@ export default Component.extend({
   },
 
   crackheadFinishedDrawing() {
-    if(!get(this, 'state.pickedupportrait')) {
-      later(() => {
-        $(".player-speak").hide();
-        this.sendAction('npcSpeach', "Hey Detective, I have your portrait now. It's pretty much him I think");
-        get(this, 'state').add('portrait');
-      }, 2000)
-    }
+    later(() => {
+      $(".player-speak").hide();
+      this.sendAction('startAScene', 'crackhead-portrait', 'crackhead');
+      get(this, 'state').add('portrait');
+    }, 2000)
   }
 
 });

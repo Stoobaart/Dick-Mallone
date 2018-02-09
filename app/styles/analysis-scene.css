@@ -34,16 +34,16 @@
 }
 
 .jenkins {
-  top: -58rem;
-  left: 22rem;
-  width: 6.5rem;
+  top: -13rem;
+  left: 1rem;
+  width: 4.5rem;
   height: 11.5rem;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .biohazards {
-  top: -80rem;
+  top: -68rem;
   left: 0rem;
   width: 15.5rem;
   height: 26.5rem;
@@ -52,7 +52,7 @@
 }
 
 .lab-cabinets {
-  top: -103rem;
+  top: -92rem;
   left: 27.5rem;
   width: 41.5rem;
   height: 5.5rem;
@@ -61,7 +61,7 @@
 }
 
 .more-lab-cabinets {
-  top: -98rem;
+  top: -86rem;
   left: 38.5rem;
   width: 29.5rem;
   height: 4.5rem;
@@ -73,7 +73,7 @@
   position: relative;
   width: 10rem;
   height: 7rem;
-  top: -100rem;
+  top: -89rem;
   left: 25rem;
   z-index: 2;
 }

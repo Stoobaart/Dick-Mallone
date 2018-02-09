@@ -3,20 +3,17 @@
     <img class="analysis-scene" src="/images/analysisRoom.png">
 
     <div id="npcJenkins" class="npc">
-      <img class="jenkinsSprite" src="/sprites/jenkins.png">
+      {{#unless portraitCovered}}
+        <img class="jenkinsSprite" src="/sprites/jenkins.png">
+        <div id="jenkins" class="thing jenkins" data-name="Jenkins" data-type="person" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+      {{/unless}}
     </div>
 
     <div id="gurneySprite">
       <img class="gurneySprite" src="/sprites/gurney.png">
-      <!--<img class="thing gurneySprite2" name="Killer robot!" src="assets/images/gurney2.png">
-      <img class="thing gurneySprite3 robot" name="Killer robot!" src="assets/images/gurney3.png">
-      <img class="thing gurneySprite4" name="Killer robot!" src="assets/images/gurney4.png">-->
     </div>
 
     <div id="station" class="exit-analysis thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
-
-    <div id="jenkins" class="thing jenkins" data-name="Jenkins" data-type="person" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
-
     <div id="biohazards" class="thing biohazards" data-name="Volatile substance machine" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     <div id="lab-cabinets" class="thing lab-cabinets" data-name="Cabinets" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     <div id="lab-cupboards" class="thing more-lab-cabinets" data-name="Cabinets" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>

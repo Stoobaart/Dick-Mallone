@@ -134,6 +134,20 @@
   width: 7rem;
 }
 
+.skywayIcon {
+  top: -49rem;
+  left: 42rem;
+  width: 8rem;
+  image-rendering: pixelated;
+  border-radius: 5px;
+  position: relative;
+  z-index: 3;
+}
+
+.skywayIconImg {
+  width: 7rem;
+}
+
 #cup {
   position: absolute;
   top: 1.5rem;

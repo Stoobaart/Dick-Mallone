@@ -33,8 +33,15 @@
 
     {{jen-speach speakClear=(action speakClear)}}
     <section class="options station">
-      <p id="aboutCrackHead" onclick={{action convoOption}}>Any trouble from the crack head?</p>
-      <p id="aboutJenkins" onclick={{action convoOption}}>Got any messages from Jenkins?</p>
+      {{#if jenkinsVanished}}
+        <p id="whereIsJenkins" onclick={{action convoOption}}>Have you seen Jenkins?</p>
+        {{#if whereIsJenkinsCovered}}
+          <p id="errandsLocation" onclick={{action convoOption}}>Where does he go everyday?</p>
+        {{/if}}
+      {{else}}
+        <p id="aboutCrackHead" onclick={{action convoOption}}>Any trouble from the crack head?</p>
+        <p id="aboutJenkins" onclick={{action convoOption}}>Got any messages from Jenkins?</p>
+      {{/if}}
       <p id="bye" onclick={{action convoOption}}>Chat to ya later, Jen</p>
     </section>
   </section>

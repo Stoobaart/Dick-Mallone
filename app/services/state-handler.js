@@ -20,11 +20,14 @@ export default Service.extend({
   stationUnlocked: false,
   analysisUnlocked: false,
   travelMapOpened: false,
+  jenkinsVanished: false,
 
   // conversation topics covered
   bizarreCovered: false,
   bloodCovered: false,
   anythingelseCovered: false,
+  whereIsJenkinsCovered: false,
+  errandsLocationCovered: false,
 
   itemForUse: null,
 
@@ -133,16 +136,19 @@ export default Service.extend({
       'syringeCollected': get(this, 'pickedupsyringe'),
       'weeCollected': get(this, 'pickedupfullcup'),
       'paperCollected': get(this, 'pickedupblankpaper'),
+      'pickedupportrait': get(this, 'pickedupportrait'),
       'blankpaperUsed': get(this, 'blankpaperUsed'),
       'analysisUnlocked': get(this, 'analysisUnlocked'),
       'stationUnlocked': get(this, 'stationUnlocked'),
       'bizarreCovered': get(this, 'bizarreCovered'),
       'bloodCovered': get(this, 'bloodCovered'),
       'anythingelseCovered': get(this, 'anythingelseCovered'),
+      'jenkinsVanished': get(this, 'jenkinsVanished'),
+      'whereIsJenkinsCovered': get(this, 'whereIsJenkinsCovered'),
+      'errandsLocationCovered': get(this, 'errandsLocationCovered'),
     }
     localStorage.saveGame = JSON.stringify(saveGame);
 
-    // localStorage.interrogationDone = JSON.stringify(interrogationDone);
     alert("Progress saved");
   },
 
@@ -163,12 +169,16 @@ export default Service.extend({
       'pickedupsyringe': saveGame.syringeCollected,
       'pickedupfullcup': saveGame.weeCollected,
       'pickedupblankpaper': saveGame.paperCollected,
+      'pickedupportrait': saveGame.pickedupportrait,
       'blankpaperUsed': saveGame.blankpaperUsed,
       'analysisUnlocked': saveGame.analysisUnlocked,
       'stationUnlocked': saveGame.stationUnlocked,
       'bizarreCovered': saveGame.bizarreCovered,
       'bloodCovered': saveGame.bloodCovered,
       'anythingelseCovered': saveGame.anythingelseCovered,
+      'jenkinsVanished': saveGame.jenkinsVanished,
+      'whereIsJenkinsCovered': saveGame.whereIsJenkinsCovered,
+      'errandsLocationCovered': saveGame.errandsLocationCovered,
     })
     // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);
     // exit = JSON.parse(localStorage.exit);

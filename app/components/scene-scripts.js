@@ -13,160 +13,76 @@ export default Component.extend({
 
   scripts: EmberObject.create({
     itemsInInventory: {
-      'badge': {
-        Look: "This is my badge",
-        Usefullcupon: [
-          { dick: "I don't want to get this wet" }
-        ],
-        Usecupon: [
-          { dick: "What are you doing?" }
-        ]
-      },
-      'gun': {
-        Look: "My trusty Pistola. Just make sure it's pointed in the right direction",
-        Usefullcupon: [
-          { dick: "I don't want to get this wet" },
-        ],
-        Usecupon: [
-          { dick: "What are you doing?" }
-        ]
-      },
-      'shards': {
-        Look: "Maybe I should've bagged and tagged this...",
-        Usefullcupon: [
-          { dick: "I don't want to get this wet" },
-        ],
-        Usecupon: [
-          { dick: "This doesn't need to be in that" }
-        ]
-      },
-      'cup': {
-        Look: "It's empty...",
-        Usegunon: [
-          { dick: "I shouldn't make any holes" }
-        ]
-      },
-      'full-cup': {
-        Look: "It's full",
-        Usegunon: [
-          { dick: "I shouldn't make any holes" }
-        ]
-      }
+      'badge': { Look: "This is my badge"},
+      'gun': { Look: "My trusty Pistola. Just make sure it's pointed in the right direction"},
+      'shards': { Look: "Maybe I should've bagged and tagged this..."},
+      'cup': { Look: "It's empty..."},
+      'full-cup': { Look: "It's full"},
+      'syringe': { Look: "Urgh, I wonder how long I'll have to hold onto this"},
+      'portrait': { Look: "Jenkins"}
     },
     'crime-scene': {
       'victim': {
         Look: "Looks like the last known whereabouts of our victim... a John Doe",
-        Pick: [
-          { dick: "There's nothing to pick up" },
-        ],
+        Pick: [{ dick: "There's nothing to pick up" }],
         Talk: "Don't you think that's a little late?",
-        Usecupon: [
-          { dick: "That doesn't make sense" }
-        ]
+        Usecupon: [{ dick: "That doesn't make sense" }]
       },
       'shards': {
         Look: "Shards of glass... There's blood everywhere",
-        Pick: [
-          { dick: "Hope I don't get hep or something. Aaah I guess it's too late anyways.." },
-        ],
+        Pick: [{ dick: "Hope I don't get hep or something. Aaah I guess it's too late anyways.." }],
         Talk: "I can't talk to that",
-        Usecupon: [
-          { dick: "I can just pick one up"}
-        ]
+        Usecupon: [{ dick: "I can just pick one up"}]
       },
       'head': {
         Look: "There are ways to get ahead in life, and this aint one of 'em, unless you're the murderer...Then this is Exactly how you get a head",
-        Pick: [
-          { dick: "There's nothing to pick up" },
-        ],
+        Pick: [{ dick: "There's nothing to pick up" }],
         Talk: "Don't you think that's a little late?",
-        Usecupon: [
-          { dick: "That doesn't make sense" }
-        ]
+        Usecupon: [{ dick: "That doesn't make sense" }]
       },
       'car': {
         Look: "My wheels, she aint much to look at, but it beats walking",
-        Pick: [
-          { dick: "What do I look like, the Hulk?" },
-        ],
+        Pick: [{ dick: "What do I look like, the Hulk?" }],
         Talk: "Hey baby.... Love you too",
-        Usefullcupon: [
-        { dick: "She only runs on diesel" },
-        ],
-        Usecupon: [
-          { dick: "That doesn't make sense"}
-        ]
+        Usefullcupon: [{ dick: "She only runs on diesel" }],
+        Usecupon: [{ dick: "That doesn't make sense"}]
       },
       'broken-window': {
         Look: "I guess this is where these shards of glass came from. What does this have to do with the murder? Could this be a robbery gone wrong?",
-        Pick: [
-          { dick: "It's too high up" },
-        ],
+        Pick: [{ dick: "It's too high up" }],
         Talk: "I can't talk to that",
-        Usecupon: [
-          { dick: "That doesn't make sense" }
-        ]
+        Usecupon: [{ dick: "That doesn't make sense" }]
       },
       'hand-print': {
         Look: "This rain has washed away any liftable prints. Damn it.",
-        Pick: [
-          { dick: "There's nothing to pick up" },
-        ],
+        Pick: [{ dick: "There's nothing to pick up" }],
         Talk: "I can't talk to that",
-        Usecupon: [
-          { dick: "I'm sure Jenkins has already got a sample"}
-        ]
+        Usecupon: [{ dick: "I'm sure Jenkins has already got a sample"}]
       },
       'urine': {
         Look: "A puddle of urine... I should scoop some up for analysis",
-        Pick: [
-          { dick: "Eeeew, I'm not using my hands for this" },
-        ],
+        Pick: [{ dick: "Eeeew, I'm not using my hands for this" }],
         Talk: "I can't talk to that",
-        Usecupon: [
-          { dick: "Let's scoop some up. Hmmm... still warm." },
-        ],
-        Usefullcupon: [
-          { dick: "I'm not gonna pour this back" },
-        ],
-        Usesyringeon: [
-          { dick: "I should probably show this to Jenkins before contaminating it"}
-        ]
+        Usecupon: [{ dick: "Let's scoop some up. Hmmm... still warm." }],
+        Usefullcupon: [{ dick: "I'm not gonna pour this back" }],
+        Usesyringeon: [{ dick: "I should probably show this to Jenkins before contaminating it"}]
       },
       'used-syringe': {
         Look: "Hmmm, Could this be related? Or maybe some crack head left it here? This place is pretty seedy...",
-        Pick: [
-          { dick: "Lesser detectives would use protective gear for this. Not me." },
-        ],
+        Pick: [{ dick: "Lesser detectives would use protective gear for this. Not me." }],
         Talk: "I can't talk to that",
-        Usecupon: [
-          { dick: "Even if I did need this, this cup wouldn't protect me from pricks"}
-        ]
+        Usecupon: [{ dick: "Even if I did need this, this cup wouldn't protect me from pricks"}]
       },
       'rodriguez': {
         Look: "Officer Rodriguez. He looks pretty shaken up. Didn't even know he smokes..",
-        Pick: [
-          { dick: "It's not his birthday" },
-        ],
-        Usebadgeon: [
-          { dick: "He's not going to be impressed" },
-        ],
-        Usegunon: [
-          { dick: "The only thing I want to blow Rodriguez away with is my wit" },
-        ],
-        Usecupon: [
-          { dick: "Why would he want this?" },
-        ],
-        Usefullcupon: [
-          { dick: "He's too straight a cop to ever take the piss" },
-        ],
-        Useshardson: [
-          { dick: "There's plenty of time for shanking later" },
-        ],
-        Usesyringeon: [
-          { dick: "I should show this to Jenkins instead" },
-        ],
-        convostarter: [
+        Pick: [{ dick: "It's not his birthday" }],
+        Usebadgeon: [{ dick: "He's not going to be impressed" }],
+        Usegunon: [{ dick: "The only thing I want to blow Rodriguez away with is my wit" }],
+        Usecupon: [{ dick: "Why would he want this?" }],
+        Usefullcupon: [{ dick: "He's too straight a cop to ever take the piss" }],
+        Useshardson: [{ dick: "There's plenty of time for shanking later" }],
+        Usesyringeon: [{ dick: "I should show this to Jenkins instead" }],
+        convo: [
           { dick: "Officer Rodriguez. What's the deal here?" },
           { npc: "It's not great, Dick. Somebody got messed up here real good....or bad.. I'm so confused right now.."}
         ],
@@ -186,6 +102,18 @@ export default Component.extend({
         { dick: "How can nobody have seen a man get his head removed?" },
         { npc: "Beats me, Dick. You'll need your head screwed on for this case ...sorry ...sigh." }
       ],
+      seenJenkins: [
+        { dick: "Have you seen or heard from Jenkins?" },
+        { npc: "Not since yesterday Dick, what's going on?"},
+        { dick: "I'm not quite sure Rodriguez, I just need to find him"},
+        { npc: "Well, if I see him I will be sure to radio you"}
+      ],
+      jenkinsActivities: [
+        { dick: "Do you know what Jenkins has been working on lately? Jen says he's been pretty busy"},
+        { npc: "No idea Dick, I've been on extra patrols with all the recent incidents"},
+        { npc: "Is everything ok Dick? Somethin' going on?"},
+        { dick: "Nothing to worry about Rodriguez, you're doing a great job"}
+      ],
       bye: [
         { npc: "See ya later bud" }
       ],
@@ -193,121 +121,59 @@ export default Component.extend({
     'car-scene': {
       'map': {
         Talk: "It's not voice activated",
-        Pick: [
-          { dick: "I'll only ever need it in the car" },
-        ],
-        Usebadgeon: [
-          { dick: "What the hell are you doing?" },
-        ],
-        Usegunon: [
-          { dick: "I still need my directions" },
-        ],
-        Usecupon: [
-          { dick: "That doesn't make sense"}
-        ]
+        Pick: [{ dick: "I'll only ever need it in the car" }],
+        Usebadgeon: [{ dick: "What the hell are you doing?" }],
+        Usegunon: [{ dick: "I still need my directions" }],
+        Usecupon: [{ dick: "That doesn't make sense"}]
       },
       'cup': {
         Look: "This beverage holder has seen one too many instants",
         Talk: "Hello cup. How are you? ....Yep...still inanimate",
-        Pick: [
-          { dick: "I should find the trash for this" },
-        ],
-        Usebadgeon: [
-          { dick: "That doesn't make sense" },
-        ],
-        Usegunon: [
-          { dick: "It's better without holes in it" },
-        ]
+        Pick: [{ dick: "I should find the trash for this" }],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "It's better without holes in it" }]
       }
     },
     'station-scene': {
       'water-cooler': {
         Look: "A water dispenser. I'm not thirsty",
         Talk: "That doesn't make sense",
-        Pick: [
-          { dick: "I don't need that much water, let alone any" },
-        ],
-        Usebadgeon: [
-          { dick: "I could arrest this, but my reasoning in court would hold no water" },
-        ],
-        Usegunon: [
-          { dick: "It already has a method to dispense water"},
-        ],
-        Usecupon: [
-          { dick: "I don't need any water, plus I'm prety sure I'll need this cup somewhere else. hint hint" },
-        ],
-        Usefullcupon: [
-          { dick: "I'll spill this on my shoes if I try" },
-        ],
-        Useshardson: [
-          { dick: "That doesn't make sense"}
-        ]
+        Pick: [{ dick: "I don't need that much water, let alone any" }],
+        Usebadgeon: [{ dick: "I could arrest this, but my reasoning in court would hold no water" }],
+        Usegunon: [{ dick: "It already has a method to dispense water"}],
+        Usecupon: [{ dick: "I don't need any water, plus I'm prety sure I'll need this cup somewhere else. hint hint" }],
+        Usefullcupon: [{ dick: "I'll spill this on my shoes if I try" }],
+        Useshardson: [{ dick: "That doesn't make sense"}]
       },
       'notice-board': {
         Look: "The weekly 'Hit list', this month's calendar, and some leaflets",
         Talk: "That doesn't make sense",
-        Pick: [
-          { dick: "I don't need any leaflets" },
-        ],
-        Usebadgeon: [
-          { dick: "That doesn't make sense" },
-        ],
-        Usegunon: [
-          { dick: "I don't know why you'd try that" },
-        ],
-        Usecupon: [
-          { dick: "That doesn't make sense" },
-        ],
-        Usefullcupon: [
-          { dick: "And get everything wet? How will I know what's going on?" },
-        ],
-        Useshardson: [
-          { dick: "That doesn't make sense"}
-        ]
+        Pick: [{ dick: "I don't need any leaflets" }],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "I don't know why you'd try that" }],
+        Usecupon: [{ dick: "That doesn't make sense" }],
+        Usefullcupon: [{ dick: "And get everything wet? How will I know what's going on?" }],
+        Useshardson: [{ dick: "That doesn't make sense"}]
       },
       'paper': {
         Look: "Some blank paper",
         Talk: "That doesn't make sense",
-        Pick: [
-          { dick: "Maybe some of this blank paper will come in handy later" },
-        ],
-        Usegunon: [
-          { dick: "I can borrow Jen's hole puncher if I get desperate. Which I am not" },
-        ],
-        Usecupon: [
-          { dick: "That doesn't make sense" },
-        ],
-        Usefullcupon: [
-          { dick: "I shouldn't make this soggy" },
-        ],
-        Useshardson: [
-          { dick: "That doesn't make sense"}
-        ]
+        Pick: [{ dick: "Maybe some of this blank paper will come in handy later" }],
+        Usegunon: [{ dick: "I can borrow Jen's hole puncher if I get desperate. Which I am not" }],
+        Usecupon: [{ dick: "That doesn't make sense" }],
+        Usefullcupon: [{ dick: "I shouldn't make this soggy" }],
+        Useshardson: [{ dick: "That doesn't make sense"}]
       },
       'filing-cabinets': {
         Look: "General files, or as I like to call them 'Jeneral files'",
         Talk: "That doesn't make sense",
-        Pick: [
-          { dick: "Don't ruin Jen's files" },
-        ],
-        Usebadgeon: [
-          { dick: "That doesn't make sense" },
-        ],
-        Usegunon: [
-          { dick: "Don't ruin Jen's files" },
-        ],
-        Usecupon: [
-          { dick: "That doesn't make sense" },
-        ],
-        Usefullcupon: [
-          { dick: "Don't ruin Jen's files" },
-        ],
-        Useshardson: [
-          { dick: "Don't ruin Jen's files" },
-        ],
-        Usepaperon: [
-          { dick: "Not much point in filing an empty sheet of paper now, is there columbo?"}
-        ]
+        Pick: [{ dick: "Don't ruin Jen's files" }],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "Don't ruin Jen's files" }],
+        Usecupon: [{ dick: "That doesn't make sense" }],
+        Usefullcupon: [{ dick: "Don't ruin Jen's files" }],
+        Useshardson: [{ dick: "Don't ruin Jen's files" }],
+        Usepaperon: [{ dick: "Not much point in filing an empty sheet of paper now, is there columbo?"}]
       },
       'interrogation-room': {
         Look: "This goes to the interrogation room"
@@ -321,25 +187,13 @@ export default Component.extend({
       'Jen': {
         Look: "That's Jen, Don't let that sweet heart demeanor of hers trick you, she's made of sterner stuff",
         Talk: "Hey Jen, how you holdin' up?",
-        Pick: [
-          { dick: "I sure aint no weinstein" },
-        ],
-        Usebadgeon: [
-          { dick: "She's not going to be impressed" },
-        ],
-        Usegunon: [
-          { dick: "She'll only stick it up me faster than I can pull the trigger" },
-        ],
-        Usecupon: [
-          { dick: "She has plenty of cups behind her" },
-        ],
-        Usefullcupon: [
-          { dick: "I'm sure there's a better use for this..." },
-        ],
-        Useshardson: [
-          { dick: "There's plenty of time for shanking later" },
-        ],
-        convostarter: [
+        Pick: [{ dick: "I sure aint no weinstein" }],
+        Usebadgeon: [{ dick: "She's not going to be impressed" }],
+        Usegunon: [{ dick: "She'll only stick it up me faster than I can pull the trigger" }],
+        Usecupon: [{ dick: "She has plenty of cups behind her" }],
+        Usefullcupon: [{ dick: "I'm sure there's a better use for this..." }],
+        Useshardson: [{ dick: "There's plenty of time for shanking later" }],
+        convo: [
           { dick: "Hi Jen, how has it been today, any drama?" },
           { npc: "Hey Dick. Pretty quiet today. Apart from that crack head that was brought in. What's up?"}
         ]
@@ -352,6 +206,20 @@ export default Component.extend({
         { npc: "Yeah, he said he wants to see you after the autopsy, he should be finished up soon" },
         { dick: "Alright then, thanks Jen" }
       ],
+      whereIsJenkins: [
+        { dick: "Have you seen Jenkins? He's not in the lab" },
+        { npc: "No I haven't. Perhaps he's gone to get more equiptment?" },
+        { dick: "what makes you say that?" },
+        { npc: "He's been in and out everyday this week" }
+      ],
+      errandsLocation: [
+        { dick: "Where does he go to get the equiptment?"},
+        { npc: "West walk skyway" },
+        { npc: "What's wrong Dick? Whats happening?"},
+        { dick: "I don't know Jen, just... if you see him, act normal, and contact me" },
+        { dick: "Thanks Jen, I know can always count on you"},
+        { npc: "ok, will do dick"}
+      ],
       bye: [
         { npc: "Until next time Mallone" },
         { dick: "Catch ya later, Jen" }
@@ -361,30 +229,14 @@ export default Component.extend({
       'crackhead': {
         Talk: "Alright buddy, time to spill it!",
         Look: "This guy must be able to give us some kind of i.d on the suspect",
-        Pick: [
-          { dick: "When I said shake him down, I didn't mean literally" },
-        ],
-        Usebadgeon: [
-          { dick: "He know's what time it is" },
-        ],
-        Usegunon: [
-          { dick: "Only if he holds out on me" },
-        ],
-        Usecupon: [
-          { dick: "He doesn't want that" },
-        ],
-        Usefullcupon: [
-          { dick: "I found this at the scene" },
-        ],
-        Useshardson: [
-          { dick: "He doesn't want this" },
-        ],
-        Useblankpaperon: [
-          { dick: "Can you sketch the thing that killed that man?" }
-        ],
-        convostarter: [
-          { npc: "When can i get out of here? They're coming for me man! c'mon!!" }
-        ]
+        Pick: [{ dick: "When I said shake him down, I didn't mean literally" }],
+        Usebadgeon: [{ dick: "He know's what time it is" }],
+        Usegunon: [{ dick: "Only if he holds out on me" }],
+        Usecupon: [{ dick: "He doesn't want that" }],
+        Usefullcupon: [{ dick: "I found this at the scene" }],
+        Useshardson: [{ dick: "He doesn't want this" }],
+        Useblankpaperon: [{ dick: "Can you sketch the thing that killed that man?" }],
+        convo: [{ npc: "When can i get out of here? They're coming for me man! c'mon!!" }]
       },
       'honest': [
         { npc: "Yeah man. sure thing. Are you sure that they aren't listening?" },
@@ -411,128 +263,73 @@ export default Component.extend({
         { dick: "Relax. You're safe here" }
       ]
     },
+    'crackhead-portrait': {
+      'crackhead': {
+        convo: [
+          { npc: "Hey Detective, I have your portrait now. It's pretty much him I think" },
+          { dick: "Is this a joke? This is Jenkins, the scientist here" },
+          { npc: "....."},
+          { npc: "It's...It's here? In the building?? LET ME OUTTA HERE MAAAANN"},
+          { dick: "Shut up man, let me think! What is this? Are you still high?"},
+          { npc: "No man, that's the killer, I swear it! I never forget a face"},
+          { dick: "This doesn't make any sense" },
+          { dick: "I'd better go speak to Jenkins, you stay here you nut job"},
+          { npc: "Don't leave me here maaaannnn!" }
+        ]
+      }
+    },
     'analysis-room-scene': {
       'gurney': {
         Look: "Dead as a door nail",
         Talk: "Not only does he not have a head or a mouth to talk out of, but he's also dead",
-        Pick: [
-          { dick: "I don't need to carry any dead weight" },
-        ],
-        Usebadgeon: [
-          { dick: "That doesn't make any sense" },
-        ],
-        Usegunon: [
-          { dick: "He's already dead" },
-        ],
-        Usecupon: [
-          { dick: "That doesn't make any sense" },
-        ],
-        Usefullcupon: [
-          { dick: "That doesn't make any sense" },
-        ],
-        Useshardson: [
-          { dick: "That doesn't make any sense" },
-        ],
-        Usepaperon: [
-          { dick: "That doesn't make any sense"}
-        ]
+        Pick: [{ dick: "I don't need to carry any dead weight" }],
+        Usebadgeon: [{ dick: "That doesn't make any sense" }],
+        Usegunon: [{ dick: "He's already dead" }],
+        Usecupon: [{ dick: "That doesn't make any sense" }],
+        Usefullcupon: [{ dick: "That doesn't make any sense" }],
+        Useshardson: [{ dick: "That doesn't make any sense" }],
+        Usepaperon: [{ dick: "That doesn't make any sense"}]
       },
       'lab-cabinets': {
         Look: "Scientific stuff, if I knew what any of tis was for, we wouldn't need Jenkins",
-        Pick: [
-          { dick: "it's fixed to the wall, nor do I need any of the contents" },
-        ],
-        Usebadgeon: [
-          { dick: "Always keep your badge on you at all times"},
-        ],
-        Usegunon: [
-          { dick: "That doesn't make any sense" },
-        ],
-        Usecupon: [
-          { dick: "I'll keep this on me for now" },
-        ],
-        Usefullcupon: [
-          { dick: "I'll keep this on me for now" },
-        ],
-        Useshardson: [
-          { dick: "That doesn't make any sense" },
-        ],
-        Usepaperon: [
-          { dick: "That doesn't make any sense"}
-        ]
+        Pick: [{ dick: "it's fixed to the wall, nor do I need any of the contents" }],
+        Usebadgeon: [{ dick: "Always keep your badge on you at all times"}],
+        Usegunon: [{ dick: "That doesn't make any sense" }],
+        Usecupon: [{ dick: "I'll keep this on me for now" }],
+        Usefullcupon: [{ dick: "I'll keep this on me for now" }],
+        Useshardson: [{ dick: "That doesn't make any sense" }],
+        Usepaperon: [{ dick: "That doesn't make any sense"}]
       },
       'lab-cupboards': {
         Look: "Chemicals, test tubes, beakers, etc..",
-        Pick: [
-          { dick: "it's fixed to the wall, nor do I need any of the contents" },
-        ],
-        Usebadgeon: [
-          { dick: "Always keep your badge on you at all times" },
-        ],
-        Usegunon: [
-          { dick: "That doesn't make any sense" },
-        ],
-        Usecupon: [
-          { dick: "I'll keep this on me for now" },
-        ],
-        Usefullcupon: [
-          { dick: "I'll keep this on me for now" },
-        ],
-        Useshardson: [
-          { dick: "That doesn't make any sense" },
-        ],
-        Usepaperon: [
-          { dick: "That doesn't make any sense"}
-        ]
+        Pick: [{ dick: "it's fixed to the wall, nor do I need any of the contents" }],
+        Usebadgeon: [{ dick: "Always keep your badge on you at all times" }],
+        Usegunon: [{ dick: "That doesn't make any sense" }],
+        Usecupon: [{ dick: "I'll keep this on me for now" }],
+        Usefullcupon: [{ dick: "I'll keep this on me for now" }],
+        Useshardson: [{ dick: "That doesn't make any sense" }],
+        Usepaperon: [{ dick: "That doesn't make any sense"}]
       },
       'biohazards': {
         Look: "I can't see much from here, but I don't want to get too close",
-        Usebadgeon: [
-          { dick: "That doesn't make any sense" },
-        ],
-        Usegunon: [
-          { dick: "Woah! That's a really bad idea, whatever is in there needs to stay in there" },
-        ],
-        Usecupon: [
-          { dick: "That doesn't make any sense" },
-        ],
-        Usefullcupon: [
-          { dick: "That's probably a great place to put this, but I should check with Jenkins first" },
-        ],
-        Useshardson: [
-          { dick: "I don't want to make any holes" },
-        ],
-        Usepaperon: [
-          { dick: "That doesn't make any sense"}
-        ]
+        Usebadgeon: [{ dick: "That doesn't make any sense" }],
+        Usegunon: [{ dick: "Woah! That's a really bad idea, whatever is in there needs to stay in there" }],
+        Usecupon: [{ dick: "That doesn't make any sense" }],
+        Usefullcupon: [{ dick: "That's probably a great place to put this, but I should check with Jenkins first" }],
+        Useshardson: [{ dick: "I don't want to make any holes" }],
+        Usepaperon: [{ dick: "That doesn't make any sense"}]
       },
       'jenkins': {
         Talk: "Hey Jenkins, what have you got for me?",
         Look: "Jenkin's here does all our analysis. We'd be lost without him",
-        Pick: [
-          { dick: "He doesn't like it when I pick him up" },
-        ],
-        Usebadgeon: [
-          { dick: "I don't need to know how much semen is on this" },
-        ],
-        Usegunon: [
-          { dick: "Let's hope it doesn't come to this" },
-        ],
-        Usecupon: [
-          { dick: "I normally have to fill these up before giving them to Jenkins" },
-        ],
-        Usefullcupon: [
-          { dick: "I found this at the scene" },
-        ],
-        Useshardson: [
-          { dick: "He doesn't want this" },
-        ],
-        Usepaperon: [
-          { dick: "He doesn't want this" },
-        ],
-        convostarter: [
-          { npc: "Hello Dick, I have some rather bizarre findings for you" },
-        ]
+        Pick: [{ dick: "He doesn't like it when I pick him up" }],
+        Usebadgeon: [{ dick: "I don't need to know how much semen is on this" }],
+        Usegunon: [{ dick: "Let's hope it doesn't come to this" }],
+        Usecupon: [{ dick: "I normally have to fill these up before giving them to Jenkins" }],
+        Usefullcupon: [{ dick: "I found this at the scene" }],
+        Useshardson: [{ dick: "He doesn't want this" }],
+        Usepaperon: [{ dick: "He doesn't want this" }],
+        convo: [{ npc: "Hello Dick, I have some rather bizarre findings for you" }]
       },
       'bizarre': [
         { dick: "What is so bizarre Doc?" },
@@ -593,8 +390,9 @@ export default Component.extend({
     set(this, 'currentSpeach', mutatedCurrentSpeach);
   },
 
-  convo(scene, targetId, convoOptionChosen, usedOn) {
-    set(this, 'convoInProgress', true);
+  // in desperate need of refactoring
+  convo(scene, targetId, convoOptionChosen, usedOn, noConvoOptions) {
+    noConvoOptions === true ? set(this, 'convoInProgress', false) : set(this, 'convoInProgress', true);
     const squashedTargetId = targetId.replace(/\s/g, '');
     let topic = null;
     if (convoOptionChosen) {
@@ -603,7 +401,7 @@ export default Component.extend({
       set(this, 'convoInProgress', false);
       topic = `${scene}.${squashedTargetId}.${usedOn}`;
     } else {
-      topic = `${scene}.${targetId}.convostarter`;
+      topic = `${scene}.${targetId}.convo`;
     }
     set(this, 'currentSpeach', get(this, 'scripts').get(topic));
     let currentSpeach = get(this, 'currentSpeach');
@@ -630,4 +428,18 @@ export default Component.extend({
       set(this, 'convoInProgress', false);
     }
   },
+
+  startAScene(scene, targetId) {
+    const topic = `${scene}.${targetId}.convo`;
+    set(this, 'currentSpeach', get(this, 'scripts').get(topic));
+    let currentSpeach = get(this, 'currentSpeach');
+    let mutatedCurrentSpeach = [...currentSpeach];
+    if(mutatedCurrentSpeach[0].hasOwnProperty('dick')) {
+      this.sendAction('playerSpeach', mutatedCurrentSpeach[0].dick);
+    } else {
+      this.sendAction('npcSpeach', mutatedCurrentSpeach[0].npc);
+    }
+    mutatedCurrentSpeach.shift();
+    set(this, 'currentSpeach', mutatedCurrentSpeach);
+  }
 });

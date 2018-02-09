@@ -25,8 +25,8 @@
   position: relative;
   width: 400px;
   height: 135px;
-  top: -68.5rem;
-  left: 43rem;
+  top: -69rem;
+  left: 44rem;
   -webkit-clip-path: polygon(0% 0, 82% 0, 100% 100%, 0 100%);
   clip-path: polygon(0% 0, 82% 0, 100% 100%, 0 100%);
   z-index: 4;
@@ -36,7 +36,7 @@
   position: relative;
   width: 637px;
   height: 121px;
-  top: -104.5rem;
+  top: -93rem;
   left: 37rem;
   z-index: 4;
 }

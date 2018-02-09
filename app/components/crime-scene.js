@@ -1,3 +1,4 @@
+import { alias } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import { later } from '@ember/runloop';
 import { set, observer, get, computed } from '@ember/object';
@@ -18,6 +19,8 @@ export default Component.extend({
     }
   }),
 
+  jenkinsVanished: alias('state.jenkinsVanished'),
+
   init() {
     this._super(...arguments);
     this.getProperties('state.pickedupshards', 'state.pickedupfullcup');
@@ -28,7 +31,7 @@ export default Component.extend({
     set(this, 'scene', 'crime-scene');
 
     $("#npcRodriguez").fadeIn(500);
-    $("#player").stop().show().css({top: 295, left: 250}).html('<img class="playerSprite" src="sprites/dick.png">');
+    $("#player").stop().fadeIn(500).css({top: 295, left: 250}).html('<img class="playerSprite" src="sprites/dick.png">');
     $(".scene-one, .rain-container").fadeIn(1000);
 
     $("#carDoor")[0].play();

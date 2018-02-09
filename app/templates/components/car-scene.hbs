@@ -32,6 +32,12 @@
           <img id="crime" class="crimeSceneIconImg" src="/images/crimeSceneIcon.png">
         </div>
         <div class="mapClose" onclick={{action "closeMap"}}>X</div>
+
+        {{#if errandsLocationCovered}}
+          <div class="skywayIcon" onclick={{action "travel"}}>
+            <img id="skyway" class="skywayIconImg" src="/images/skyWayIcon.png">
+          </div>
+        {{/if}}
       </div>
     {{/if}}
 	</section>

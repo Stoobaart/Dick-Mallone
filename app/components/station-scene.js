@@ -13,6 +13,10 @@ export default Component.extend({
 
   paperUsed: alias('state.blankpaperUsed'),
 
+  jenkinsVanished: alias('state.jenkinsVanished'),
+
+  whereIsJenkinsCovered: alias('state.whereIsJenkinsCovered'),
+
   didInsertElement() {
     this._super(...arguments);
     $('#player').stop();
@@ -23,7 +27,7 @@ export default Component.extend({
     } else if (get(this, 'state.previousScene') === 'interrogation-room-scene') {
       $("#player").css({top: 371, left: 160.5}).html('<img class="playerSprite" src="sprites/dickRight.png">');
     } else if (get(this, 'state.previousScene') === 'analysis-room-scene') {
-      $("#player").css({top: 350, left: 260}).html('<img class="playerSprite" src="sprites/dick.png">');
+      $("#player").css({top: 350, left: 360}).html('<img class="playerSprite" src="sprites/dick.png">');
     }
 
     $("#player").fadeIn(500);

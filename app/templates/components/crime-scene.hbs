@@ -22,9 +22,14 @@
     }}
     {{rodriguez-speach speakClear=(action speakClear)}}
     <section class="options">
-      <p id="theVictim" onclick={{action convoOption}}>Tell me about the victim</p>
-      <p id="suspects" onclick={{action convoOption}}>Any suspects?</p>
-      <p id="witnesses" onclick={{action convoOption}}>Any witnesses?</p>
+      {{#if jenkinsVanished}}
+        <p id="seenJenkins" onclick={{action convoOption}}>Have you seen Jenkins?</p>
+        <p id="jenkinsActivities" onclick={{action convoOption}}>Do you know what Jenkins has been working on?</p>
+      {{else}}
+        <p id="theVictim" onclick={{action convoOption}}>Tell me about the victim</p>
+        <p id="suspects" onclick={{action convoOption}}>Any suspects?</p>
+        <p id="witnesses" onclick={{action convoOption}}>Any witnesses?</p>
+      {{/if}}
       <p id="bye" onclick={{action convoOption}}>Chat to ya later, Hot Rod</p>
     </section>
     <div class="rain-container">

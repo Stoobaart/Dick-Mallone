@@ -1,7 +1,7 @@
 {{#if gameStarted}}
   <div class="game-container">
     {{#scene-scripts
-      as |scripts scene previousScene convo convoOption playerSpeach npcSpeach speakClear|
+      as |scripts scene previousScene convo convoOption startAScene playerSpeach npcSpeach speakClear|
     }}
       {{#player-actions
         scene=scene
@@ -21,7 +21,9 @@
           changeScene=(action changeScene)
           helper=(action helper)
           clearHelper=(action clearHelper)
+          convo=(action convo)
           convoOption=(action convoOption)
+          startAScene=(action startAScene)
           playerSpeach=(action playerSpeach)
           npcSpeach=(action npcSpeach)
           speakClear=(action speakClear)

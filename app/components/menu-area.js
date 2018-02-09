@@ -28,12 +28,12 @@ export default Component.extend({
         $(".inventory").slideUp(300);
       } else {
         $(".inventory").slideDown(300);
+        set(this, 'verb', '');
       }
     },
 
     inventoryItemClicked(itemForUse, e) {
       const verb = get(this, 'verb');
-      const use = get(this, 'verb').indexOf("Use") != -1 ? true : false;
       const squashedTargetId = e.target.id.replace(/\s/g, '');
       let desire = null;
       let line = null;
@@ -41,11 +41,8 @@ export default Component.extend({
         desire = `itemsInInventory.${squashedTargetId}.Look`;
         line = get(this, 'scripts').get(desire);
         set(this, 'verb', '');
-      } else if (use === true) {
-        const usedOn = get(this, 'verb').replace(/\s/g, '');
-        desire = `itemsInInventory.${squashedTargetId}.${usedOn}`;
-        line = get(this, 'scripts').get(desire);
       } else {
+        $(".inventory").slideUp(300);
         const itemString = e.target.id.replace(/-/g, ' ');
         const useVerb = `Use ${itemString} on`;
         set(this, 'verb', useVerb);
