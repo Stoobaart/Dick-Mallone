@@ -8,16 +8,54 @@
   position: relative;
   top: -18rem;
   left: 0rem;
-  z-index: 3;
+  z-index: 4;
 }
 
 .rain-container-skyway {
   margin: auto;
-  display: none; 
+  display: none;
   top: -50.8rem;
   position: relative;
   width: 1250px;
   height: 482px;
   overflow: hidden;
+  z-index: 3;
+}
+
+.pedestrians {
+  overflow: hidden;
+  width: 4.5rem;
+  height: 12rem;
+  position: relative;
+  margin-top: -12rem;
+  margin-left: -3rem;
+  filter: drop-shadow(12px -2px 7px rgba(0,0,0,0.5));
+  -webkit-filter: drop-shadow(12px -2px 7px rgba(0,0,0,0.5));
+}
+
+#pedestrian1 {
+  top: -55rem;
+  left: 81rem;
+  z-index: 1;
+}
+
+#pedestrian2 {
+  top: -52rem;
+  left: -3rem;
   z-index: 2;
+}
+
+.pedestrianSprite {
+  height: 198px;
+  width: 55rem;
+  image-rendering: pixelated;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: pedestrianWalk 1000ms steps(12) infinite;
+}
+
+@keyframes pedestrianWalk {
+  100% {
+    transform: translateX(-55rem);
+  }
 }
