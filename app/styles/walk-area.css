@@ -41,3 +41,12 @@
   z-index: 4;
 }
 
+.walkable-area.skyway-entrance-scene {
+  position: relative;
+  width: 1200px;
+  height: 60px;
+  top: -21.5rem;
+  left: 1rem;
+  z-index: 4;
+}
+

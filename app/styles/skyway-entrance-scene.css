@@ -1,0 +1,23 @@
+.skyway-entrance-scene {
+  width: 100%;
+}
+
+.exit-skyway {
+  width: 5.5rem;
+  height: 17rem;
+  position: relative;
+  top: -18rem;
+  left: 0rem;
+  z-index: 3;
+}
+
+.rain-container-skyway {
+  margin: auto;
+  display: none; 
+  top: -50.8rem;
+  position: relative;
+  width: 1250px;
+  height: 482px;
+  overflow: hidden;
+  z-index: 2;
+}

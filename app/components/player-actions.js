@@ -18,12 +18,14 @@ export default Component.extend({
     }
     // When the player clicks somewhere on the screen (walkable area)
     // player can walk in front or behind
-    const npcPos = $(".npc").position().top;
-    const dickPos = event.pageY - 200;
-    if(dickPos <= npcPos){
-      $("#npcRodriguez").addClass("in-front");
-    } else {
-      $("#npcRodriguez").removeClass("in-front");
+    if($(".npc").length > 0) {
+      const npcPos = $(".npc").position().top;
+      const dickPos = event.pageY - 200;
+      if(dickPos <= npcPos){
+        $("#npcRodriguez").addClass("in-front");
+      } else {
+        $("#npcRodriguez").removeClass("in-front");
+      }
     }
 
     // store the current position of the player Sprite

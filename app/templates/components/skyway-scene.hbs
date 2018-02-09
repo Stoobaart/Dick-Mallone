@@ -1,7 +1,10 @@
 <section class="scene-screen">
   <section class="scene">
-    <img class="skyway-scene" src="">
+    <img class="skyway-entrance-scene" src="images/skywayEntranceBg.png">
     <div id="car" class="exit-skyway thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
-
+    <section class="walkable-area skyway-entrance-scene" {{action walk}}></section>
+    <div class="rain-container-skyway">
+      <img class="rain" src="/sprites/rain.png">
+    </div>
   </section>
 </section>
