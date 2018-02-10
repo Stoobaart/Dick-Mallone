@@ -8,7 +8,7 @@
   position: relative;
   top: -18rem;
   left: 0rem;
-  z-index: 4;
+  z-index: 5;
 }
 
 .rain-container-skyway {
@@ -19,7 +19,7 @@
   width: 1250px;
   height: 482px;
   overflow: hidden;
-  z-index: 3;
+  z-index: 4;
 }
 
 .pedestrians {
@@ -90,5 +90,5 @@
   width: 5.5rem;
   height: 17.5rem;
   position: relative;
-  z-index: 4;
+  z-index: 5;
 }

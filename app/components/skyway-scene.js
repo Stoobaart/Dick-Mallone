@@ -11,42 +11,42 @@ export default Component.extend({
     {
       imgId: 'ped1',
       containerId: 'pedestrian1',
-      fileName: 'Pedestrian',
+      filePath: '/sprites/Pedestrian.png',
       startPos: '81rem',
       endPos: -50,
       time: 12000
     },{
       imgId: 'ped2',
       containerId: 'pedestrian2',
-      fileName: 'Pedestrian2',
+      filePath: '/sprites/Pedestrian2.png',
       startPos: '-3rem',
       endPos: 1550,
       time: 13000
     },{
       imgId: 'ped3',
       containerId: 'pedestrian3',
-      fileName: 'Pedestrian3',
+      filePath: '/sprites/Pedestrian3.png',
       startPos: '81rem',
       endPos: -50,
       time: 11000
     },{
       imgId: 'ped4',
       containerId: 'pedestrian4',
-      fileName: 'Pedestrian3',
+      filePath: '/sprites/Pedestrian3.png',
       startPos: '81rem',
       endPos: -50,
       time: 9000
     },{
       imgId: 'ped5',
       containerId: 'pedestrian5',
-      fileName: 'Pedestrian5',
+      filePath: '/sprites/Pedestrian5.png',
       startPos: '-3rem',
       endPos: 1550,
       time: 14000
     },{
       imgId: 'ped6',
       containerId: 'pedestrian6',
-      fileName: 'Pedestrian6',
+      filePath: '/sprites/Pedestrian6.png',
       startPos: '81rem',
       endPos: -50,
       time: 16000

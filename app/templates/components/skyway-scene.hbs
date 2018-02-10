@@ -9,7 +9,7 @@
     </div>
     {{#each pedestrians as |ped|}}
       <div id="{{ped.containerId}}" class="pedestrians">
-        <img class="{{ped.imgId}} pedestrianSprite" src="/sprites/{{ped.fileName}}.png">
+        <img class="{{ped.imgId}} pedestrianSprite" src="{{ped.filePath}}">
       </div>
     {{/each}}
 
