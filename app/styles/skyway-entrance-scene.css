@@ -83,3 +83,12 @@
     transform: translateX(-55rem);
   }
 }
+
+.skyway-markets-door {
+  top: -75rem;
+  left: 73rem;
+  width: 5.5rem;
+  height: 17.5rem;
+  position: relative;
+  z-index: 4;
+}

@@ -50,8 +50,7 @@ export default Component.extend({
       startPos: '81rem',
       endPos: -50,
       time: 16000
-    },
-
+    }
   ]),
 
   didInsertElement() {
