@@ -25,7 +25,7 @@
 .pedestrians {
   overflow: hidden;
   width: 4.5rem;
-  height: 12rem;
+  height: 13rem;
   position: relative;
   margin-top: -12rem;
   margin-left: -3rem;
@@ -34,19 +34,43 @@
 }
 
 #pedestrian1 {
-  top: -55rem;
+  top: -56rem;
   left: 81rem;
   z-index: 1;
 }
 
 #pedestrian2 {
-  top: -52rem;
+  top: -53rem;
   left: -3rem;
   z-index: 2;
 }
 
+#pedestrian3 {
+  top: -52rem;
+  left: 81rem;
+  z-index: 3;
+}
+
+#pedestrian4 {
+  top: -59rem;
+  left: 81rem;
+  z-index: 1;
+}
+
+#pedestrian5 {
+  top: -56rem;
+  left: 81rem;
+  z-index: 2;
+}
+
+#pedestrian6 {
+  top: -61rem;
+  left: 81rem;
+  z-index: 1;
+}
+
 .pedestrianSprite {
-  height: 198px;
+  height: 210px;
   width: 55rem;
   image-rendering: pixelated;
   filter: blur(0);

@@ -6,11 +6,10 @@
     <div class="rain-container-skyway">
       <img class="rain" src="/sprites/rain.png">
     </div>
-    <div id="pedestrian1" class="pedestrians">
-      <img class="pedestrianSprite" src="sprites/pedestrian.png">
-    </div>
-    <div id="pedestrian2" class="pedestrians">
-      <img class="pedestrianSprite" src="sprites/pedestrian2.png">
-    </div>
+    {{#each pedestrians as |ped|}}
+      <div id="{{ped.containerId}}" class="pedestrians">
+        <img class="{{ped.imgId}} pedestrianSprite" src="/sprites/{{ped.fileName}}.png">
+      </div>
+    {{/each}}
   </section>
 </section>

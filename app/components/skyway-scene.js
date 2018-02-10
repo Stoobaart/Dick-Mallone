@@ -7,7 +7,54 @@ import $ from 'jquery';
 export default Component.extend({
   state: service('state-handler'),
 
-   didInsertElement() {
+  pedestrians: Ember.A([
+    {
+      imgId: 'ped1',
+      containerId: 'pedestrian1',
+      fileName: 'Pedestrian',
+      startPos: '81rem',
+      endPos: -50,
+      time: 12000
+    },{
+      imgId: 'ped2',
+      containerId: 'pedestrian2',
+      fileName: 'Pedestrian2',
+      startPos: '-3rem',
+      endPos: 1550,
+      time: 13000
+    },{
+      imgId: 'ped3',
+      containerId: 'pedestrian3',
+      fileName: 'Pedestrian3',
+      startPos: '81rem',
+      endPos: -50,
+      time: 11000
+    },{
+      imgId: 'ped4',
+      containerId: 'pedestrian4',
+      fileName: 'Pedestrian3',
+      startPos: '81rem',
+      endPos: -50,
+      time: 9000
+    },{
+      imgId: 'ped5',
+      containerId: 'pedestrian5',
+      fileName: 'Pedestrian5',
+      startPos: '-3rem',
+      endPos: 1550,
+      time: 14000
+    },{
+      imgId: 'ped6',
+      containerId: 'pedestrian6',
+      fileName: 'Pedestrian6',
+      startPos: '81rem',
+      endPos: -50,
+      time: 16000
+    },
+
+  ]),
+
+  didInsertElement() {
     this._super(...arguments);
     $('#player').stop();
     set(this, 'scene', 'skyway-scene');
@@ -21,33 +68,27 @@ export default Component.extend({
       $("#rainSoundFx")[0].play();
     }, 50);
     this.sendAction('playerSpeach', "..I hate this place..")
-    this.animatepedestrian1();
-    this.animatepedestrian2();
-    setInterval(() => {
-      this.animatepedestrian1();
-    }, 12050);
-    setInterval(() => {
-      this.animatepedestrian2();
-    }, 13050);
+    this.animatepedestrian(get(this, 'pedestrians')[0]);
+    this.animatepedestrian(get(this, 'pedestrians')[1]);
+    get(this, 'pedestrians').forEach((ped) => {
+      const intervalTime = ped.time + 20;
+      setInterval(() => {
+        this.animatepedestrian(ped);
+      }, intervalTime);
+    });
   },
 
   willDestroyElement() {
     $('#skywaySceneMusic')[0].pause();
   },
 
-  animatepedestrian1() {
-    $('#pedestrian1').show().animate({
-      left: -50
-    }, 12000, function() {
-      $('#pedestrian1').hide().css("left", "81rem");
-    });
-  },
-
-  animatepedestrian2() {
-    $('#pedestrian2').show().animate({
-      left: 1550
-    }, 12000, function() {
-      $('#pedestrian2').hide().css("left", "-3rem");
+  animatepedestrian(ped) {
+    $(`.${ped.imgId}`).show();
+    $(`#${ped.containerId}`).animate({
+      left: ped.endPos
+    }, ped.time, function() {
+      $(`.${ped.imgId}`).hide();
+      $(`#${ped.containerId}`).css("left", `${ped.startPos}`);
     });
   }
 
