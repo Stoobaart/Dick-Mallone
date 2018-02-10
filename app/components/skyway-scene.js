@@ -9,47 +9,47 @@ export default Component.extend({
 
   pedestrians: Ember.A([
     {
-      imgId: 'ped1',
-      containerId: 'pedestrian1',
-      filePath: '/sprites/Pedestrian.png',
-      startPos: '81rem',
-      endPos: -50,
-      time: 12000
+      "imgId": "ped1",
+      "containerId": "pedestrian1",
+      "filePath": "sprites/Pedestrian.png",
+      "startPos": "81rem",
+      "endPos": -50,
+      "time": 12000
     },{
-      imgId: 'ped2',
-      containerId: 'pedestrian2',
-      filePath: '/sprites/Pedestrian2.png',
-      startPos: '-3rem',
-      endPos: 1550,
-      time: 13000
+      "imgId": "ped2",
+      "containerId": "pedestrian2",
+      "filePath": "sprites/Pedestrian2.png",
+      "startPos": "-3rem",
+      "endPos": 1550,
+      "time": 13000
     },{
-      imgId: 'ped3',
-      containerId: 'pedestrian3',
-      filePath: '/sprites/Pedestrian3.png',
-      startPos: '81rem',
-      endPos: -50,
-      time: 11000
+      "imgId": "ped3",
+      "containerId": "pedestrian3",
+      "filePath": "sprites/Pedestrian3.png",
+      "startPos": "81rem",
+      "endPos": -50,
+      "time": 11000
     },{
-      imgId: 'ped4',
-      containerId: 'pedestrian4',
-      filePath: '/sprites/Pedestrian3.png',
-      startPos: '81rem',
-      endPos: -50,
-      time: 9000
+      "imgId": "ped4",
+      "containerId": "pedestrian4",
+      "filePath": "sprites/Pedestrian3.png",
+      "startPos": "81rem",
+      "endPos": -50,
+      "time": 9000
     },{
-      imgId: 'ped5',
-      containerId: 'pedestrian5',
-      filePath: '/sprites/Pedestrian5.png',
-      startPos: '-3rem',
-      endPos: 1550,
-      time: 14000
+      "imgId": "ped5",
+      "containerId": "pedestrian5",
+      "filePath": "sprites/Pedestrian5.png",
+      "startPos": "-3rem",
+      "endPos": 1550,
+      "time": 14000
     },{
-      imgId: 'ped6',
-      containerId: 'pedestrian6',
-      filePath: '/sprites/Pedestrian6.png',
-      startPos: '81rem',
-      endPos: -50,
-      time: 16000
+      "imgId": "ped6",
+      "containerId": "pedestrian6",
+      "filePath": "sprites/Pedestrian6.png",
+      "startPos": "81rem",
+      "endPos": -50,
+      "time": 16000
     }
   ]),
 
