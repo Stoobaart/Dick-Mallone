@@ -1,0 +1,48 @@
+.skyway-market-bg-scene {
+  width: 100%;
+  z-index: -2;
+}
+
+.rain-container-market {
+  margin: auto;
+  top: -30.1rem;
+  position: relative;
+  width: 1250px;
+  height: 482px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.skyway-market-fg-scene {
+  width: 100%;
+  top: -60.3rem;
+  z-index: 0;
+  position: relative;
+}
+
+.skyway-entrance-door {
+  top: -78rem;
+  left: 0rem;
+  width: 5.5rem;
+  height: 17.5rem;
+  position: relative;
+  z-index: 5;
+}
+
+#pedestrian1-market {
+  top: -85rem;
+  left: 81rem;
+  z-index: 3;
+}
+
+#pedestrian2-market {
+  top: -86rem;
+  left: -3rem;
+  z-index: 3;
+}
+
+#pedestrian3-market {
+  top: -86rem;
+  left: -3rem;
+  z-index: 3;
+}

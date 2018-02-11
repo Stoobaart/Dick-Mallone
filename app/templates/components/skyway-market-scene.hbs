@@ -1,0 +1,16 @@
+<section class="scene-screen">
+  <section class="scene">
+    <img class="skyway-market-bg-scene" src="images/skywayMarketBg.png">
+    <div class="rain-container-market">
+      <img class="rain" src="/sprites/rain.png">
+    </div>
+    <img class="skyway-market-fg-scene" src="images/skywayMarketFg.png">
+    <div id="skyway" class="thing skyway-entrance-door" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <section class="walkable-area skyway-market-scene" {{action walk}}></section>
+    {{#each pedestrians as |ped|}}
+      <div id="{{ped.containerId}}" class="pedestrians">
+        <img class="{{ped.imgId}} pedestrianSprite" src="{{ped.filePath}}">
+      </div>
+    {{/each}}
+  </section>
+</section>

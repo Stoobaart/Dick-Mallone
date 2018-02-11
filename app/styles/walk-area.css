@@ -50,3 +50,12 @@
   z-index: 5;
 }
 
+.walkable-area.skyway-market-scene {
+  position: relative;
+  width: 1200px;
+  height: 101px;
+  top: -84.5rem;
+  left: 1rem;
+  z-index: 4;
+}
+
