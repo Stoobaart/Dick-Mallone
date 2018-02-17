@@ -357,7 +357,31 @@ export default Component.extend({
         { dick: "I'll be back" },
         { npc: "Ok Dick, I'll have something more illuminating for you next time" }
       ]
-
+    },
+    'skyway-market-scene': {
+      'drummer': {
+        Talk: "Hey buddy can we talk?",
+        Look: "Hmmmm kinda catchy",
+        Pick: [{ npc: "Hey! I have a licence to play here" }],
+        convo: [
+          { dick: "Hey, a minute of your time good sir" },
+          { npc: "Tipping cup is just there my man" }
+        ]
+      },
+      'niceDrumming': [
+        { dick: "Nice beat" },
+        { npc: "Thank you my friend, subscribe to me, yeah?" }
+      ],
+      'seenJenkins': [
+        { dick: "Det. Mallone. Have you seen a scientist guy around here? Lab coat, white hair with specs" },
+        { npc: "Sorry bro, I see a lot of people here, day in day out. Just trying to make a living" },
+        { dick: "If you see him, let us know" },
+        { npc: "Yes sir" }
+      ],
+      'bye': [
+        { dick: "Keep up the good work" },
+        { npc: "You keep listening, I'll keep playing!" }
+      ]
     }
   }),
 

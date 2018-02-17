@@ -8,6 +8,8 @@ import $ from 'jquery';
 export default Component.extend({
   state: service('state-handler'),
 
+  npcName: 'drummer',
+
   pedestrians: A([
     {
       "imgId": "ped1",
@@ -36,6 +38,7 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
     $('#player').stop();
+    $("#rainSoundFx")[0].pause();
     set(this, 'scene', 'skyway-market-scene');
     if (get(this, 'state.previousScene') === 'skyway-scene') {
       $("#player").css({top: 441, left: 108}).html('<img class="playerSprite" src="sprites/dickRight.png">');
@@ -43,7 +46,6 @@ export default Component.extend({
     $(".skyway-market-bg-scene, .skyway-market-fg-scene, .rain-container-skyway").fadeIn(1000);
     $("#player").fadeIn(500);
     later(() => {
-      $("#rainSoundFx")[0].pause();
       $('#drummerMusic')[0].play();
     }, 50);
     this.animatepedestrian(get(this, 'pedestrians')[0]);
@@ -68,7 +70,14 @@ export default Component.extend({
       $(`.${ped.imgId}`).hide();
       $(`#${ped.containerId}`).css("left", `${ped.startPos}`);
     });
+  },
+
+  actions: {
+    setNpc(e) {
+      set(this, 'npcName', e.target.id);
+    }
   }
+
 
 
 });

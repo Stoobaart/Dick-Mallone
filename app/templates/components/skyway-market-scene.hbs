@@ -16,6 +16,16 @@
     <div id="npcDrummer" class="npc">
       <img class="drummerSprite" src="/sprites/drummer.png">
     </div>
-    <div id="drummer" class="thing drummer" data-name="Drummer" data-type="person" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="drummer" class="thing drummer" data-name="Drummer" data-type="person" onclick={{action thingClicked}} onmouseup={{action "setNpc"}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    {{component (concat npcName "-speach")
+      speakClear=(action speakClear)
+    }}
+
+    <section class="options station">
+      <p id="niceDrumming" onclick={{action convoOption}}>Nice music</p>
+      <p id="seenJenkins" onclick={{action convoOption}}>You seen a scientist guy around here?</p>
+      <p id="bye" onclick={{action convoOption}}>Nice talkin' to ya</p>
+    </section>
   </section>
 </section>
