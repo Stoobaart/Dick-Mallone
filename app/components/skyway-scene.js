@@ -1,3 +1,4 @@
+import { A } from '@ember/array';
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { get, set } from '@ember/object';
@@ -7,7 +8,7 @@ import $ from 'jquery';
 export default Component.extend({
   state: service('state-handler'),
 
-  pedestrians: Ember.A([
+  pedestrians: A([
     {
       "imgId": "ped1",
       "containerId": "pedestrian1",
@@ -77,10 +78,6 @@ export default Component.extend({
         this.animatepedestrian(ped);
       }, intervalTime);
     });
-  },
-
-  willDestroyElement() {
-    $('#skywaySceneMusic')[0].pause();
   },
 
   animatepedestrian(ped) {

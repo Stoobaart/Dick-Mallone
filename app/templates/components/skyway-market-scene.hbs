@@ -12,5 +12,10 @@
         <img class="{{ped.imgId}} pedestrianSprite" src="{{ped.filePath}}">
       </div>
     {{/each}}
+
+    <div id="npcDrummer" class="npc">
+      <img class="drummerSprite" src="/sprites/drummer.png">
+    </div>
+    <div id="drummer" class="thing drummer" data-name="Drummer" data-type="person" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
   </section>
 </section>

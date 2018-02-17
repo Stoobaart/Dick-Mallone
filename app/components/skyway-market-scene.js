@@ -1,3 +1,4 @@
+import { A } from '@ember/array';
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { get, set } from '@ember/object';
@@ -7,7 +8,7 @@ import $ from 'jquery';
 export default Component.extend({
   state: service('state-handler'),
 
-  pedestrians: Ember.A([
+  pedestrians: A([
     {
       "imgId": "ped1",
       "containerId": "pedestrian1-market",
@@ -22,7 +23,7 @@ export default Component.extend({
       "startPos": "-3rem",
       "endPos": 1550,
       "time": 13000
-    },{     
+    },{
       "imgId": "ped3",
       "containerId": "pedestrian3-market",
       "filePath": "sprites/Pedestrian3.png",
@@ -42,7 +43,8 @@ export default Component.extend({
     $(".skyway-market-bg-scene, .skyway-market-fg-scene, .rain-container-skyway").fadeIn(1000);
     $("#player").fadeIn(500);
     later(() => {
-      $('#skywaySceneMusic')[0].play();
+      $("#rainSoundFx")[0].pause();
+      $('#drummerMusic')[0].play();
     }, 50);
     this.animatepedestrian(get(this, 'pedestrians')[0]);
     this.animatepedestrian(get(this, 'pedestrians')[1]);
@@ -52,6 +54,10 @@ export default Component.extend({
         this.animatepedestrian(ped);
       }, intervalTime);
     });
+  },
+
+  willDestroyElement() {
+    $('#drummerMusic')[0].pause();
   },
 
   animatepedestrian(ped) {
