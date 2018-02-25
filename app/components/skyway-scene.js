@@ -72,11 +72,26 @@ export default Component.extend({
     this.sendAction('playerSpeach', "..I hate this place..")
     this.animatepedestrian(get(this, 'pedestrians')[0]);
     this.animatepedestrian(get(this, 'pedestrians')[1]);
-    get(this, 'pedestrians').forEach((ped) => {
+    this.pedIntervalStart();
+  },
+
+  willDestroyElement() {
+    this.pedIntervalEnd();
+  },
+
+  pedIntervalStart() {
+    window.timer = [];
+    get(this, 'pedestrians').forEach((ped, index) => {
       const intervalTime = ped.time + 20;
-      setInterval(() => {
+      window.timer[index] = setInterval(() => {
         this.animatepedestrian(ped);
       }, intervalTime);
+    });
+  },
+
+  pedIntervalEnd() {
+    window.timer.forEach((timer) => {
+      window.clearInterval(timer);
     });
   },
 

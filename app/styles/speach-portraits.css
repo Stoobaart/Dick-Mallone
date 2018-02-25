@@ -23,7 +23,7 @@
   filter: blur(0);
   -webkit-filter: blur(0);
   -webkit-transform: translate3d(0,0,0);
-  animation: portrait 400ms steps(6) infinite;
+  animation: portrait 550ms steps(6) infinite;
 }
 
 @keyframes portrait {
@@ -39,7 +39,7 @@
   max-width: 36rem;
   text-align: left;
   background-color: black;
-  border: 0.4rem solid grey;
+  border: 0.2rem solid grey;
   border-radius: 0.5rem;
   padding: 0.6rem;
   margin: 0.5rem 0;
@@ -85,7 +85,7 @@
   max-width: 36rem;
   text-align: left;
   background-color: black;
-  border: 0.4rem solid grey;
+  border: 0.2rem solid grey;
   border-radius: 0.5rem;
   padding: 0.6rem;
   margin: 0.5rem 0;

@@ -28,6 +28,8 @@ export default Service.extend({
   anythingelseCovered: false,
   whereIsJenkinsCovered: false,
   errandsLocationCovered: false,
+  usebadgeoncook: false,
+  pressureCovered: false,
 
   itemForUse: null,
 
@@ -146,6 +148,8 @@ export default Service.extend({
       'jenkinsVanished': get(this, 'jenkinsVanished'),
       'whereIsJenkinsCovered': get(this, 'whereIsJenkinsCovered'),
       'errandsLocationCovered': get(this, 'errandsLocationCovered'),
+      'usebadgeoncook': get(this, 'usebadgeoncook'),
+      'pressureCovered': get(this, 'pressureCovered'),
     }
     localStorage.saveGame = JSON.stringify(saveGame);
 
@@ -179,6 +183,8 @@ export default Service.extend({
       'jenkinsVanished': saveGame.jenkinsVanished,
       'whereIsJenkinsCovered': saveGame.whereIsJenkinsCovered,
       'errandsLocationCovered': saveGame.errandsLocationCovered,
+      'usebadgeoncook': saveGame.usebadgeoncook,
+      'pressureCovered': saveGame.pressureCovered,
     })
     // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);
     // exit = JSON.parse(localStorage.exit);

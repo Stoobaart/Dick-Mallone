@@ -18,14 +18,40 @@
     </div>
     <div id="drummer" class="thing drummer" data-name="Drummer" data-type="person" onclick={{action thingClicked}} onmouseup={{action "setNpc"}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
 
+    <div id="npcCook" class="npc">
+      <img class="cookSprite" src="/sprites/cook.png">
+    </div>
+    <div id="cook" class="thing cook" data-name="Cook" data-type="person" onclick={{action thingClicked}} onmouseup={{action "setNpc"}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div class="teds-trinkets-path">
+      {{#if cookPressured}}
+        <div id="teds-trinkets" class="thing teds-trinkets" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+      {{else}}
+        <div id="road" class="thing road" data-name="end of bridge" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+      {{/if}}
+    </div>
+
+    <div id="condiments" class="thing condiments" data-name="condiments" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div id="menu" class="thing menu" data-name="menu" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
     {{component (concat npcName "-speach")
       speakClear=(action speakClear)
     }}
-
     <section class="options station">
-      <p id="niceDrumming" onclick={{action convoOption}}>Nice music</p>
-      <p id="seenJenkins" onclick={{action convoOption}}>You seen a scientist guy around here?</p>
-      <p id="bye" onclick={{action convoOption}}>Nice talkin' to ya</p>
+      {{#if isDrummer}}
+        <p id="niceDrumming" onclick={{action convoOption}}>Nice music</p>
+        <p id="seenJenkins" onclick={{action convoOption}}>You seen a scientist guy around here?</p>
+        <p id="bye" onclick={{action convoOption}}>Nice talkin' to ya</p>
+      {{else}}
+        <p id="food" onclick={{action convoOption}}>What do you serve here?</p>
+        {{#if usebadgeoncook}}
+          <p id="pressure" onclick={{action convoOption}}>Scientist guy. spill it!</p>
+        {{else}}
+          <p id="seenScientist" onclick={{action convoOption}}>You seen a scientist around here?</p>
+        {{/if}}
+        <p id="bye" onclick={{action convoOption}}>We're done here. Don't leave town</p>
+      {{/if}}
     </section>
   </section>
 </section>

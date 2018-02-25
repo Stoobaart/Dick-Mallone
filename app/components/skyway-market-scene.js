@@ -1,7 +1,8 @@
 import { A } from '@ember/array';
+import { alias } from '@ember/object/computed';
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-import { get, set } from '@ember/object';
+import { get, set, computed } from '@ember/object';
 import { later } from '@ember/runloop';
 import $ from 'jquery';
 
@@ -10,11 +11,19 @@ export default Component.extend({
 
   npcName: 'drummer',
 
+  isDrummer: computed('npcName', function() {
+    return get(this, 'npcName') === 'drummer';
+  }),
+
+  usebadgeoncook: alias('state.usebadgeoncook'),
+
+  cookPressured: alias('state.pressureCovered'),
+
   pedestrians: A([
     {
       "imgId": "ped1",
       "containerId": "pedestrian1-market",
-      "filePath": "sprites/Pedestrian.png",
+      "filePath": "sprites/Pedestrian7.png",
       "startPos": "81rem",
       "endPos": -50,
       "time": 13000
@@ -28,9 +37,16 @@ export default Component.extend({
     },{
       "imgId": "ped3",
       "containerId": "pedestrian3-market",
-      "filePath": "sprites/Pedestrian3.png",
+      "filePath": "sprites/Pedestrian9.png",
       "startPos": "81rem",
       "endPos": -50,
+      "time": 11000
+    },{
+      "imgId": "ped4",
+      "containerId": "pedestrian4-market",
+      "filePath": "sprites/Pedestrian10.png",
+      "startPos": "-3rem",
+      "endPos": 1550,
       "time": 11000
     }
   ]),
@@ -50,16 +66,29 @@ export default Component.extend({
     }, 50);
     this.animatepedestrian(get(this, 'pedestrians')[0]);
     this.animatepedestrian(get(this, 'pedestrians')[1]);
-    get(this, 'pedestrians').forEach((ped) => {
+    this.pedIntervalStart();
+    get(this, 'usebadgeoncook');
+  },
+
+  willDestroyElement() {
+    this.pedIntervalEnd();
+    $('#drummerMusic')[0].pause();
+  },
+
+  pedIntervalStart() {
+    window.timer = [];
+    get(this, 'pedestrians').forEach((ped, index) => {
       const intervalTime = ped.time + 20;
-      setInterval(() => {
+      window.timer[index] = setInterval(() => {
         this.animatepedestrian(ped);
       }, intervalTime);
     });
   },
 
-  willDestroyElement() {
-    $('#drummerMusic')[0].pause();
+  pedIntervalEnd() {
+    window.timer.forEach((timer) => {
+      window.clearInterval(timer);
+    });
   },
 
   animatepedestrian(ped) {
@@ -77,7 +106,5 @@ export default Component.extend({
       set(this, 'npcName', e.target.id);
     }
   }
-
-
 
 });

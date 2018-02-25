@@ -193,6 +193,7 @@ export default Component.extend({
         Usecupon: [{ dick: "She has plenty of cups behind her" }],
         Usefullcupon: [{ dick: "I'm sure there's a better use for this..." }],
         Useshardson: [{ dick: "There's plenty of time for shanking later" }],
+        Usesyringeon: [{ dick: "She doesn't want this"}],
         convo: [
           { dick: "Hi Jen, how has it been today, any drama?" },
           { npc: "Hey Dick. Pretty quiet today. Apart from that crack head that was brought in. What's up?"}
@@ -236,6 +237,7 @@ export default Component.extend({
         Usefullcupon: [{ dick: "I found this at the scene" }],
         Useshardson: [{ dick: "He doesn't want this" }],
         Useblankpaperon: [{ dick: "Can you sketch the thing that killed that man?" }],
+        Usesyringeon: [{ dick: "I shouldn't tempt him"}],
         convo: [{ npc: "When can i get out of here? They're coming for me man! c'mon!!" }]
       },
       'honest': [
@@ -329,6 +331,12 @@ export default Component.extend({
         Usefullcupon: [{ dick: "I found this at the scene" }],
         Useshardson: [{ dick: "He doesn't want this" }],
         Usepaperon: [{ dick: "He doesn't want this" }],
+        Usesyringeon: [
+          { dick: "Have you seen this?" },
+          { npc: "Looks like a needle for drugs. From the crime scene?" },
+          { dick: "Exactly. Do you need this?" },
+          { npc: "I have already examined the crime scene, you can hold on to that" }
+        ],
         convo: [{ npc: "Hello Dick, I have some rather bizarre findings for you" }]
       },
       'bizarre': [
@@ -359,10 +367,54 @@ export default Component.extend({
       ]
     },
     'skyway-market-scene': {
+      'skyway': {
+        Look: "This goes back to the entrance"
+      },
+      'road': {
+        Look: "I probably shouldn't go to far from here unless I know where I am going"
+      },
+      'condiments': {
+        Look: "Ketchup and mustard",
+        Pick: [{ dick: "I don't need these"}],
+        Usebadgeon: [{ dick: "That doesn't make any sense" }],
+        Usegunon: [{ dick: "That doesn't make any sense" }],
+        Usefullcupon: [{dick: "That doesn't make any sense"}],
+        Useshardson: [{ dick: "That doesn't make any sense" }],
+        Useportraiton: [{dick: "That doesn't make any sense"}],
+        Usesyringeon: [{ dick: "That doesn't make any sense"}],
+      },
+      'menu': {
+        Look: "A variation of meat and buns. Buns with meat, meat in buns, buns a la meat. You get the picture",
+        Pick: [{ dick: "I don't feel like picking up anything from this menu"}],
+        Usebadgeon: [{ dick: "I am arresting you for crimes against digestion" }],
+        Usegunon: [{ dick: "That doesn't make any sense" }],
+        Usefullcupon: [{dick: "That doesn't make any sense"}],
+        Useshardson: [{ dick: "That doesn't make any sense" }],
+        Useportraiton: [{dick: "That doesn't make any sense"}],
+        Usesyringeon: [{ dick: "That doesn't make any sense"}],
+      },
       'drummer': {
-        Talk: "Hey buddy can we talk?",
         Look: "Hmmmm kinda catchy",
         Pick: [{ npc: "Hey! I have a licence to play here" }],
+        Usebadgeon: [
+          { dick: "I work for the police department" },
+          { npc: "Hello officer, how can I help?" },
+          { dick: "Just answer my questions to the best of your ability sir" },
+          { npc: "Always my man!" }
+        ],
+        Usegunon: [{ dick: "Let's hope it doesn't come to this" }],
+        Usefullcupon: [
+          { npc: "What the heck! I don't want that!" },
+          { dick: "Sorry, I don't know why I did that"}
+        ],
+        Useshardson: [{ dick: "He doesn't want this" }],
+        Usepaperon: [{ dick: "He doesn't want this" }],
+        Useportraiton: [
+          { dick: "I'm looking for this man, have you seen anyone matching this portrait?" },
+          { npc: "No, but I wouldn't be able to say he definatly hasn't been through here" },
+          { dick: "okay. If you remember anything, I'll be around" }
+        ],
+        Usesyringeon: [{ dick: "There's no reason to show him this"}],
         convo: [
           { dick: "Hey, a minute of your time good sir" },
           { npc: "Tipping cup is just there my man" }
@@ -374,13 +426,63 @@ export default Component.extend({
       ],
       'seenJenkins': [
         { dick: "Det. Mallone. Have you seen a scientist guy around here? Lab coat, white hair with specs" },
-        { npc: "Sorry bro, I see a lot of people here, day in day out. Just trying to make a living" },
+        { npc: "Sorry bro, I see a lot of people here day in day out. Just trying to make a living" },
         { dick: "If you see him, let us know" },
         { npc: "Yes sir" }
       ],
       'bye': [
-        { dick: "Keep up the good work" },
-        { npc: "You keep listening, I'll keep playing!" }
+        { npc: "bye" }
+      ],
+      'cook': {
+        Look: "Looks to be the proprietor",
+        Pick: [{ dick: "I should talk to him instead" }],
+        Usebadgeon: [
+          { dick: "I'm an officer of the law, and I could shut you down for offences against hygiene" },
+          { npc: "Woah hey, okay pal, I'll answer your damn questions!"}
+        ],
+        Usegunon: [{ dick: "Let's hope it doesn't come to this" }],
+        Usefullcupon: [
+          { npc: "Nice, can I have the recipe?" },
+          { dick: "Sorry, trade secret"}
+        ],
+        Useshardson: [{ dick: "He doesn't want this" }],
+        Usepaperon: [{ dick: "He doesn't want this" }],
+        Useportraiton: [
+          { dick: "I'm looking for this man, have you seen anyone matching this portrait?" },
+          { npc: "Maybe he looks familar" },
+          { dick: "Maybe?" },
+          { npc: "Maybe I've seen the guy, maybe I haven't" }
+        ],
+        Usesyringeon: [{ dick: "There's no reason to show him this"}],
+        convo: [
+          { dick: "Hey there, can I ask you a few questions?" },
+          { npc: "Is this another inspection? I'm supposed to have 30 days until the follow up!" },
+          { dick: "No no, nothing to do with that"},
+          { dick: "... mumble..Although I won't need to confiscate anything now..."},
+          { npc: "Sorry? I didn't here that"},
+          { dick: "Err.. Nothing"}
+        ]
+      },
+      'food': [
+        { dick: "What do you serve here?" },
+        { npc: "Meats and buns" },
+        { dick: "Delicious" },
+        { npc: "What would you like?" },
+        { dick: "Nothing" },
+        { npc: "Suit yourself pal"}
+      ],
+      'seenScientist': [
+        { dick: "Have you seen a cliche looking scientist guy around here?" },
+        { npc: "No idea pal, maybe if you order something, I'll think about opening up"},
+        { dick: "Have you seen him or what?" },
+        { npc: "...My memory's a little hazy" }
+      ],
+      'pressure': [
+        { npc: "So there's this guy, I see him almost everyday." },
+        { dick: "Keep going" },
+        { npc: "But he doesn't order any food, he just goes past here"},
+        { dick: "Towards where? "},
+        { npc: "Towards 'Ted's Trinkets', it's just over the street on your right" }
       ]
     }
   }),
@@ -422,8 +524,15 @@ export default Component.extend({
     if (convoOptionChosen) {
       topic = `${scene}.${targetId}`;
     } else if (usedOn) {
-      set(this, 'convoInProgress', false);
       topic = `${scene}.${squashedTargetId}.${usedOn}`;
+      const usedLowerCase = usedOn.toLowerCase();
+      const triggerOptions = get(this, `state.${usedLowerCase}${targetId}`);
+      if (!triggerOptions) {
+        set(this, 'convoInProgress', true);
+      } else {
+        set(this, 'convoInProgress', false);
+      }
+      set(this, `state.${usedLowerCase}${targetId}`, true);
     } else {
       topic = `${scene}.${targetId}.convo`;
     }

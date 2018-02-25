@@ -29,6 +29,25 @@
   z-index: 5;
 }
 
+.teds-trinkets-path {
+  top: -145rem;
+  left: 72rem;
+  width: 5.5rem;
+  height: 17.5rem;
+  position: relative;
+  z-index: 5;
+}
+
+.road {
+  width: 5.5rem;
+  height: 17.5rem;
+}
+
+.teds-trinkets {
+  width: 5.5rem;
+  height: 17.5rem;
+}
+
 #pedestrian1-market {
   top: -85rem;
   left: 81rem;
@@ -47,8 +66,14 @@
   z-index: 3;
 }
 
+#pedestrian4-market {
+  top: -86rem;
+  left: -3rem;
+  z-index: 3;
+}
+
 #npcDrummer {
-  top: -106rem;
+  top: -107rem;
   left: 14rem;
   overflow: hidden;
   width: 9.5rem;
@@ -77,4 +102,60 @@
   height: 13.5rem;
   position: relative;
   z-index: 1;
+}
+
+#npcCook {
+  top: -135.5rem;
+  left: 50rem;
+  overflow: hidden;
+  width: 4.5rem;
+  height: 6.5rem;
+  position: relative;
+  image-rendering: pixelated;
+}
+
+.cookSprite {
+  width: 31rem;
+  height: 6rem;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: cook 7000ms steps(7) infinite;
+}
+@keyframes cook {
+  0% {
+    transform: translateX(0rem);
+  }
+  80% {
+    transform: translateX(0rem);
+  }
+  100% {
+    transform: translateX(-31rem);
+  }
+}
+
+.cook {
+  top: -141rem;
+  left: 50rem;
+  width: 5rem;
+  height: 6.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.condiments {
+  width: 2rem;
+  height: 3rem;
+  position: relative;
+  top: -163rem;
+  left: 47.5rem;
+  z-index: 5;
+}
+
+.menu {
+  width: 10.5rem;
+  height: 6rem;
+  position: relative;
+  top: -169.5rem;
+  left: 37rem;
+  z-index: 5;
 }
