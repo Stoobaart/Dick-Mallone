@@ -59,3 +59,14 @@
   z-index: 4;
 }
 
+.walkable-area.teds-trinkets-scene {
+  position: relative;
+  width: 1150px;
+  height: 135px;
+  top: -26.5rem;
+  left: 3rem;
+  -webkit-clip-path: polygon(7% 0, 90% 0, 100% 100%, 0 100%);
+  clip-path: polygon(7% 0, 90% 0, 100% 100%, 0 100%);
+  z-index: 4;
+}
+
