@@ -326,7 +326,7 @@ export default Component.extend({
         Look: "Jenkin's here does all our analysis. We'd be lost without him",
         Pick: [{ dick: "He doesn't like it when I pick him up" }],
         Usebadgeon: [{ dick: "I don't need to know how much semen is on this" }],
-        Usegunon: [{ dick: "Let's hope it doesn't come to this" }],
+        Usegunon: [{ dick: "Let's hope it doesn't come to that" }],
         Usecupon: [{ dick: "I normally have to fill these up before giving them to Jenkins" }],
         Usefullcupon: [{ dick: "I found this at the scene" }],
         Useshardson: [{ dick: "He doesn't want this" }],
@@ -402,7 +402,7 @@ export default Component.extend({
           { dick: "Just answer my questions to the best of your ability sir" },
           { npc: "Always my man!" }
         ],
-        Usegunon: [{ dick: "Let's hope it doesn't come to this" }],
+        Usegunon: [{ dick: "Let's hope it doesn't come to that" }],
         Usefullcupon: [
           { npc: "What the heck! I don't want that!" },
           { dick: "Sorry, I don't know why I did that"}
@@ -440,7 +440,7 @@ export default Component.extend({
           { dick: "I'm an officer of the law, and I could shut you down for offences against hygiene" },
           { npc: "Woah hey, okay pal, I'll answer your damn questions!"}
         ],
-        Usegunon: [{ dick: "Let's hope it doesn't come to this" }],
+        Usegunon: [{ dick: "Let's hope it doesn't come to that" }],
         Usefullcupon: [
           { npc: "Nice, can I have the recipe?" },
           { dick: "Sorry, trade secret"}
@@ -484,7 +484,114 @@ export default Component.extend({
         { dick: "Towards where? "},
         { npc: "Towards 'Ted's Trinkets', it's just over the street on your right" }
       ]
-    }
+    },
+    'teds-trinkets-scene': {
+      'entry': { 
+        Look: "This is not the correct entry",
+      },
+      'poster': {
+        Look: "Snatcher, looks like a cool game",
+        Pick: [{ dick: "This won't fit in my pocket" }],
+        Usebadgeon: [{ dick: "I can't afford to be accused of framing" }],
+        Usegunon: [{ dick: "I wouldn't dare!" }],
+        Usefullcupon: [
+          { dick: "No, I need this elsewhere. I don't know where"},
+          { dick: "But not here"}
+        ],
+        Useshardson: [{ dick: "I wouldn't dare!" }],
+        Useportraiton: [{ dick: "That doesn't make sense" }],
+        Usesyringeon: [{ dick: "That doesn't make sense" }],
+      },
+      'ladder': {
+        Look: "It's a ladder",
+        Pick: [{ dick: "This won't fit in my pocket" }],
+        Usebadgeon: [
+          { dick: "You're under arrest ladder, I don't know what you've done but.." },
+          { dick: "I know you've been up to something" }
+        ],
+        Usegunon: [
+          { dick: "You're under arrest ladder, I don't know what you've done but.." },
+          { dick: "I know you've been up to something" }
+        ],
+        Usefullcupon: [
+          { dick: "No, I need this elsewhere. I don't know where"},
+          { dick: "But not here"}
+        ],
+        Useshardson: [{ dick: "That doesn't make sense" }],
+        Useportraiton: [{ dick: "That doesn't make sense" }],
+        Usesyringeon: [{ dick: "That doesn't make sense" }],
+      },
+      'tool-shelf': {
+        Look: "Lots and lots of tools",
+        Pick: [{ dick: "I don't think I need anything from here right now" }],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "Let's not shoot up Ted's tools" }],
+        Usefullcupon: [{ dick: "No, I need this elsewhere. I don't know where"}],
+        Useshardson: [{ dick: "That doesn't make sense" }],
+        Useportraiton: [{ dick: "That doesn't make sense" }],
+        Usesyringeon: [{ dick: "That doesn't make sense" }],
+      },
+      'arcade-machine': {
+        Look: "It doesn't seem to work",
+        Pick: [
+          { dick: "Can't people just use emulators now?" },
+          { npc: "It's not the same buddy" }
+        ],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "Let's not shoot up Ted's arcade cabinet" }],
+        Usefullcupon: [{ dick: "No, I need this elsewhere. I don't know where"}],
+        Useshardson: [{ dick: "That doesn't make sense" }],
+        Useportraiton: [{ dick: "That doesn't make sense" }],
+        Usesyringeon: [{ dick: "That doesn't make sense" }],
+      },
+      'ted': {
+        Look: "This must be Ted. He looks handy",
+        Pick: [{ npc: "Hands off the merchandise buddy" }],
+        Usebadgeon: [
+          { dick: "I work for the police department" },
+          { npc: "You here for a reason or am I supposed to be impressed?" },
+          { dick: "I just need my questioned answered" }
+        ],
+        Usegunon: [{ dick: "Let's hope it doesn't come to that" }],
+        Usefullcupon: [
+          { npc: "Hmmm pretty standard engine oil. And?" },
+          { dick: "Engine oil, you say eh? I thought this was urine all this time" },
+          { npc: "Ha ha"}
+        ],
+        Useshardson: [{ dick: "He doesn't want this" }],
+        Usesyringeon: [{ dick: "There's no reason to show him this"}],
+        convo: [
+          { dick: "Hey, errr.. Ted is it?" },
+          { npc: "Ted I am, what can I do you for?" }
+        ],
+      },
+      'junk': [
+        { dick: "So what is it that you sell here?" },
+        { npc: "Electronics, Parts and services"},
+        { dick: "Hmm what were you doing here Doc?" },
+        { npc: "What?" },
+        { dick: "oh it's nothing" }
+      ],
+      'log': [
+        { dick: "Do you have a log for purchases, deliveries and such?" },
+        { npc: "Sure do, but It goes back years. Who're you looking for exactly?"},
+        { dick: "Caucasian male, Bald with glasses" },
+        { npc: "Doesn't really narrow it down with my customers pal, you got a picture?" }
+      ],
+      'bye': [
+        { dick: "Thanks for your help" },
+        { npc: "Anytime Detective"}
+      ]
+    },
+    'ted-portrait': {
+      'ted': {
+        convo: [
+          { dick: "I'm looking for this man, would you have a log for his purchases?" },
+          { npc: "Yeah I know him. Comes in here all the time. Here's my log book" },
+          { dick: "Thanks" }
+        ]
+      }
+    },
   }),
 
   playerSpeach(line) {
@@ -526,27 +633,25 @@ export default Component.extend({
     } else if (usedOn) {
       topic = `${scene}.${squashedTargetId}.${usedOn}`;
       const usedLowerCase = usedOn.toLowerCase();
-      const triggerOptions = get(this, `state.${usedLowerCase}${targetId}`);
-      if (!triggerOptions) {
-        set(this, 'convoInProgress', true);
-      } else {
-        set(this, 'convoInProgress', false);
-      }
       set(this, `state.${usedLowerCase}${targetId}`, true);
     } else {
       topic = `${scene}.${targetId}.convo`;
     }
     set(this, 'currentSpeach', get(this, 'scripts').get(topic));
     let currentSpeach = get(this, 'currentSpeach');
-    let mutatedCurrentSpeach = [...currentSpeach];
-
-    if(mutatedCurrentSpeach[0].hasOwnProperty('dick')) {
-      this.sendAction('playerSpeach', mutatedCurrentSpeach[0].dick);
+    if (!currentSpeach) {
+      return;
     } else {
-      this.sendAction('npcSpeach', mutatedCurrentSpeach[0].npc);
+      let mutatedCurrentSpeach = [...currentSpeach];
+
+      if(mutatedCurrentSpeach[0].hasOwnProperty('dick')) {
+        this.sendAction('playerSpeach', mutatedCurrentSpeach[0].dick);
+      } else {
+        this.sendAction('npcSpeach', mutatedCurrentSpeach[0].npc);
+      }
+      mutatedCurrentSpeach.shift();
+      set(this, 'currentSpeach', mutatedCurrentSpeach);
     }
-    mutatedCurrentSpeach.shift();
-    set(this, 'currentSpeach', mutatedCurrentSpeach);
   },
 
   convoOption(e) {

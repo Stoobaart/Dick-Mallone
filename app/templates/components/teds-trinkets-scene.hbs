@@ -2,9 +2,48 @@
   <section class="scene">
     <img class="teds-trinkets-scene" src="images/tedsTrinkets.png">
 
-    <div id="skyway-market" class="thing skyway-market-door" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="skyway-market" class="thing teds-skyway-market-door" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     <section class="walkable-area teds-trinkets-scene" {{action walk}}></section>
 
+    <div id="poster" class="thing poster" data-name="poster" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div id="ladder" class="thing ladder" data-name="ladder" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div id="tool-shelf" class="thing tool-shelf" data-name="tool-shelf" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div id="arcade-machine" class="thing arcade-machine" data-name="arcade-machine" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div id="npcTed" class="npc">
+      <img class="tedSprite" src="/sprites/ted.png">
+    </div>
+    <div id="ted" class="thing ted" data-name="Ted" data-type="person" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div class="log-book">
+      {{#if showLogBook}}
+        <img class="paperImg" src="/sprites/pinnedPaper.png">
+        <div id="paper" class="thing" data-name="blank-paper" pickupable="true" use="crackhead" onclick={{action 'openLogBook'}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+      {{/if}}
+    </div>
+
+    <div class="opened-log-book">
+      {{#if openedLogbook}}
+        <div class="opened-log-book-bg">
+          {{#each logBookEntries as |entry|}}
+            <div id="entry" class="thing" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}>{{entry.name}} {{entry.address}} {{entry.date}}</div>
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+
+    {{component (concat npcName "-speach")
+      speakClear=(action speakClear)
+    }}
+
+    <section class="options">
+      <p id="junk" onclick={{action convoOption}}>What do you sell here?</p>
+      <p id="log" onclick={{action convoOption}}>Do you keep a log of your orders?</p>
+      <p id="bye" onclick={{action convoOption}}>Thanks for the info</p>
+    </section>
 
   </section>
 </section>

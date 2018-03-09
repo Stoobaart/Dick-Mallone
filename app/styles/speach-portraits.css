@@ -18,7 +18,7 @@
 }
 
 .dick-face {
-  width: 73rem;
+  width: 75rem;
   height: 16rem;
   filter: blur(0);
   -webkit-filter: blur(0);
@@ -28,7 +28,7 @@
 
 @keyframes portrait {
   100% {
-    transform: translateX(-73rem);
+    transform: translateX(-75rem);
   }
 }
 
@@ -61,7 +61,6 @@
   width: 12.1rem;
   image-rendering: pixelated;
   border-radius: 5px;
-
   top: 2rem;
   left: -2rem;
   float: right;
@@ -69,7 +68,7 @@
 }
 
 .npc-face {
-  width: 73rem;
+  width: 75rem;
   height: 16rem;
   filter: blur(0);
   -webkit-filter: blur(0);
@@ -94,4 +93,20 @@
   top: 18rem;
   left: 10rem;
   position: relative;
+}
+
+.npc-tedFace {
+  width: 400rem;
+  height: 16rem;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  -webkit-transform: translate3d(0,0,0);
+  animation: tedPortrait 6600ms steps(31) infinite;
+  z-index: 3;
+}
+
+@keyframes tedPortrait {
+  100% {
+    transform: translateX(-400rem);
+  }
 }

@@ -21,6 +21,7 @@ export default Service.extend({
   analysisUnlocked: false,
   travelMapOpened: false,
   jenkinsVanished: false,
+  portraitUsed: false,
 
   // conversation topics covered
   bizarreCovered: false,
@@ -66,7 +67,7 @@ export default Service.extend({
       "name": "full-cup",
       "url": "images/cupFull.png",
       "id": "full-cup",
-      "use": ["crackHead", "jenkins"],
+      "use": "",
       "replaces": "cup"
     },
     {
@@ -87,7 +88,7 @@ export default Service.extend({
       "name": "portrait",
       "url": "images/portrait.png",
       "id": "portrait",
-      "use": "",
+      "use": "ted",
       "replaces": ""
     }
   ],
@@ -150,6 +151,8 @@ export default Service.extend({
       'errandsLocationCovered': get(this, 'errandsLocationCovered'),
       'usebadgeoncook': get(this, 'usebadgeoncook'),
       'pressureCovered': get(this, 'pressureCovered'),
+      'usebadgeonted': get(this, 'usebadgeonted'),
+      'portraitUsed': get(this, 'portraitUsed'),
     }
     localStorage.saveGame = JSON.stringify(saveGame);
 
@@ -185,10 +188,10 @@ export default Service.extend({
       'errandsLocationCovered': saveGame.errandsLocationCovered,
       'usebadgeoncook': saveGame.usebadgeoncook,
       'pressureCovered': saveGame.pressureCovered,
+      'usebadgeonted': saveGame.usebadgeonted,
+      'portraitUsed': saveGame.portraitUsed,
     })
-    // jenkinsIntro = JSON.parse(localStorage.jenkinsIntro);
-    // exit = JSON.parse(localStorage.exit);
-    // interrogationDone = JSON.parse(localStorage.interrogationDone);
+
     set(this, 'componentName', get(this, 'scene'));
     later(() => {
       $('.game-container').show();

@@ -58,6 +58,8 @@ export default Component.extend({
     set(this, 'scene', 'skyway-market-scene');
     if (get(this, 'state.previousScene') === 'skyway-scene') {
       $("#player").css({top: 441, left: 108}).html('<img class="playerSprite" src="sprites/dickRight.png">');
+    } else if (get(this, 'state.previousScene') === 'teds-trinkets-scene') {
+      $("#player").css({top: 441, left: 1108}).html('<img class="playerSprite" src="sprites/dickLeft.png">');
     }
     $(".skyway-market-bg-scene, .skyway-market-fg-scene, .rain-container-skyway").fadeIn(1000);
     $("#player").fadeIn(500);

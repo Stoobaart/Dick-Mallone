@@ -53,6 +53,7 @@ export default Component.extend({
       let eventPageY = null;
       let eventPageX = null;
       const walkableAreaLeftEdge = $('.walkable-area').position().left;
+      const walkableAreaRightEdge = $('.walkable-area').position().left + $('.walkable-area').width();
       const walkableAreaTopEdge = $('.walkable-area').position().top;
       if(e) {
         if(e.pageY < walkableAreaTopEdge) {
@@ -67,6 +68,8 @@ export default Component.extend({
         }
         if (e.pageX < walkableAreaLeftEdge) {
           eventPageX = walkableAreaLeftEdge + 50;
+        } else if (e.pageX > walkableAreaRightEdge) {
+          eventPageX = walkableAreaRightEdge - 50;
         }
       } else {
         eventPageY = event.pageY;
@@ -124,11 +127,13 @@ export default Component.extend({
     const squashedTargetId = targetId.replace(/\s/g, '');
     let desire;
     if (usedOn) {
-      return this.sendAction('convo', scene, targetId, false, usedOn);
+      return this.sendAction('convo', scene, targetId, false, usedOn, true);
     } else {
       desire = `${scene}.${squashedTargetId}.Look`;
       const line = get(this, 'scripts').get(desire);
-      return this.sendAction('playerSpeach', line);
+      if (line) {
+        return this.sendAction('playerSpeach', line);
+      }
     }
   },
 
@@ -147,7 +152,9 @@ export default Component.extend({
     if(thingType === "person") {
       this.sendAction('convo', scene, targetId);
     } else {
-      this.sendAction('playerSpeach', line);
+      if (line) {
+        this.sendAction('playerSpeach', line);
+      }
     }
   },
 

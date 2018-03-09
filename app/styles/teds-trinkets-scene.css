@@ -1,3 +1,97 @@
 .teds-trinkets-scene {
   width: 100%;
 }
+
+.teds-skyway-market-door {
+  top: -21rem;
+  left: 1rem;
+  width: 5.5rem;
+  height: 17.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.poster {
+  top: -45rem;
+  left: 12rem;
+  width: 11.5rem;
+  height: 5.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.ladder {
+  top: -51rem;
+  left: 23rem;
+  width: 4.5rem;
+  height: 12.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.tool-shelf {
+  top: -64rem;
+  left: 27.5rem;
+  width: 20.5rem;
+  height: 12.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.arcade-machine {
+  top: -76rem;
+  left: 48.5rem;
+  width: 7rem;
+  height: 13.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+#npcTed {
+  top: -88rem;
+  left: 61.5rem;
+  overflow: hidden;
+  width: 5.5rem;
+  height: 13.5rem;
+  position: relative;
+  image-rendering: pixelated;
+}
+
+.tedSprite {
+  width: 180rem;
+  height: 13rem;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  animation: ted 7500ms steps(31) infinite;
+}
+@keyframes ted {
+  100% {
+    transform: translateX(-180rem);
+  }
+}
+
+.ted {
+  top: -100rem;
+  left: 61rem;
+  width: 7.5rem;
+  height: 9.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.log-book {
+  position: relative;
+  width: 2rem;
+  height: 3rem;
+  top: -103.5rem;
+  left: 58rem;
+  overflow: hidden;
+}
+
+.opened-log-book-bg {
+  background-color: grey;
+  position: relative;
+  top: -121rem;
+  left: 10rem;
+  width: 55rem;
+}
