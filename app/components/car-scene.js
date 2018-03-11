@@ -17,6 +17,8 @@ export default Component.extend({
 
   errandsLocationCovered: alias('state.errandsLocationCovered'),
 
+  docksFound: alias('state.docksFound'),
+
 	didInsertElement() {
     this._super(...arguments);
     get(this, 'cupPickedUp');

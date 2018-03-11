@@ -38,6 +38,14 @@
             <img id="skyway" class="skywayIconImg" src="/images/skyWayIcon.png">
           </div>
         {{/if}}
+
+        {{#if docksFound}}
+          <div class="docksIcon" onclick={{action "travel"}}>
+            <img id="docks" class="docksIconImg" src="/images/docksIcon.png">
+          </div>
+        {{/if}}
+
+
       </div>
     {{/if}}
 	</section>

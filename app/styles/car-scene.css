@@ -145,7 +145,21 @@
 }
 
 .skywayIconImg {
-  width: 7rem;
+  width: 7.5rem;
+}
+
+.docksIcon {
+  top: -39rem;
+  left: 19rem;
+  width: 8rem;
+  image-rendering: pixelated;
+  border-radius: 5px;
+  position: relative;
+  z-index: 3;
+}
+
+.docksIconImg {
+  width: 7.5rem;
 }
 
 #cup {

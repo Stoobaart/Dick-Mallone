@@ -17,21 +17,35 @@ export default Component.extend({
 
   logBookEntries: [
     {
-      name: 'Jenkins',
-      address: '218 Malbrook docks',
-      date: '28 jan'
+      id: 'entry',
+      action: 'thingClicked',
+      name: 'Michael',
+      address: '19 Cestnut av.',
+      date: '28th January'
     },{
+      id: 'entry',
+      action: 'thingClicked',
       name: 'Samuel',
       address: '135 Chobham Road',
       date: '3 feb'
     }, {
-      name: 'Michael',
-      address: '19 Cestnut av.',
-      date: '28th December'
+      id: 'jenkinsEntry',
+      action: 'jenkinsEntryClicked',
+      name: 'Jenkins',
+      address: '218 Malbrook docks',
+      date: '28 Feb'
     }, {
+      id: 'entry',
+      action: 'thingClicked',
       name: 'Davis Samsmith',
       address: '409b Wanville court',
-      date: '09 January'
+      date: '09 March'
+    }, {
+      id: 'entry',
+      action: 'thingClicked',
+      name: 'Stu Smith',
+      address: '791 Ball Street',
+      date: '28th March'
     }
   ],
 
@@ -63,6 +77,26 @@ export default Component.extend({
   actions: {
     openLogBook() {
       set(this, 'openedLogbook', true);
-    }
+    },
+
+    closeLogbook() {
+      set(this, 'openedLogbook', false);
+    },
+
+    lookAtEntry() {
+      set(this, 'verb', 'Look at');
+    },
+
+    thingClicked(e) {
+      this.sendAction('thingClicked', e);
+    },
+
+    jenkinsEntryClicked() {
+      this.sendAction('startAScene', 'entry-found', 'jenkinsEntry');
+      later(() => {
+        set(this, 'openedLogbook', false);
+        set(this, 'state.docksFound', true);
+      }, 2000)
+    },
   }
 });

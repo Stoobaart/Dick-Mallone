@@ -31,9 +31,11 @@
 
     <div class="opened-log-book">
       {{#if openedLogbook}}
-        <div class="opened-log-book-bg">
+        <img class="logbook-page-Img" src="/images/logbookPage.png">
+        <div class="opened-log-book-entries">
+        <div class="close-logbook" onclick={{action "closeLogbook"}}>X</div>
           {{#each logBookEntries as |entry|}}
-            <div id="entry" class="thing" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}>{{entry.name}} {{entry.address}} {{entry.date}}</div>
+            <div id={{entry.id}} class="thing" onclick={{action entry.action}} onmouseover={{action 'lookAtEntry'}} onmouseout={{action clearHelper}}>{{entry.name}} {{entry.address}} {{entry.date}}</div>
           {{/each}}
         </div>
       {{/if}}

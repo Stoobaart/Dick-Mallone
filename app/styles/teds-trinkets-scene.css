@@ -124,10 +124,28 @@
   z-index: 3;
 }
 
-.opened-log-book-bg {
-  background-color: grey;
+.logbook-page-Img {
   position: relative;
-  top: -146rem;
-  left: 10rem;
-  width: 55rem;
+  top: -146.2rem;
+  width: 758px;
+  z-index: 2;
+}
+
+.close-logbook {
+  top: -2rem;
+  left: 17rem;
+  color: black;
+  position: relative;
+  z-index: 2;
+
+}
+
+.opened-log-book-entries {
+  position: relative;
+  color: black;
+  line-height: 2rem;
+  top: -168rem;
+  left: 22rem;
+  width: 30rem;
+  z-index: 4;
 }

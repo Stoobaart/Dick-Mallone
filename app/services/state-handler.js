@@ -17,8 +17,6 @@ export default Service.extend({
   pickedupblankpaper: false,
   pickedupportrait: false,
   blankpaperUsed: false,
-  stationUnlocked: false,
-  analysisUnlocked: false,
   travelMapOpened: false,
   jenkinsVanished: false,
   portraitUsed: false,
@@ -28,9 +26,14 @@ export default Service.extend({
   bloodCovered: false,
   anythingelseCovered: false,
   whereIsJenkinsCovered: false,
-  errandsLocationCovered: false,
   usebadgeoncook: false,
   pressureCovered: false,
+
+  // locations unlocked
+  stationUnlocked: false,
+  analysisUnlocked: false,
+  errandsLocationCovered: false,
+  docksFound: false,
 
   itemForUse: null,
 
@@ -153,6 +156,7 @@ export default Service.extend({
       'pressureCovered': get(this, 'pressureCovered'),
       'usebadgeonted': get(this, 'usebadgeonted'),
       'portraitUsed': get(this, 'portraitUsed'),
+      'docksFound': get(this, 'docksFound'),
     }
     localStorage.saveGame = JSON.stringify(saveGame);
 
@@ -190,6 +194,7 @@ export default Service.extend({
       'pressureCovered': saveGame.pressureCovered,
       'usebadgeonted': saveGame.usebadgeonted,
       'portraitUsed': saveGame.portraitUsed,
+      'docksFound': saveGame.docksFound,
     })
 
     set(this, 'componentName', get(this, 'scene'));

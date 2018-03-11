@@ -616,6 +616,16 @@ export default Component.extend({
         ]
       }
     },
+    'entry-found': {
+      'jenkinsEntry': {
+        convo: [
+          { dick: "This is it"},
+          { npc: "Found him huh? Glad I could help"},
+          { dick: "Thanks Ted, be seeing you"},
+          { dick: "...Looks like Jenkins was up to to something down in the Docks"}
+        ]
+      }
+    }
   }),
 
   playerSpeach(line) {
