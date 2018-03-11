@@ -13,6 +13,10 @@
 
     <div id="arcade-machine" class="thing arcade-machine" data-name="arcade-machine" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
 
+    <div id="calendar-girl" class="thing calendar-girl" data-name="calendar-girl" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div id="shelf" class="thing shelf" data-name="shelf" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
     <div id="npcTed" class="npc">
       <img class="tedSprite" src="/sprites/ted.png">
     </div>
@@ -20,8 +24,8 @@
 
     <div class="log-book">
       {{#if showLogBook}}
-        <img class="paperImg" src="/sprites/pinnedPaper.png">
-        <div id="paper" class="thing" data-name="blank-paper" pickupable="true" use="crackhead" onclick={{action 'openLogBook'}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+        <img class="logbookImg" src="/images/logbook.png">
+        <div id="logbook" class="thing" data-name="logbook" onclick={{action 'openLogBook'}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
       {{/if}}
     </div>
 

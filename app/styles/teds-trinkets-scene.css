@@ -47,8 +47,26 @@
   z-index: 3;
 }
 
+.calendar-girl {
+  top: -90rem;
+  left: 55.5rem;
+  width: 5rem;
+  height: 3.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.shelf {
+  top: -94rem;
+  left: 71.5rem;
+  width: 6rem;
+  height: 21.5rem;
+  position: relative;
+  z-index: 3;
+}
+
 #npcTed {
-  top: -88rem;
+  top: -113rem;
   left: 61.5rem;
   overflow: hidden;
   width: 5.5rem;
@@ -81,17 +99,35 @@
 
 .log-book {
   position: relative;
-  width: 2rem;
+  width: 3rem;
   height: 3rem;
-  top: -103.5rem;
+  top: -127.5rem;
   left: 58rem;
   overflow: hidden;
+}
+
+.logbookImg {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  image-rendering: pixelated;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+}
+
+#logbook {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  top: -3rem;
+  left: 0rem;
+  z-index: 3;
 }
 
 .opened-log-book-bg {
   background-color: grey;
   position: relative;
-  top: -121rem;
+  top: -146rem;
   left: 10rem;
   width: 55rem;
 }

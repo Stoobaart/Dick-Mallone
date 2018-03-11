@@ -486,7 +486,7 @@ export default Component.extend({
       ]
     },
     'teds-trinkets-scene': {
-      'entry': { 
+      'entry': {
         Look: "This is not the correct entry",
       },
       'poster': {
@@ -540,6 +540,30 @@ export default Component.extend({
         Usebadgeon: [{ dick: "That doesn't make sense" }],
         Usegunon: [{ dick: "Let's not shoot up Ted's arcade cabinet" }],
         Usefullcupon: [{ dick: "No, I need this elsewhere. I don't know where"}],
+        Useshardson: [{ dick: "That doesn't make sense" }],
+        Useportraiton: [{ dick: "That doesn't make sense" }],
+        Usesyringeon: [{ dick: "That doesn't make sense" }],
+      },
+      'calendar-girl': {
+        Look: "She looks happy",
+        Pick: [
+          { dick: "Can I have this?" },
+          { dick: "I need it for my investigation" },
+          { npc: "No" }
+        ],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "Must...keep...it...holstered..." }],
+        Usefullcupon: [{ dick: "They should really laminate these posters. Incase of err... spillages"}],
+        Useshardson: [{ dick: "That doesn't make sense" }],
+        Useportraiton: [{ dick: "That doesn't make sense" }],
+        Usesyringeon: [{ dick: "That doesn't make sense" }],
+      },
+      'shelf': {
+        Look: "Various gadgets and gizmos",
+        Pick: [{ dick: "I wouldn't know what to do with any of this" }],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "That doesn't make sense" }],
+        Usefullcupon: [{ dick: "That doesn't make sense" }],
         Useshardson: [{ dick: "That doesn't make sense" }],
         Useportraiton: [{ dick: "That doesn't make sense" }],
         Usesyringeon: [{ dick: "That doesn't make sense" }],
