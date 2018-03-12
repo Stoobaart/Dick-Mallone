@@ -625,6 +625,9 @@ export default Component.extend({
           { dick: "...Looks like Jenkins was up to to something down in the Docks"}
         ]
       }
+    },
+    'docks-scene': {
+
     }
   }),
 

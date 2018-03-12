@@ -71,7 +71,7 @@ export default Component.extend({
     this.sendAction('startAScene', 'ted-portrait', 'ted');
     later(() => {
       set(this, 'state.portraitUsed', true);
-    }, 4000)
+    }, 4000);
   },
 
   actions: {
