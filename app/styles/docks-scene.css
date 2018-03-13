@@ -1,3 +1,13 @@
 .docks {
   width: 100%;
 }
+
+.rain-container-docks {
+  margin: auto;
+  top: -30rem;
+  position: relative;
+  width: 1250px;
+  height: 482px;
+  overflow: hidden;
+  z-index: 2;
+}
