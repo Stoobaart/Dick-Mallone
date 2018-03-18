@@ -35,7 +35,7 @@
   width: 5.5rem;
   height: 17.5rem;
   position: relative;
-  z-index: 5;
+  z-index: 4;
 }
 
 .road {
@@ -148,7 +148,7 @@
   position: relative;
   top: -163rem;
   left: 47.5rem;
-  z-index: 5;
+  z-index: 2;
 }
 
 .menu {
@@ -157,5 +157,5 @@
   position: relative;
   top: -169.5rem;
   left: 37rem;
-  z-index: 5;
+  z-index: 2;
 }

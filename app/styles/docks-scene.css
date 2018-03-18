@@ -11,3 +11,38 @@
   overflow: hidden;
   z-index: 2;
 }
+
+.docksBg {
+  width: 100%;
+  position: relative;
+  top: -60.2rem;
+  left: 0rem;
+  z-index: -2;
+}
+
+.clouds-container-docks {
+  width: 100%;
+  height: 490px;
+  position: relative;
+  overflow: hidden;
+  top: -90.6rem;
+  z-index: -1;
+}
+
+.clouds {
+  background-repeat: repeat-x;
+  opacity: 0.8;
+  width: 3006px;
+  height: 330px;
+  -webkit-filter: blur(0);
+  animation: clouds 50000ms linear infinite;
+}
+
+@keyframes clouds {
+  0%{
+    transform: translate3d(0, 0, 0);
+  }
+  100%{
+    transform: translate3d(-1504px, 0, 0);
+  }
+}

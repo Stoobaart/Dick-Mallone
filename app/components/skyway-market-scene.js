@@ -75,6 +75,7 @@ export default Component.extend({
   willDestroyElement() {
     this.pedIntervalEnd();
     $('#drummerMusic')[0].pause();
+    $('#skywaySceneMusic')[0].pause();
   },
 
   pedIntervalStart() {
