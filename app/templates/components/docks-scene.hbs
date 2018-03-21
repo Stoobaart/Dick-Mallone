@@ -8,6 +8,14 @@
     <div class="clouds-container-docks">
       <img class="clouds" src="/images/docksClouds.png">
     </div>
-    
+     <div class="waves-container-docks">
+      <img class="waves" src="/sprites/waves.png">
+    </div>
+
+
+    <section class="walkable-area docks-scene" {{action walk}}></section>
+
+    <div id="car" class="exit-docks thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
   </section>
 </section>

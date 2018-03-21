@@ -70,3 +70,11 @@
   z-index: 4;
 }
 
+.walkable-area.docks-scene {
+  position: relative;
+  width: 1170px;
+  height: 102px;
+  top: -116.5rem;
+  left: 2rem;
+  z-index: 4;
+}

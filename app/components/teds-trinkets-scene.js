@@ -66,6 +66,7 @@ export default Component.extend({
     $("#player").fadeIn(500);
     $('#tedsTrinketsMusic')[0].play();
     $('#stationDoor')[0].play();
+    $('#rainSoundFx')[0].pause();
   },
 
   willDestroyElement() {
@@ -81,10 +82,12 @@ export default Component.extend({
 
   actions: {
     openLogBook() {
+      $('#page')[0].play();
       set(this, 'openedLogbook', true);
     },
 
     closeLogbook() {
+      $('#page')[0].play();
       set(this, 'openedLogbook', false);
     },
 

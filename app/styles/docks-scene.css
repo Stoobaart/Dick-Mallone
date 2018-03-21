@@ -46,3 +46,33 @@
     transform: translate3d(-1504px, 0, 0);
   }
 }
+
+.waves-container-docks {
+  width: 1000px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  top: -115rem;
+  z-index: -1;
+}
+
+.waves {
+  width: 2250px;
+  height: 330px;
+  -webkit-filter: blur(0);
+  animation: waves 1000ms steps(3) infinite;
+}
+
+@keyframes waves {
+  100% {
+    transform: translateX(-2250px);
+  }
+}
+
+.exit-docks {
+  width: 5.5rem;
+  height: 12rem;
+  position: relative;
+  top: -128.5rem;
+  z-index: 5;
+}

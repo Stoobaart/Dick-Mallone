@@ -29,6 +29,7 @@ export default Component.extend({
     $(".car-foreground, .map").fadeIn(750);
     $(".rain-container, .car-background, .exit-car").fadeIn(2000);
     $('#skywaySceneMusic')[0].pause();
+    $('#waves')[0].pause();
 
     later(() => {
       $("#rainSoundFx")[0].play();

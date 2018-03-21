@@ -8,9 +8,10 @@ export default Component.extend({
     this._super(...arguments);
     $('#player').stop();
     set(this, 'scene', 'docks-scene');
-    $("#player").css({top: 391, left: 208}).html('<img class="playerSprite" src="sprites/dickRight.png">');
+    $("#player").css({top: 391, left: 100}).html('<img class="playerSprite" src="sprites/dickRight.png">');
     $("#player").fadeIn(500);
-    // $('#')[0].play();
+    $('#waves')[0].play();
+    $('#rainSoundFx')[0].play();
   },
 
 });
