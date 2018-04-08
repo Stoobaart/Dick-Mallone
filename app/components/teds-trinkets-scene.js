@@ -1,3 +1,4 @@
+import { A } from '@ember/array';
 import Component from '@ember/component';
 import $ from 'jquery';
 import { alias } from '@ember/object/computed';
@@ -15,7 +16,7 @@ export default Component.extend({
 
   openedLogbook: false,
 
-  logBookEntries: [
+  logBookEntries: A([
     {
       id: 'entry',
       action: 'thingClicked',
@@ -47,7 +48,7 @@ export default Component.extend({
       address: '791 Ball Street',
       date: '28th March'
     }
-  ],
+  ]),
 
   portraitUsedObserver: observer('state.portraitUsed', function() {
     this.tedGivenPortrait();
@@ -74,7 +75,7 @@ export default Component.extend({
   },
 
   tedGivenPortrait() {
-    this.sendAction('startAScene', 'ted-portrait', 'ted');
+    this.startAScene('ted-portrait', 'ted');
     later(() => {
       set(this, 'state.portraitUsed', true);
     }, 4000);
@@ -96,11 +97,11 @@ export default Component.extend({
     },
 
     thingClicked(e) {
-      this.sendAction('thingClicked', e);
+      this.thingClicked(e);
     },
 
     jenkinsEntryClicked() {
-      this.sendAction('startAScene', 'entry-found', 'jenkinsEntry');
+      this.startAScene('entry-found', 'jenkinsEntry');
       later(() => {
         set(this, 'openedLogbook', false);
         set(this, 'state.docksFound', true);

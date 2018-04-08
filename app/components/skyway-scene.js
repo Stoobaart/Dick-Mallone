@@ -69,7 +69,7 @@ export default Component.extend({
       $('#skywaySceneMusic')[0].play();
       $("#rainSoundFx")[0].play();
     }, 50);
-    this.sendAction('playerSpeach', "..I hate this place..")
+    this.playerSpeach("..I hate this place..")
     this.animatepedestrian(get(this, 'pedestrians')[0]);
     this.animatepedestrian(get(this, 'pedestrians')[1]);
     this.pedIntervalStart();

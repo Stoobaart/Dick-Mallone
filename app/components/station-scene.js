@@ -50,7 +50,7 @@ export default Component.extend({
   analysisRoomUnlocked() {
     set(this, 'state.analysisUnlocked', true);
     later(() => {
-      this.sendAction('npcSpeach', "Dick, Jenkins has finished the autopsy and would like to see you now");
+      this.npcSpeach("Dick, Jenkins has finished the autopsy and would like to see you now");
     }, 1000)
   },
 });

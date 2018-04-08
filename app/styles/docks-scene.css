@@ -76,3 +76,103 @@
   top: -128.5rem;
   z-index: 5;
 }
+
+.gate-container {
+  position: relative;
+  top: -152rem;
+  left: 50rem;
+  width: 12rem;
+  height: 24rem;
+  -webkit-filter: blur(0);
+}
+
+#gate {
+  height: 15rem;
+  position: relative;
+  top: -197rem;
+  left: 54rem;
+  width: 7rem;
+  z-index: 5;
+}
+
+#opened-gate {
+  height: 15rem;
+  position: relative;
+  top: -197rem;
+  left: 54rem;
+  width: 7rem;
+  z-index: 5;
+}
+
+
+
+.gate {
+  -webkit-filter: blur(0);
+  height: 25rem;
+  width: 14rem;
+}
+
+.gate-door-container {
+  top: -176rem;
+  left: 53rem;
+  height: 24rem;
+  width: 12rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+}
+
+.gate-door {
+  -webkit-filter: blur(0);
+  top: 0rem;
+  left: -3rem;
+  height: 25rem;
+  width: 71rem;
+  position: relative;
+}
+
+.gateAnimation {
+  animation: gate 1000ms steps(5);
+}
+
+@keyframes gate {
+  100% {
+    transform: translateX(-71rem);
+  }
+}
+
+.gate-door-open {
+  -webkit-filter: blur(0);
+  top: 0rem;
+  left: -3rem;
+  height: 25rem;
+  width: 14.1rem;
+  position: relative;
+}
+
+.moon {
+  top: -218rem;
+  left: 2rem;
+  height: 3rem;
+  width: 4.1rem;
+  position: relative;
+  z-index: 4;
+}
+
+.buoy {
+  top: -216rem;
+  left: 20rem;
+  height: 11rem;
+  width: 6.1rem;
+  position: relative;
+  z-index: 4;
+}
+
+.fishing-boat {
+  top: -233rem;
+  left: 41rem;
+  height: 20rem;
+  width: 37.1rem;
+  position: relative;
+  z-index: 4;
+}

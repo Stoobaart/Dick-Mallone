@@ -41,14 +41,14 @@ export default Component.extend({
   crackheadGivenPaper() {
     later(() => {
       $(".player-speak").hide();
-      this.sendAction('npcSpeach', "Okay, I'll try my best chief, come back in a little while");
+      this.npcSpeach("Okay, I'll try my best chief, come back in a little while");
     }, 3000)
   },
 
   crackheadFinishedDrawing() {
     later(() => {
       $(".player-speak").hide();
-      this.sendAction('startAScene', 'crackhead-portrait', 'crackhead');
+      this.startAScene('crackhead-portrait', 'crackhead');
       get(this, 'state').add('portrait');
     }, 2000)
   }

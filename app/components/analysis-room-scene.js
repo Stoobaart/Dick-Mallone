@@ -26,12 +26,12 @@ export default Component.extend({
 
     if(!this.get('portraitCovered')) {
       later(() => {
-        this.sendAction('npcSpeach', "Aaah welcome back Detective");
+        this.npcSpeach("Aaah welcome back Detective");
       }, 1000);
     } else {
       if(!get(this, 'state.jenkinsVanished')) {
         later(() => {
-          this.sendAction('playerSpeach', "Where are you Jenkins?");
+          this.playerSpeach("Where are you Jenkins?");
           set(this, 'state.jenkinsVanished', true);
         }, 1000);
       }

@@ -51,7 +51,7 @@ export default Component.extend({
       }
 
       if (line) {
-        this.sendAction('playerSpeach', line);
+        this.playerSpeach(line);
       }
     },
 

@@ -48,7 +48,7 @@ export default Component.extend({
       set(this, 'state.stationUnlocked', true);
       later(() => {
         $(".player-speak").hide();
-        this.sendAction('npcSpeach', "Dick I just had a call from Jen at the station, she says that crackhead is ready to talk now");
+        this.npcSpeach("Dick I just had a call from Jen at the station, she says that crackhead is ready to talk now");
       }, 5000);
     } else {
       return;

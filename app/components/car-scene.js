@@ -44,12 +44,12 @@ export default Component.extend({
   actions: {
     travel(e) {
       if (e.target.id === 'station' && !get(this, 'state.pickedupshards') || e.target.id === 'station' && !get(this, 'state.pickedupfullcup')) {
-        return this.sendAction('playerSpeach', "I should investigate the scene a little more");
+        return this.playerSpeach("I should investigate the scene a little more");
       }
       if ((e.target.id + '-scene') === get(this, 'state.previousScene')) {
-        this.sendAction('playerSpeach', "I'm already here");
+        this.playerSpeach("I'm already here");
       } else {
-        this.sendAction('changeScene', e.target.id, get(this, 'scene'));
+        this.changeScene(e.target.id, get(this, 'scene'));
       }
     },
 

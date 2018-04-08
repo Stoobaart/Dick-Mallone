@@ -8,7 +8,7 @@ export default Component.extend({
   state: service('state-handler'),
 
   scene: "crime-scene",
-  currentSpeach: [],
+  currentSpeach: null,
   convoInProgress: false,
 
   scripts: EmberObject.create({
@@ -627,7 +627,37 @@ export default Component.extend({
       }
     },
     'docks-scene': {
-
+      'moon': { Look: "It's a full moon"},
+      'buoy': { Look: "Nothing unusual here"},
+      'fishing-boat': {
+        Look: "It looks empty",
+        Pick: [{ dick: "It's way too big to lift" }],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "I don't need to shoot everything here" }],
+        Usefullcupon: [{ dick: "That doesn't make sense" }],
+        Useshardson: [{ dick: "That doesn't make sense" }],
+        Usesyringeon: [{ dick: "That doesn't make sense"}],
+      },
+      'gate': {
+        Look: "It's locked",
+        Pick: [{ dick: "I can't do that" }],
+        Talk: "OPEN SESAME....meh",
+        Usebadgeon: [
+          { dick: "open, in the name of the law" },
+          { dick: "No dice, damnit" },
+        ],
+        Usefullcupon: [{ dick: "I could pour this in the lock and come back in a week to find it disintegrated" }],
+        Useshardson: [{ dick: "That won't cut it" }],
+        Usesyringeon: [{ dick: "That doesn't make sense"}],
+      },
+      'opened-gate': {
+        Look: "It's open",
+        Pick: [{ dick: "I can't do that" }],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usefullcupon: [{ dick: "That doesn't make sense" }],
+        Useshardson: [{ dick: "That doesn't make sense" }],
+        Usesyringeon: [{ dick: "That doesn't make sense"}],
+      },
     }
   }),
 
@@ -645,19 +675,21 @@ export default Component.extend({
     $(".player-speak").hide();
     $(".npc-speak").hide();
     let currentSpeach = get(this, 'currentSpeach');
-    let mutatedCurrentSpeach = [...currentSpeach];
-    if(mutatedCurrentSpeach.length === 0) {
-      if(get(this, 'convoInProgress') === true) {
-        return $(".options").show();
+    if (currentSpeach) {
+      let mutatedCurrentSpeach = [...currentSpeach];
+      if(mutatedCurrentSpeach.length === 0) {
+        if(get(this, 'convoInProgress') === true) {
+          return $(".options").show();
+        }
+        return;
+      } else if(mutatedCurrentSpeach[0].hasOwnProperty('dick')) {
+        this.playerSpeach(mutatedCurrentSpeach[0].dick);
+      } else {
+        this.npcSpeach(mutatedCurrentSpeach[0].npc);
       }
-      return;
-    } else if(mutatedCurrentSpeach[0].hasOwnProperty('dick')) {
-      this.sendAction('playerSpeach', mutatedCurrentSpeach[0].dick);
-    } else {
-      this.sendAction('npcSpeach', mutatedCurrentSpeach[0].npc);
+      mutatedCurrentSpeach.shift();
+      set(this, 'currentSpeach', mutatedCurrentSpeach);
     }
-    mutatedCurrentSpeach.shift();
-    set(this, 'currentSpeach', mutatedCurrentSpeach);
   },
 
   // in desperate need of refactoring
@@ -682,9 +714,9 @@ export default Component.extend({
       let mutatedCurrentSpeach = [...currentSpeach];
 
       if(mutatedCurrentSpeach[0].hasOwnProperty('dick')) {
-        this.sendAction('playerSpeach', mutatedCurrentSpeach[0].dick);
+        this.playerSpeach(mutatedCurrentSpeach[0].dick);
       } else {
-        this.sendAction('npcSpeach', mutatedCurrentSpeach[0].npc);
+        this.npcSpeach(mutatedCurrentSpeach[0].npc);
       }
       mutatedCurrentSpeach.shift();
       set(this, 'currentSpeach', mutatedCurrentSpeach);
@@ -710,9 +742,9 @@ export default Component.extend({
     let currentSpeach = get(this, 'currentSpeach');
     let mutatedCurrentSpeach = [...currentSpeach];
     if(mutatedCurrentSpeach[0].hasOwnProperty('dick')) {
-      this.sendAction('playerSpeach', mutatedCurrentSpeach[0].dick);
+      this.playerSpeach(mutatedCurrentSpeach[0].dick);
     } else {
-      this.sendAction('npcSpeach', mutatedCurrentSpeach[0].npc);
+      this.npcSpeach(mutatedCurrentSpeach[0].npc);
     }
     mutatedCurrentSpeach.shift();
     set(this, 'currentSpeach', mutatedCurrentSpeach);

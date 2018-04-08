@@ -12,10 +12,35 @@
       <img class="waves" src="/sprites/waves.png">
     </div>
 
-
-    <section class="walkable-area docks-scene" {{action walk}}></section>
+    {{#if gateOpened}}
+      <section class="walkable-area opened-gate-docks-scene" {{action walk}}></section>
+    {{else}}
+      <section class="walkable-area docks-scene" {{action walk}}></section>
+    {{/if}}
 
     <div id="car" class="exit-docks thing" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div class="gate-container">
+      <img class="gate" src="/sprites/gate.png">
+    </div>
+
+    <div class="gate-door-container">
+      {{#if gateOpened}}
+        <img class="gate-door-open" src="/sprites/gateDoorOpen.png">
+      {{else}}
+        <img class="gate-door" src="/sprites/gateDoor.png">
+      {{/if}}
+    </div>
+
+    {{#if gateOpened}}
+      <div id="opened-gate" class="thing" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    {{else}}
+      <div id="gate" class="thing" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    {{/if}}
+
+    <div id="moon" class="thing moon" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="buoy" class="thing buoy" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="fishing-boat" class="thing fishing-boat" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
 
   </section>
 </section>

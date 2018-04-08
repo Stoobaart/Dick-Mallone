@@ -72,9 +72,20 @@
 
 .walkable-area.docks-scene {
   position: relative;
-  width: 1170px;
+  width: 844px;
   height: 102px;
   top: -116.5rem;
   left: 2rem;
+  z-index: 4;
+}
+
+.walkable-area.opened-gate-docks-scene {
+  position: relative;
+  width: 1183px;
+  height: 102px;
+  top: -116.5rem;
+  left: 2rem;
+  -webkit-clip-path: polygon(70% 23%, 73% 39%, 98% 34%, 100% 70%, 74% 68%, 71% 94%, 0 100%, 0% 20%);
+  clip-path: polygon(70% 23%, 73% 39%, 98% 34%, 100% 70%, 74% 68%, 71% 94%, 0 100%, 0% 20%);
   z-index: 4;
 }

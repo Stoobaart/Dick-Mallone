@@ -1,3 +1,4 @@
+import { A } from '@ember/array';
 import { set, get } from '@ember/object';
 import { later } from '@ember/runloop';
 import $ from 'jquery';
@@ -34,10 +35,12 @@ export default Service.extend({
   analysisUnlocked: false,
   errandsLocationCovered: false,
   docksFound: false,
+  usegunongate: false,
+  gateOpened: false,
 
   itemForUse: null,
 
-	inventory: [
+	inventory: A([
 		{
 			"name": "badge",
 			"url": "images/stationBadge.png",
@@ -47,11 +50,10 @@ export default Service.extend({
 			"name": "gun",
 			"url": "images/gun.png",
 			"id": "gun",
-      "use": "enemy"
 		}
-	],
+	]),
 
-  worldItems: [
+  worldItems: A([
     {
       "name": "syringe",
       "url": "images/syringe.png",
@@ -94,7 +96,7 @@ export default Service.extend({
       "use": "ted",
       "replaces": ""
     }
-  ],
+  ]),
 
 	add(targetId) {
     const itemString = targetId.replace(/-/g, '');
@@ -157,6 +159,8 @@ export default Service.extend({
       'usebadgeonted': get(this, 'usebadgeonted'),
       'portraitUsed': get(this, 'portraitUsed'),
       'docksFound': get(this, 'docksFound'),
+      'usegunongate': get(this, 'usegunongate'),
+      'gateOpened': get(this, 'gateOpened'),
     }
     localStorage.saveGame = JSON.stringify(saveGame);
 
@@ -195,6 +199,8 @@ export default Service.extend({
       'usebadgeonted': saveGame.usebadgeonted,
       'portraitUsed': saveGame.portraitUsed,
       'docksFound': saveGame.docksFound,
+      'usegunongate': saveGame.usegunongate,
+      'gateOpened': saveGame.gateOpened,
     })
 
     set(this, 'componentName', get(this, 'scene'));

@@ -127,12 +127,12 @@ export default Component.extend({
     const squashedTargetId = targetId.replace(/\s/g, '');
     let desire;
     if (usedOn) {
-      return this.sendAction('convo', scene, targetId, false, usedOn, true);
+      return this.convo(scene, targetId, false, usedOn, true);
     } else {
       desire = `${scene}.${squashedTargetId}.Look`;
       const line = get(this, 'scripts').get(desire);
       if (line) {
-        return this.sendAction('playerSpeach', line);
+        return this.playerSpeach(line);
       }
     }
   },
@@ -150,10 +150,10 @@ export default Component.extend({
     const desire = `${scene}.${targetId}.Talk`;
     const line = get(this, 'scripts').get(desire);
     if(thingType === "person") {
-      this.sendAction('convo', scene, targetId);
+      this.convo(scene, targetId);
     } else {
       if (line) {
-        this.sendAction('playerSpeach', line);
+        this.playerSpeach(line);
       }
     }
   },

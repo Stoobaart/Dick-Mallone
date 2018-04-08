@@ -141,6 +141,7 @@
 }
 
 .opened-log-book-entries {
+  font-family: cursive;
   position: relative;
   color: black;
   line-height: 2rem;
