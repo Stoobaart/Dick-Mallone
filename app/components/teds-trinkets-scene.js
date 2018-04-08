@@ -61,10 +61,12 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    $('#player').stop();
     set(this, 'scene', 'teds-trinkets-scene');
-    $("#player").css({top: 391, left: 208}).html('<img class="playerSprite" src="sprites/dickRight.png">');
-    $("#player").fadeIn(500);
+    $("#player")
+      .stop()
+      .css({top: 391, left: 208})
+      .html('<img class="playerSprite" src="sprites/dickRight.png">')
+      .fadeIn(500)
     $('#tedsTrinketsMusic')[0].play();
     $('#stationDoor')[0].play();
     $('#rainSoundFx')[0].pause();
@@ -103,9 +105,11 @@ export default Component.extend({
     jenkinsEntryClicked() {
       this.startAScene('entry-found', 'jenkinsEntry');
       later(() => {
-        set(this, 'openedLogbook', false);
-        set(this, 'state.docksFound', true);
-      }, 2000)
+        this.setProperties({
+          'openedLogbook': false,
+          'state.docksFound': true,
+        });
+      }, 2000);
     },
   }
 });

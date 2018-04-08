@@ -176,3 +176,12 @@
   position: relative;
   z-index: 4;
 }
+
+.pier {
+  top: -243rem;
+  left: 73rem;
+  width: 5rem;
+  height: 17.5rem;
+  position: relative;
+  z-index: 4;
+}

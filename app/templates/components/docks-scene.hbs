@@ -42,5 +42,9 @@
     <div id="buoy" class="thing buoy" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
     <div id="fishing-boat" class="thing fishing-boat" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
 
+    {{#if gateOpened}}
+      <div id="pier" class="pier thing" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    {{/if}}
+
   </section>
 </section>

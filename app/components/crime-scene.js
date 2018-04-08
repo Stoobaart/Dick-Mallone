@@ -23,7 +23,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    this.getProperties('state.pickedupshards', 'state.pickedupfullcup');
+    this.getProperties('state.pickedupshards', 'state.pickedupfullcup', 'state.pickedupsyringe');
   },
 
   didInsertElement() {
@@ -31,9 +31,12 @@ export default Component.extend({
     set(this, 'scene', 'crime-scene');
 
     $("#npcRodriguez").fadeIn(500);
-    $("#player").stop().fadeIn(500).css({top: 295, left: 250}).html('<img class="playerSprite" src="sprites/dick.png">');
+    $("#player")
+      .stop()
+      .css({top: 295, left: 250})
+      .html('<img class="playerSprite" src="sprites/dick.png">')
+      .fadeIn(500);
     $(".scene-one, .rain-container").fadeIn(1000);
-
     $("#carDoor")[0].play();
     $("#crimeSceneMusic")[0].play();
     $("#rainSoundFx")[0].play();

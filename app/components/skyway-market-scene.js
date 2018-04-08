@@ -81,7 +81,7 @@ export default Component.extend({
   pedIntervalStart() {
     window.timer = [];
     get(this, 'pedestrians').forEach((ped, index) => {
-      const intervalTime = ped.time + 20;
+      const intervalTime = ped.time + 500;
       window.timer[index] = setInterval(() => {
         this.animatepedestrian(ped);
       }, intervalTime);

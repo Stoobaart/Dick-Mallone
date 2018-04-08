@@ -29,14 +29,14 @@ export default Service.extend({
   whereIsJenkinsCovered: false,
   usebadgeoncook: false,
   pressureCovered: false,
+  usegunongate: false,
+  gateOpened: false,
 
   // locations unlocked
   stationUnlocked: false,
   analysisUnlocked: false,
   errandsLocationCovered: false,
   docksFound: false,
-  usegunongate: false,
-  gateOpened: false,
 
   itemForUse: null,
 

@@ -49,7 +49,7 @@ export default Component.extend({
         $("#player").html('<img class="playerSprite" src="sprites/dickLeft.png">');
       }
       $(".playerSprite").addClass("walk");
-      // this check is for Dick's auto walk when interacting with something. makes him stop before the object.
+      // this check is for Dick's auto walk when interacting with something. makes him stop before the object/at the edge of the walkable area.
       let eventPageY = null;
       let eventPageX = null;
       const walkableAreaLeftEdge = $('.walkable-area').position().left;
@@ -162,7 +162,7 @@ export default Component.extend({
     if (targetLocale === 'map') {
       return this.toggleProperty('state.travelMapOpened');
     }
-    const scenes = ['exit', 'crime', 'car', 'station', 'interrogation-room', 'analysis-room', 'skyway', 'skyway-market', 'teds-trinkets', 'docks'];
+    const scenes = ['exit', 'crime', 'car', 'station', 'interrogation-room', 'analysis-room', 'skyway', 'skyway-market', 'teds-trinkets', 'docks', 'pier'];
     let sceneName = null;
     scenes.forEach((area) => {
       if (area === targetLocale) {
@@ -174,9 +174,11 @@ export default Component.extend({
       } else {
         return;
       }
-      set(this, 'scene', scene);
-      set(this, 'state.previousScene', scene);
-      set(this, 'componentName', sceneName);
+      this.setProperties({
+        'scene': scene,
+        'state.previousScene': scene,
+        'componentName': sceneName,
+      })
       $("#player").hide();
     });
   },

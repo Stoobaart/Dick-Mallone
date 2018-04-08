@@ -56,20 +56,26 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    $('#player').stop();
     set(this, 'scene', 'skyway-scene');
     if (get(this, 'state.previousScene') === 'car-scene') {
-      $("#player").css({top: 441, left: 108}).html('<img class="playerSprite" src="sprites/dickRight.png">');
+      $("#player")
+        .stop()
+        .css({top: 441, left: 108})
+        .html('<img class="playerSprite" src="sprites/dickRight.png">')
+        .fadeIn(500)
     } else if (get(this, 'state.previousScene') === 'skyway-market-scene') {
-      $("#player").css({top: 441, left: 1208}).html('<img class="playerSprite" src="sprites/dickLeft.png">');
+      $("#player")
+        .stop()
+        .css({top: 441, left: 1208})
+        .html('<img class="playerSprite" src="sprites/dickLeft.png">')
+        .fadeIn(500)
     }
     $(".skyway-entrance-scene, .rain-container-skyway").fadeIn(1000);
-    $("#player").fadeIn(500);
     later(() => {
       $('#skywaySceneMusic')[0].play();
       $("#rainSoundFx")[0].play();
     }, 50);
-    this.playerSpeach("..I hate this place..")
+    this.playerSpeach("..I hate this place..");
     this.animatepedestrian(get(this, 'pedestrians')[0]);
     this.animatepedestrian(get(this, 'pedestrians')[1]);
     this.pedIntervalStart();
@@ -83,7 +89,7 @@ export default Component.extend({
   pedIntervalStart() {
     window.timer = [];
     get(this, 'pedestrians').forEach((ped, index) => {
-      const intervalTime = ped.time + 20;
+      const intervalTime = ped.time + 500;
       window.timer[index] = setInterval(() => {
         this.animatepedestrian(ped);
       }, intervalTime);
