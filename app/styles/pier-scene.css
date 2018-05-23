@@ -1,0 +1,114 @@
+.pier {
+  width: 100%;
+}
+
+.rain-container-pier {
+  margin: auto;
+  top: 0rem;
+  position: relative;
+  width: 1250px;
+  height: 482px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.pierFg {
+  width: 100%;
+  position: relative;
+  top: -30rem;
+  left: 0rem;
+  z-index: -1;
+}
+
+.clouds-container-pier {
+  width: 100%;
+  height: 490px;
+  position: relative;
+  overflow: hidden;
+  top: -64rem;
+  z-index: -1;
+}
+
+.docks-entrance {
+  top: -85rem;
+  left: 0rem;
+  width: 5.5rem;
+  height: 17.5rem;
+  position: relative;
+  z-index: 5;
+}
+
+.waves-container-pier {
+  width: 1170px;
+  height: 330px;
+  position: relative;
+  overflow: hidden;
+  top: -112rem;
+  left: 5rem;
+  z-index: -2;
+}
+
+.waves-pier {
+  width: 3530px;
+  height: 330px;
+  -webkit-filter: blur(0);
+  animation: wavesPier 1000ms steps(3) infinite;
+}
+
+@keyframes wavesPier {
+  100% {
+    transform: translateX(-3530px);
+  }
+}
+
+.boat-container {
+  width: 330px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  top: -119rem;
+  left: 33rem;
+  z-index: -2;
+}
+
+.boat-sprite {
+  width: 980px;
+  height: 150px;
+  filter: blur(0);
+  image-rendering: pixelated;
+  -webkit-filter: blur(0);
+  animation: boat 2000ms steps(3) infinite;
+}
+
+@keyframes boat {
+  100% {
+    transform: translateX(-980px);
+  }
+}
+
+.oil-rig {
+  top: -136rem;
+  left: 13rem;
+  height: 5rem;
+  width: 13rem;
+  position: relative;
+  z-index: 4;
+}
+
+.boat {
+  top: -132rem;
+  left: 33rem;
+  height: 5rem;
+  width: 21rem;
+  position: relative;
+  z-index: 4;
+}
+
+.oil-cans {
+  top: -142rem;
+  left: 69rem;
+  height: 8rem;
+  width: 8rem;
+  position: relative;
+  z-index: 4;
+}

@@ -24,12 +24,14 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
+    $("#player").stop();
     set(this, 'scene', 'docks-scene');
-    $("#player")
-      .stop()
-      .css({top: 391, left: 100})
-      .html('<img class="playerSprite" src="sprites/dickRight.png">')
-      .fadeIn(500);
+    if (get(this, 'state.previousScene') === 'car-scene') {
+      $("#player").css({top: 391, left: 100}).html('<img class="playerSprite" src="sprites/dickRight.png">');
+    } else if (get(this, 'state.previousScene') === 'pier-scene') {
+      $("#player").css({top: 441, left: 1209}).html('<img class="playerSprite" src="sprites/dickLeft.png">');
+    }
+    $("#player").fadeIn(500);
     $('#waves')[0].play();
     $('#rainSoundFx')[0].play();
     get(this, 'state.usegunongate');

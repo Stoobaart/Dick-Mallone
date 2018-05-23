@@ -21,6 +21,7 @@ export default Service.extend({
   travelMapOpened: false,
   jenkinsVanished: false,
   portraitUsed: false,
+  fullcupUsed: false,
 
   // conversation topics covered
   bizarreCovered: false,
@@ -72,7 +73,7 @@ export default Service.extend({
       "name": "full-cup",
       "url": "images/cupFull.png",
       "id": "full-cup",
-      "use": "",
+      "use": "boat",
       "replaces": "cup"
     },
     {
@@ -161,6 +162,7 @@ export default Service.extend({
       'docksFound': get(this, 'docksFound'),
       'usegunongate': get(this, 'usegunongate'),
       'gateOpened': get(this, 'gateOpened'),
+      'fullcupUsed': get(this, 'fullcupUsed'),
     }
     localStorage.saveGame = JSON.stringify(saveGame);
 
@@ -201,6 +203,7 @@ export default Service.extend({
       'docksFound': saveGame.docksFound,
       'usegunongate': saveGame.usegunongate,
       'gateOpened': saveGame.gateOpened,
+      'fullcupUsed': saveGame.fullcupUsed,
     })
 
     set(this, 'componentName', get(this, 'scene'));

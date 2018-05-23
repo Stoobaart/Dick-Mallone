@@ -89,3 +89,15 @@
   clip-path: polygon(70% 23%, 73% 39%, 98% 34%, 100% 70%, 74% 68%, 71% 94%, 0 100%, 0% 20%);
   z-index: 4;
 }
+
+.walkable-area.pier-scene {
+  /*background-color: grey;*/
+  position: relative;
+  width: 1172px;
+  height: 102px;
+  top: -68rem;
+  left: 2rem;
+  -webkit-clip-path: polygon(12% 0, 89% 0, 100% 100%, 0 100%);
+  clip-path: polygon(12% 0, 89% 0, 100% 100%, 0 100%);
+  z-index: 4;
+}

@@ -47,7 +47,9 @@
 
     <section class="options">
       <p id="junk" onclick={{action convoOption}}>What do you sell here?</p>
-      <p id="log" onclick={{action convoOption}}>Do you keep a log of your orders?</p>
+      {{#unless showLogBook}}
+        <p id="log" onclick={{action convoOption}}>Do you keep a log of your orders?</p>
+      {{/unless}}
       <p id="bye" onclick={{action convoOption}}>Thanks for the info</p>
     </section>
 

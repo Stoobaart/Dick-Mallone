@@ -658,6 +658,41 @@ export default Component.extend({
         Useshardson: [{ dick: "That doesn't make sense" }],
         Usesyringeon: [{ dick: "That doesn't make sense"}],
       },
+    },
+    'pier-scene': {
+      'oil-rig': {
+        Look: "An old oil rig, looks abandoned",
+        Pick: [{ dick: "Excuse me?" }],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "To what aim?" }],
+        Usefullcupon: [{ dick: "That doesn't make sense" }],
+        Useshardson: [{ dick: "That doesn't make sense" }],
+        Usesyringeon: [{ dick: "That doesn't make sense"}],
+      },
+      'boat': {
+        Look: "It looks sea worthy, but it seems to be out of fuel",
+        Pick: [{ dick: "It seems more useful where it is" }],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "It'll work better without holes in it" }],
+        Usefullcupon: [
+          { dick: "Seems crazy, but this may just work..." },
+          { dick: "Okay that's all of it" }
+        ],
+        Useshardson: [{ dick: "That doesn't make sense" }],
+        Usesyringeon: [{ dick: "That doesn't make sense"}],
+      },
+      'oil-cans': {
+        Look: "Could contain some oil",
+        Pick: [{ dick: "I can't carry that" }],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "It'll work better without holes in it" }],
+        Usefullcupon: [{ dick: "That doesn't make sense" }],
+        Useshardson: [{ dick: "That doesn't make sense" }],
+        Usesyringeon: [
+          { dick: "Let's get some oil for the boat"},
+          { dick: "It's empty. Damn it."}
+        ],
+      },
     }
   }),
 

@@ -1,1 +1,30 @@
-{{yield}}
+<section class="scene-screen">
+  <section class="scene">
+    <div class="rain-container-pier">
+      <img class="rain" src="/sprites/rain.png">
+    </div>
+    <img class="pierFg" src="/images/pierFg.png">
+    <div class="clouds-container-pier">
+      <img class="clouds" src="/images/docksClouds.png">
+    </div>
+
+    <section class="walkable-area pier-scene" {{action walk}}></section>
+
+    <div id="docks" class="thing docks-entrance" data-name="Exit" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div class="waves-container-pier">
+      <img class="waves-pier" src="/sprites/wavesPier.png">
+    </div>
+    <div class="boat-container">
+      <img class="boat-sprite" src="/sprites/boat.png">
+    </div>
+
+    <div id="oil-rig" class="thing oil-rig" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div id="boat" class="thing boat" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div id="oil-cans" class="thing oil-cans" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+
+  </Section>
+</Section>
