@@ -6,6 +6,8 @@ export default Component.extend({
 
   state: service('state-handler'),
 
+  initialised: false,
+
   componentName: alias('state.componentName'),
 
 });

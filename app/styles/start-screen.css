@@ -14,6 +14,13 @@ body {
   line-height: 90%;
 }
 
+.initialiseButton.mainBtn {
+  display: block;
+  position: relative;
+  margin: auto;
+  transform: translateY(50vh);
+}
+
 .devStudioLogoScreen {
   display: none;
 }

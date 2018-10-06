@@ -42,5 +42,9 @@
     {{/scene-scripts}}
   </div>
 {{else}}
-  {{start-screen gameStarted=gameStarted}}
+  {{#if initialised}}
+    {{start-screen gameStarted=gameStarted}}
+  {{else}}
+    <button class="initialiseButton mainBtn" {{action (mut initialised) true}}>Play game</button>
+  {{/if}}
 {{/if}}
