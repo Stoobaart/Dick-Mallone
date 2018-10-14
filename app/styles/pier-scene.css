@@ -112,3 +112,16 @@
   position: relative;
   z-index: 4;
 }
+
+.boat-scene {
+  position: relative;
+  top: -30rem;
+  width: 3750px;
+  animation: boat-scene 750ms steps(3) infinite;
+}
+
+@keyframes boat-scene {
+  100% {
+    transform: translateX(-3750px);
+  }
+}

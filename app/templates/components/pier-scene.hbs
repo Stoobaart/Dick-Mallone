@@ -21,10 +21,9 @@
 
     <div id="oil-rig" class="thing oil-rig" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
 
-    <div id="boat" class="thing boat" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    <div id="boat" class="thing boat" onclick={{if fullcupUsed (action 'cutscene') (action thingClicked)}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
 
     <div id="oil-cans" class="thing oil-cans" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
-
 
   </Section>
 </Section>
