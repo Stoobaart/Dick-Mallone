@@ -6,6 +6,7 @@ import $ from 'jquery';
 import { get, set, observer } from '@ember/object';
 
 export default Component.extend({
+
   state: service('state-handler'),
 
   gunUsedOnGate: observer('state.usegunongate', function() {

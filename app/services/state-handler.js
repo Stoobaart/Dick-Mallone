@@ -21,22 +21,23 @@ export default Service.extend({
   travelMapOpened: false,
   jenkinsVanished: false,
   portraitUsed: false,
+  usebadgeoncook: false,
   fullcupUsed: false,
+  usegunongate: false,
+  gateOpened: false,
+  rigDoorOpened: false,
 
   // conversation topics covered
   bizarreCovered: false,
   bloodCovered: false,
   anythingelseCovered: false,
   whereIsJenkinsCovered: false,
-  usebadgeoncook: false,
+  errandsLocationCovered: false,
   pressureCovered: false,
-  usegunongate: false,
-  gateOpened: false,
 
   // locations unlocked
   stationUnlocked: false,
   analysisUnlocked: false,
-  errandsLocationCovered: false,
   docksFound: false,
 
   itemForUse: null,
@@ -163,6 +164,7 @@ export default Service.extend({
       'usegunongate': get(this, 'usegunongate'),
       'gateOpened': get(this, 'gateOpened'),
       'fullcupUsed': get(this, 'fullcupUsed'),
+      'rigDoorOpened': get(this, 'rigDoorOpened'),
     }
     localStorage.saveGame = JSON.stringify(saveGame);
 
@@ -204,6 +206,7 @@ export default Service.extend({
       'usegunongate': saveGame.usegunongate,
       'gateOpened': saveGame.gateOpened,
       'fullcupUsed': saveGame.fullcupUsed,
+      'rigDoorOpened': saveGame.rigDoorOpened,
     })
 
     set(this, 'componentName', get(this, 'scene'));

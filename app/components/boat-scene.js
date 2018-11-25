@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { later } from '@ember/runloop';
 import { set } from '@ember/object';
 import { inject as service } from '@ember/service';
+import $ from 'jquery';
 
 export default Component.extend({
 
@@ -13,7 +14,7 @@ export default Component.extend({
     $("#boat")[0].play();
 
     later(() => {
-      set(this, 'state.componentName', 'station-scene');
+      set(this, 'state.componentName', 'rig-entrance-scene');
     }, 4000);
   },
 

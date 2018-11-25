@@ -1,0 +1,70 @@
+.rig-entrance {
+  width: 100%;
+  position: relative;
+  top: -30rem;
+  left: 0rem;
+  z-index: 0;
+}
+
+.rain-container-rig {
+  margin: auto;
+  top: 0rem;
+  left: 38rem;
+  position: relative;
+  width: 1250px;
+  height: 482px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.waves-container-rig {
+  width: 1170px;
+  height: 330px;
+  position: relative;
+  overflow: hidden;
+  top: -99rem;
+  left: 5rem;
+  z-index: -2;
+}
+
+.exit-rig {
+  top: -109rem;
+  left: 71rem;
+  width: 7rem;
+  height: 17.5rem;
+  position: relative;
+  z-index: 4;
+}
+
+.rig-door-container {
+  top: -132rem;
+  left: 16rem;
+  position: relative;
+  width: 12rem;
+  height: 24rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.rig-door {
+  width: 3366px;
+  height: 26rem;
+  image-rendering: pixelated;
+  -webkit-filter: blur(0);
+  animation: rigDoor 5000ms steps(17) infinite;
+}
+
+@keyframes rigDoor {
+  100% {
+    transform: translateX(-3366px);
+  }
+}
+
+#chained-door {
+  height: 19rem;
+  position: relative;
+  top: -154rem;
+  left: 17rem;
+  width: 10rem;
+  z-index: 5;
+}

@@ -693,6 +693,16 @@ export default Component.extend({
           { dick: "It's empty. Damn it."}
         ],
       },
+    },
+    'rig-entrance-scene': {
+      'chained-door': {
+        Look: "It's been Chained up good",
+        Pick: [{ dick: "That doesn't make sense" }],
+        Usebadgeon: [{ dick: "That doesn't make sense" }],
+        Usegunon: [{ dick: "That's not going to work on a chain that thick" }],
+        Useshardson: [{ dick: "Note to self; glass does not cut metal" }],
+        Usesyringeon: [{ dick: "That doesn't make sense" }],
+      },
     }
   }),
 

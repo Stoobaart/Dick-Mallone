@@ -1,0 +1,32 @@
+<section class="scene-screen">
+  <section class="scene">
+    <div class="rain-container-rig">
+      <img class="rain" src="/sprites/rain.png">
+    </div>
+    <img class="rig-entrance" src="/images/rigEntrance.png">
+    <div class="clouds-container-pier">
+      <img class="clouds" src="/images/docksClouds.png">
+    </div>
+
+    <section class="walkable-area rig-entrance-scene" {{action walk}}></section>
+
+    <div class="waves-container-rig">
+      <img class="waves-pier" src="/sprites/wavesPier.png">
+    </div>
+
+    <div id="pier" class="exit-rig thing" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+
+    <div class="rig-door-container">
+      {{#if rigDoorOpened}}
+        <div id="rig-interior" class="rig-interior thing" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+      {{else}}
+        <img class="rig-door" src="/sprites/rigDoor.png">
+      {{/if}}
+    </div>
+
+    {{#if rigDoorOpened}}
+    {{else}}
+      <div id="chained-door" class="thing" onclick={{action thingClicked}} onmouseover={{action helper}} onmouseout={{action clearHelper}}></div>
+    {{/if}}
+  </Section>
+</Section>

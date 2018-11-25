@@ -100,3 +100,14 @@
   clip-path: polygon(12% 0, 89% 0, 100% 100%, 0 100%);
   z-index: 4;
 }
+
+.walkable-area.rig-entrance-scene {
+  position: relative;
+  width: 878px;
+  height: 133px;
+  top: -70rem;
+  left: 23rem;
+  z-index: 4;
+  -webkit-clip-path: polygon(14% 0, 88% 0, 100% 100%, 0 100%);
+  clip-path: polygon(14% 0, 88% 0, 100% 100%, 0 100%);
+}
